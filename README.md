@@ -1,4 +1,4 @@
-# architectui-vue-pro
+# qualified-electronic-signature-voting-system
 
 ## Project setup
 ```
