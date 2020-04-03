@@ -76,19 +76,19 @@ export default {
 
     methods: {
         login() {
-            this.$http
-            .post("http://server/login", {
-                email: this.email,
-                password: this.password
-            })
-            .then(response => {
+            // this.$http
+            // .post("http://server/login", {
+            //     email: this.email,
+            //     password: this.password
+            // })
+            // .then(response => {
                 localStorage.setItem('loggedIn', true)
                 this.$router.replace(this.$route.query.redirect || '/')
-            })
-            .catch(error => {
-                console.log(error)
-                this.message = error.message
-            })
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            //     this.message = error.message
+            // })
         },
     }
 }
