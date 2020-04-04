@@ -5,20 +5,20 @@
                 <b-dropdown variant="link" no-caret class="dropdown-menu-rounded" menu-class="dropdown-menu-lg">
                     <span slot="button-content">
                         <i class="nav-link-icon pe-7s-users"> </i>
-                        Roles
+                        {{ $t('roles') }}
                         <font-awesome-icon class="ml-1 opacity-5" icon="angle-down"/>
                     </span>
                     <div class="dropdown-menu-header">
                         <div class="dropdown-menu-header-inner bg-success">
                             <div class="menu-header-image opacity-1 dd-header-bg-3"></div>
                             <div class="menu-header-content text-left">
-                                <h5 class="menu-header-title">Choose your role</h5>
+                                <h5 class="menu-header-title">{{ $t('chooseRole') }}</h5>
                             </div>
                         </div>
                     </div>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voter')"><i class="dropdown-icon lnr-file-empty"> </i>Voter</button>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting Manager')"><i class="dropdown-icon lnr-file-empty"> </i>Voting Manager</button>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting List Manager')"><i class="dropdown-icon lnr-file-empty"> </i>Voting List Manager</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voter')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voter') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting Manager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voterManager') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting List Manager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voterListManager') }}</button>
                 </b-dropdown>
             </li>
         </ul>

@@ -28,7 +28,7 @@
                                                     <div class="widget-subheading opacity-8">A short profile description</div>
                                                 </div>
                                                 <div class="widget-content-right mr-2">
-                                                    <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button>
+                                                    <button class="btn-pill btn-shadow btn-shine btn btn-focus" @click="logout">{{ $t('Logout') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -38,10 +38,10 @@
                             <div class="scroll-area-xs" style="height: 150px;">
                                 <VuePerfectScrollbar class="scrollbar-container" v-once>
                                     <ul class="nav flex-column">
-                                        <li class="nav-item-header nav-item">Activity</li>
-                                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link">Recover Password</a></li>
-                                        <li class="nav-item-header nav-item">My Account</li>
-                                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link">Settings
+                                        <li class="nav-item-header nav-item">{{$t('Activity')}}</li>
+                                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link">{{$t('RecoverPassword')}}</a></li>
+                                        <li class="nav-item-header nav-item">{{$t('MyAccount')}}</li>
+                                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link">{{$t('Settings')}}
                                             <!-- <div class="ml-auto badge badge-success">New</div> -->
                                         </a></li>
                                     </ul>
@@ -104,7 +104,13 @@
             role: 'Voting Manager'
         }),
 
-        methods: {},
+        methods: {
+            logout() {
+                localStorage.removeItem('loggedIn')
+                localStorage.removeItem('role')
+                this.$router.replace(this.$route.query.redirect || '/login')
+            }
+        },
 
         mounted() {
             this.role = localStorage.role

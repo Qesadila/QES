@@ -152,16 +152,16 @@
             <div class="dropdown-menu-header">
                 <div class="dropdown-menu-header-inner pt-4 pb-4 bg-focus">
                     <div class="menu-header-image opacity-05 dd-header-bg-4"></div>
-                    <div class="menu-header-content text-center text-white"><h6 class="menu-header-subtitle mt-0">Choose Language</h6></div>
+                    <div class="menu-header-content text-center text-white"><h6 class="menu-header-subtitle mt-0">{{ $t('chooseLanguage') }}</h6></div>
                 </div>
             </div>
-            <button type="button" tabindex="0" class="dropdown-item">
+            <button type="button" tabindex="0" class="dropdown-item" @click="changeLocale('en')">
                 <country-flag country="US" class="mr-3 opacity-8"/>
                 <span>USA</span>
             </button>
-            <button type="button" tabindex="0" class="dropdown-item">
+            <button type="button" tabindex="0" class="dropdown-item" @click="changeLocale('sk')">
                 <country-flag country="SVK" class="mr-3 opacity-8"/>
-                <span>Slovakia</span>
+                <span>{{ $t('slovakia') }}</span>
             </button>
         </b-dropdown>
         <div class="dots-separator"></div>
@@ -192,7 +192,12 @@
             'font-awesome-icon': FontAwesomeIcon,
         },
         data: () => ({}),
-        methods: {}
+        methods: {
+            changeLocale(lang) {
+                this.$root.$i18n.locale = lang
+                localStorage.setItem('locale', lang)
+            }
+        }
     }
 </script>
 

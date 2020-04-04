@@ -1,6 +1,6 @@
 {
   "name": "qesadila",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": true,
   "description": "Qualified Electronic Signature Voting System",
   "scripts": {
@@ -48,6 +48,7 @@
     "vue-element-loading": "^1.1.1",
     "vue-form-wizard": "^0.8.4",
     "vue-full-calendar": "^2.7.0",
+    "vue-i18n": "^8.16.0",
     "vue-js-toggle-button": "^1.3.2",
     "vue-ladda": "0.0.15",
     "vue-multiselect": "^2.1.4",

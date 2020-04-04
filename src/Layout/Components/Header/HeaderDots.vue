@@ -153,24 +153,23 @@
                 <div class="icon-wrapper icon-wrapper-alt rounded-circle">
                     <div class="icon-wrapper-bg bg-focus"></div>
                     <div class="language-icon">
-                        <country-flag country="USA" class="opacity-8"/>
+                        <country-flag :country="this.$root.$i18n.locale === 'en' ? 'USA' : 'SVK'" class="opacity-8"/>
                     </div>
                 </div>
             </span>
             <div class="dropdown-menu-header">
                 <div class="dropdown-menu-header-inner pt-4 pb-4 bg-focus">
                     <div class="menu-header-image opacity-05 dd-header-bg-4"></div>
-                    <div class="menu-header-content text-center text-white"><h6 class="menu-header-subtitle mt-0">Choose Language</h6></div>
+                    <div class="menu-header-content text-center text-white"><h6 class="menu-header-subtitle mt-0">{{ $t('chooseLanguage') }}</h6></div>
                 </div>
             </div>
-            <h6 tabindex="-1" class="dropdown-header">Popular Languages</h6>
-            <button type="button" tabindex="0" class="dropdown-item">
+            <button type="button" tabindex="0" class="dropdown-item" @click="changeLocale('en')">
                 <country-flag country="US" class="mr-3 opacity-8"/>
                 <span>USA</span>
             </button>
-            <button type="button" tabindex="0" class="dropdown-item">
+            <button type="button" tabindex="0" class="dropdown-item" @click="changeLocale('sk')">
                 <country-flag country="SVK" class="mr-3 opacity-8"/>
-                <span>Slovakia</span>
+                <span>{{ $t('slovakia') }}</span>
             </button>
         </b-dropdown>
     </div>
@@ -200,7 +199,12 @@
             'font-awesome-icon': FontAwesomeIcon,
         },
         data: () => ({}),
-        methods: {}
+        methods: {
+            changeLocale(lang) {
+                this.$root.$i18n.locale = lang
+                localStorage.setItem('locale', lang)
+            }
+        }
     }
 </script>
 

@@ -1,0 +1,14 @@
+{
+  "roles": "Role",
+  "chooseRole": "Vyberte rolu",
+  "chooseLanguage": "Vyberte jazyk",
+  "slovakia": "Slovensko",
+  "voter": "Volič",
+  "voterManager": "Manažér",
+  "voterListManager": "Manažér voličských zoznamov",
+  "Logout": "Odhlásiť",
+  "Activity": "Aktivita",
+  "RecoverPassword": "Obnovit Heslo",
+  "MyAccount": "Moje Konto",
+  "Settings": "Nastavenia"
+}

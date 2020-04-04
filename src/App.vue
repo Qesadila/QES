@@ -16,6 +16,13 @@
       layout() {
         return (this.$route.meta.layout || default_layout) + '-layout';
       }
+    },
+
+    mounted() {
+      if (!('locale' in localStorage)) {
+        localStorage.setItem('locale', this.$root.$i18n.locale)
+      } 
+      this.$root.$i18n.locale = localStorage.locale
     }
   }
 </script>
