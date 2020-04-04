@@ -1,7 +1,8 @@
 {
-  "name": "quesadilla",
-  "version": "0.0.1",
+  "name": "qesadila",
+  "version": "0.0.2",
   "private": true,
+  "description": "Qualified Electronic Signature Voting System",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
