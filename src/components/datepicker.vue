@@ -64,12 +64,19 @@
       until: null
     }),
 
+    props: {
+      form:{
+        type: Object,
+        description: "Parent form of the datepickers"
+      }
+    },
+
     watch: {
       from(val) {
-        this.$emit('fromSet', val)
+        this.$emit('fromSet', val, this.form)
       },
       until(val) {
-        this.$emit('untilSet', val)
+        this.$emit('untilSet', val, this.form)
       }
     }
   }

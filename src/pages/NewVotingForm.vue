@@ -14,7 +14,7 @@
     import LayoutWrapper from '@/Layout/Components/LayoutWrapper';
     import DemoCard from '@/Layout/Components/DemoCard';
 
-    import forms4 from '@/components/vuelidate';
+    import forms4 from '@/components/form';
 
     export default {
         components: {
