@@ -13,16 +13,21 @@ export default new Router({
 
         {            
             path: '/',
-            redirect: '/voting-management/new-voting-form'
+            redirect: '/voting-management/manage-voting'
         },
         {
-            name: 'new-voting-form',
-            path: '/voting-management/new-voting-form',
-            component: () => import('../pages/NewVotingForm.vue'),
+            name: 'new-voting',
+            path: '/voting-management/new-voting',
+            component: () => import('../pages/NewVoting.vue'),
         },
         {
-            path: '/voting-management/login',
-            name: 'voting-management-login',
+            name: 'manage-voting',
+            path: '/voting-management/manage-voting',
+            component: () => import('../pages/ManageVotings.vue'),
+        },
+        {
+            path: '/login',
+            name: 'login',
             meta: {layout: 'userpages'},
             component: () => import('../pages/Login.vue'),
         },

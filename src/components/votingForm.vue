@@ -53,7 +53,7 @@
           style="margin-top: -20px;"
         ></v-checkbox>
 
-        <div v-if="forms.length > 1" @click="removeForm(form)" title="Remove form" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
+        <div v-if="forms.length > 1" @click="removeForm(form)" title="Remove question" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
           <i class="pe-7s-close"> </i>
         </div>
       </v-card>
@@ -62,7 +62,7 @@
     <div style="margin-bottom: 10px;">
       <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" @click="addNewForm">
         <font-awesome-icon class="mr-2" icon="plus"/>
-        Add New Form
+        Add New Question
       </button>
     </div>
     
@@ -78,12 +78,30 @@
   import datepicker from '@/components/datepicker';
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
+  const blankForm = {
+    question: '',
+    mandatory: false,
+    public_: false,
+    from: null,
+    until: null,      
+    answers: [ { text: "" } ],
+
+    dateError: ""
+  }
+
   export default {
     mixins: [validationMixin],
 
     components: {
       datepicker,
       'font-awesome-icon': FontAwesomeIcon,
+    },
+
+    props: {
+      data: {
+        type: Array,
+        description: "Existing voting forms data"
+      }
     },
 
     validations: {
@@ -104,21 +122,20 @@
       }
     },
 
-    data: () => ({      
-      forms: [ {
-        question: '',
-        mandatory: false,
-        public_: false,
-        from: null,
-        until: null,      
-        answers: [ { text: "" } ],
-
-        dateError: ""
-      } ],
+    data: () => ({   
+      forms: []
     }),
 
     computed: {
       
+    },
+
+    mounted() {
+      if (this.data) {
+        this.forms = this.data
+      } else {
+        this.addNewForm()
+      }
     },
 
     methods: {
@@ -134,15 +151,7 @@
       clear () {
         this.$v.$reset()
 
-        this.forms = [ {
-          question: '',
-          mandatory: false,
-          public_: false,
-          from: null,
-          until: null,      
-          answers: [ { text: "" } ],
-          dateError: ""
-        } ]
+        this.forms = [ blankForm ]
       },       
 
       questionErrors (nr) {
@@ -183,15 +192,7 @@
       },
 
       addNewForm() {
-        this.forms.push({
-          question: '',
-          mandatory: false,
-          public_: false,
-          from: null,
-          until: null,      
-          answers: [ { text: "" } ],
-          dateError: ""
-        })
+        this.forms.push(blankForm)
       },
       removeForm(form) {
         this.forms.splice(this.forms.indexOf(form), 1)

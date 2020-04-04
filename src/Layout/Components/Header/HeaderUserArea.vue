@@ -5,7 +5,7 @@
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left  ml-3 header-user-info" style="margin-right: 10px;">
                         <div class="widget-heading">Alina Mclourd</div>
-                        <div class="widget-subheading">VP People Manager</div>
+                        <div class="widget-subheading">{{ role }}</div>
                     </div>
                     <div class="widget-content-left">
                         <b-dropdown toggle-class="p-0 mr-2" menu-class="dropdown-menu-lg" variant="link" no-caret right>
@@ -99,10 +99,16 @@
             fill1: {gradient: ["#00b09b", "#96c93d"]},
             fill2: {gradient: ["#ff0844", "#ffb199"]},
             fill3: {gradient: ["#f6d365", "#fda085"]},
-            showDrawerSection: false
+            showDrawerSection: false,
+
+            role: 'Voting Manager'
         }),
 
-        methods: {}
+        methods: {},
+
+        mounted() {
+            this.role = localStorage.role
+        }
     }
 
 

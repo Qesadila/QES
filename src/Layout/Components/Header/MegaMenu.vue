@@ -12,14 +12,13 @@
                         <div class="dropdown-menu-header-inner bg-success">
                             <div class="menu-header-image opacity-1 dd-header-bg-3"></div>
                             <div class="menu-header-content text-left">
-                                <h5 class="menu-header-title">Roles management</h5>
+                                <h5 class="menu-header-title">Choose your role</h5>
                             </div>
                         </div>
                     </div>
-                    <button type="button" tabindex="0" class="dropdown-item"><i class="dropdown-icon lnr-file-empty"> </i>Voter</button>
-                    <button type="button" tabindex="0" class="dropdown-item"><i class="dropdown-icon lnr-file-empty"> </i>Voting manager</button>
-                    <div tabindex="-1" class="dropdown-divider"></div>
-                    <button type="button" tabindex="0" class="dropdown-item"><i class="dropdown-icon lnr-file-empty"> </i>Create new role</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voter')"><i class="dropdown-icon lnr-file-empty"> </i>Voter</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting Manager')"><i class="dropdown-icon lnr-file-empty"> </i>Voting Manager</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting List Manager')"><i class="dropdown-icon lnr-file-empty"> </i>Voting List Manager</button>
                 </b-dropdown>
             </li>
         </ul>
@@ -92,6 +91,11 @@
         methods: {
             onPopoverShow() {
                 this.$refs.PopoverMegaMenu._toolpop.getTipElement().classList.add('rm-max-width')
+            },
+
+            setRole(role) {
+                localStorage.setItem('role', role)
+                this.$emit('roleChanged')
             }
         }
     }

@@ -1,8 +1,8 @@
 <template>
     <div>
         <layout-wrapper>
-            <demo-card heading="Create new referendum" >
-                <forms4></forms4>
+            <demo-card heading="Create new voting" >
+                <forms></forms>
             </demo-card>
         </layout-wrapper>
     </div>
@@ -14,7 +14,7 @@
     import LayoutWrapper from '@/Layout/Components/LayoutWrapper';
     import DemoCard from '@/Layout/Components/DemoCard';
 
-    import forms4 from '@/components/form';
+    import forms from '@/components/votingForm';
 
     export default {
         components: {
@@ -22,7 +22,7 @@
             'layout-wrapper': LayoutWrapper,
             'demo-card': DemoCard,
 
-            forms4,
+            forms,
         },
         data: () => ({
             heading: 'Form',
@@ -34,7 +34,7 @@
 
         mounted() {
             if (localStorage.loggedIn === undefined || !localStorage.loggedIn) {
-                this.$router.replace(this.$route.query.redirect || '/voting-management/login')
+                this.$router.replace(this.$route.query.redirect || '/login')
             }
         }
 

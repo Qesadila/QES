@@ -4,11 +4,11 @@
         <div class="app-header__content">
             <div class="app-header-left">
                 <SearchBox/>
-                <MegaMenu/>
+                <MegaMenu @roleChanged="roleChanged"/>
             </div>
             <div class="app-header-right">
                 <HeaderDots/>
-                <UserArea/>
+                <UserArea :key="updateKey"/>
             </div>
         </div>
         <div class="app-header__mobile-menu">
@@ -62,6 +62,7 @@
             return {
                 isOpen: false,
                 isOpenMobileMenu: false,
+                updateKey: 0
             }
         },
         props: {
@@ -90,6 +91,10 @@
                     el.classList.remove(className);
                 }
             },
+
+            roleChanged() {
+                this.updateKey++
+            }
         }
     };
 </script>

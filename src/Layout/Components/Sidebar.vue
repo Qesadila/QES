@@ -35,8 +35,13 @@
 
                 menu: [
                     {
-                        href: '/voting-management/new-voting-form',
-                        title: 'New Voting Form',
+                        href: '/voting-management/new-voting',
+                        title: 'Create Voting',
+                        icon: 'pe-7s-note2'
+                    },
+                    {
+                        href: '/voting-management/manage-voting',
+                        title: 'Manage Votings',
                         icon: 'pe-7s-note2'
                     }
                 ],
