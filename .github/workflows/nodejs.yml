@@ -43,8 +43,8 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         SSH: true
+        FOLDER: build
         BRANCH: master
-        FODLER: build
         TARGET_FOLDER: docs
         
     - name: Archive production artifacts
