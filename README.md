@@ -1,5 +1,8 @@
 # qualified-electronic-signature-voting-system
 
+## Build
+![Node.js CI](https://github.com/gstaron/QES/workflows/Node.js%20CI/badge.svg)
+
 ## Project setup
 ```
 npm install
