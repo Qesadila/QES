@@ -44,7 +44,12 @@ export default new Router({
             name: 'vote',
             path: '/voting/vote',
             component: () => import('../pages/Vote.vue'),
-        },        
+        },
+        {
+            name: 'voting-history',
+            path: '/voting/history',
+            component: () => import('../pages/VotingHistory.vue'),
+        },
         {
             path: '/login',
             name: 'login',

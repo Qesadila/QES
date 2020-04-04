@@ -10,5 +10,14 @@
   "Activity": "Activity",
   "RecoverPassword": "Recover Password",
   "MyAccount": "My Account",
-  "Settings": "Settings"
+  "Settings": "Settings",
+
+  "VotingHistory": {
+    "pageHeading": "Voting History"
+  },
+
+  "BallotWithQuestion": {
+    "chosenOptions": "Options you chose",
+    "notChosenOptions": "Options you didn't choose"
+  }
 }
