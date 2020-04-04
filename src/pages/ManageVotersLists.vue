@@ -1,9 +1,13 @@
 <template>
     <div>
         <layout-wrapper>
-            <li v-for="voting in votings" style="list-style-type: none;">
-                <demo-card heading="Edit the voting" >
-                    <forms :data="voting"></forms>
+            <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="addNewVotersList">
+                <font-awesome-icon class="mr-2" icon="plus"/>
+                Add New Voters List
+            </button>
+            <li v-for="votersList in votersLists" style="list-style-type: none;">
+                <demo-card heading="Edit the voters list" >
+                    <forms :data="votersList" :voters="voters"></forms>
                 </demo-card>
             </li>
         </layout-wrapper>
@@ -15,14 +19,22 @@
     import PageTitle from "@/Layout/Components/PageTitle2.vue";
     import LayoutWrapper from '@/Layout/Components/LayoutWrapper';
     import DemoCard from '@/Layout/Components/DemoCard';
+    import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-    import forms from '@/components/votingForm';
+    import forms from '@/components/votersListForm';
+
+    const blankVotersList = {
+        id: 0,
+        name: ''
+    }
+    const sampleVoters = [ 'Jozo', 'Peto', 'Miso' ]
 
     export default {
         components: {
             PageTitle,
             'layout-wrapper': LayoutWrapper,
             'demo-card': DemoCard,
+            'font-awesome-icon': FontAwesomeIcon,
 
             forms,
         },
@@ -31,46 +43,24 @@
             subheading: 'When it comes to form validation, Vuetify has a multitude of integrations and baked in functionality. Want to use a 3rd party validation plugin? Out of the box you can use Vee-validate and vuelidate.',
             icon: 'pe-7s-plane icon-gradient bg-tempting-azure',
 
-            votings: [
-                [ 
-                    {
-                        question: 'Who would you vote for a prime minister?',
-                        mandatory: true,
-                        public_: false,
-                        from: null,
-                        until: null,      
-                        answers: [ { text: "Igor Matovič" }, { text: "Boris Kollár" }, { text: "Richard Sulík" }, { text: "Veronika Remišová" } ]                        
-                    } 
-                ],
-                [ 
-                    {
-                        question: 'What would you like to have in yout park?',
-                        mandatory: true,
-                        public_: true,
-                        from: null,
-                        until: null,      
-                        answers: [ { text: "Trees" }, { text: "Benches" }, { text: "Trashbins" } ]
-                    },
-                    {
-                        question: 'Are you crazy enough?',
-                        mandatory: false,
-                        public_: false,
-                        from: null,
-                        until: null,      
-                        answers: [ { text: "Just a little bit..." }, { text: "Of course nope!" } ]
-                    } 
-                ]
-            ]
+            voters: sampleVoters,
+            votersLists: [ 
+                        {
+                            id: 0,
+                            name: 'Poslanci'
+                        }, 
+                        {
+                            id: 1,
+                            name: 'Deti'
+                        }
+                    ]
         }),
 
-        methods: {},
-
-        mounted() {
-            if (localStorage.token === undefined || !localStorage.token) {
-                this.$router.replace(this.$route.query.redirect || '/login')
+        methods: {
+            addNewVotersList() {
+                this.votersLists.push(blankVotersList)
             }
         }
-
     }
 
 

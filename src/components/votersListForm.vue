@@ -2,7 +2,7 @@
   <form>
       <v-card style="padding: 10px; margin-bottom: 10px" >
         <v-text-field
-          v-model="voter.Name"
+          v-model="votersList.name"
           :counter="255"
           label="Name"
           required
@@ -11,47 +11,7 @@
                             @input="$v.forms.$each.$iter[formNr].question.$touch()"
           @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
 
-
-        <v-text-field
-          v-model="voter.SurName"
-          :counter="255"
-          label="SurName"
-          required
-        ></v-text-field>
-
-                  <!-- :error-messages="questionErrors(formNr)"
-                            @input="$v.forms.$each.$iter[formNr].question.$touch()"
-          @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
-
-
-        <datepicker label="BirthDay" :data="voter.Birthday" @dateSet="dateSet" ></datepicker>
-
-        <!-- <div v-if="form.dateError" style="color: red">
-          {{ form.dateError }}
-        </div> -->
-
-        <v-text-field
-          v-model="voter.CertHash"
-          :counter="255"
-          label="CertHash"
-          required
-        ></v-text-field>
-                  <!-- :error-messages="questionErrors(formNr)"
-                            @input="$v.forms.$each.$iter[formNr].question.$touch()"
-          @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
-
-        Voter Lists:<multiselect :options="votersLists.map(vl => vl.name)"/>
-
-        <v-text-field
-          v-model="voter.FileLinkGDPR"
-          :counter="255"
-          label="FileLinkGDPR"
-          required
-        ></v-text-field>
-                  <!-- :error-messages="questionErrors(formNr)"
-                            @input="$v.forms.$each.$iter[formNr].question.$touch()"
-          @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
-
+      Voters:<multiselect :options="voters"/>
 
       </v-card>
 
@@ -68,15 +28,10 @@
   import multiselect from '@/components/multiselect'
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-  const blankVoter = {
-    Name: '',
-    SurName: '',
-    Birthday: '',
-    CertHash: "",
-    VotersListIDs: [],
-    FileLinkGDPR: "",
-    UserID: 0
-  }
+  const blankVotersList = [{
+    id: 0,
+    name: ''
+  }]
 
   export default {
     mixins: [validationMixin],
@@ -90,11 +45,11 @@
     props: {
       data: {
         type: Object,
-        description: "Existing voters data"
+        description: "Existing voters list data"
       },
-      votersLists: {
+      voters: {
         type: Array,
-        description: "Voters lists available for the voter"
+        description: "List of all voters available"
       }
     },
 
@@ -117,7 +72,7 @@
     },
 
     data: () => ({   
-      voter: {},
+      votersList: []
     }),
 
     computed: {
@@ -126,9 +81,9 @@
 
     mounted() {
       if (this.data) {
-        this.voter = this.data
+        this.votersList = this.data
       } else {
-        this.voter = blankVoter
+        this.votersList = blankVotersList
       }
     },
 
@@ -139,7 +94,7 @@
       clear () {
         this.$v.$reset()
 
-        this.voter = blankVoter
+        this.votersList = blankVotersList
       },       
 
       questionErrors (nr) {
