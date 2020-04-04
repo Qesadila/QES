@@ -8,6 +8,7 @@
                     </b-card-title>
                         <question-answer-form :question="question"/>
                 </v-card>
+                <v-btn>submit</v-btn>
             </demo-card>
         </layout-wrapper>
     </div>
