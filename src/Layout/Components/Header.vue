@@ -1,5 +1,5 @@
 <template>
-    <div :class="headerbg" class="app-header header-shadow">
+    <div :class="headerbg" class="app-header header-shadow bg-success text-lighter">
         <div class="logo-src"/>
         <div class="app-header__content">
             <div class="app-header-left">

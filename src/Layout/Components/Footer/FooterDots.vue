@@ -160,54 +160,11 @@
                 <span>USA</span>
             </button>
             <button type="button" tabindex="0" class="dropdown-item">
-                <country-flag country="ES" class="mr-3 opacity-8"/>
-                <span>Spain</span>
-            </button>
-            <div tabindex="-1" class="dropdown-divider"></div>
-            <h6 tabindex="-1" class="dropdown-header">Others</h6>
-            <button type="button" tabindex="0" class="dropdown-item active">
-                <country-flag country="DE" class="mr-3 opacity-8"/>
-                <span>Germany</span>
-            </button>
-            <button type="button" tabindex="0" class="dropdown-item">
-                <country-flag country="IT" class="mr-3 opacity-8"/>
-                <span>Italy</span>
+                <country-flag country="SVK" class="mr-3 opacity-8"/>
+                <span>Slovakia</span>
             </button>
         </b-dropdown>
         <div class="dots-separator"></div>
-        <b-dropdown toggle-class="dot-btn-wrapper" menu-class="dropdown-menu-xl" variant="link" no-caret dropup>
-            <span slot="button-content">
-                <i class="dot-btn-icon lnr-pie-chart icon-gradient bg-love-kiss"></i>
-                <div class="badge badge-dot badge-abs badge-dot-sm badge-warning">Notifications</div>
-            </span>
-            <div class="dropdown-menu-header">
-                <div class="dropdown-menu-header-inner bg-premium-dark">
-                    <div class="menu-header-image dd-header-bg-7"></div>
-                    <div class="menu-header-content text-white">
-                        <h5 class="menu-header-title">Users Online</h5>
-                        <h6 class="menu-header-subtitle">Recent Account Activity Overview</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="widget-chart">
-                <div class="widget-chart-content">
-                    <div class="icon-wrapper rounded-circle">
-                        <div class="icon-wrapper-bg opacity-9 bg-focus"></div>
-                        <i class="lnr-users text-white"></i></div>
-                    <div class="widget-numbers"><span>344k</span></div>
-                    <div class="widget-subheading pt-2">Profile views since last login</div>
-                </div>
-            </div>
-            <ul class="nav flex-column">
-                <li class="nav-item-divider mt-0 nav-item"></li>
-                <li class="nav-item-btn text-center nav-item">
-                    <button class="btn-shine btn-wide btn-pill btn btn-warning btn-sm">
-                        <font-awesome-icon class="mr-2" icon="cog"/>
-                        Refresh List
-                    </button>
-                </li>
-            </ul>
-        </b-dropdown>
     </div>
 </template>
 

@@ -2,20 +2,7 @@
     <div>
         <ul class="header-megamenu nav">
             <li class="nav-item">
-                <b-button variant="link" id="exPopover33">
-                    <span>
-                        <i class="nav-link-icon pe-7s-gift"> </i>
-                        Footer Menu
-                        <font-awesome-icon class="ml-2 opacity-5" icon="angle-up"/>
-                    </span>
-                </b-button>
-            </li>
-            <li class="nav-item">
                 <b-dropdown variant="link" menu-class="dropdown-menu-lg" no-caret dropup right>
-                    <span slot="button-content">
-                        Grid Menu
-                        <font-awesome-icon class="ml-1 opacity-5" icon="angle-up"/>
-                    </span>
                     <div class="dropdown-menu-header">
                         <div class="dropdown-menu-header-inner bg-tempting-azure">
                             <div class="menu-header-image dd-header-bg-1"></div>

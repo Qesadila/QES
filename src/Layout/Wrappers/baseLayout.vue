@@ -26,54 +26,6 @@
             Hello Modal!
         </b-modal>
 
-        <div class="ui-theme-settings">
-            <button type="button" class="btn-open-options btn btn-warning" v-bind:class="{ 'is-active' : isConfigOpen }" @click="toggleConfig('settings-open')">
-                <font-awesome-icon icon="cog" size="2x" spin/>
-            </button>
-            <div class="theme-settings__inner">
-                <VuePerfectScrollbar class="scrollbar-container" v-once>
-                    <div class="theme-settings__options-wrapper">
-                        <h3 class="themeoptions-heading">
-                            <div>Header Style</div>
-                            <button type="button" @click="headercolor = ''" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm">Restore Default</button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item"><h5 class="pb-2">Choose Color Scheme</h5>
-                                    <div class="theme-settings-swatches">
-                                        <div
-                                            v-for="color in colors"
-                                            @click="headercolor = color"
-                                            :class="color"
-                                            class="swatch-holder swatch-holder-md"
-                                        ></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <h3 class="themeoptions-heading">
-                            <div>Sidebar Style</div>
-                            <button type="button" @click="sidebarcolor = ''" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm">Restore Default</button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item"><h5 class="pb-2">Choose Color Scheme</h5>
-                                    <div class="theme-settings-swatches">
-                                        <div
-                                            v-for="color in colors"
-                                            @click="sidebarcolor = color"
-                                            :class="color"
-                                            class="swatch-holder swatch-holder-md"
-                                        ></div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </VuePerfectScrollbar>
-            </div>
-        </div>
     </div>
     </v-app>
 </template>
