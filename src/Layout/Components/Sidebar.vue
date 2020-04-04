@@ -23,16 +23,44 @@
     import {SidebarMenu} from 'vue-sidebar-menu'
     import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
-    const votingManagementMenu = [
-                    {
-                        href: '/voting-management/new-voting',
-                        title: 'Create Voting'
-                    },
-                    {
-                        href: '/voting-management/manage-voting',
-                        title: 'Manage Votings'
+    const votingManagementMenu = {
+                        title: 'Voting Management',
+                        icon: 'pe-7s-note2',
+                        href: '/',
+                        child: [
+                            {
+                                href: '/voting-management/new-voting',
+                                title: 'Create Voting'
+                            },
+                            {
+                                href: '/voting-management/manage-voting',
+                                title: 'Manage Votings'
+                            }
+                        ]
+    }
+
+    const votingListManagementMenu = {
+                        title: 'Voting List Management',
+                        icon: 'lnr-text-align-justify',
+                        href: '/',
+                        child: [
+                            {
+                                href: '/voting-management/new-voting',
+                                title: 'Create Voting'
+                            },
+                            {
+                                href: '/voting-management/manage-voting',
+                                title: 'Manage Votings'
+                            }
+                        ]
+    }
+
+    const votingMenu = {
+                        title: 'Voting',
+                        icon: 'pe-7s-note2',
+                        href: '/voting',
+                        child: []
                     }
-                ]
 
     export default {
         components: {
@@ -44,20 +72,7 @@
                 isOpen: false,
                 sidebarActive: false,                
 
-                menu: [
-                    {
-                        title: 'Voting Management',
-                        icon: 'pe-7s-note2',
-                        href: '/',
-                        child: []
-                    },
-                    {
-                        title: 'Voting',
-                        icon: 'pe-7s-note2',
-                        href: '/voting',
-                        child: []
-                    }
-                ],
+                menu: [],
                 collapsed: true,
 
                 windowWidth: 0,
@@ -70,12 +85,15 @@
         },
         methods: {
             initMenu() {
-                if (!('role' in localStorage) || localStorage.role === 'Anonymous') {
-                    this.menu.splice(0, 1)
+                if ('role' in localStorage) {
+                    if (localStorage.role === 'Voting List Manager') {
+                        this.menu.push(votingListManagementMenu)
+                    } else if (localStorage.role === 'Voting Manager') {
+                        this.menu.push(votingManagementMenu)
+                    } 
                 }
-                else {
-                    this.menu[0].child = votingManagementMenu
-                } 
+
+                this.menu.push(votingMenu)
             },
 
             toggleBodyClass(className) {

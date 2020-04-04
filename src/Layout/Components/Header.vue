@@ -8,7 +8,7 @@
             </div>
             <div class="app-header-right">
                 <HeaderDots/>
-                <UserArea :key="updateKey"/>
+                <UserArea />
             </div>
         </div>
         <div class="app-header__mobile-menu">
@@ -61,8 +61,7 @@
         data() {
             return {
                 isOpen: false,
-                isOpenMobileMenu: false,
-                updateKey: 0
+                isOpenMobileMenu: false
             }
         },
         props: {
@@ -93,7 +92,7 @@
             },
 
             roleChanged() {
-                this.updateKey++
+                location.reload();
             }
         }
     };
