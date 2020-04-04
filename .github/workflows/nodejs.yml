@@ -44,7 +44,7 @@ jobs:
       with:
         SSH: true
         BRANCH: master
-        FOLDER: docs
+        TARGET_FOLDER: docs
         
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
