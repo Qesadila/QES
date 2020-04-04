@@ -10,5 +10,8 @@
   "Activity": "Activity",
   "RecoverPassword": "Recover Password",
   "MyAccount": "My Account",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "ChooseAnswer": "Answer",
+  "SelectOne": "Select One",
+  "SelectMore": "Select More"
 }

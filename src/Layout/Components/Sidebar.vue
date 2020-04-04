@@ -59,7 +59,16 @@
                         title: 'Voting',
                         icon: 'pe-7s-note2',
                         href: '/voting',
-                        child: []
+                        child: [
+                            {
+                                href: '/voting/vote/1',
+                                title: 'Voting 1'
+                            },
+                            {
+                                href: '/voting/vote/2',
+                                title: 'Voting 2'
+                            },
+                        ]
                     }
 
     export default {
@@ -70,7 +79,7 @@
         data() {
             return {
                 isOpen: false,
-                sidebarActive: false,                
+                sidebarActive: false,
 
                 menu: [],
                 collapsed: true,
@@ -90,7 +99,7 @@
                         this.menu.push(votingListManagementMenu)
                     } else if (localStorage.role === 'Voting Manager') {
                         this.menu.push(votingManagementMenu)
-                    } 
+                    }
                 }
 
                 this.menu.push(votingMenu)
