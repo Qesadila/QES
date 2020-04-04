@@ -61,12 +61,8 @@
                         href: '/voting',
                         child: [
                             {
-                                href: '/voting/vote/1',
-                                title: 'Voting 1'
-                            },
-                            {
-                                href: '/voting/vote/2',
-                                title: 'Voting 2'
+                                href: '/voting',
+                                title: 'Voting List'
                             },
                         ]
                     }

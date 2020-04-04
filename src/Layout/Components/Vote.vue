@@ -2,10 +2,10 @@
     <div>
         <layout-wrapper>
             <demo-card heading="Voting">
-                <v-card style="padding: 10px; margin-bottom: 10px" class="title" v-for="(question,idx) of questions" :key="idx">
-                    <v-card-title>
+                <v-card style="padding: 10px; margin-bottom: 10px" v-for="(question,idx) of questions" :key="idx">
+                    <b-card-title>
                         {{(idx + 1) +'. ' + question.text}}
-                    </v-card-title>
+                    </b-card-title>
                         <question-answer-form :question="question"/>
                 </v-card>
             </demo-card>
@@ -14,9 +14,9 @@
 </template>
 
 <script>
-    import DemoCard from "../Layout/Components/DemoCard";
+    import DemoCard from "./DemoCard";
     import LayoutWrapper from '@/Layout/Components/LayoutWrapper';
-    import QuestionAnswerForm from '../components/questionAnswerForm';
+    import QuestionAnswerForm from '../../components/questionAnswerForm';
 
 
     export default {
