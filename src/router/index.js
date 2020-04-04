@@ -24,7 +24,7 @@ export default new Router({
         return window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     routes: [
-        {            
+        {
             path: '/',
             redirect: '/voting-management/manage-voting'
         },
@@ -54,16 +54,16 @@ export default new Router({
         },
         {
             name: 'vote',
-            path: '/voting/vote',
+            path: '/voting/vote/:id',
             component: () => import('../pages/Vote.vue'),
-        },        
+        },
         {
             path: '/login',
             name: 'login',
             meta: {layout: 'userpages'},
             component: () => import('../pages/Login.vue'),
         },
-        // {            
+        // {
         //     path: '/',
         //     redirect: '/voting-management',
         // },
@@ -71,7 +71,7 @@ export default new Router({
         //     name: 'voting-management',
         //     path: '/voting-management',
         //     redirect: '/voting-management/manage-voting',
-        //     children: [   
+        //     children: [
         //         {
         //             name: 'new-voting',
         //             path: '/voting-management/new-voting',
@@ -80,23 +80,23 @@ export default new Router({
         //         {
         //             name: 'manage-voting',
         //             path: '/voting-management/manage-voting',
-        //             component: () => import('../pages/ManageVotings.vue')                    
+        //             component: () => import('../pages/ManageVotings.vue')
         //         },
         //     ],
         //     // beforeEnter: requireAuth
-        // },        
+        // },
         // {
         //     name: 'voting',
         //     path: '/voting',
         //     redirect: '/voting/vote',
-        //     children: [   
+        //     children: [
         //         {
         //             name: 'vote',
         //             path: '/voting/vote',
         //             component: () => import('../pages/Vote.vue'),
         //         },
         //     ],
-        // },        
+        // },
         // {
         //     path: '/login',
         //     name: 'login',

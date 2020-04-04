@@ -11,5 +11,8 @@
   "RecoverPassword": "Recover Password",
   "MyAccount": "My Account",
   "Settings": "Settings",
-  "anonymous": "Anonymous"
+  "anonymous": "Anonymous",
+  "ChooseAnswer": "Answer",
+  "SelectOne": "Select One",
+  "SelectMore": "Select More"
 }

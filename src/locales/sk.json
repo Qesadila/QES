@@ -11,5 +11,8 @@
   "RecoverPassword": "Obnovit Heslo",
   "MyAccount": "Moje Konto",
   "Settings": "Nastavenia",
-  "anonymous": "Anonym"
+  "anonymous": "Anonym",
+  "ChooseAnswer": "Odpoveď",
+  "SelectOne": "Vyber jednu",
+  "SelectMore": "Vyber viacero"
 }
