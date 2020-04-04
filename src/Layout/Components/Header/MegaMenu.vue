@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul class="header-megamenu nav">
+        <ul v-if="notAnonymous" class="header-megamenu nav">
             <li class="nav-item">
                 <b-dropdown variant="link" no-caret class="dropdown-menu-rounded" menu-class="dropdown-menu-lg">
                     <span slot="button-content">
@@ -88,6 +88,12 @@
             'font-awesome-icon': FontAwesomeIcon,
         },
 
+        data() {
+            return {
+                notAnonymous: false
+            }
+        },
+
         methods: {
             onPopoverShow() {
                 this.$refs.PopoverMegaMenu._toolpop.getTipElement().classList.add('rm-max-width')
@@ -97,6 +103,10 @@
                 localStorage.setItem('role', role)
                 this.$emit('roleChanged')
             }
+        },
+
+        mounted() {
+            this.notAnonymous = localStorage.role !== 'Anonymous'
         }
     }
 

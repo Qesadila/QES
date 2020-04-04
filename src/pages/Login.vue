@@ -50,6 +50,9 @@
                                     <a href="javascript:void(0);" class="btn-lg btn btn-link">Recover
                                         Password</a>
                                 </div>
+                                <div class="float-left">
+                                    <b-button variant="primary" size="lg" @click="loginAnonymous">Anonymous Login</b-button>
+                                </div>
                                 <div class="float-right">
                                     <b-button variant="primary" size="lg" @click="login">Login</b-button>
                                 </div>
@@ -75,6 +78,12 @@ export default {
     },
 
     methods: {
+        loginAnonymous() {
+            localStorage.setItem('loggedIn', true)
+            localStorage.setItem('role', 'Anonymous')
+            this.$router.replace(this.$route.query.redirect || '/voting')
+        },
+
         login() {
             // this.$http
             // .post("http://server/login", {
@@ -83,6 +92,7 @@ export default {
             // })
             // .then(response => {
                 localStorage.setItem('loggedIn', true)
+                localStorage.setItem('role', 'Voter')
                 this.$router.replace(this.$route.query.redirect || '/')
             // })
             // .catch(error => {

@@ -23,6 +23,17 @@
     import {SidebarMenu} from 'vue-sidebar-menu'
     import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
+    const votingManagementMenu = [
+                    {
+                        href: '/voting-management/new-voting',
+                        title: 'Create Voting'
+                    },
+                    {
+                        href: '/voting-management/manage-voting',
+                        title: 'Manage Votings'
+                    }
+                ]
+
     export default {
         components: {
             SidebarMenu,
@@ -35,14 +46,16 @@
 
                 menu: [
                     {
-                        href: '/voting-management/new-voting',
-                        title: 'Create Voting',
-                        icon: 'pe-7s-note2'
+                        title: 'Voting Management',
+                        icon: 'pe-7s-note2',
+                        href: '/',
+                        child: []
                     },
                     {
-                        href: '/voting-management/manage-voting',
-                        title: 'Manage Votings',
-                        icon: 'pe-7s-note2'
+                        title: 'Voting',
+                        icon: 'pe-7s-note2',
+                        href: '/voting',
+                        child: []
                     }
                 ],
                 collapsed: true,
@@ -56,6 +69,15 @@
 
         },
         methods: {
+            initMenu() {
+                if (!('role' in localStorage) || localStorage.role === 'Anonymous') {
+                    this.menu.splice(0, 1)
+                }
+                else {
+                    this.menu[0].child = votingManagementMenu
+                } 
+            },
+
             toggleBodyClass(className) {
                 const el = document.body;
                 this.isOpen = !this.isOpen;
@@ -93,6 +115,8 @@
             },
         },
         mounted() {
+            this.initMenu();
+
             this.$nextTick(function () {
                 window.addEventListener('resize', this.getWindowWidth);
 
