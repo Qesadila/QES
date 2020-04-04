@@ -44,7 +44,7 @@ jobs:
       with:
         SSH: true
         BRANCH: master
-        FOLDER: build
+        FOLDER: public
         TARGET_FOLDER: docs
   
     - name: Archive production artifacts
