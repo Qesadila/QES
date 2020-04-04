@@ -1,7 +1,6 @@
 <template>
     <div>
         <b-card-sub-title style="padding: 10px; margin-bottom: 10px">
-            {{$t('ChooseAnswer')}}
         </b-card-sub-title>
         <v-combobox
                 v-model="chips"
@@ -24,6 +23,13 @@
                 </v-chip>
             </template>
         </v-combobox>
+        <v-radio-group v-model="one" row>
+            <v-radio v-for="(question,idx) of question.answers"
+                     :label="question.text"
+                     :value="idx"
+                     :key="idx"/>
+        </v-radio-group>
+        <b-file/>
     </div>
 </template>
 
@@ -36,7 +42,8 @@
         data() {
             return {
                 chips: [],
-                items: this.question.answers.map(ans => ans.text)
+                items: this.question.answers.map(ans => ans.text),
+                one: null
             }
         },
         methods: {

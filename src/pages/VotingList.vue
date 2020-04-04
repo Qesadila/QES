@@ -5,11 +5,11 @@
                    class="voting-card"
         >
             <b-card-title style="padding: 10px; margin-bottom: 10px">
-                Status:
+                Status: <i class="pe-7s-check" style="font-size: 18px;color: green"></i><i class="pe-7s-close-circle" style="font-size: 18px;color: red"></i>
             </b-card-title>
-            <b-card-sub-title style="padding: 10px; margin-bottom: 10px">
+            <b-card-title style="padding: 10px; margin-bottom: 10px">
                 Open from: 12.3.2020 - To 25.3. 2020
-            </b-card-sub-title>
+            </b-card-title>
             <v-btn @click="redirectToVote(idx)">vote</v-btn>
         </demo-card>
     </div>
