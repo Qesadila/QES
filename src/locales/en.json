@@ -4,11 +4,12 @@
   "chooseLanguage": "Choose Language",
   "slovakia": "Slovakia",
   "voter": "Voter",
-  "voterManager": "Voter Manager",
-  "voterListManager": "Voter List Manager",
+  "votingManager": "Voting Manager",
+  "votingListManager": "Voting List Manager",
   "Logout": "Logout",
   "Activity": "Activity",
   "RecoverPassword": "Recover Password",
   "MyAccount": "My Account",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "anonymous": "Anonymous"
 }

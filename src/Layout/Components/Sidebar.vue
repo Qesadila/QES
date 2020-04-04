@@ -42,16 +42,16 @@
     const votingListManagementMenu = {
                         title: 'Voting List Management',
                         icon: 'lnr-text-align-justify',
-                        href: '/',
+                        href: '/voting-list-management/manage-list',
                         child: [
                             {
-                                href: '/voting-management/new-voting',
-                                title: 'Create Voting'
+                                href: '/voting-list-management/manage-voter',
+                                title: 'Manage Voters'
                             },
                             {
-                                href: '/voting-management/manage-voting',
-                                title: 'Manage Votings'
-                            }
+                                href: '/voting-list-management/manage-list',
+                                title: 'Manage Voters Lists'
+                            }                            
                         ]
     }
 
@@ -86,9 +86,9 @@
         methods: {
             initMenu() {
                 if ('role' in localStorage) {
-                    if (localStorage.role === 'Voting List Manager') {
+                    if (localStorage.role === 'votingListManager') {
                         this.menu.push(votingListManagementMenu)
-                    } else if (localStorage.role === 'Voting Manager') {
+                    } else if (localStorage.role === 'votingManager') {
                         this.menu.push(votingManagementMenu)
                     } 
                 }
