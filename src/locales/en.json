@@ -47,7 +47,7 @@
   "QuestionRequired": "Question is required.",
   "AnswerRequired": "Answer is required.",
   "OpenRequired": "Open from and Open until are required.",
-  "OpenUntilLessThanOpenFrom.": "Open until cannot be less than Open from."
+  "OpenUntilLessThanOpenFrom.": "Open until cannot be less than Open from.",
   "VotingHistory": {
     "pageHeading": "Voting History"
   },
