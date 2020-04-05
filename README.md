@@ -4,6 +4,9 @@ https://www.qesadila.com
 
 Licence: GNU GPLv2
 
+Presentation:
+- https://github.com/Qesadila/QES/raw/master/Qesadila14-00-v2.pdf
+
 QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionControl
  - WPF Desktop application
 
