@@ -35,6 +35,12 @@ export default new Router({
             beforeEnter: requireAuth
         },
         {
+            name: 'votings',
+            path: '/voting',
+            component: () => import('../pages/VotingList.vue'),
+            beforeEnter: requireAuth
+        },
+        {
             name: 'manage-voting',
             path: '/voting-management/manage-voting',
             component: () => import('../pages/ManageVotings.vue'),
@@ -54,8 +60,8 @@ export default new Router({
         },
         {
             name: 'vote',
-            path: '/voting/vote/:id',
-            component: () => import('../pages/Vote.vue'),
+            path: '/voting/:id',
+            component: () => import('../Layout/Components/Vote.vue'),
         },
         {
             name: 'voting-history',
