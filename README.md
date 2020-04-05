@@ -1,5 +1,7 @@
 Qesadila is open source voting system which is using Qualified Electronic Signature to verify the voting process.
 
+https://www.qesadila.com
+
 Licence: GNU GPLv2
 
 QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionControl
