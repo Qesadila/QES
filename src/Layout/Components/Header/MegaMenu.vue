@@ -108,6 +108,7 @@
 
         mounted() {
             this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
+            this.$router.replace('voting')
         }
     }
 

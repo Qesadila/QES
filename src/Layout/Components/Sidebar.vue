@@ -43,7 +43,7 @@
                             {
                                 href: '/voting-management/new-voting',
                                 title: this.$t('CreateVoting')
-                            }                            
+                            }
                         ]
     },
     votingListManagementMenu: {
@@ -67,12 +67,12 @@
                         href: '/voting',
                         child: [
                             {
-                                href: '/voting/history',
-                                title: this.$t('VotingHistory.pageHeading')
-                            },                  
-                            {
                                 href: '/voting',
                                 title: this.$t('VoteListMenuItem')
+                            },
+                            {
+                                href: '/voting/history',
+                                title: this.$t('VotingHistory.pageHeading')
                             },
                         ]
                     },
