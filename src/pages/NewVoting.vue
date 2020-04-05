@@ -30,14 +30,7 @@
             icon: 'pe-7s-plane icon-gradient bg-tempting-azure',
         }),
 
-        methods: {},
-
-        mounted() {
-            if (localStorage.loggedIn === undefined || !localStorage.loggedIn) {
-                this.$router.replace(this.$route.query.redirect || '/login')
-            }
-        }
-
+        methods: {}
     }
 
 

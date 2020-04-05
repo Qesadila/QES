@@ -75,7 +75,7 @@
   import { validationMixin } from 'vuelidate'
   import { required, minLength } from 'vuelidate/lib/validators'
 
-  import datepicker from '@/components/datepicker';
+  import datepicker from '@/components/rangeDatepicker';
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
   const blankForm = {
