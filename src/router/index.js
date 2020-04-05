@@ -26,8 +26,13 @@ export default new Router({
   routes: [
         {
             path: '/',
-            redirect: '/voting/history'
+            redirect: '/voting/all-votes'
         },
+      {
+          name: 'all-votes',
+          path: '/voting/all-votes',
+          component: () => import('../pages/AllVotesHistory.vue')
+      },
         {
             name: 'new-voting',
             path: '/voting-management/new-voting',
@@ -80,5 +85,10 @@ export default new Router({
           meta: { layout: "userpages" },
           component: () => import("../pages/Register.vue"),
         },
+      {
+          path: "/vote-results/:id",
+          name: "results",
+          component: () => import("../pages/VoteResults.vue"),
+      }
     ]
 });
