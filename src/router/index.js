@@ -24,11 +24,6 @@ export default new Router({
     return window.scrollTo({ top: 0, behavior: "smooth" });
   },
   routes: [
-    {
-      path: "/",
-      redirect: "/voting-management/manage-voting",
-    },
-    routes: [
         {
             path: '/',
             redirect: '/voting/history'
