@@ -1,7 +1,7 @@
 <template>
     <div>
         <layout-wrapper>
-            <demo-card heading="Create new voting" >
+            <demo-card :heading="$t('CreateNewVoting')" >
                 <forms></forms>
             </demo-card>
         </layout-wrapper>

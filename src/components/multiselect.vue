@@ -13,7 +13,7 @@
             :items="options"
             attach
             chips
-            label="Chips"
+            :label="$t('SelectMore')"
             multiple
           ></v-select>
         </v-flex>

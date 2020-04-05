@@ -3,10 +3,10 @@
         <layout-wrapper>
             <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="addNewVoter">
                 <font-awesome-icon class="mr-2" icon="plus"/>
-                Add New Voter
+                {{ $t('addNewVoter') }}
             </button>
             <li v-for="voter in voters" style="list-style-type: none;">
-                <demo-card heading="Edit the voter" >
+                <demo-card :heading="$t('editVoter')" >
                     <forms :data="voter" :votersLists="sampleVotersLists"></forms>
                 </demo-card>
             </li>

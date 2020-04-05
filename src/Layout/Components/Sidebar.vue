@@ -23,40 +23,46 @@
     import {SidebarMenu} from 'vue-sidebar-menu'
     import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
-    const votingManagementMenu = {
-                        title: 'Voting Management',
+
+    export default {
+        components: {
+            SidebarMenu,
+            VuePerfectScrollbar
+        },
+        data() {
+            return {
+                votingManagementMenu: {
+                        title: this.$t('VotingManagement'),
                         icon: 'pe-7s-note2',
                         href: '/',
                         child: [
                             {
                                 href: '/voting-management/new-voting',
-                                title: 'Create Voting'
+                                title: this.$t('CreateVoting')
                             },
                             {
                                 href: '/voting-management/manage-voting',
-                                title: 'Manage Votings'
+                                title: this.$t('VotingManagement')
                             }
                         ]
-    }
-
-    const votingListManagementMenu = {
-                        title: 'Voting List Management',
+    },
+    votingListManagementMenu: {
+                        title: this.$t('VotingListManagement'),
                         icon: 'lnr-text-align-justify',
                         href: '/voting-list-management/manage-list',
                         child: [
                             {
                                 href: '/voting-list-management/manage-voter',
-                                title: 'Manage Voters'
+                                title: this.$t('ManageVoters')
                             },
                             {
                                 href: '/voting-list-management/manage-list',
-                                title: 'Manage Voters Lists'
+                                title: this.$t('VotingListManagement')
                             }                            
                         ]
-    }
-
-    const votingMenu = {
-                        title: 'Voting',
+    },
+    votingMenu: {
+                        title: this.$t('Voting'),
                         icon: 'pe-7s-note2',
                         href: '/voting',
                         child: [
@@ -69,15 +75,8 @@
                                 title: 'Voting 2'
                             },
                         ]
-                    }
+                    },
 
-    export default {
-        components: {
-            SidebarMenu,
-            VuePerfectScrollbar
-        },
-        data() {
-            return {
                 isOpen: false,
                 sidebarActive: false,
 
@@ -96,13 +95,13 @@
             initMenu() {
                 if ('role' in localStorage) {
                     if (localStorage.role === 'votingListManager') {
-                        this.menu.push(votingListManagementMenu)
+                        this.menu.push(this.votingListManagementMenu)
                     } else if (localStorage.role === 'votingManager') {
-                        this.menu.push(votingManagementMenu)
+                        this.menu.push(this.votingManagementMenu)
                     }
                 }
 
-                this.menu.push(votingMenu)
+                this.menu.push(this.votingMenu)
             },
 
             toggleBodyClass(className) {

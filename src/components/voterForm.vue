@@ -4,8 +4,9 @@
         <v-text-field
           v-model="voter.Name"
           :counter="255"
-          label="Name"
+          :label="$t('name')"
           required
+          style="width: 49%; float: left; margin-right: 10px"
         ></v-text-field>
                   <!-- :error-messages="questionErrors(formNr)"
                             @input="$v.forms.$each.$iter[formNr].question.$touch()"
@@ -15,8 +16,9 @@
         <v-text-field
           v-model="voter.SurName"
           :counter="255"
-          label="SurName"
+          :label="$t('surName')"
           required
+          style="width: 49%"
         ></v-text-field>
 
                   <!-- :error-messages="questionErrors(formNr)"
@@ -24,7 +26,10 @@
           @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
 
 
-        <datepicker label="BirthDay" :data="voter.Birthday" @dateSet="dateSet" ></datepicker>
+        <datepicker 
+          :label="$t('birthDay')" 
+          :data="voter.Birthday" 
+          @dateSet="dateSet" ></datepicker>
 
         <!-- <div v-if="form.dateError" style="color: red">
           {{ form.dateError }}
@@ -40,7 +45,8 @@
                             @input="$v.forms.$each.$iter[formNr].question.$touch()"
           @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
 
-        Voter Lists:<multiselect :options="votersLists.map(vl => vl.name)"/>
+        <div style="float: left;margin-top: 20px;margin-right: 20px;">{{ $t('voterLists') }}:</div>
+        <multiselect style="margin-top: -30px;" :options="votersLists.map(vl => vl.name)"/>
 
         <v-text-field
           v-model="voter.FileLinkGDPR"
@@ -55,8 +61,8 @@
 
       </v-card>
 
-    <v-btn @click="submit">submit</v-btn>
-    <v-btn @click="clear">clear</v-btn>
+    <v-btn @click="submit">{{ $t('submit') }}</v-btn>
+    <v-btn @click="clear">{{ $t('clear') }}</v-btn>
   </form>
 </template>
 

@@ -4,19 +4,20 @@
         <v-text-field
           v-model="votersList.name"
           :counter="255"
-          label="Name"
+          :label="$t('label')"
           required
         ></v-text-field>
                   <!-- :error-messages="questionErrors(formNr)"
                             @input="$v.forms.$each.$iter[formNr].question.$touch()"
           @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
 
-      Voters:<multiselect :options="voters"/>
+      <div style="float: left;margin-top: 20px;margin-right: 20px;">{{ $t('Voters') }}:</div>
+      <multiselect style="margin-top: -25px;" :options="voters"/>
 
       </v-card>
 
-    <v-btn @click="submit">submit</v-btn>
-    <v-btn @click="clear">clear</v-btn>
+    <v-btn @click="submit">{{ $t('submit') }}</v-btn>
+    <v-btn @click="clear">{{ $t('clear') }}</v-btn>
   </form>
 </template>
 

@@ -14,7 +14,7 @@
         <template v-slot:activator="{ on }">
           <v-text-field
             v-model="from"
-            label="Open from"
+            :label="$t('OpenFrom')"
             prepend-icon="event"
             readonly
             v-on="on"
@@ -39,7 +39,7 @@
         <template v-slot:activator="{ on }">
           <v-text-field
             v-model="until"
-            label="Open until"
+            :label="$t('OpenUntil')"
             prepend-icon="event"
             readonly
             v-on="on"
@@ -64,19 +64,12 @@
       until: null
     }),
 
-    props: {
-      form:{
-        type: Object,
-        description: "Parent form of the datepickers"
-      }
-    },
-
     watch: {
       from(val) {
-        this.$emit('fromSet', val, this.form)
+        this.$emit('fromSet', val)
       },
       until(val) {
-        this.$emit('untilSet', val, this.form)
+        this.$emit('untilSet', val)
       }
     }
   }
