@@ -62,57 +62,13 @@
     import DemoCard from "../Layout/Components/DemoCard";
     import VotingService from "../services/votingService"
 
-    const votings = [
-        {
-            label: "VotingForm 1",
-            openFrom: new Date().toDateString(),
-            openUntil: new Date().toDateString(),
-            active: true,
-            questions: [
-                {
-                    question: 'Who would you vote for a prime minister?',
-                    mandatory: true,
-                    public_: false,
-                    from: null,
-                    until: null,
-                    answers: [{text: "Igor Matovič"}, {text: "Boris Kollár"}, {text: "Richard Sulík"}, {text: "Veronika Remišová"}]
-                }
-            ]
-        },
-        {
-            label: "VotingForm 2",
-            openFrom: new Date().toDateString(),
-            openUntil: new Date().toDateString(),
-            active: false,
-            _rowVariant: 'success',
-            questions: [
-                {
-                    question: 'What would you like to have in youth park?',
-                    mandatory: true,
-                    public_: true,
-                    from: null,
-                    until: null,
-                    answers: [{text: "Trees"}, {text: "Benches"}, {text: "Trashbins"}],
-                },
-                {
-                    question: 'Are you crazy enough?',
-                    mandatory: false,
-                    public_: false,
-                    from: null,
-                    until: null,
-                    answers: [{text: "Just a little bit..."}, {text: "Of course nope!"}]
-                }
-            ]
-        }
-    ];
-
 
     export default {
         name: "VotingList",
         components: {DemoCard},
         data() {
             return {
-                items: votings,
+                items: Object,
                 fields: [
                     {key: 'name', label: this.$t('Voting'), sortable: false},
                     {key: 'openFrom', label: this.$t('votingFrom'), sortable: true},
@@ -122,7 +78,7 @@
                 ],
                 currentPage: 1,
                 perPage: 5,
-                totalRows: votings.length,
+                totalRows: Number,
                 pageOptions: [5, 10, 15],
                 sortBy: null,
                 sortDesc: false,
@@ -132,13 +88,17 @@
         },
         mounted() {
             VotingService.getAllVotings()
-                .then(res =>
+                .then(res => {
+                    let active = this.isActive(this.moment(res.data.openFrom), this.moment(res.data.openUntil))
                     this.items = res.data.map(voting => voting = {
                         ...voting,
                         openFrom: this.moment(voting.openFrom).format('MMM Do YYYY'),
                         openUntil: this.moment(voting.openUntil).format('MMM Do YYYY'),
-                        _rowVariant: this.isActive(this.moment(voting.openFrom), this.moment(voting.openUntil)) ? 'success' : 'none'
-                    }));
+                        active: active,
+                        _rowVariant: active ? 'success' : 'none'
+                    });
+                    this.totalRows = this.items.length
+                });
         },
         methods: {
             redirectToVote(idx) {
