@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import router from './router'
+import moment from 'moment'
 
 import BootstrapVue from "bootstrap-vue"
 
@@ -21,6 +22,7 @@ Vue.component('userpages-layout', Pages);
 Vue.component('apps-layout', Apps);
 
 Vue.prototype.$http = Axios
+Vue.prototype.moment = moment
 
 new Vue({
   el: '#app',

@@ -58,7 +58,7 @@
                             {
                                 href: '/voting-list-management/manage-list',
                                 title: this.$t('VotingListManagement')
-                            }                            
+                            }
                         ]
     },
     votingMenu: {
@@ -69,14 +69,10 @@
                             {
                                 href: '/voting/history',
                                 title: this.$t('VotingHistory.pageHeading')
-                            },                            
+                            },                  
                             {
-                                href: '/voting/vote/1',
-                                title: this.$t('Voting') + ' 1'
-                            },
-                            {
-                                href: '/voting/vote/2',
-                                title: this.$t('Voting') + ' 2'
+                                href: '/voting',
+                                title: this.$t('VoteListMenuItem')
                             },
                         ]
                     },

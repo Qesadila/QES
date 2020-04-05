@@ -15,6 +15,7 @@
   "ChooseAnswer": "Answer",
   "SelectOne": "Select One",
   "SelectMore": "Select More",
+  "VoteListMenuItem": "List of votes",
   "numberOfPositiveAnswers": "Number Of Positive Answers",
   "numberOfNegativeAnswers": "Number Of Negative Answers",
   "voterLists": "Voter Lists",
@@ -56,5 +57,12 @@
     "chosenOptions": "Options you chose",
     "notChosenOptions": "Options you didn't choose"
   },
-  "votingsList": "Votings List"
+  "votingsList": "Votings List",
+  "votingFrom": "Open from",
+  "votingTo": "Open until",
+  "votingAction": "Vote",
+  "votingDetail": "Detail",
+  "votingsHeader": "Votings",
+  "actions": "Actions",
+  "filterByName": "Filter By Name"
 }

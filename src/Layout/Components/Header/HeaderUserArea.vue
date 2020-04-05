@@ -11,7 +11,7 @@
                         <b-dropdown toggle-class="p-0 mr-2" menu-class="dropdown-menu-lg" variant="link" no-caret right>
                             <span slot="button-content">
                                 <div class="icon-wrapper icon-wrapper-alt rounded-circle">
-                                    <img width="42" class="rounded-circle" src="@/assets/images/avatars/1.jpg" alt="">
+                                    <img width="42" class="rounded-circle" src="@/assets/images/avatars/default_avatar.png" alt="">
                                 </div>
                             </span>
                             <div class="dropdown-menu-header">
@@ -21,7 +21,7 @@
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
-                                                    <img width="42" class="rounded-circle" src="@/assets/images/avatars/1.jpg" alt="">
+                                                    <img width="42" class="rounded-circle" src="@/assets/images/avatars/default_avatar.png" alt="">
                                                 </div>
                                                 <div class="widget-content-left">
                                                     <div class="widget-heading">Alina Mcloughlin</div>

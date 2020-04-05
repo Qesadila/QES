@@ -20,10 +20,11 @@
   },
   "anonymous": "Anonym",
   "ChooseAnswer": "Možnosť",
-  "SelectOne": "Vyberte jednu",
-  "SelectMore": "Vyberte viacero",
   "numberOfPositiveAnswers": "Počet kladných možností",
   "numberOfNegativeAnswers": "Počet negatívnych možností",
+  "SelectOne": "Vyberte jednu možnosť",
+  "SelectMore": "Vyberte jednu alebo viac možností",
+  "VoteListMenuItem": "Zoznam hlasovaní",
   "voterLists": "Zoznamy voličov",
   "name": "Meno",
   "surName": "Priezvisko",
@@ -56,5 +57,12 @@
   "AnswerRequired": "Možnosť je povinná.",
   "OpenRequired": "Otvorené Od a Otvorené Do sú povinné.",
   "OpenUntilLessThanOpenFrom.": "Otvorené Do nemôže byť menšie ako Otvorené Od.",
-  "votingsList": "Zoznam hlasovaní"
+  "votingsList": "Zoznam hlasovaní",
+  "votingFrom": "Otvorené od",
+  "votingTo": "Otvorené do:",
+  "votingAction": "Hlasovať",
+  "votingDetail": "Detail",
+  "votingsHeader": "Hlasovania",
+  "actions": "Akcie",
+  "filterByName": "Filtrovať podľa otázky"
 }
