@@ -30,6 +30,7 @@
                     <template slot="openFrom" slot-scope="row">{{row.item.openFrom}}</template>
                     <template slot="openUntil" slot-scope="row">{{row.item.openUntil}}</template>
                     <template slot="active" slot-scope="row">
+                        <!--                        TODO userVoted boolean-->
                         <i v-if="!row.item.active" class="pe-7s-check" style="font-size: 22px;color: green"></i>
                         <i v-if="row.item.active" class="pe-7s-attention" style="font-size: 22px;color: black"></i>
                     </template>
@@ -66,16 +67,27 @@
     export default {
         name: "VotingList",
         components: {DemoCard},
-        data() {
-            return {
-                items: Object,
-                fields: [
+        computed: {
+            sortOptions() {
+                return this.fields
+                    .filter(f => f.sortable)
+                    .map(f => {
+                        return {text: f.label, value: f.key}
+                    })
+            },
+            fields() {
+                return [
                     {key: 'name', label: this.$t('Voting'), sortable: false},
                     {key: 'openFrom', label: this.$t('votingFrom'), sortable: true},
                     {key: 'openUntil', label: this.$t('votingTo')},
                     {key: 'active', label: 'Status', 'class': 'text-center'},
-                    {key: 'actions', label: this.$t('Actions'), 'class': 'text-center'}
-                ],
+                    {key: 'actions', label: this.$t('actions'), 'class': 'text-center'}
+                ]
+            }
+        },
+        data() {
+            return {
+                items: Object,
                 currentPage: 1,
                 perPage: 5,
                 totalRows: Number,
@@ -114,16 +126,6 @@
             },
             isActive(from, to) {
                 this.moment().isBetween(from, to)
-            }
-        },
-        computed: {
-            sortOptions() {
-                // Create an options list from our fields
-                return this.fields
-                    .filter(f => f.sortable)
-                    .map(f => {
-                        return {text: f.label, value: f.key}
-                    })
             }
         }
     }
