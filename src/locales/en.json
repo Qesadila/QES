@@ -48,4 +48,11 @@
   "AnswerRequired": "Answer is required.",
   "OpenRequired": "Open from and Open until are required.",
   "OpenUntilLessThanOpenFrom.": "Open until cannot be less than Open from."
+  "VotingHistory": {
+    "pageHeading": "Voting History"
+  },
+  "BallotWithQuestion": {
+    "chosenOptions": "Options you chose",
+    "notChosenOptions": "Options you didn't choose"
+  }
 }
