@@ -1,5 +1,4 @@
 <template>
-    <div>
         <demo-card :heading="$t('votingsHeader')">
             <b-card class="main-card mb-4">
                 <b-row>
@@ -56,7 +55,6 @@
                 </b-table>
             </b-card>
         </demo-card>
-    </div>
 </template>
 
 <script>

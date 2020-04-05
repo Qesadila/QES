@@ -1,32 +1,15 @@
-# qualified-electronic-signature-voting-system
+Qesadila is open source voting system which is using Qualified Electronic Signature to verify the voting process.
 
-## Build
-![Node.js CI](https://github.com/gstaron/QES/workflows/Node.js%20CI/badge.svg)
+Licence: GNU GPLv2
 
-## Project setup
-```
-npm install
-```
+QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionControl
+ - WPF Desktop application
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+QesadilaBackend: https://dev.azure.com/Qesadila/QesadilaBackend
+ - Docker container build using .net core, DB: RAM or CosmosDB
+ - Our solution is hosted in Azure
+ 
+QesadilaFrontend: https://github.com/Qesadila/QES/
+ - VUE web app
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Class diagram: https://app.quickdatabasediagrams.com/#/d/5Meb4N

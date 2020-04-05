@@ -66,4 +66,9 @@
   "actions": "Actions",
   "filterByName": "Filter By Name",
   "ManageVotersLists": "Voters Lists"
+  "Results": "Results",
+  "Result": "Result",
+  "refreshResults": "Refresh Results",
+  "totalVotes":"Total votes",
+  "totalEligible":"Total Eligible Voters"
 }

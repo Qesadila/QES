@@ -59,11 +59,16 @@
   "OpenUntilLessThanOpenFrom.": "Otvorené Do nemôže byť menšie ako Otvorené Od.",
   "votingsList": "Zoznam hlasovaní",
   "votingFrom": "Otvorené od",
-  "votingTo": "Otvorené do:",
+  "votingTo": "Otvorené do",
   "votingAction": "Hlasovať",
   "votingDetail": "Detail",
   "votingsHeader": "Hlasovania",
   "actions": "Akcie",
   "filterByName": "Filtrovať podľa otázky",
-  "ManageVotersLists": "Zoznamy Voličov"
+  "ManageVotersLists": "Zoznamy Voličov",
+  "Results": "Výsledky",
+  "Result": "Výsledok",
+  "refreshResults": "Obnov výsledky",
+  "totalVotes":"Celkový počet hlasov",
+  "totalEligible":"Celkový počet všetkých voličov"
 }

@@ -102,12 +102,22 @@
 
             setRole(role) {
                 localStorage.setItem('role', role)
-                this.$emit('roleChanged')
+                this.$emit('roleChanged' ,role)
             }
         },
 
         mounted() {
             this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
+            let roleLabel = localStorage.getItem('role');
+            if(roleLabel === 'voter'){
+                this.$router.replace('/voting')
+            } else if (roleLabel === 'votingManager') {
+                this.$router.replace('/voting-management/manage-voting')
+            } else if(roleLabel === 'votingListManager'){
+                this.$router.replace('/voting-list-management/manage-list')
+            } else{
+                this.$router.replace('/')
+            }
         }
     }
 
