@@ -2,7 +2,7 @@
     <div>
         <layout-wrapper>
             <li v-for="voting in votings" style="list-style-type: none;">
-                <demo-card heading="Edit the voting" >
+                <demo-card :heading="$t('EditVoting')" >
                     <forms :data="voting"></forms>
                 </demo-card>
             </li>
@@ -37,8 +37,8 @@
                         question: 'Who would you vote for a prime minister?',
                         mandatory: true,
                         public_: false,
-                        from: null,
-                        until: null,
+                        numberOfPositiveAnswers: 2,
+                        numberOfNegativeAnswers: 1,
                         answers: [ { text: "Igor Matovič" }, { text: "Boris Kollár" }, { text: "Richard Sulík" }, { text: "Veronika Remišová" } ]
                     }
                 ],
@@ -47,16 +47,16 @@
                         question: 'What would you like to have in youth park?',
                         mandatory: true,
                         public_: true,
-                        from: null,
-                        until: null,
+                        numberOfPositiveAnswers: 2,
+                        numberOfNegativeAnswers: 1,
                         answers: [ { text: "Trees" }, { text: "Benches" }, { text: "Trashbins" } ]
                     },
                     {
                         question: 'Are you crazy enough?',
                         mandatory: false,
                         public_: false,
-                        from: null,
-                        until: null,
+                        numberOfPositiveAnswers: 2,
+                        numberOfNegativeAnswers: 1,
                         answers: [ { text: "Just a little bit..." }, { text: "Of course nope!" } ]
                     }
                 ]
