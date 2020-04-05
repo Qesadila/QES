@@ -22,9 +22,7 @@
   "ChooseAnswer": "Odpoveď",
   "SelectOne": "Vyberte jednu možnosť",
   "SelectMore": "Vyberte jednu alebo viac možností",
-  "VoteListMenuItem": "Zoznam hlasovaní"
-  "SelectOne": "Vyberte jednu",
-  "SelectMore": "Vyberte viacero",
+  "VoteListMenuItem": "Zoznam hlasovaní",
   "numberOfPositiveAnswers": "Počet kladných odpovedí",
   "numberOfNegativeAnswers": "Počet negatívnych odpovedí",
   "voterLists": "Zoznamy voličov",
