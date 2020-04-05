@@ -3,7 +3,7 @@
 
     <v-card style="padding: 10px">
       <v-text-field
-        v-model="name"
+        v-model="voting.label"
         :counter="255"
         :label="$t('label')"
         required
@@ -19,7 +19,7 @@
 
     <v-divider/>
 
-    <li v-for="(form, formNr) in forms" style="list-style-type: none;">
+    <li v-for="(form, formNr) in voting.forms" style="list-style-type: none;">
       <v-card style="padding: 10px; margin-bottom: 10px" >
         <v-text-field
           v-model="form.question"
@@ -27,8 +27,8 @@
           :counter="255"
           :label="$t('Question')"
           required
-          @input="$v.forms.$each.$iter[formNr].question.$touch()"
-          @blur="$v.forms.$each.$iter[formNr].question.$touch()" 
+          @input="$v.voting.forms.$each.$iter[formNr].question.$touch()"
+          @blur="$v.voting.forms.$each.$iter[formNr].question.$touch()" 
         ></v-text-field>
 
         <li v-for="(answer, answerNr) in form.answers" style="list-style-type: none;">
@@ -37,8 +37,8 @@
             :error-messages="answerErrors(formNr, answerNr)"
             :label="$t('Answer') + ' ' + (answerNr + 1)"
             required
-            @input="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
-            @blur="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
+            @input="$v.voting.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
+            @blur="$v.voting.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
             style="width: 98%"
           ></v-text-field>
           <div v-if="form.answers.length > 1" @click="removeAnswer(form, answer)" title="Remove answer" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
@@ -91,7 +91,7 @@
         ></v-checkbox>
                   <!-- style="margin-top: -20px;" -->
 
-        <div v-if="forms.length > 1" @click="removeForm(form)" title="Remove question" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
+        <div v-if="voting.forms.length > 1" @click="removeForm(form)" title="Remove question" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
           <i class="pe-7s-close"> </i>
         </div>
       </v-card>
@@ -117,13 +117,19 @@
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
   const blankForm = {
-    question: '',
-    mandatory: false,
-    public_: false,
-    numberOfPositiveAnswers: 1,
-    numberOfNegativeAnswers: 0,
-    answers: [ { text: "" } ]
-  }
+                            question: '',
+                            mandatory: false,
+                            public_: false,
+                            numberOfPositiveAnswers: 2,
+                            numberOfNegativeAnswers: 1,
+                            answers: [ { text: "" } ]
+                        }
+  const blankVoting = {
+                    openFrom: null, 
+                    openUntil: null,
+                    name:'',
+                    forms: [ blankForm ]
+                }
 
   export default {
     mixins: [validationMixin],
@@ -135,22 +141,24 @@
 
     props: {
       data: {
-        type: Array,
-        description: "Existing voting forms data"
+        type: Object,
+        description: "Existing voting form's data"
       }
     },
 
     validations: {
-      forms: {
-        $each: {
-          question: {
-            required
-          },
-          answers: {
-            required,
-            $each: {
-              text: {
-                required
+      voting: {
+        forms: {
+          $each: {
+            question: {
+              required
+            },
+            answers: {
+              required,
+              $each: {
+                text: {
+                  required
+                }
               }
             }
           }
@@ -159,12 +167,8 @@
     },
 
     data: () => ({   
-      from: null,
-      until: null,   
-      name: null,
       dateError: "",
-
-      forms: []
+      voting: { forms: [] }
     }),
 
     computed: {
@@ -173,7 +177,7 @@
 
     mounted() {
       if (this.data) {
-        this.forms = this.data
+        this.voting = this.data
       } else {
         this.addNewForm()
       }
@@ -186,34 +190,39 @@
         if (!this.from || !this.until) {
           this.dateError = this.$t("OpenRequired")
         } else {
-            // this.$http
-            // .post("http://qesadila.azurewebsites.net/v1/Voting/GetAll", {
-            //     email: this.email,
-            //     passwordSHA256Hash: this.password
-            // })
-            // .then(response => {
-            //     localStorage.setItem('role', 'voter')
-            //     localStorage.setItem('token', 'lala') //response.data
-            //     console.log(localStorage.token)
-
-            //     this.$router.replace(this.$route.query.redirect || '/')
-            // })
-            // .catch(error => {
-            //     console.log(error)
-            //     this.message = error.message
-            // })
+            this.$http
+            .put("http://qesadila.azurewebsites.net/v1/Voting/Form", {
+openFrom: "21-4-2020", 
+openUntil: "25-4-2020",
+voterListID: 44,
+forms: [
+{
+    question: '',
+    isMandatory: false,
+    isPublic: false,
+    numberOfPositiveAnswers: 2,
+    numberOfNegativeAnswers: 1,
+    answers: [ { option: "answer", document: ''  }, ],
+    document: ''
+ }]})
+            .then(response => {
+              console.log(response);
+            })
+            .catch(error => {
+                console.log(error)
+                this.message = error.message
+            })
         }
       },
       clear () {
         this.$v.$reset()
-
-        this.forms = [ blankForm ]
+        this.voting = JSON.parse(JSON.stringify(blankVoting))
       },       
 
       questionErrors (nr) {
         let errors = []
-        if (!this.$v.forms.$each.$iter[nr].question.$dirty) return errors
-        !this.$v.forms.$each.$iter[nr].question.required && errors.push(this.$t('QuestionRequired'))
+        if (!this.$v.voting.forms.$each.$iter[nr].question.$dirty) return errors
+        !this.$v.voting.forms.$each.$iter[nr].question.required && errors.push(this.$t('QuestionRequired'))
         return errors
       },
       positiveErrors(formNr) {
@@ -224,8 +233,8 @@
       },
       answerErrors (formNr, answerNr) {
         let errors = []
-        if (!this.$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$dirty) return errors
-        !this.$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.required && errors.push(this.$t('AnswerRequired'))
+        if (!this.$v.voting.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$dirty) return errors
+        !this.$v.voting.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.required && errors.push(this.$t('AnswerRequired'))
         return errors
       },
 
@@ -254,10 +263,10 @@
       },
 
       addNewForm() {
-        this.forms.push(blankForm)
+        this.voting.forms.push(JSON.parse(JSON.stringify(blankForm)))
       },
       removeForm(form) {
-        this.forms.splice(this.forms.indexOf(form), 1)
+        this.voting.forms.splice(this.voting.forms.indexOf(form), 1)
       }
     }
   }
