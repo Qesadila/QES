@@ -57,7 +57,7 @@
                             },
                             {
                                 href: '/voting-list-management/manage-list',
-                                title: this.$t('VotingListManagement')
+                                title: this.$t('ManageVotersLists')
                             }
                         ]
     },

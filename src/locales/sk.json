@@ -42,7 +42,7 @@
   "VotingListManagement": "Správa zoznamov voličov",
   "Votings": "Hlasovania",
   "Voting": "Hlasovanie",
-  "ManageVoters": "Správa voličov",
+  "ManageVoters": "Voliči",
   "EditVoting": "Upraviť Hlasovanie",
   "CreateNewVoting": "Vytvoriť Nové Hlasovanie",
   "OpenFrom": "Otvorené Od",
@@ -64,5 +64,6 @@
   "votingDetail": "Detail",
   "votingsHeader": "Hlasovania",
   "actions": "Akcie",
-  "filterByName": "Filtrovať podľa otázky"
+  "filterByName": "Filtrovať podľa otázky",
+  "ManageVotersLists": "Zoznamy Voličov"
 }
