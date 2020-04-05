@@ -1,5 +1,12 @@
 <template>
   <form>
+        <v-text-field
+          v-model="name"
+          :counter="255"
+          :label="$t('label')"
+          required
+        ></v-text-field>
+
     <datepicker @fromSet="fromSet" @untilSet="untilSet"></datepicker>
 
     <div v-if="dateError" style="color: red">
@@ -22,7 +29,7 @@
           <v-text-field
             v-model="answer.text"
             :error-messages="answerErrors(formNr, answerNr)"
-            :label="$t('Answer')"
+            :label="$t('Answer') + ' ' + (answerNr + 1)"
             required
             @input="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
             @blur="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
@@ -33,12 +40,13 @@
           </div>
         </li>
 
-        <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-top: 10px" @click="addNewAnswer(form)">
+        <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success"  @click="addNewAnswer(form)">
+          <!-- style="margin-top: 10px" -->
             <font-awesome-icon class="mr-2" icon="plus"/>
             {{ $t('AddNewAnswer') }}
         </button>
 
-        <div style="margin-top: 20px">{{ $t('numberOfPositiveAnswers') }}:</div> <v-text-field
+        <!-- <div style="margin-top: 20px">{{ $t('numberOfPositiveAnswers') }}:</div> <v-text-field
           v-model="form.numberOfPositiveAnswers"
           :error-messages="positiveErrors(formNr)"
           required
@@ -60,22 +68,22 @@
           @input="$v.forms.$each.$iter[formNr].numberOfNegativeAnswers.$touch()"
           @blur="$v.forms.$each.$iter[formNr].numberOfNegativeAnswers.$touch()" 
           style="width: 3%"
-        ></v-text-field>
+        ></v-text-field> -->
       
-        <v-checkbox
+        <!-- <v-checkbox
           v-model="form.mandatory"      
           :label="$t('Mandatory')"
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
-        ></v-checkbox>
+        ></v-checkbox> -->
 
         <v-checkbox
           v-model="form.public_"      
           :label="$t('Public')"
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
-          style="margin-top: -20px;"
         ></v-checkbox>
+                  <!-- style="margin-top: -20px;" -->
 
         <div v-if="forms.length > 1" @click="removeForm(form)" title="Remove question" class="font-icon-wrapper" style="width: 2%;border: none;float: right;margin-top: -55px; color: red">
           <i class="pe-7s-close"> </i>
@@ -147,6 +155,7 @@
     data: () => ({   
       from: null,
       until: null,   
+      name: null,
       dateError: "",
 
       forms: []
