@@ -1,17 +1,23 @@
 <template>
   <form>
-        <v-text-field
-          v-model="name"
-          :counter="255"
-          :label="$t('label')"
-          required
-        ></v-text-field>
 
-    <datepicker @fromSet="fromSet" @untilSet="untilSet"></datepicker>
+    <v-card style="padding: 10px">
+      <v-text-field
+        v-model="name"
+        :counter="255"
+        :label="$t('label')"
+        required
+      ></v-text-field>
 
-    <div v-if="dateError" style="color: red">
-      {{ dateError }}
-    </div>
+      <datepicker @fromSet="fromSet" @untilSet="untilSet"></datepicker>
+
+      <div v-if="dateError" style="color: red">
+        {{ dateError }}
+      </div>
+
+    </v-card>
+
+    <v-divider/>
 
     <li v-for="(form, formNr) in forms" style="list-style-type: none;">
       <v-card style="padding: 10px; margin-bottom: 10px" >
