@@ -26,7 +26,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/voting-management/manage-voting'
+            redirect: '/voting/vote/1'
         },
         {
             name: 'new-voting',

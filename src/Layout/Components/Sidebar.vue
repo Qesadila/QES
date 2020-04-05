@@ -37,13 +37,13 @@
                         href: '/',
                         child: [
                             {
-                                href: '/voting-management/new-voting',
-                                title: this.$t('CreateVoting')
+                                href: '/voting-management/manage-voting',
+                                title: this.$t('votingsList')
                             },
                             {
-                                href: '/voting-management/manage-voting',
-                                title: this.$t('VotingManagement')
-                            }
+                                href: '/voting-management/new-voting',
+                                title: this.$t('CreateVoting')
+                            }                            
                         ]
     },
     votingListManagementMenu: {

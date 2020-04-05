@@ -54,5 +54,6 @@
   "BallotWithQuestion": {
     "chosenOptions": "Options you chose",
     "notChosenOptions": "Options you didn't choose"
-  }
+  },
+  "votingsList": "Votings List"
 }

@@ -170,6 +170,23 @@
 
         if (!this.from || !this.until) {
           this.dateError = this.$t("OpenRequired")
+        } else {
+            // this.$http
+            // .post("http://qesadila.azurewebsites.net/v1/Voting/GetAll", {
+            //     email: this.email,
+            //     passwordSHA256Hash: this.password
+            // })
+            // .then(response => {
+            //     localStorage.setItem('role', 'voter')
+            //     localStorage.setItem('token', 'lala') //response.data
+            //     console.log(localStorage.token)
+
+            //     this.$router.replace(this.$route.query.redirect || '/')
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            //     this.message = error.message
+            // })
         }
       },
       clear () {
