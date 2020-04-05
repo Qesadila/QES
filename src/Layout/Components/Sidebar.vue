@@ -58,7 +58,7 @@
                             {
                                 href: '/voting-list-management/manage-list',
                                 title: this.$t('VotingListManagement')
-                            }                            
+                            }
                         ]
     },
     votingMenu: {
@@ -68,7 +68,7 @@
                         child: [
                             {
                                 href: '/voting',
-                                title: 'Voting List'
+                                title: this.$t('VoteListMenuItem')
                             },
                         ]
                     },

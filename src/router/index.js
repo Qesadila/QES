@@ -8,7 +8,7 @@ const requireAuth = (to, from, next) => {
         next({
             path: '/login',
             query: { redirect: to.fullPath }
-          })        
+          })
     } else if (localStorage.role === 'anonymous') {
       next({
         path: '/voting',
@@ -61,7 +61,7 @@ export default new Router({
         {
             name: 'vote',
             path: '/voting/:id',
-            component: () => import('../Layout/Components/Vote.vue'),
+            component: () => import('../pages/VotingHistory.vue'),
         },
         {
             name: 'voting-history',

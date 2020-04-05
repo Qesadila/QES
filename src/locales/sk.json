@@ -55,5 +55,12 @@
   "QuestionRequired": "Otázka je povinná.",
   "AnswerRequired": "Odpoveď je povinná.",
   "OpenRequired": "Otvorené Od a Otvorené Do sú povinné.",
-  "OpenUntilLessThanOpenFrom.": "Otvorené Do nemôže byť menšie ako Otvorené Od."
+  "OpenUntilLessThanOpenFrom.": "Otvorené Do nemôže byť menšie ako Otvorené Od.",
+  "votingFrom": "Otvorené od",
+  "votingTo": "Otvorené do:",
+  "votingAction": "Hlasovať",
+  "votingDetail": "Detail",
+  "votingsHeader": "Hlasovania",
+  "actions": "Akcie",
+  "filterByName": "Filtrovať podľa otázky"
 }
