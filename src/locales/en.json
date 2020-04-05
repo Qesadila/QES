@@ -15,4 +15,11 @@
   "ChooseAnswer": "Answer",
   "SelectOne": "Select One",
   "SelectMore": "Select More"
+  "VotingHistory": {
+    "pageHeading": "Voting History"
+  },
+  "BallotWithQuestion": {
+    "chosenOptions": "Options you chose",
+    "notChosenOptions": "Options you didn't choose"
+  }
 }

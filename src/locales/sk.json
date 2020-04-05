@@ -11,6 +11,13 @@
   "RecoverPassword": "Obnovit Heslo",
   "MyAccount": "Moje Konto",
   "Settings": "Nastavenia",
+  "VotingHistory": {
+    "pageHeading": "História hlasovania"
+  },
+  "BallotWithQuestion": {
+    "chosenOptions": "Vami zvolené možnosti",
+    "notChosenOptions": "Vami nezvolené možnosti"
+  },
   "anonymous": "Anonym",
   "ChooseAnswer": "Odpoveď",
   "SelectOne": "Vyber jednu",
