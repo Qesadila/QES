@@ -1,6 +1,7 @@
 import Vue from "vue";
 import "./plugins/vuetify";
 import router from "./router";
+import moment from "moment";
 
 import BootstrapVue from "bootstrap-vue";
 
@@ -25,6 +26,8 @@ const token = localStorage.getItem("token");
 if (token) {
   Vue.prototype.$http.defaults.headers.common["Authorization"] = token;
 }
+Vue.prototype.$http = Axios;
+Vue.prototype.moment = moment;
 
 new Vue({
   el: "#app",

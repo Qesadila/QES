@@ -2,22 +2,22 @@
     <div class="header-dots">
 
         <b-dropdown toggle-class="p-0 mr-2" menu-class="dropdown-menu-xl" variant="link" no-caret right>
-            <span slot="button-content">
-                <div class="icon-wrapper icon-wrapper-alt rounded-circle">
-                    <div class="icon-wrapper-bg bg-danger"></div>
-                    <i class="lnr-bullhorn text-danger"></i>
-                    <div class="badge badge-dot badge-dot-sm badge-danger">Notifications</div>
-                </div>
-            </span>
-            <div class="dropdown-menu-header mb-0">
-                <div class="dropdown-menu-header-inner bg-deep-blue">
-                    <div class="menu-header-image opacity-1 dd-header-bg-2"></div>
-                    <div class="menu-header-content text-dark">
-                        <h5 class="menu-header-title">Notifications</h5>
-                        <h6 class="menu-header-subtitle">You have <b>21</b> unread messages</h6>
-                    </div>
-                </div>
-            </div>
+    <!--            <span slot="button-content">-->
+    <!--                <div class="icon-wrapper icon-wrapper-alt rounded-circle">-->
+    <!--                    <div class="icon-wrapper-bg bg-danger"></div>-->
+    <!--                    <i class="lnr-bullhorn text-danger"></i>-->
+    <!--                    <div class="badge badge-dot badge-dot-sm badge-danger">Notifications</div>-->
+    <!--                </div>-->
+    <!--            </span>-->
+    <!--            <div class="dropdown-menu-header mb-0">-->
+    <!--                <div class="dropdown-menu-header-inner bg-deep-blue">-->
+    <!--                    <div class="menu-header-image opacity-1 dd-header-bg-2"></div>-->
+    <!--                    <div class="menu-header-content text-dark">-->
+    <!--                        <h5 class="menu-header-title">Notifications</h5>-->
+    <!--                        <h6 class="menu-header-subtitle">You have <b>21</b> unread messages</h6>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
             <div class="nav-justified">
                 <b-tabs class="card-header-tab-animation" card>
                     <b-tab title="Messages" class="p-3" active>

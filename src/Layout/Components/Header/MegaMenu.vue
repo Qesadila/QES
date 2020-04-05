@@ -16,9 +16,10 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voter')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voter') }}</button>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting Manager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voterManager') }}</button>
-                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('Voting List Manager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voterListManager') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('anonymous')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('anonymous') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('voter')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('voter') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('votingManager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('votingManager') }}</button>
+                    <button type="button" tabindex="0" class="dropdown-item" @click="setRole('votingListManager')"><i class="dropdown-icon lnr-file-empty"> </i>{{ $t('votingListManager') }}</button>
                 </b-dropdown>
             </li>
         </ul>
@@ -106,7 +107,7 @@
         },
 
         mounted() {
-            this.notAnonymous = localStorage.role !== 'Anonymous'
+            this.notAnonymous = localStorage.role !== 'anonymous'
         }
     }
 

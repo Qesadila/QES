@@ -1,28 +1,28 @@
 <template>
   <form>
+    <datepicker @fromSet="fromSet" @untilSet="untilSet"></datepicker>
+
+    <div v-if="dateError" style="color: red">
+      {{ dateError }}
+    </div>
+
     <li v-for="(form, formNr) in forms" style="list-style-type: none;">
       <v-card style="padding: 10px; margin-bottom: 10px" >
         <v-text-field
           v-model="form.question"
           :error-messages="questionErrors(formNr)"
           :counter="255"
-          label="Question"
+          :label="$t('Question')"
           required
           @input="$v.forms.$each.$iter[formNr].question.$touch()"
           @blur="$v.forms.$each.$iter[formNr].question.$touch()" 
         ></v-text-field>
 
-        <datepicker :form="form" @fromSet="fromSet" @untilSet="untilSet"></datepicker>
-
-        <div v-if="form.dateError" style="color: red">
-          {{ form.dateError }}
-        </div>
-
         <li v-for="(answer, answerNr) in form.answers" style="list-style-type: none;">
           <v-text-field
             v-model="answer.text"
             :error-messages="answerErrors(formNr, answerNr)"
-            label="Answer"
+            :label="$t('Answer')"
             required
             @input="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
             @blur="$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$touch()"
@@ -35,19 +35,43 @@
 
         <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-top: 10px" @click="addNewAnswer(form)">
             <font-awesome-icon class="mr-2" icon="plus"/>
-            Add New Answer
+            {{ $t('AddNewAnswer') }}
         </button>
+
+        <div style="margin-top: 20px">{{ $t('numberOfPositiveAnswers') }}:</div> <v-text-field
+          v-model="form.numberOfPositiveAnswers"
+          :error-messages="positiveErrors(formNr)"
+          required
+          type="number"
+          min="0"
+          :max="form.answers.length"
+          @input="$v.forms.$each.$iter[formNr].numberOfPositiveAnswers.$touch()"
+          @blur="$v.forms.$each.$iter[formNr].numberOfPositiveAnswers.$touch()" 
+          style="width: 3%"
+        ></v-text-field>
+
+        <div>{{ $t('numberOfNegativeAnswers') }}:</div> <v-text-field
+          v-model="form.numberOfNegativeAnswers"
+          :error-messages="negativeErrors(formNr)"
+          required
+          type="number"
+          min="0"
+          :max="form.answers.length"
+          @input="$v.forms.$each.$iter[formNr].numberOfNegativeAnswers.$touch()"
+          @blur="$v.forms.$each.$iter[formNr].numberOfNegativeAnswers.$touch()" 
+          style="width: 3%"
+        ></v-text-field>
       
         <v-checkbox
           v-model="form.mandatory"      
-          label="Mandatory"
+          :label="$t('Mandatory')"
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
         ></v-checkbox>
 
         <v-checkbox
           v-model="form.public_"      
-          label="Public"
+          :label="$t('Public')"
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
           style="margin-top: -20px;"
@@ -62,31 +86,29 @@
     <div style="margin-bottom: 10px;">
       <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" @click="addNewForm">
         <font-awesome-icon class="mr-2" icon="plus"/>
-        Add New Question
+        {{ $t('AddNewQuestion') }}
       </button>
     </div>
     
-    <v-btn @click="submit">submit</v-btn>
-    <v-btn @click="clear">clear</v-btn>
+    <v-btn @click="submit">{{ $t('submit') }}</v-btn>
+    <v-btn @click="clear">{{ $t('clear') }}</v-btn>
   </form>
 </template>
 
 <script>
   import { validationMixin } from 'vuelidate'
-  import { required, minLength } from 'vuelidate/lib/validators'
+  import { required, minValue } from 'vuelidate/lib/validators'
 
-  import datepicker from '@/components/datepicker';
+  import datepicker from '@/components/rangeDatepicker';
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
   const blankForm = {
     question: '',
     mandatory: false,
     public_: false,
-    from: null,
-    until: null,      
-    answers: [ { text: "" } ],
-
-    dateError: ""
+    numberOfPositiveAnswers: 1,
+    numberOfNegativeAnswers: 0,
+    answers: [ { text: "" } ]
   }
 
   export default {
@@ -123,6 +145,10 @@
     },
 
     data: () => ({   
+      from: null,
+      until: null,   
+      dateError: "",
+
       forms: []
     }),
 
@@ -142,11 +168,9 @@
       submit () {
         this.$v.$touch()
 
-        this.forms.forEach(form => {
-          if (!form.from || !form.until) {
-            form.dateError = "Open from and Open until are required."
-          }
-        })
+        if (!this.from || !this.until) {
+          this.dateError = this.$t("OpenRequired")
+        }
       },
       clear () {
         this.$v.$reset()
@@ -157,30 +181,36 @@
       questionErrors (nr) {
         let errors = []
         if (!this.$v.forms.$each.$iter[nr].question.$dirty) return errors
-        !this.$v.forms.$each.$iter[nr].question.required && errors.push('Question is required.')
+        !this.$v.forms.$each.$iter[nr].question.required && errors.push(this.$t('QuestionRequired'))
         return errors
+      },
+      positiveErrors(formNr) {
+
+      },
+      negativeErrors(formNr) {
+
       },
       answerErrors (formNr, answerNr) {
         let errors = []
         if (!this.$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$dirty) return errors
-        !this.$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.required && errors.push('Answer is required.')
+        !this.$v.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.required && errors.push(this.$t('AnswerRequired'))
         return errors
       },
 
-      fromSet(val, form) {
-        if (form.until < val) {
-          form.dateError = 'Open until cannot be less than Open from.'
+      fromSet(val) {
+        if (this.until < val) {
+          this.dateError = this.$t('OpenUntilLessThanOpenFrom')
         } else {
-          form.from = val
-          form.dateError = ""
+          this.from = val
+          this.dateError = ""
         }
       },
-      untilSet(val, form) {
-        if (val < form.from) {
-          form.dateError = 'Open until cannot be less than Open from.'
+      untilSet(val) {
+        if (val < this.from) {
+          this.dateError = this.$t('OpenUntilLessThanOpenFrom')
         } else {
-          form.until = val
-          form.dateError = ""
+          this.until = val
+          this.dateError = ""
         }        
       },
 
