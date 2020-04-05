@@ -57,7 +57,7 @@
                             },
                             {
                                 href: '/voting-list-management/manage-list',
-                                title: this.$t('VotingListManagement')
+                                title: this.$t('ManageVotersLists')
                             }
                         ]
     },
@@ -98,10 +98,10 @@
                         this.menu.push(this.votingListManagementMenu)
                     } else if (localStorage.role === 'votingManager') {
                         this.menu.push(this.votingManagementMenu)
+                    } else if (localStorage.role === 'voter' || localStorage.role === 'anonymous') {
+                        this.menu.push(this.votingMenu)
                     }
-                }
-
-                this.menu.push(this.votingMenu)
+                }                
             },
 
             toggleBodyClass(className) {

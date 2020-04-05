@@ -35,7 +35,7 @@
   "VotingListManagement": "Voting List Management",
   "Votings": "Votings",
   "Voting": "Voting",
-  "ManageVoters": "Manage Voters",
+  "ManageVoters": "Voters",
   "EditVoting": "Edit the Voting",
   "CreateNewVoting": "Create New Voting",
   "OpenFrom": "Open From",
@@ -65,6 +65,7 @@
   "votingsHeader": "Votings",
   "actions": "Actions",
   "filterByName": "Filter By Name",
+  "ManageVotersLists": "Voters Lists"
   "Results": "Results",
   "Result": "Result",
   "refreshResults": "Refresh Results",
