@@ -84,6 +84,7 @@
             openFrom: new Date().toDateString(),
             openUntil: new Date().toDateString(),
             active: false,
+            _rowVariant: 'success',
             questions: [
                 {
                     question: 'What would you like to have in youth park?',
@@ -91,7 +92,7 @@
                     public_: true,
                     from: null,
                     until: null,
-                    answers: [{text: "Trees"}, {text: "Benches"}, {text: "Trashbins"}]
+                    answers: [{text: "Trees"}, {text: "Benches"}, {text: "Trashbins"}],
                 },
                 {
                     question: 'Are you crazy enough?',
@@ -113,7 +114,7 @@
             return {
                 items: votings,
                 fields: [
-                    {key: 'label', label: this.$t('Question'), sortable: false},
+                    {key: 'name', label: this.$t('Voting'), sortable: false},
                     {key: 'openFrom', label: this.$t('votingFrom'), sortable: true},
                     {key: 'openUntil', label: this.$t('votingTo')},
                     {key: 'active', label: 'Status', 'class': 'text-center'},
@@ -130,7 +131,14 @@
             }
         },
         mounted() {
-            VotingService.getAllVotings();
+            VotingService.getAllVotings()
+                .then(res =>
+                    this.items = res.data.map(voting => voting = {
+                        ...voting,
+                        openFrom: this.moment(voting.openFrom).format('MMM Do YYYY'),
+                        openUntil: this.moment(voting.openUntil).format('MMM Do YYYY'),
+                        _rowVariant: this.isActive(this.moment(voting.openFrom), this.moment(voting.openUntil)) ? 'success' : 'none'
+                    }));
         },
         methods: {
             redirectToVote(idx) {
@@ -143,6 +151,9 @@
             },
             openVotingApp(idx) {
                 alert('open app for vote ' + idx);
+            },
+            isActive(from, to) {
+                this.moment().isBetween(from, to)
             }
         },
         computed: {
