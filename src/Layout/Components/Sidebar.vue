@@ -37,13 +37,13 @@
                         href: '/',
                         child: [
                             {
-                                href: '/voting-management/new-voting',
-                                title: this.$t('CreateVoting')
+                                href: '/voting-management/manage-voting',
+                                title: this.$t('votingsList')
                             },
                             {
-                                href: '/voting-management/manage-voting',
-                                title: this.$t('VotingManagement')
-                            }
+                                href: '/voting-management/new-voting',
+                                title: this.$t('CreateVoting')
+                            }                            
                         ]
     },
     votingListManagementMenu: {
@@ -62,10 +62,14 @@
                         ]
     },
     votingMenu: {
-                        title: this.$t('Voting'),
+                        title: this.$t('Votings'),
                         icon: 'pe-7s-note2',
                         href: '/voting',
                         child: [
+                            {
+                                href: '/voting/history',
+                                title: this.$t('VotingHistory.pageHeading')
+                            },                  
                             {
                                 href: '/voting',
                                 title: this.$t('VoteListMenuItem')

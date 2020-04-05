@@ -1,11 +1,11 @@
 <template>
     <div>
-        <ul v-if="notAnonymous" class="header-megamenu nav">
+        <ul class="header-megamenu nav">
             <li class="nav-item">
                 <b-dropdown variant="link" no-caret class="dropdown-menu-rounded" menu-class="dropdown-menu-lg">
                     <span slot="button-content">
                         <i class="nav-link-icon pe-7s-users"> </i>
-                        {{ $t('roles') }}
+                        {{ `${$t('roles')} (${role})` }}
                         <font-awesome-icon class="ml-1 opacity-5" icon="angle-down"/>
                     </span>
                     <div class="dropdown-menu-header">
@@ -91,7 +91,7 @@
 
         data() {
             return {
-                notAnonymous: false
+                role: null,
             }
         },
 
@@ -107,7 +107,7 @@
         },
 
         mounted() {
-            this.notAnonymous = localStorage.role !== 'anonymous'
+            this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
         }
     }
 

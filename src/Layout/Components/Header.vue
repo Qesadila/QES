@@ -91,7 +91,8 @@
                 }
             },
 
-            roleChanged() {
+            roleChanged(role) {
+                this.$router.replace(this.$route.query.redirect || '/')
                 location.reload();
             }
         }

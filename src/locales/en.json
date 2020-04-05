@@ -33,6 +33,7 @@
   "VotingManagement": "Voting Management",
   "CreateVoting": "Create Voting",
   "VotingListManagement": "Voting List Management",
+  "Votings": "Votings",
   "Voting": "Voting",
   "ManageVoters": "Manage Voters",
   "EditVoting": "Edit the Voting",
@@ -56,6 +57,7 @@
     "chosenOptions": "Options you chose",
     "notChosenOptions": "Options you didn't choose"
   },
+  "votingsList": "Votings List",
   "votingFrom": "Open from",
   "votingTo": "Open until",
   "votingAction": "Vote",
