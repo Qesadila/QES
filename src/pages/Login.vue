@@ -79,20 +79,22 @@ export default {
 
     methods: {
         loginAnonymous() {
-            localStorage.setItem('loggedIn', true)
-            localStorage.setItem('role', 'Anonymous')
+            localStorage.setItem('token', null)
+            localStorage.setItem('role', 'anonymous')
             this.$router.replace(this.$route.query.redirect || '/voting')
         },
 
         login() {
             // this.$http
-            // .post("http://server/login", {
+            // .post("http://qesadila.azurewebsites.net/v1/Authorize", {
             //     email: this.email,
-            //     password: this.password
+            //     passwordSHA256Hash: this.password
             // })
             // .then(response => {
-                localStorage.setItem('loggedIn', true)
-                localStorage.setItem('role', 'Voter')
+                localStorage.setItem('role', 'voter')
+                localStorage.setItem('token', 'lala') //response.data
+            //     console.log(localStorage.token)
+
                 this.$router.replace(this.$route.query.redirect || '/')
             // })
             // .catch(error => {

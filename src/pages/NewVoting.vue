@@ -1,7 +1,7 @@
 <template>
     <div>
         <layout-wrapper>
-            <demo-card heading="Create new voting" >
+            <demo-card :heading="$t('CreateNewVoting')" >
                 <forms></forms>
             </demo-card>
         </layout-wrapper>
@@ -30,14 +30,7 @@
             icon: 'pe-7s-plane icon-gradient bg-tempting-azure',
         }),
 
-        methods: {},
-
-        mounted() {
-            if (localStorage.loggedIn === undefined || !localStorage.loggedIn) {
-                this.$router.replace(this.$route.query.redirect || '/login')
-            }
-        }
-
+        methods: {}
     }
 
 

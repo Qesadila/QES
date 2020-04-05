@@ -101,19 +101,19 @@
             fill3: {gradient: ["#f6d365", "#fda085"]},
             showDrawerSection: false,
 
-            role: 'Voting Manager'
+            role: ''
         }),
 
         methods: {
             logout() {
-                localStorage.removeItem('loggedIn')
+                localStorage.removeItem('token')
                 localStorage.removeItem('role')
                 this.$router.replace(this.$route.query.redirect || '/login')
             }
         },
 
         mounted() {
-            this.role = localStorage.role
+            this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
         }
     }
 

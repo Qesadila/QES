@@ -23,49 +23,6 @@
     import {SidebarMenu} from 'vue-sidebar-menu'
     import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
-    const votingManagementMenu = {
-                        title: 'Voting Management',
-                        icon: 'pe-7s-note2',
-                        href: '/',
-                        child: [
-                            {
-                                href: '/voting-management/new-voting',
-                                title: 'Create Voting'
-                            },
-                            {
-                                href: '/voting-management/manage-voting',
-                                title: 'Manage Votings'
-                            }
-                        ]
-    }
-
-    const votingListManagementMenu = {
-                        title: 'Voting List Management',
-                        icon: 'lnr-text-align-justify',
-                        href: '/',
-                        child: [
-                            {
-                                href: '/voting-management/new-voting',
-                                title: 'Create Voting'
-                            },
-                            {
-                                href: '/voting-management/manage-voting',
-                                title: 'Manage Votings'
-                            }
-                        ]
-    }
-
-    const votingMenu = {
-                        title: 'Voting',
-                        icon: 'pe-7s-note2',
-                        href: '/voting',
-                        child: [
-                            {
-                                href: '/voting',
-                                title: 'Voting List'
-                            },
-                        ]
-                    }
 
     export default {
         components: {
@@ -74,6 +31,48 @@
         },
         data() {
             return {
+                votingManagementMenu: {
+                        title: this.$t('VotingManagement'),
+                        icon: 'pe-7s-note2',
+                        href: '/',
+                        child: [
+                            {
+                                href: '/voting-management/new-voting',
+                                title: this.$t('CreateVoting')
+                            },
+                            {
+                                href: '/voting-management/manage-voting',
+                                title: this.$t('VotingManagement')
+                            }
+                        ]
+    },
+    votingListManagementMenu: {
+                        title: this.$t('VotingListManagement'),
+                        icon: 'lnr-text-align-justify',
+                        href: '/voting-list-management/manage-list',
+                        child: [
+                            {
+                                href: '/voting-list-management/manage-voter',
+                                title: this.$t('ManageVoters')
+                            },
+                            {
+                                href: '/voting-list-management/manage-list',
+                                title: this.$t('VotingListManagement')
+                            }                            
+                        ]
+    },
+    votingMenu: {
+                        title: this.$t('Voting'),
+                        icon: 'pe-7s-note2',
+                        href: '/voting',
+                        child: [
+                            {
+                                href: '/voting',
+                                title: 'Voting List'
+                            },
+                        ]
+                    },
+
                 isOpen: false,
                 sidebarActive: false,
 
@@ -91,14 +90,14 @@
         methods: {
             initMenu() {
                 if ('role' in localStorage) {
-                    if (localStorage.role === 'Voting List Manager') {
-                        this.menu.push(votingListManagementMenu)
-                    } else if (localStorage.role === 'Voting Manager') {
-                        this.menu.push(votingManagementMenu)
+                    if (localStorage.role === 'votingListManager') {
+                        this.menu.push(this.votingListManagementMenu)
+                    } else if (localStorage.role === 'votingManager') {
+                        this.menu.push(this.votingManagementMenu)
                     }
                 }
 
-                this.menu.push(votingMenu)
+                this.menu.push(this.votingMenu)
             },
 
             toggleBodyClass(className) {
