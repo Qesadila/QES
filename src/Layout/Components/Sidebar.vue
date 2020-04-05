@@ -62,17 +62,21 @@
                         ]
     },
     votingMenu: {
-                        title: this.$t('Voting'),
+                        title: this.$t('Votings'),
                         icon: 'pe-7s-note2',
                         href: '/voting',
                         child: [
                             {
+                                href: '/voting/history',
+                                title: this.$t('VotingHistory.pageHeading')
+                            },                            
+                            {
                                 href: '/voting/vote/1',
-                                title: 'Voting 1'
+                                title: this.$t('Voting') + ' 1'
                             },
                             {
                                 href: '/voting/vote/2',
-                                title: 'Voting 2'
+                                title: this.$t('Voting') + ' 2'
                             },
                         ]
                     },
