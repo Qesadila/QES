@@ -2,7 +2,7 @@
   <form>
       <v-card style="padding: 10px; margin-bottom: 10px" >
         <v-text-field
-          v-model="voter.Name"
+          v-model="voter.name"
           :counter="255"
           :label="$t('name')"
           required
@@ -14,7 +14,7 @@
 
 
         <v-text-field
-          v-model="voter.SurName"
+          v-model="voter.surName"
           :counter="255"
           :label="$t('surName')"
           required
@@ -28,7 +28,7 @@
 
         <datepicker 
           :label="$t('birthDay')" 
-          :data="voter.Birthday" 
+          :data="voter.birthday" 
           @dateSet="dateSet" ></datepicker>
 
         <!-- <div v-if="form.dateError" style="color: red">
@@ -40,17 +40,17 @@
           @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
 
         <div style="float: left;margin-top: 20px;margin-right: 20px;">{{ $t('voterLists') }}:</div>
-        <multiselect style="margin-top: -30px;" :options="votersLists.map(vl => vl.name)"/>
+        <multiselect style="margin-top: -30px;" :options="votersLists.map(votersList => votersList.name)" @change="change"/>
 
         <v-text-field
-          v-model="voter.CertHash"
+          v-model="voter.certHash"
           :counter="255"
           label="CertHash"
           required
         ></v-text-field>
 
         <v-text-field
-          v-model="voter.FileLinkGDPR"
+          v-model="voter.fileLinkGDPR"
           :counter="255"
           label="FileLinkGDPR"
           required
@@ -63,6 +63,7 @@
       </v-card>
 
     <v-btn @click="submit">{{ $t('submit') }}</v-btn>
+    <v-btn v-if="showCancel" @click="cancel">{{ $t('cancel') }}</v-btn>
     <v-btn @click="clear">{{ $t('clear') }}</v-btn>
   </form>
 </template>
@@ -76,11 +77,11 @@
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
   const blankVoter = {
-    Name: '',
-    SurName: '',
-    Birthday: null,
-    CertHash: "",
-    FileLinkGDPR: "",
+    name: '',
+    surName: '',
+    birthday: null,
+    certHash: "",
+    fileLinkGDPR: "",
   }
 
   export default {
@@ -100,6 +101,10 @@
       votersLists: {
         type: Array,
         description: "Voters lists available for the voter"
+      },
+      showCancel: {
+        type: Boolean,
+        description: "Whether to show Cancel button"
       }
     },
 
@@ -140,12 +145,16 @@
     methods: {
       submit () {
         this.$v.$touch()
+        this.$emit('submit', this.voter)
+        console.log(this.voter)
       },
       clear () {
         this.$v.$reset()
-
         this.voter = JSON.parse(JSON.stringify(blankVoter))
       },       
+      cancel() {
+        this.$emit('cancel')
+      },
 
       questionErrors (nr) {
         let errors = []
@@ -167,6 +176,9 @@
         //   form.from = val
         //   form.dateError = ""
         // }
+      },
+      change(data) {
+        this.voter.votersLists = data
       }
     }
   }

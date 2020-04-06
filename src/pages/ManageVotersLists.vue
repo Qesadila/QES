@@ -1,9 +1,12 @@
 <template>
     <div>
-        <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="addNewVotersList">
+        <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="showNewVotersList = true">
             <font-awesome-icon class="mr-2" icon="plus"/>
             {{ $t('AddNewVotersList') }}
         </button>
+        <demo-card v-show="showNewVotersList">
+            <forms :voters="voters" @submit="addNewVotersList" @cancel="showNewVotersList = false"></forms>
+        </demo-card>
 
         <b-table show-empty
             stacked="md"
@@ -41,10 +44,6 @@
 
     import forms from '@/components/votersListForm';
 
-    const blankVotersList = {
-        id: 0,
-        name: ''
-    }
     const sampleVoters = [ 'Jozo', 'Peto', 'Miso' ]
 
     export default {
@@ -86,6 +85,8 @@
             sortDesc: false,
             sortDirection: 'asc',
             filter: null,
+
+            showNewVotersList: false
         }),
 
         computed: {
@@ -105,8 +106,9 @@
         },
 
         methods: {
-            addNewVotersList() {
-                this.votersLists.push(blankVotersList)
+            addNewVotersList(voter) {
+                this.votersLists.push(voter)
+                this.showNewVotersList = false
             },
             onFiltered (filteredItems) {
                 // Trigger pagination to update the number of buttons/pages due to filtering

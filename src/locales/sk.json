@@ -70,5 +70,7 @@
   "Result": "Výsledok",
   "refreshResults": "Obnov výsledky",
   "totalVotes":"Celkový počet hlasov",
-  "totalEligible":"Celkový počet všetkých voličov"
+  "totalEligible":"Celkový počet všetkých voličov",
+  "Cancel": "Zrušiť",
+  "Edit": "Upraviť"
 }

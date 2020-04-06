@@ -17,6 +17,7 @@
       </v-card>
 
     <v-btn @click="submit">{{ $t('submit') }}</v-btn>
+    <v-btn @click="cancel">{{ $t('cancel') }}</v-btn>
     <v-btn @click="clear">{{ $t('clear') }}</v-btn>
   </form>
 </template>
@@ -91,12 +92,15 @@
     methods: {
       submit () {
         this.$v.$touch()
+        this.$emit('submit', this.votersList)
       },
       clear () {
         this.$v.$reset()
-
         this.votersList = JSON.parse(JSON.stringify(blankVotersList))
-      },       
+      },   
+      cancel() {
+        this.$emit('cancel')
+      },    
 
       questionErrors (nr) {
         let errors = []

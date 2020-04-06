@@ -70,5 +70,7 @@
   "Result": "Result",
   "refreshResults": "Refresh Results",
   "totalVotes":"Total votes",
-  "totalEligible":"Total Eligible Voters"
+  "totalEligible":"Total Eligible Voters",
+  "cancel": "Cancel",
+  "edit": "Edit"
 }

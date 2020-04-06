@@ -15,6 +15,7 @@
             chips
             :label="$t('SelectMore')"
             multiple
+            @change="change"
           ></v-select>
         </v-flex>
       </v-layout>
@@ -31,6 +32,12 @@
       options: {
         type: Array,
         description: "List of options for the selection"
+      }
+    },
+
+    methods: {
+      change(data) {
+        this.$emit('change', data)
       }
     }
   }

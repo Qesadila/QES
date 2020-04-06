@@ -15,7 +15,7 @@
             <template slot="actions" slot-scope="row">
                 <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
                 <b-button size="sm" @click.stop="row.toggleDetails">
-                    {{ row.detailsShowing ? 'Cancel' : 'Edit' }}
+                    {{ row.detailsShowing ? $t('cancel') : $t('edit') }}
                 </b-button>
             </template>
             <template slot="row-details" slot-scope="row">
