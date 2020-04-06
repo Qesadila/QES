@@ -11,6 +11,7 @@ QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionCont
  - WPF Desktop application
 
 QesadilaBackend: https://dev.azure.com/Qesadila/QesadilaBackend
+ - Swagger: https://qesadila.azurewebsites.net/swagger/index.html
  - Docker container build using .net core, DB: RAM or CosmosDB
  - Our solution is hosted in Azure
  
