@@ -1,16 +1,34 @@
 <template>
     <div>
-        <layout-wrapper>
-            <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="addNewVoter">
-                <font-awesome-icon class="mr-2" icon="plus"/>
-                {{ $t('addNewVoter') }}
-            </button>
-            <li v-for="voter in voters" style="list-style-type: none;">
-                <demo-card :heading="$t('editVoter')" >
-                    <forms :data="voter" :votersLists="sampleVotersLists"></forms>
+        <button type="button" class="btn-shadow d-inline-flex align-items-center btn btn-success" style="margin-bottom: 10px" @click="addNewVoter">
+            <font-awesome-icon class="mr-2" icon="plus"/>
+            {{ $t('addNewVoter') }}
+        </button>
+
+        <b-table show-empty
+            stacked="md"
+            :items="items"
+            :fields="fields"
+            :current-page="currentPage"
+            :per-page="perPage"
+            :filter="filter"
+            :sort-by.sync="sortBy"
+            :sort-desc.sync="sortDesc"
+            :sort-direction="sortDirection"
+            @filtered="onFiltered"
+        >
+            <template slot="actions" slot-scope="row">
+                <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
+                <b-button size="sm" @click.stop="row.toggleDetails">
+                    {{ row.detailsShowing ? 'Cancel' : 'Edit' }}
+                </b-button>
+            </template>
+            <template slot="row-details" slot-scope="row">
+                <demo-card>
+                    <forms :data="row.item" :votersLists="sampleVotersLists"></forms>
                 </demo-card>
-            </li>
-        </layout-wrapper>
+            </template>
+        </b-table>
     </div>
 </template>
 
@@ -65,7 +83,6 @@
                             SurName: 'Mrkvicka',
                             Birthday: new Date(1970, 1, 21),
                             CertHash: "213sd23d",
-                            VotersLists: [ sampleVotersLists[0].id ],
                             FileLinkGDPR: "fds23fs32"
                         }, 
                         {
@@ -73,15 +90,46 @@
                             SurName: 'Zeler',
                             Birthday: new Date(1988, 10, 2),
                             CertHash: "213sd23d",
-                            VotersLists: [ sampleVotersLists[1].id ],
                             FileLinkGDPR: "aaa333bbb"
                         }
-                    ]
+                    ],
+
+            currentPage: 1,
+            perPage: 5,
+            totalRows: 0,
+            pageOptions: [ 5, 10, 15 ],
+            sortBy: null,
+            sortDesc: false,
+            sortDirection: 'asc',
+            filter: null,
         }),
+
+        computed: {
+            items() {
+                let ret = this.voters.map(voter => {
+                    return { isActive: true, label: voter.Name, surName: voter.SurName, birthDay: voter.Birthday }
+                })
+                this.totalRows = ret.length
+                return ret
+            },
+            fields() {
+                return [
+                    { key: 'label', label: this.$t('label'), sortable: true},
+                    { key: 'surName', label: this.$t('surName'), sortable: true, 'class': 'text-center' },
+                    { key: 'birthDay', label: this.$t('birthDay'), sortable: true, 'class': 'text-center' },
+                    { key: 'actions', label: 'Actions' }
+                ]
+            }
+        },
 
         methods: {
             addNewVoter() {
                 this.voters.push(blankVoter)
+            },
+            onFiltered (filteredItems) {
+                // Trigger pagination to update the number of buttons/pages due to filtering
+                this.totalRows = filteredItems.length
+                this.currentPage = 1
             }
         }
     }

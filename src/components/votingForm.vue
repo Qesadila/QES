@@ -148,6 +148,7 @@
 
     validations: {
       voting: {
+        name: { required }, // todo: touch stuff for name...
         forms: {
           $each: {
             question: {
@@ -211,7 +212,7 @@ forms: [
             .catch(error => {
                 console.log(error)
                 this.message = error.message
-            })
+            }) 
         }
       },
       clear () {

@@ -35,18 +35,19 @@
           {{ form.dateError }}
         </div> -->
 
+              <!-- :error-messages="questionErrors(formNr)"
+                            @input="$v.forms.$each.$iter[formNr].question.$touch()"
+          @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
+
+        <div style="float: left;margin-top: 20px;margin-right: 20px;">{{ $t('voterLists') }}:</div>
+        <multiselect style="margin-top: -30px;" :options="votersLists.map(vl => vl.name)"/>
+
         <v-text-field
           v-model="voter.CertHash"
           :counter="255"
           label="CertHash"
           required
         ></v-text-field>
-                  <!-- :error-messages="questionErrors(formNr)"
-                            @input="$v.forms.$each.$iter[formNr].question.$touch()"
-          @blur="$v.forms.$each.$iter[formNr].question.$touch()"  -->
-
-        <div style="float: left;margin-top: 20px;margin-right: 20px;">{{ $t('voterLists') }}:</div>
-        <multiselect style="margin-top: -30px;" :options="votersLists.map(vl => vl.name)"/>
 
         <v-text-field
           v-model="voter.FileLinkGDPR"
@@ -77,11 +78,9 @@
   const blankVoter = {
     Name: '',
     SurName: '',
-    Birthday: '',
+    Birthday: null,
     CertHash: "",
-    VotersListIDs: [],
     FileLinkGDPR: "",
-    UserID: 0
   }
 
   export default {
@@ -134,7 +133,7 @@
       if (this.data) {
         this.voter = this.data
       } else {
-        this.voter = blankVoter
+        this.voter = JSON.parse(JSON.stringify(blankVoter))
       }
     },
 
@@ -145,7 +144,7 @@
       clear () {
         this.$v.$reset()
 
-        this.voter = blankVoter
+        this.voter = JSON.parse(JSON.stringify(blankVoter))
       },       
 
       questionErrors (nr) {

@@ -84,7 +84,7 @@
       if (this.data) {
         this.votersList = this.data
       } else {
-        this.votersList = blankVotersList
+        this.votersList = JSON.parse(JSON.stringify(blankVotersList))
       }
     },
 
@@ -95,7 +95,7 @@
       clear () {
         this.$v.$reset()
 
-        this.votersList = blankVotersList
+        this.votersList = JSON.parse(JSON.stringify(blankVotersList))
       },       
 
       questionErrors (nr) {

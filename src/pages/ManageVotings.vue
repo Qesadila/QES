@@ -12,8 +12,6 @@
             :sort-direction="sortDirection"
             @filtered="onFiltered"
         >
-            <!-- <template slot="name" slot-scope="row">{{row.value.first}} {{row.value.last}}</template>
-            <template slot="isActive" slot-scope="row">{{row.value?'Yes :)':'No :('}}</template> -->
             <template slot="actions" slot-scope="row">
                 <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
                 <b-button size="sm" @click.stop="row.toggleDetails">
@@ -21,11 +19,9 @@
                 </b-button>
             </template>
             <template slot="row-details" slot-scope="row">
-                <!-- <b-card class="no-shadow"> -->
-                    <demo-card>
-                        <forms :data="row.item"></forms>
-                    </demo-card>
-                <!-- </b-card> -->
+                <demo-card>
+                    <forms :data="row.item"></forms>
+                </demo-card>
             </template>
         </b-table>
     </div>
@@ -94,7 +90,6 @@
                 }
             ],
 
-            // items: items,            
             currentPage: 1,
             perPage: 5,
             totalRows: 0,
