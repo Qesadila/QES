@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="text-center text-white opacity-8 mt-3">
-            Copyright &copy; ArchitectUI 2019
+            Copyright &copy; QESADILA 2020
           </div>
         </b-col>
       </div>
@@ -112,7 +112,7 @@ export default {
           );
 
           const { data } = await this.$http.post(
-            "http://qesadila.azurewebsites.net/v1/Authorize/Login",
+            "https://qesadila.azurewebsites.net/v1/Authorize/Login",
             fd
           );
 

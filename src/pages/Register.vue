@@ -158,7 +158,7 @@ export default {
             );
 
             const { data } = await this.$http.post(
-              "http://qesadila.azurewebsites.net/v1/Authorize/Register",
+              "https://qesadila.azurewebsites.net/v1/Authorize/Register",
               fd
             );
 

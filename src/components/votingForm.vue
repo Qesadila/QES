@@ -191,7 +191,7 @@
           this.dateError = this.$t("OpenRequired")
         } else {
             this.$http
-            .put("http://qesadila.azurewebsites.net/v1/Voting/Form", {
+            .put("https://qesadila.azurewebsites.net/v1/Voting/Form", {
 openFrom: "21-4-2020", 
 openUntil: "25-4-2020",
 voterListID: 44,
