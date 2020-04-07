@@ -1,34 +1,15 @@
 <template>
     <div class="app-footer">
-        <div class="app-footer__inner">
-            <div class="app-footer-left">
-                <FooterDots/>
-            </div>
-            <div class="app-footer-right">
-                <FooterMenu/>
-            </div>
-        </div>
+        <v-row>
+            <div class="col-12">Qesadila is open source voting system which uses the Qualified Electronic Signature for vote verifications. <a href="https://www.github.com/Qesadila/QES" target="_blank">https://www.github.com/Qesadila/QES</a></div>
+        </v-row>
     </div>
 </template>
 
 <script>
-    import FooterDots from './Footer/FooterDots';
-    import FooterMenu from './Footer/FooterMenu';
-
-    import {library} from '@fortawesome/fontawesome-svg-core'
-    import {
-        faEllipsisV,
-    } from '@fortawesome/free-solid-svg-icons'
-    import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-
-    library.add(
-        faEllipsisV,
-    );
     export default {
         name: "Footer",
         components: {
-            FooterDots,
-            FooterMenu,
         }
     };
 </script>
