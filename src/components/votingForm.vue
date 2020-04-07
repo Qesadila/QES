@@ -201,7 +201,7 @@
         var votingService = new VotingClient('https://qesadila.azurewebsites.net/');
 
         var request = new VotingForm();
-        // request.setOpenFrom(null);       // todo: couldn't figure out how to set request
+        request.setName(this.voting.name);
         var metadata = {'custom-header-1': 'value1'};
         var call = votingService.createForm(request, metadata, function(err, response) {
           if (err) {
