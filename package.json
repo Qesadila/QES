@@ -1,6 +1,6 @@
 {
   "name": "qesadila",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "private": true,
   "description": "Qualified Electronic Signature Voting System",
   "scripts": {
@@ -21,6 +21,8 @@
     "chart.js": "^2.8.0",
     "countup.js": "^1.9.3",
     "es6-promise": "^4.2.6",
+    "google-protobuf": "^3.11.4",
+    "grpc-web": "^1.0.7",
     "increase-memory-limit": "^1.0.6",
     "leaflet": "^1.4.0",
     "linearicons": "^1.0.1",

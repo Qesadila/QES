@@ -113,6 +113,9 @@
   import { validationMixin } from 'vuelidate'
   import { required, minValue } from 'vuelidate/lib/validators'
 
+  import { VotingForm, Response } from '@/services/VotingForm_pb'
+  import { VotingClient } from '@/services/VotingForm_grpc_web_pb'
+
   import datepicker from '@/components/rangeDatepicker';
   import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
@@ -187,37 +190,34 @@
     methods: {
       submit () {
         this.$v.$touch()
-
-        if (!this.from || !this.until) {
-          this.dateError = this.$t("OpenRequired")
-        } else {
-            this.$http
-            .put("http://qesadila.azurewebsites.net/v1/Voting/Form", {
-openFrom: "21-4-2020", 
-openUntil: "25-4-2020",
-voterListID: 44,
-forms: [
-{
-    question: '',
-    isMandatory: false,
-    isPublic: false,
-    numberOfPositiveAnswers: 2,
-    numberOfNegativeAnswers: 1,
-    answers: [ { option: "answer", document: ''  }, ],
-    document: ''
- }]})
-            .then(response => {
-              console.log(response);
-            })
-            .catch(error => {
-                console.log(error)
-                this.message = error.message
-            }) 
-        }
+        this.submitToServer()
       },
       clear () {
         this.$v.$reset()
         this.voting = JSON.parse(JSON.stringify(blankVoting))
+      },
+
+      submitToServer() {
+        var votingService = new VotingClient('https://qesadila.azurewebsites.net/');
+
+        var request = new VotingForm();
+        // request.setOpenFrom(null);       // todo: couldn't figure out how to set request
+        var metadata = {'custom-header-1': 'value1'};
+        var call = votingService.createForm(request, metadata, function(err, response) {
+          if (err) {
+            console.log(err.code);
+            console.log(err.message);
+          } 
+          // else {
+          //   console.log(response.getMessage());
+          // }
+        });
+        call.on('status', function(status) {
+          console.log('code:'+status.code);
+          console.log('details:'+status.details);
+          console.log('metadata:')
+          console.log(status.metadata);
+        });
       },       
 
       questionErrors (nr) {
