@@ -225,12 +225,6 @@ forms: [
         !this.$v.voting.forms.$each.$iter[nr].question.required && errors.push(this.$t('QuestionRequired'))
         return errors
       },
-      positiveErrors(formNr) {
-
-      },
-      negativeErrors(formNr) {
-
-      },
       answerErrors (formNr, answerNr) {
         let errors = []
         if (!this.$v.voting.forms.$each.$iter[formNr].answers.$each.$iter[answerNr].text.$dirty) return errors

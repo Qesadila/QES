@@ -12,6 +12,8 @@ import Pages from "./Layout/Wrappers/pagesLayout.vue";
 import Apps from "./Layout/Wrappers/appLayout.vue";
 import Axios from "axios";
 import i18n from "./i18n";
+import * as Sentry from '@sentry/browser';
+import * as Integrations from '@sentry/integrations';
 
 Vue.config.productionTip = false;
 
@@ -20,6 +22,11 @@ Vue.use(BootstrapVue);
 Vue.component("default-layout", Default);
 Vue.component("userpages-layout", Pages);
 Vue.component("apps-layout", Apps);
+
+Sentry.init({
+  dsn: 'https://74d71c5499b24406a4a8fe326e97e486@o374187.ingest.sentry.io/5191786',
+  integrations: [new Integrations.Vue({Vue, attachProps: true})],
+});
 
 Vue.prototype.$http = Axios;
 const token = localStorage.getItem("token");
