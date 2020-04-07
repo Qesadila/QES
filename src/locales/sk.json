@@ -70,5 +70,7 @@
   "Result": "Výsledok",
   "refreshResults": "Obnov výsledky",
   "totalVotes":"Celkový počet hlasov",
-  "totalEligible":"Celkový počet všetkých voličov"
+  "totalEligible":"Celkový počet všetkých voličov",
+  "footerText":"Qesadila je hlasovací systém s otvoreným kódom založený na overovaní podpisov hlasov kvalifikovaným certifikátom (QES)."
+
 }

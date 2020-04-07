@@ -70,5 +70,6 @@
   "Result": "Result",
   "refreshResults": "Refresh Results",
   "totalVotes":"Total votes",
-  "totalEligible":"Total Eligible Voters"
+  "totalEligible":"Total Eligible Voters",
+  "footerText":"Qesadila is open source voting system which uses the Qualified Electronic Signature (QES) for vote verifications."
 }
