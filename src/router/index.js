@@ -33,12 +33,18 @@ export default new Router({
           path: '/voting/all-votes',
           component: () => import('../pages/AllVotesHistory.vue')
       },
-        {
-            name: 'new-voting',
-            path: '/voting-management/new-voting',
-            component: () => import('../pages/NewVoting.vue'),
-            beforeEnter: requireAuth
-        },
+      {
+          name: 'new-voting',
+          path: '/voting-management/new-voting',
+          component: () => import('../pages/NewVoting.vue'),
+          beforeEnter: requireAuth
+      },
+      {
+          name: 'new-voting-list',
+          path: '/voting-list/create',
+          component: () => import('../pages/NewVoting.vue'),
+          beforeEnter: requireAuth
+      },
         {
             name: 'votings',
             path: '/voting',
