@@ -76,5 +76,14 @@
   "Clear":"Clear",
   "VoterListName":"Voter list name",
   "Create your own voting list":"Create your own voting list",
+  "Please sign in to your account below.":"Please sign in to your account below.",
+  "Email":"Email",
+  "Enter email...":"Enter email...",
+  "Password":"Password",
+  "Enter password...":"Enter password...",
+  "Cancel":"Cancel",
+  "Sign up now":"Sign up now",
+  "Recover password":"Recover password",
+  "Login":"Login",
   "footerText":"Qesadila is open source voting system which uses the Qualified Electronic Signature (QES) for vote verifications."
 }

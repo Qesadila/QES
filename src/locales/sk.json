@@ -76,6 +76,15 @@
   "Clear":"Vyčistiť filter",
   "VoterListName":"Voter list name",
   "Create your own voting list":"Vytvorte si vlastný zoznam voličov",
+  "Please sign in to your account below.":"Prihláste sa prosím do svojho účtu",
+  "Email":"Email",
+  "Enter email...":"Zadajte prosím email...",
+  "Password":"Heslo",
+  "Enter password...":"Zadajte prosím heslo...",
+  "Cancel":"Zruš",
+  "Sign up now":"Registrácia",
+  "Recover password":"Obnova hesla",
+  "Login":"Prihlásiť sa",
   "footerText":"Qesadila je hlasovací systém s otvoreným kódom založený na overovaní podpisov hlasov kvalifikovaným certifikátom (QES)."
 
 }

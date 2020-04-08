@@ -70,7 +70,7 @@
             }
         },
         mounted() {
-            VotingService.getPublicLists()
+            VoterListService.getPublicLists()
                 .then(res => {
                     let active = this.isActive(this.moment(res.data.openFrom), this.moment(res.data.openUntil))
                     this.items = res.data.map(voting => voting = {

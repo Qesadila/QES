@@ -1,87 +1,82 @@
 <template>
-  <div>
-    <div class="h-100 bg-plum-plate bg-animation">
-      <div class="d-flex h-100 justify-content-center align-items-center">
-        <b-col md="8" class="mx-auto app-login-box">
-          <div class="app-logo-inverse mx-auto mb-3" />
+  <div class="vh-100 bg-plum-plate bg-animation">
+    <div class="d-flex h-100 justify-content-center align-items-center">
+      <b-col md="8" class="mx-auto app-login-box">
 
-          <div class="modal-dialog w-100 mx-auto">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="h5 modal-title text-center">
-                  <h4 class="mt-2">
-                    <div>Welcome back,</div>
-                    <span>Please sign in to your account below.</span>
-                  </h4>
-                </div>
-                <b-form-group
-                  id="exampleInputGroup1"
-                  label-for="exampleInput1"
-                  description="We'll never share your email with anyone else."
+        <div class="modal-dialog w-100 mx-auto">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="h5 modal-title text-center">
+                  <div class="app-logo-qes mx-auto mb-3" />
+                <h4 class="mt-2">
+                  <span>{{$t('Please sign in to your account below.')}}</span>
+                </h4>
+              </div>
+              
+            <div v-if="message" style="text-align: center; color: red;">
+              {{ message }}
+            </div>
+
+              <b-form-group
+                  :label="$t('Email')"
+                id="InputGroup1"
+                label-for="Input1"
+              >
+                <b-form-input
+                  id="Input1"
+                  type="email"
+                  v-model="form.email"
+                  required
+                  :placeholder="$t('Enter email...')"
                 >
-                  <b-form-input
-                    id="exampleInput1"
-                    type="email"
-                    v-model="form.email"
-                    required
-                    placeholder="Enter email..."
-                  >
-                  </b-form-input>
-                </b-form-group>
-                <b-form-group id="exampleInputGroup2" label-for="exampleInput2">
-                  <b-form-input
-                    id="exampleInput2"
-                    type="password"
-                    v-model="form.password"
-                    required
-                    placeholder="Enter password..."
-                  >
-                  </b-form-input>
-                </b-form-group>
-                <b-form-checkbox name="check" id="exampleCheck">
-                  Keep me logged in
-                </b-form-checkbox>
-                <div class="divider" />
-                <h6 class="mb-0">
-                  No account?
-                  <router-link to="/register" class="text-primary"
-                    >Sign up now</router-link
-                  >
-                </h6>
+                </b-form-input>
+              </b-form-group>
+              <b-form-group 
+                :label="$t('Password')"
+                id="InputGroup2" label-for="Input2">
+                <b-form-input
+                  id="Input2"
+                  type="password"
+                  v-model="form.password"
+                  required
+                  :placeholder="$t('Enter password...')"
+                >
+                </b-form-input>
+              </b-form-group>
+              
+            </div>
+            <div class="modal-footer clearfix">
+              <div class="float-left">
+                <router-link to="/" class="btn-lg btn btn-link"
+                  >{{$t('Cancel')}}</router-link
+                >
               </div>
-              <div v-if="message" style="text-align: center; color: red;">
-                {{ message }}
+              <div class="float-left">
+                <router-link to="/register" class="btn-lg btn btn-link"
+                  >{{$t('Sign up now')}}</router-link
+                >
               </div>
-              <div class="modal-footer clearfix">
-                <div class="float-left">
-                  <a href="javascript:void(0);" class="btn-lg btn btn-link"
-                    >Recover Password</a
-                  >
-                </div>
-                <div class="float-left">
-                  <b-button variant="primary" size="lg" @click="loginAnonymous"
-                    >Anonymous Login</b-button
-                  >
-                </div>
-                <div class="float-right">
-                  <b-button variant="primary" size="lg" @click="login"
-                    >Login</b-button
-                  >
-                </div>
+              <div class="float-left">
+                <router-link to="/recoverPassword" class="btn-lg btn btn-link"
+                  >{{$t('Recover password')}}</router-link
+                >
+              </div>
+              <div class="float-right">
+                <b-button variant="primary" size="lg" @click="login"
+                  >{{$t('Login')}}</b-button
+                >
               </div>
             </div>
           </div>
-          <div class="text-center text-white opacity-8 mt-3">
-            Copyright &copy; QESADILA 2020
-          </div>
-        </b-col>
-      </div>
+        </div>
+      </b-col>
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import shajs from "sha.js";
+import AuthorisationService from "../services/authorisationService";
 
 export default {
   data() {
@@ -95,34 +90,46 @@ export default {
   },
 
   methods: {
-    loginAnonymous() {
-      localStorage.setItem("loggedIn", true);
-      localStorage.setItem("role", "Anonymous");
-      this.$router.replace(this.$route.query.redirect || "/voting");
-    },
 
     async login() {
       if (this.form.email && this.form.password) {
         try {
-          const fd = new FormData();
-          fd.append("email", this.form.email);
-          fd.append(
-            "passwordSHA256Hash",
-            shajs("sha256").update(this.form.password).digest("hex")
-          );
+          this.message = "Sending authorisation request";
+          let this2 = this;
+          AuthorisationService
+            .Login(this.form.email, shajs("sha256").update(this.form.password).digest("hex"))
+            .then(res => {
+              console.log("Login ok",res);
+              let data = res.data;
+              localStorage.setItem("token", data.token);
+              localStorage.setItem("loggedIn", true);
+              localStorage.setItem("user", JSON.stringify(data.user));
 
-          const { data } = await this.$http.post(
-            "https://qesadila.azurewebsites.net/v1/Authorize/Login",
-            fd
-          );
+              this.$router.push("/");
+            })
+            .catch(function (error) {
+              if (error.response) {
+                // Request made and server responded
+                console.log("Request made and server responded");
+                console.log(error.response.data.detail);
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+                this2.message = error.response.data.detail;
+              } else if (error.request) {
+                // The request was made but no response was received
+                console.log("The request was made but no response was received");
+                console.log(error.request);
+              } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Something happened in setting up the request that triggered an Error");
+                console.log('Error', error.message);
+              }
 
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("loggedIn", true);
-          localStorage.setItem("user", JSON.stringify(data.user));
+            });
 
-          this.$router.push("/");
         } catch (e) {
-          console.log(e);
+          console.log("login error",e);
         }
       } else {
         console.log("Musíte zadat přihlašovací údaje");
