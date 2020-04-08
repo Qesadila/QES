@@ -171,6 +171,7 @@ export default {
               if(verifyEmailToken){
                 this2.$router.push("/verify-token");
               }else{
+                this.message = "Successfully registered, sending authentication request";
                 AuthorisationService.Login(
                   this.form.email,
                   shajs("sha256").update(this.form.password).digest("hex"),

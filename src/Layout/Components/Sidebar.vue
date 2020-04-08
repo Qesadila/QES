@@ -92,6 +92,10 @@
                                 href: '/terms',
                                 title: this.$t('Terms and conditions')
                             },
+                            {
+                                href: '/verify-email',
+                                title: this.$t('Verify email')
+                            },
                         ]
                     },
 

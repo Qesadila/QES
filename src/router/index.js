@@ -32,6 +32,12 @@ export default new Router({
             component: () => import("../pages/TermsAndConditions.vue"),
             
         },
+        {
+          name : "verify-email",
+          path : "/verify-email",
+          meta: { layout: "default" },
+          component: () => import("../pages/VerifyToken.vue"),
+        },
       {
           name: 'all-votes',
           path: '/voting/all-votes',

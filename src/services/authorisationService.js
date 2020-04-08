@@ -21,6 +21,11 @@ class AuthenticationService {
 
         return axios.post(vars.apiUrl + 'v1/Authorize/Login', params);
     }
+    ConfirmEmailByToken(token) {
+        var params = new URLSearchParams();
+        params.append('token',token);
+        return axios.post(vars.apiUrl + 'v1/Authorize//v1/Authorize/ConfirmEmailByToken', params);
+    }
 }
 
 export default new AuthenticationService()

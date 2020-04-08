@@ -107,7 +107,12 @@ export default {
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);
-                this2.message = error.response.data.detail;
+                
+                if(error.response.data.detail){
+                    this2.message = error.response.data.detail;
+                }else if(error.response.data.title){
+                    this2.message = error.response.data.title;
+                }
               } else if (error.request) {
                 // The request was made but no response was received
                 console.log("The request was made but no response was received");
