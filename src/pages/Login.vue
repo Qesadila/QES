@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-100 bg-plum-plate bg-animation">
+  <div class="h-100">
     <div class="d-flex h-100 justify-content-center align-items-center">
       <b-col md="8" class="mx-auto app-login-box">
 
@@ -47,24 +47,16 @@
             </div>
             <div class="modal-footer clearfix">
               <div class="float-left">
-                <router-link to="/" class="btn-lg btn btn-link"
-                  >{{$t('Cancel')}}</router-link
-                >
+                <router-link to="/" class="btn-lg btn btn-link" >{{$t('Cancel')}}</router-link>
               </div>
               <div class="float-left">
-                <router-link to="/register" class="btn-lg btn btn-link"
-                  >{{$t('Sign up now')}}</router-link
-                >
+                <router-link to="/register" class="btn-lg btn btn-link">{{$t('Sign up now')}}</router-link>
               </div>
               <div class="float-left">
-                <router-link to="/recoverPassword" class="btn-lg btn btn-link"
-                  >{{$t('Recover password')}}</router-link
-                >
+                <router-link to="/recoverPassword" class="btn-lg btn btn-link">{{$t('Recover password')}}</router-link>
               </div>
               <div class="float-right">
-                <b-button variant="primary" size="lg" @click="login"
-                  >{{$t('Login')}}</b-button
-                >
+                <b-button variant="primary" size="lg" @click="login" >{{$t('Login')}}</b-button>
               </div>
             </div>
           </div>

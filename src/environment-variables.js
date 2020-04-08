@@ -1,3 +1,3 @@
 export default {
-    apiUrl: 'https://qesadila.azurewebsites.net/'
+    apiUrl: 'https://localhost:44396/'
 }

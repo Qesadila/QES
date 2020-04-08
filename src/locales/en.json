@@ -85,5 +85,9 @@
   "Sign up now":"Sign up now",
   "Recover password":"Recover password",
   "Login":"Login",
+  "Create Account":"Create Account",
+  "Terms and conditions":"Terms and conditions",
+  "Terms and Conditions & GDPR compliance":"Terms and Conditions &amp; GDPR compliance",
+  "Public information":"Public information",
   "footerText":"Qesadila is open source voting system which uses the Qualified Electronic Signature (QES) for vote verifications."
 }

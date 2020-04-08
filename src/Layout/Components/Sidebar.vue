@@ -15,7 +15,6 @@
                 <sidebar-menu showOneChild :menu="menu"/>
             </VuePerfectScrollbar>
         </div>
-
     </div>
 </template>
 
@@ -76,6 +75,25 @@
                             },
                         ]
                     },
+                    publicMenu: {
+                        collapsed: false,
+                        title: this.$t('Public information'),
+                        icon: 'pe-7s-note2',
+                        child: [
+                            {
+                                href: '/voting',
+                                title: this.$t('VoteListMenuItem')
+                            },
+                            {
+                                href: '/voting/history',
+                                title: this.$t('VotingHistory.pageHeading')
+                            },
+                            {
+                                href: '/terms',
+                                title: this.$t('Terms and conditions')
+                            },
+                        ]
+                    },
 
                 isOpen: false,
                 sidebarActive: false,
@@ -98,8 +116,10 @@
                         this.menu.push(this.votingListManagementMenu)
                     } else if (localStorage.role === 'votingManager') {
                         this.menu.push(this.votingManagementMenu)
-                    } else if (localStorage.role === 'voter' || localStorage.role === 'anonymous') {
+                    } else if (localStorage.role === 'voter' ) {
                         this.menu.push(this.votingMenu)
+                    }else{ //if (localStorage.role === 'anonymous' ) {
+                        this.menu.push(this.publicMenu)
                     }
                 }                
             },
