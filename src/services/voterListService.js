@@ -4,7 +4,7 @@ import vars from '../environment-variables'
 class VoterListService {
 
     getPublicLists() {
-        return axios.get(vars.apiUrl + '/v1/Voting/GetPublicLists');
+        return axios.get(vars.apiUrl + 'v1/VoterList/GetPublicLists');
     }
 
 }

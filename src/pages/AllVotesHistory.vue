@@ -1,7 +1,7 @@
 <template>
     <div>
-        <ListVoterLists></ListVoterLists>
-        <ListVotings></ListVotings>
+        <ListVoterLists :voterListId="voterListId"></ListVoterLists>
+        <ListVotings :voterListId="voterListId"></ListVotings>
     </div>
 </template>
 
@@ -11,6 +11,13 @@
 
     export default {
         name: "AllVotesHistory",
+        props: {
+            // customizable button's class attribute - you can use your own CSS class
+            'voterListId': {
+                type: String,
+                default: ''
+            },
+        },
         components: {ListVotings,ListVoterLists},
     }
 </script>

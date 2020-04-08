@@ -41,6 +41,13 @@
     export default {
         name: "ListVoterLists",
         components: {DemoCard},
+        props: {
+            // customizable button's class attribute - you can use your own CSS class
+            'voterListId': {
+                type: String,
+                default: ''
+            },
+        },
         computed: {
             sortOptions() {
                 return this.fields

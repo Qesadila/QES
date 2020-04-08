@@ -1,6 +1,7 @@
 <template>
     <div>
-        <demo-card :heading="$t('votingsHeader')">
+        <demo-card :heading="$t('votingsHeader')" v-if="voterListId[0]">
+            <h1>{{this.voterListId}}</h1>
             <b-card class="main-card mb-4">
                 <b-row>
                     <b-col md="6" class="my-1">
@@ -64,6 +65,19 @@
     export default {
         name: "AllVotesHistory",
         components: {DemoCard},
+        props: {
+            // customizable button's class attribute - you can use your own CSS class
+            'voterListId': {
+                type: String,
+                default: ''
+            },
+        },
+        watch: { 
+            voterListId: function(newVal, oldVal) { // watch it
+                // eslint-disable-next-line
+                console.log('Prop voterListId changed: ', newVal, ' | was: ', oldVal)
+            }
+        },
         computed: {
             sortOptions() {
                 return this.fields
@@ -98,18 +112,20 @@
             }
         },
         mounted() {
-            VotingService.getAllVotings()
-                .then(res => {
-                    let active = this.isActive(this.moment(res.data.openFrom), this.moment(res.data.openUntil))
-                    this.items = res.data.map(voting => voting = {
-                        ...voting,
-                        openFrom: this.moment(voting.openFrom).format('MMM Do YYYY'),
-                        openUntil: this.moment(voting.openUntil).format('MMM Do YYYY'),
-                        active: active,
-                        _rowVariant: active ? 'success' : 'none'
+            if(this.voterListId){
+                VotingService.getAllVotings()
+                    .then(res => {
+                        let active = this.isActive(this.moment(res.data.openFrom), this.moment(res.data.openUntil))
+                        this.items = res.data.map(voting => voting = {
+                            ...voting,
+                            openFrom: this.moment(voting.openFrom).format('MMM Do YYYY'),
+                            openUntil: this.moment(voting.openUntil).format('MMM Do YYYY'),
+                            active: active,
+                            _rowVariant: active ? 'success' : 'none'
+                        });
+                        this.totalRows = this.items.length
                     });
-                    this.totalRows = this.items.length
-                });
+            }
         },
         methods: {
             redirectToResults(idx) {

@@ -3,7 +3,7 @@ import vars from '../environment-variables'
 
 class AuthenticationService {
     Login(email , pass) {
-        return axios.post(vars.apiUrl + '/v1/Authorize/Login', {
+        return axios.post(vars.apiUrl + 'v1/Authorize/Login', {
             email: email,
             passwordSHA256Hash: pass
         });
