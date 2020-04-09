@@ -12,7 +12,7 @@
         </div>
         <div class="app-sidebar-content">
             <VuePerfectScrollbar class="app-sidebar-scroll" v-once>
-                <sidebar-menu showOneChild :menu="menu"/>
+                <SidebarMenu :showChild="showChild" :menu="menu"/>
             </VuePerfectScrollbar>
         </div>
     </div>
@@ -30,6 +30,30 @@
         },
         data() {
             return {
+                showChild: true,
+                publicMenu: {
+                    isOpen: true,
+                    title: this.$t('Public information'),
+                    icon: 'pe-7s-note2',
+                    child: [
+                        {
+                            href: '/voting',
+                            title: this.$t('VoteListMenuItem')
+                        },
+                        {
+                            href: '/voting/history',
+                            title: this.$t('VotingHistory.pageHeading')
+                        },
+                        {
+                            href: '/terms',
+                            title: this.$t('Terms and conditions')
+                        },
+                        {
+                            href: '/verify-email',
+                            title: this.$t('Verify email')
+                        },
+                    ]
+                },
                 votingManagementMenu: {
                     title: this.$t('VotingManagement'),
                     icon: 'pe-7s-note2',
@@ -75,30 +99,6 @@
                         },
                     ]
                 },
-                publicMenu: {
-                    isOpen: true,
-                    collapsed: false,
-                    title: this.$t('Public information'),
-                    icon: 'pe-7s-note2',
-                    child: [
-                        {
-                            href: '/voting',
-                            title: this.$t('VoteListMenuItem')
-                        },
-                        {
-                            href: '/voting/history',
-                            title: this.$t('VotingHistory.pageHeading')
-                        },
-                        {
-                            href: '/terms',
-                            title: this.$t('Terms and conditions')
-                        },
-                        {
-                            href: '/verify-email',
-                            title: this.$t('Verify email')
-                        },
-                    ]
-                },
 
                 sidebarActive: false,
 
@@ -117,15 +117,15 @@
             initMenu() {
                 if ('role' in localStorage) {
                     if (localStorage.role === 'votingListManager') {
-                        this.menu.push(this.votingListManagementMenu)
+                        this.menu.push(this.votingListManagementMenu);
                     } else if (localStorage.role === 'votingManager') {
-                        this.menu.push(this.votingManagementMenu)
+                        this.menu.push(this.votingManagementMenu);
                     } else if (localStorage.role === 'voter' ) {
-                        this.menu.push(this.votingMenu)
+                        this.menu.push(this.votingMenu);
                     }else{ //if (localStorage.role === 'anonymous' ) {
-                        this.menu.push(this.publicMenu)
+                        this.menu.push(this.publicMenu);
                     }
-                }                
+                }              
             },
 
             toggleBodyClass(className) {

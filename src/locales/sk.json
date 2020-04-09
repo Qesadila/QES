@@ -85,15 +85,15 @@
   "Sign up now":"Registrácia",
   "Recover password":"Obnova hesla",
   "Login":"Prihlásiť sa",
-  "Create Account":"Create Account",
-  "Terms and conditions":"Terms and conditions",
-  "Terms and Conditions & GDPR compliance":"Terms and Conditions &amp; GDPR compliance",
-  "Public information":"Public information",
-  "Please verify your email address":"Please verify your email address",
+  "Create Account":"Vytvoriť účet",
+  "Terms and conditions":"Podmienky používania",
+  "Terms and Conditions & GDPR compliance":"Podmienky používania &amp; GDPR súhlas",
+  "Public information":"Verejná časť",
+  "Please verify your email address":"Overte Váš email prosím",
   "Token":"Token",
-  "Enter token from your email...":"Enter token from your email...",
-  "Verify email":"Verify email",
-  "Sending token verification request":"Sending token verification request",
+  "Enter token from your email...":"Zadajte token z Vášho emailu...",
+  "Verify email":"Overiť email",
+  "Sending token verification request":"Odosielam žiadosť o overenie emailu",
   "footerText":"Qesadila je hlasovací systém s otvoreným kódom založený na overovaní podpisov hlasov kvalifikovaným certifikátom (QES)."
 
 }
