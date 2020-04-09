@@ -12,7 +12,7 @@
                   <span>{{$t('Please verify your email address')}}</span>
                 </h4>
               </div>
-              
+
             <div v-if="message" style="text-align: center; color: red;">
               {{ message }}
             </div>
@@ -24,14 +24,14 @@
               >
                 <b-form-input
                   id="Input1"
-                  type="token"
+                  type="text"
                   v-model="form.token"
                   required
                   :placeholder="$t('Enter token from your email...')"
                 >
                 </b-form-input>
               </b-form-group>
-              
+
             </div>
             <div class="modal-footer clearfix">
               <div class="float-right">
@@ -51,8 +51,7 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        password: "",
+        token: ""
       },
       message: "",
     };
@@ -61,24 +60,24 @@ export default {
   methods: {
 
     async login() {
-      if (this.form.email && this.form.password) {
+
         try {
           this.message = "Sending token verification request";
-          let this2 = this;
           AuthorisationService
             .ConfirmEmailByToken(this.form.token)
-            .then(
-              this.$router.push("/login")
-            )
-            .catch(function (error) {
+            .then((res) => {
+               if (res.status.code === 200) {
+                this.$router.push("/login")
+              }
+            })
+            .catch((error) => {
               if (error.response) {
                 /* eslint-disable no-console */
                 console.log("Request made and server responded");
-                
                 if(error.response.data.detail){
-                    this2.message = error.response.data.detail;
+                    this.message = error.response.data.detail;
                 }else if(error.response.data.title){
-                    this2.message = error.response.data.title;
+                    this.message = error.response.data.title;
                 }
               } else if (error.request) {
                 /* eslint-disable no-console */
@@ -93,9 +92,7 @@ export default {
         } catch (e) {
           console.log("login error",e);
         }
-      } else {
-        console.log("Musíte zadat přihlašovací údaje");
-      }
+
     },
   },
 };

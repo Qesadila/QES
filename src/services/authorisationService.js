@@ -33,7 +33,7 @@ class AuthenticationService {
     ConfirmEmailByToken(token) {
         var params = new URLSearchParams();
         params.append('token',token);
-        return axios.post(vars.apiUrl + 'v1/Authorize/ConfirmEmailByToken', params);
+        return axios.put(vars.apiUrl + 'v1/Authorize/ConfirmEmailByToken', params);
     }
 
     RestorePassword(email) {

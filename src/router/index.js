@@ -23,14 +23,14 @@ export default new Router({
         {
             path: '/',
             component: () => import('../pages/AllVotesHistory.vue'),
-            
+
         },
         {
           name: "terms",
             path: "/terms",
             meta: { layout: "default" },
             component: () => import("../pages/TermsAndConditions.vue"),
-            
+
         },
         {
           name : "verify-email",
@@ -43,7 +43,7 @@ export default new Router({
           path: '/voting/all-votes',
           meta: { layout: "default" },
           component: () => import('../pages/AllVotesHistory.vue'),
-          
+
       },
       {
           name: 'new-voting',
@@ -92,35 +92,35 @@ export default new Router({
             path: '/voting/:id',
             meta: { layout: "default" },
             component: () => import('../pages/VotingHistory.vue'),
-            
+
         },
         {
             name: 'voting-history',
             path: '/voting/history',
             meta: { layout: "default" },
             component: () => import('../pages/VotingHistory.vue'),
-            
+
         },
         {
           path: "/login",
           name: "login",
           meta: { layout: "default" },
           component: () => import("../pages/Login.vue"),
-          
+
         },
         {
           path: "/register",
           name: "register",
           meta: { layout: "default" },
           component: () => import("../pages/Register.vue"),
-          
+
         },
         {
             path: "/vote-results/:id",
             name: "results",
             meta: { layout: "default" },
             component: () => import("../pages/VoteResults.vue"),
-            
+
         }
     ]
 });

@@ -7,7 +7,7 @@
           <div class="modal-content">
             <div class="modal-body">
               <h5 class="modal-title">
-              
+
                 <div class="app-logo-qes mx-auto mb-3" />
                 <h4 class="mt-2">
                   <div>Qesadila registration</div>
@@ -33,7 +33,7 @@
                 I accept commercial communication
                 <a href="javascript:void(0);"></a>.
               </b-form-checkbox>
-              
+
               <div class="divider" />
               <b-form-group
                 id="InputGroup1"
@@ -169,7 +169,7 @@ export default {
               console.log("Register ok",res);
               let verifyEmailToken = res.data;
               if(verifyEmailToken){
-                this2.$router.push("/verify-token");
+                this2.$router.push("/verify-email");
               }else{
                 this.message = "Successfully registered, sending authentication request";
                 AuthorisationService.Login(

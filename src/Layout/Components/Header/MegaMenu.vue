@@ -71,7 +71,6 @@
 </template>
 
 <script>
-    import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
     import {library} from '@fortawesome/fontawesome-svg-core'
     import {
@@ -85,7 +84,6 @@
 
     export default {
         components: {
-            VuePerfectScrollbar,
             'font-awesome-icon': FontAwesomeIcon,
         },
 
@@ -107,17 +105,23 @@
         },
 
         mounted() {
-            this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
+
+           this.role = 'role' in localStorage ? this.$t(localStorage.role) : this.$t('voter')
+
+          // eslint-disable-next-line no-extra-boolean-cast
+          if (!!localStorage.getItem('token')) {
+
             let roleLabel = localStorage.getItem('role');
             if(roleLabel === 'voter'){
-                this.$router.replace('/voting')
+                // this.$router.replace('/voting')
             } else if (roleLabel === 'votingManager') {
-                this.$router.replace('/voting-management/manage-voting')
+                this.$router.push('/voting-management/manage-voting')
             } else if(roleLabel === 'votingListManager'){
-                this.$router.replace('/voting-list-management/manage-list')
+                this.$router.push('/voting-list-management/manage-list')
             } else{
-                this.$router.replace('/')
+                this.$router.push('/')
             }
+          }
         }
     }
 
