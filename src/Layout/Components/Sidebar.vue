@@ -31,87 +31,87 @@
         data() {
             return {
                 votingManagementMenu: {
-                        title: this.$t('VotingManagement'),
-                        icon: 'pe-7s-note2',
-                        href: '/',
-                        child: [
-                            {
-                                href: '/voting-management/manage-voting',
-                                title: this.$t('votingsList')
-                            },
-                            {
-                                href: '/voting-management/new-voting',
-                                title: this.$t('CreateVoting')
-                            }
-                        ]
-    },
-    votingListManagementMenu: {
-                        title: this.$t('VotingListManagement'),
-                        icon: 'lnr-text-align-justify',
-                        href: '/voting-list-management/manage-list',
-                        child: [
-                            {
-                                href: '/voting-list-management/manage-voter',
-                                title: this.$t('ManageVoters')
-                            },
-                            {
-                                href: '/voting-list-management/manage-list',
-                                title: this.$t('ManageVotersLists')
-                            }
-                        ]
-    },
-    votingMenu: {
-                        title: this.$t('Votings'),
-                        icon: 'pe-7s-note2',
-                        href: '/voting',
-                        child: [
-                            {
-                                href: '/voting',
-                                title: this.$t('VoteListMenuItem')
-                            },
-                            {
-                                href: '/voting/history',
-                                title: this.$t('VotingHistory.pageHeading')
-                            },
-                        ]
-                    },
-                    publicMenu: {
-                        collapsed: false,
-                        title: this.$t('Public information'),
-                        icon: 'pe-7s-note2',
-                        child: [
-                            {
-                                href: '/voting',
-                                title: this.$t('VoteListMenuItem')
-                            },
-                            {
-                                href: '/voting/history',
-                                title: this.$t('VotingHistory.pageHeading')
-                            },
-                            {
-                                href: '/terms',
-                                title: this.$t('Terms and conditions')
-                            },
-                            {
-                                href: '/verify-email',
-                                title: this.$t('Verify email')
-                            },
-                        ]
-                    },
+                    title: this.$t('VotingManagement'),
+                    icon: 'pe-7s-note2',
+                    href: '/',
+                    child: [
+                        {
+                            href: '/voting-management/manage-voting',
+                            title: this.$t('votingsList')
+                        },
+                        {
+                            href: '/voting-management/new-voting',
+                            title: this.$t('CreateVoting')
+                        }
+                    ]
+                },
+                votingListManagementMenu: {
+                    title: this.$t('VotingListManagement'),
+                    icon: 'lnr-text-align-justify',
+                    href: '/voting-list-management/manage-list',
+                    child: [
+                        {
+                            href: '/voting-list-management/manage-voter',
+                            title: this.$t('ManageVoters')
+                        },
+                        {
+                            href: '/voting-list-management/manage-list',
+                            title: this.$t('ManageVotersLists')
+                        }
+                    ]
+                },
+                votingMenu: {
+                    title: this.$t('Votings'),
+                    icon: 'pe-7s-note2',
+                    href: '/voting',
+                    child: [
+                        {
+                            href: '/voting',
+                            title: this.$t('VoteListMenuItem')
+                        },
+                        {
+                            href: '/voting/history',
+                            title: this.$t('VotingHistory.pageHeading')
+                        },
+                    ]
+                },
+                publicMenu: {
+                    isOpen: true,
+                    collapsed: false,
+                    title: this.$t('Public information'),
+                    icon: 'pe-7s-note2',
+                    child: [
+                        {
+                            href: '/voting',
+                            title: this.$t('VoteListMenuItem')
+                        },
+                        {
+                            href: '/voting/history',
+                            title: this.$t('VotingHistory.pageHeading')
+                        },
+                        {
+                            href: '/terms',
+                            title: this.$t('Terms and conditions')
+                        },
+                        {
+                            href: '/verify-email',
+                            title: this.$t('Verify email')
+                        },
+                    ]
+                },
 
-                isOpen: false,
                 sidebarActive: false,
 
                 menu: [],
-                collapsed: true,
+                isOpen: true,
+                collapsed: false,
 
                 windowWidth: 0,
 
             }
         },
         props: {
-            sidebarbg: String,
-
+            sidebarbg: String
         },
         methods: {
             initMenu() {

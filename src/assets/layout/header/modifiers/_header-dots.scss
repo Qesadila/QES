@@ -19,16 +19,19 @@
     .dropdown-item {
 
       .flag {
+        top: 0;
         position: absolute;
         @include border-radius($border-radius-lg);
 
         & + span {
+          top: 0;
           padding-left: 50px;
         }
       }
 
       &:hover {
         .flag {
+          top: 0;
           opacity: 1;
         }
       }
@@ -43,26 +46,27 @@
     overflow: visible;
 
     .language-icon {
-      @include border-radius(30px);
+      @include border-radius(3px);
       position: relative;
+      top:0px;
       z-index: 4;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       overflow: hidden;
       margin: 0 auto;
 
       .flag {
-        transform: scale(0.7) !important;
+        transform: scale(0.5) !important;
         position: absolute;
         left: 0;
-        top: -18px;
+        top: 0;
       }
     }
 
     .icon-wrapper-bg {
       opacity: .1;
       transition: opacity .2s;
-      @include border-radius(40px);
+      @include border-radius(3px);
     }
 
     i {
