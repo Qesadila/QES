@@ -9,9 +9,16 @@
         </v-row>
       </v-container>
     </v-content>
+    <snackbar-component></snackbar-component>
   </v-app>
 </template>
 
 <script>
-export default {}
+import SnackbarComponent from '~/components/SnackbarComponent'
+
+export default {
+  components: {
+    SnackbarComponent
+  }
+}
 </script>

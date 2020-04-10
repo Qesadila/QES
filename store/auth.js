@@ -16,16 +16,18 @@ export const mutations = {
   }
 }
 export const actions = {
-  async performLogin({ commit }, { username, password }) {
+  async performLogin({ commit, dispatch }, { username, password }) {
     const fd = new FormData()
     fd.append('email', username)
     fd.append('passwordSHA256Hash', hashPassword(password))
 
-    const response = await this.$axios
-      .post('v1/Authorize/Login', fd)
-      .catch((e) => {
-        // console.log(e.response)
-      })
+    let response = null
+
+    try {
+      response = await await this.$axios.post('v1/Authorize/Login', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
 
     if (response) {
       commit('setAuth', true)
@@ -40,7 +42,7 @@ export const actions = {
   },
 
   async performRegister(
-    _store,
+    { dispatch },
     { username, password, name, acceptGDPR, acceptCommercial, language }
   ) {
     const fd = new FormData()
@@ -52,11 +54,13 @@ export const actions = {
     fd.append('terms', acceptGDPR)
     fd.append('commercial', acceptCommercial)
 
-    const response = await this.$axios
-      .post('v1/Authorize/Register', fd)
-      .catch((e) => {
-        // console.log(e.response)
-      })
+    let response = null
+
+    try {
+      response = await this.$axios.post('v1/Authorize/Register', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
 
     if (response) {
       this.$router.push('/auth/verify-email')
@@ -68,5 +72,7 @@ export const actions = {
     Cookie.remove('JWT')
     Cookie.remove('JWT_USER')
     delete this.$axios.defaults.headers.common.Authorization
+
+    this.$router.push('/auth/login')
   }
 }

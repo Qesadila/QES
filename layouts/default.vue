@@ -42,7 +42,7 @@
       <v-spacer />
 
       <v-select
-        class="mr-5"
+        :class="{ 'mr-5': $store.state.auth.auth }"
         :value="$i18n.locale"
         style="max-width: 100px; margin-left: 30px"
         flat
@@ -52,18 +52,20 @@
         @change="handleChange"
       ></v-select>
 
-      <v-menu offset-y>
-        <template v-slot:activator="{ on }">
-          <v-btn text dark v-on="on">
-            {{ $store.state.auth.user.name }}
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item @click="$store.dispatch('auth/performLogout')">
-            <v-list-item-title>Logout</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <template v-if="$store.state.auth.auth">
+        <v-menu offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn text dark v-on="on">
+              {{ $store.state.auth.user.name }}
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item @click="$store.dispatch('auth/performLogout')">
+              <v-list-item-title>Logout</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
     </v-app-bar>
     <v-content>
       <v-container fluid="">
@@ -73,12 +75,18 @@
     <v-footer :fixed="fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    <snackbar-component></snackbar-component>
   </v-app>
 </template>
 
 <script>
+import SnackbarComponent from '~/components/SnackbarComponent'
+
 export default {
   name: 'DefaultLayout',
+  components: {
+    SnackbarComponent
+  },
   data() {
     return {
       clipped: true,

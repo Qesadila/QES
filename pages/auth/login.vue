@@ -20,6 +20,9 @@
           prepend-icon="mdi-lock"
           type="password"
         />
+        <v-alert type="error" v-if="errorMessage">
+          {{ errorMessage }}
+        </v-alert>
       </v-form>
     </v-card-text>
     <v-card-actions>
@@ -39,13 +42,14 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      errorMessage: null
     }
   },
   methods: {
     ...mapActions('auth', ['performLogin']),
-    handleSubmit() {
-      this.performLogin({
+    async handleSubmit() {
+      await this.performLogin({
         username: this.username,
         password: this.password
       })
