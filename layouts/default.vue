@@ -52,7 +52,7 @@
         @change="handleChange"
       ></v-select>
 
-      <template v-if="$store.state.auth.auth">
+      <div v-if="$store.state.auth.auth">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
             <v-btn text dark v-on="on">
@@ -65,7 +65,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-      </template>
+      </div>
     </v-app-bar>
     <v-content>
       <v-container fluid="">

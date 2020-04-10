@@ -36,7 +36,6 @@ export const actions = {
 
       Cookie.set('JWT', response.data.token)
       Cookie.set('JWT_USER', JSON.stringify(response.data.user))
-
       this.$router.push('/')
     }
   },

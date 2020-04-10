@@ -20,7 +20,7 @@
           prepend-icon="mdi-lock"
           type="password"
         />
-        <v-alert type="error" v-if="errorMessage">
+        <v-alert v-if="errorMessage" type="error">
           {{ errorMessage }}
         </v-alert>
       </v-form>

@@ -14,6 +14,8 @@ export const mutations = {
   },
   setClose(state) {
     state.isOpen = false
+    state.text = ''
+    state.color = ''
   }
 }
 
