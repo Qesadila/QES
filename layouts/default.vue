@@ -42,7 +42,7 @@
       <v-spacer />
 
       <v-select
-        :class="{ 'mr-5': $store.state.auth.auth }"
+        class="mr-5"
         :value="$i18n.locale"
         style="max-width: 100px; margin-left: 30px"
         flat
@@ -55,7 +55,7 @@
       <div v-if="$store.state.auth.auth">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn text dark v-on="on">
+            <v-btn text v-on="on">
               {{ $store.state.auth.user.name }}
             </v-btn>
           </template>
@@ -65,6 +65,11 @@
             </v-list-item>
           </v-list>
         </v-menu>
+      </div>
+      <div v-else>
+        <v-btn text to="/auth/login">
+          Login
+        </v-btn>
       </div>
     </v-app-bar>
     <v-content>

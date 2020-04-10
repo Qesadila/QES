@@ -93,5 +93,25 @@ export const actions = {
         root: true
       })
     }
+  },
+  async performGetResetPasswordLink({ dispatch }, { email }) {
+    let response = null
+
+    const fd = new FormData()
+
+    fd.append('email', email)
+
+    try {
+      response = await this.$axios.get('v1/Authorize/RestorePassword', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      // this.$router.push('/auth/login')
+      dispatch('snackbar/openSuccess', 'Link was sent', {
+        root: true
+      })
+    }
   }
 }
