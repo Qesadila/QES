@@ -1,17 +1,11 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="localePath(item.to)"
           router
           exact
         >
@@ -24,7 +18,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app justify="between">
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+      justify="between"
+      color="primary"
+      dark
+      flat
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title v-text="title" />
@@ -36,9 +38,21 @@
         :items="roles"
         label="Role"
       ></v-select>
+
+      <v-spacer />
+
+      <v-select
+        :value="$i18n.locale"
+        style="max-width: 100px; margin-left: 30px"
+        flat
+        hide-details
+        :items="$i18n.locales"
+        label="Lang"
+        @change="handleChange"
+      ></v-select>
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container fluid="">
         <nuxt />
       </v-container>
     </v-content>
@@ -78,10 +92,20 @@ export default {
           icon: 'mdi-apps',
           title: 'Welcome',
           to: '/'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Terms and conditions',
+          to: '/terms-and-conditions'
         }
       ],
       title: 'QUESADILA',
       selectedRole: 'anonym'
+    }
+  },
+  methods: {
+    handleChange(lang) {
+      this.$router.push(this.switchLocalePath(lang))
     }
   }
 }

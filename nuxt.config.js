@@ -57,7 +57,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    base: 'https://qesadila.azurewebsites.net'
+    baseURL: 'https://qesadila.azurewebsites.net'
   },
   /*
    ** vuetify module configuration
@@ -74,7 +74,7 @@ module.exports = {
     extend(config, ctx) {}
   },
   i18n: {
-    locales: ['en', 'cz'],
+    locales: ['cs', 'en', 'sk'],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
@@ -82,7 +82,7 @@ module.exports = {
         en: {
           welcome: 'Welcome'
         },
-        cz: {
+        cs: {
           welcome: 'Vitejte'
         }
       }

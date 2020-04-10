@@ -35,11 +35,17 @@
           prepend-icon="mdi-lock"
           type="password"
         />
+        <v-checkbox v-model="acceptGDPR" label="Accept GDPR"></v-checkbox>
+        <v-checkbox
+          v-model="acceptCommercial"
+          label="Accept commercial messages"
+        ></v-checkbox>
       </v-form>
     </v-card-text>
     <v-card-actions>
+      <v-btn text to="/auth/login">Already have account?</v-btn>
       <v-spacer />
-      <v-btn color="primary" @click="handleSubmit">Login</v-btn>
+      <v-btn color="primary" @click="handleSubmit">Register</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -52,7 +58,7 @@ export default {
   data() {
     return {
       username: '',
-      user: '',
+      name: '',
       password: '',
       passwordCheck: '',
       acceptGDPR: false,
@@ -60,11 +66,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['performLogin']),
+    ...mapActions('auth', ['performRegister']),
     handleSubmit() {
-      this.performLogin({
+      this.performRegister({
         username: this.username,
-        password: this.password
+        name: this.name,
+        password: this.password,
+        acceptGDPR: this.acceptGDPR,
+        acceptCommercial: this.acceptCommercial,
+        language: this.$i18n.locale
       })
     }
   }

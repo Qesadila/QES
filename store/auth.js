@@ -17,7 +17,6 @@ export const mutations = {
 }
 export const actions = {
   async performLogin({ commit }, { username, password }) {
-    // TODO: CHANGE FOR FORM DATA, NEED TO BE CHANGED ON BACKEND TOO
     const fd = new FormData()
     fd.append('email', username)
     fd.append('passwordSHA256Hash', hashPassword(password))
@@ -34,6 +33,30 @@ export const actions = {
       this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
 
       Cookie.set('JWT', response.data.token)
+    }
+  },
+
+  async performRegister(
+    _store,
+    { username, password, name, acceptGDPR, acceptCommercial, language }
+  ) {
+    const fd = new FormData()
+
+    fd.append('email', username)
+    fd.append('name', name)
+    fd.append('language', language)
+    fd.append('passwordHash', password)
+    fd.append('terms', acceptGDPR)
+    fd.append('commercial', acceptCommercial)
+
+    const response = await this.$axios
+      .post('v1/Authorize/Register', fd)
+      .catch((e) => {
+        // console.log(e.response)
+      })
+
+    if (response) {
+      this.$router.push('/auth/verify-email')
     }
   }
 }

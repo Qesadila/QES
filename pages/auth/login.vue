@@ -23,6 +23,7 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
+      <v-btn text to="/auth/register">Don't have account?</v-btn>
       <v-spacer />
       <v-btn color="primary" @click="handleSubmit">Login</v-btn>
     </v-card-actions>
