@@ -1,24 +1,16 @@
 <template>
   <v-card class="elevation-12">
     <v-toolbar color="primary" dark flat>
-      <v-toolbar-title>Login form</v-toolbar-title>
+      <v-toolbar-title>Verify mail</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form>
         <v-text-field
-          v-model="username"
-          label="Login"
-          name="username"
+          v-model="token"
+          label="Token"
+          name="token"
           prepend-icon="mdi-account"
           type="email"
-        />
-
-        <v-text-field
-          v-model="password"
-          label="Password"
-          name="password"
-          prepend-icon="mdi-lock"
-          type="password"
         />
       </v-form>
     </v-card-text>
@@ -38,17 +30,23 @@ export default {
   middleware: 'notAuthenticated',
   data() {
     return {
-      username: '',
-      password: ''
+      token: ''
     }
   },
+  mounted() {
+    this.getToken()
+  },
   methods: {
-    ...mapActions('auth', ['performLogin']),
+    ...mapActions('auth', ['performVerifyEmail']),
     async handleSubmit() {
-      await this.performLogin({
-        username: this.username,
-        password: this.password
+      await this.performVerifyEmail({
+        token: this.token
       })
+    },
+    getToken() {
+      if (this.$route.query.token) {
+        this.token = this.$route.query.token
+      }
     }
   }
 }
