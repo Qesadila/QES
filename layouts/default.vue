@@ -42,6 +42,7 @@
       <v-spacer />
 
       <v-select
+        class="mr-5"
         :value="$i18n.locale"
         style="max-width: 100px; margin-left: 30px"
         flat
@@ -50,6 +51,19 @@
         label="Lang"
         @change="handleChange"
       ></v-select>
+
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn text dark v-on="on">
+            {{ $store.state.auth.user.name }}
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item @click="$store.dispatch('auth/performLogout')">
+            <v-list-item-title>Logout</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <v-content>
       <v-container fluid="">
@@ -64,6 +78,7 @@
 
 <script>
 export default {
+  name: 'DefaultLayout',
   data() {
     return {
       clipped: true,
@@ -92,6 +107,11 @@ export default {
           icon: 'mdi-apps',
           title: 'Welcome',
           to: '/'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'After login',
+          to: '/after-login'
         },
         {
           icon: 'mdi-apps',

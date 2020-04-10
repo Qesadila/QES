@@ -3,7 +3,7 @@ import { hashPassword } from '~/code/helpers/hashPassword'
 
 export const state = () => {
   return {
-    auth: null,
+    auth: false,
     user: {}
   }
 }
@@ -33,6 +33,9 @@ export const actions = {
       this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
 
       Cookie.set('JWT', response.data.token)
+      Cookie.set('JWT_USER', JSON.stringify(response.data.user))
+
+      this.$router.push('/')
     }
   },
 
@@ -58,5 +61,12 @@ export const actions = {
     if (response) {
       this.$router.push('/auth/verify-email')
     }
+  },
+  performLogout({ commit }) {
+    commit('setAuth', false)
+    commit('setAuthUser', {})
+    Cookie.remove('JWT')
+    Cookie.remove('JWT_USER')
+    delete this.$axios.defaults.headers.common.Authorization
   }
 }

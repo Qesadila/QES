@@ -35,6 +35,7 @@ import { mapActions } from 'vuex'
 
 export default {
   layout: 'blank-centered',
+  middleware: 'notAuthenticated',
   data() {
     return {
       username: '',
