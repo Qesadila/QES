@@ -116,11 +116,12 @@ export default {
           value: 'voting-list-manager'
         }
       ],
+      currentRole: 'anonym',
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          title: 'Home',
+          to: `/`
         },
         {
           icon: 'mdi-apps',
@@ -143,6 +144,7 @@ export default {
     },
     handleRoleChange(role) {
       this.$router.push(`/${role}`)
+      this.currentRole = role
     }
   }
 }
