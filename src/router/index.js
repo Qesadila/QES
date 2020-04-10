@@ -116,6 +116,13 @@ export default new Router({
           
         },
         {
+            path: "/signal",
+            name: "signal",
+            meta: { layout: "default" },
+            component: () => import("../pages/Signal.vue"),
+            
+        },
+        {
             path: "/vote-results/:id",
             name: "results",
             meta: { layout: "default" },
