@@ -39,6 +39,7 @@ module.exports = {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify'
   ],
+  buildDir: 'docs',
   /*
    ** Nuxt.js modules
    */
