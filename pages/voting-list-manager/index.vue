@@ -27,10 +27,13 @@
 </template>
 
 <script>
+import { formatDate } from '~/code/helpers/formatDate'
+
 export default {
   middleware: 'authenticated',
   data() {
     return {
+      formatDate,
       headers: [
         {
           text: 'Form List Name',
