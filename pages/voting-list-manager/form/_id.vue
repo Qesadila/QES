@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters class="fill-height pa-12" justify="center" align="center">
-    <v-card width="100%">
-      <form v-if="selectedList">
+    <v-card v-if="selectedList" width="100%">
+      <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
           Voter List Detail
         </div>
@@ -35,6 +35,10 @@
         </div>
       </form>
     </v-card>
+
+    <div v-else>
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </div>
   </v-row>
 </template>
 <script>
