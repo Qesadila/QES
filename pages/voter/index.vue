@@ -17,11 +17,23 @@
           }}</v-chip>
         </template>
 
+        <template v-slot:item.open_from="{ item }">
+          {{ formatDate(item.open_from) }}
+        </template>
+
+        <template v-slot:item.open_until="{ item }">
+          {{ formatDate(item.open_until) }}
+        </template>
+
         <template v-slot:item.actions="{ item }">
           <template v-if="item.voted">
-            <v-btn color="secondary">Show results</v-btn>
+            <v-btn color="secondary" :to="`/voter/form/${item.id}`"
+              >Show results</v-btn
+            >
           </template>
-          <template v-else> <v-btn color="primary">Vote</v-btn> </template>
+          <template v-else>
+            <v-btn color="primary" :to="`/voter/form/${item.id}`">Vote</v-btn>
+          </template>
         </template>
       </v-data-table></v-card-text
     >
@@ -29,10 +41,13 @@
 </template>
 
 <script>
+import { formatDate } from '~/code/helpers/formatDate'
+
 export default {
   middleware: 'authenticated',
   data() {
     return {
+      formatDate,
       headers: [
         {
           text: 'Form List Name',
@@ -67,6 +82,7 @@ export default {
       ],
       desserts: [
         {
+          id: 1,
           name: 'Donation distribution for schools',
           open_from: '2020-04-01 12:00',
           open_until: '2020-04-01 20:00',
@@ -74,6 +90,7 @@ export default {
           voted: true
         },
         {
+          id: 2,
           name: 'Public services',
           open_from: '2020-04-01 12:00',
           open_until: '2021-04-01 20:00',
