@@ -28,6 +28,7 @@
             <v-text-field
               v-model="date"
               placeholder="Select date from"
+              prepend-inner-icon="mdi-calendar-range"
               readonly
               outlined
               v-on="on"
@@ -54,6 +55,7 @@
             <v-text-field
               v-model="date"
               placeholder="Select date from"
+              prepend-inner-icon="mdi-calendar-range"
               readonly
               outlined
               v-on="on"
@@ -76,36 +78,47 @@
         <div class="display-1 mb-10">Questions:</div>
         <div
           v-for="(question, index) in numberOfQuestions"
-          class="pr-6 mb-12"
+          class="mb-12"
           :key="index"
         >
           <div class="d-flex flex-row align-center">
-            <v-card width="100%" elevation="3" class="pa-6">
-              <div class="mb-5">{{ index + 1 }}. Question text</div>
-              <v-text-field outlined></v-text-field>
-
-              <v-card width="100%" elevation="0" class="pa-6">
-                <div class="mb-5">Possible answers</div>
-                <div
-                  v-for="(answer, indexTwo) in numberOfanswers"
-                  :key="indexTwo"
-                  class="d-flex flex-row align-center mb-5"
-                >
-                  <div class="title mr-5">{{ indexTwo + 1 }}.</div>
-                  <v-text-field hide-details outlined></v-text-field>
-                  <v-btn icon large>
-                    <v-icon color="red">mdi-minus</v-icon>
-                  </v-btn>
+            <v-card width="100%" elevation="3">
+              <div class="pa-6">
+                <div class="mb-5 font-weight-bold">
+                  {{ index + 1 }}. Question text
                 </div>
+                <v-text-field outlined hide-details></v-text-field>
 
-                <v-divider class="mb-5"></v-divider>
-
-                <div class="d-flex flex-row justify-end">
-                  <v-btn text x-large color="primary" @click="numberOfanswers++"
-                    ><v-icon>mdi-plus</v-icon>Add new possible answer</v-btn
+                <v-card width="100%" elevation="0">
+                  <div class="px-6 pt-6">Possible answers</div>
+                  <div
+                    v-for="(answer, indexTwo) in numberOfanswers"
+                    :key="indexTwo"
+                    class="d-flex flex-row align-center pa-6"
                   >
-                </div>
-              </v-card>
+                    <div class="title mr-5">{{ indexTwo + 1 }}.</div>
+                    <v-text-field hide-details outlined></v-text-field>
+                    <v-btn icon large class="ml-5">
+                      <v-icon color="red">mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
+                  <div class="d-flex flex-row justify-center"></div>
+                </v-card>
+              </div>
+
+              <v-divider class=""></v-divider>
+              <div
+                class="d-flex flex-row justify-space-between pa-5 form-generator-background"
+              >
+                <v-btn text color="primary" @click="numberOfanswers++"
+                  ><v-icon>mdi-plus</v-icon>Add new possible answer</v-btn
+                >
+                <v-btn color="green"
+                  ><span class="white--text d-flex align-center">
+                    <v-icon left>mdi-check</v-icon>Save question</span
+                  ></v-btn
+                >
+              </div>
             </v-card>
 
             <v-divider class="mb-5"></v-divider>
@@ -117,7 +130,9 @@
       </div>
       <v-divider></v-divider>
 
-      <div class="d-flex flex-row justify-space-between px-5 my-5">
+      <div
+        class="d-flex flex-row justify-space-between pa-5 form-generator-background"
+      >
         <v-btn color="primary" x-large @click="numberOfQuestions++"
           >Add new question</v-btn
         >
@@ -132,13 +147,31 @@
   </v-row>
 </template>
 <script>
+import { v4 as uuidv4 } from 'uuid'
 export default {
   middleware: 'authenticated',
   data() {
     return {
       numberOfQuestions: 1,
-      numberOfanswers: 2
+      numberOfanswers: 2,
+
+      createdForm: {
+        votingFormId: '',
+        name: '',
+        openFrom: null,
+        openUntil: null,
+        voterListId: '',
+        votingFormItems: []
+      }
     }
+  },
+  mounted() {
+    this.votingFormId = uuidv4()
   }
 }
 </script>
+<style lang="scss">
+.form-generator-background {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+</style>
