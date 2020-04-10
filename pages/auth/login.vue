@@ -20,9 +20,6 @@
           prepend-icon="mdi-lock"
           type="password"
         />
-        <v-alert v-if="errorMessage" type="error">
-          {{ errorMessage }}
-        </v-alert>
       </v-form>
     </v-card-text>
     <v-card-actions>
@@ -42,8 +39,7 @@ export default {
   data() {
     return {
       username: '',
-      password: '',
-      errorMessage: null
+      password: ''
     }
   },
   methods: {

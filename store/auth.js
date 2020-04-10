@@ -73,5 +73,45 @@ export const actions = {
     delete this.$axios.defaults.headers.common.Authorization
 
     this.$router.push('/auth/login')
+  },
+  async performVerifyEmail({ dispatch }, { token }) {
+    let response = null
+
+    const fd = new FormData()
+
+    fd.append('token', token)
+
+    try {
+      response = await this.$axios.put('v1/Authorize/ConfirmEmailByToken', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      this.$router.push('/auth/login')
+      dispatch('snackbar/openSuccess', 'Succesfully verified!', {
+        root: true
+      })
+    }
+  },
+  async performGetResetPasswordLink({ dispatch }, { email }) {
+    let response = null
+
+    const fd = new FormData()
+
+    fd.append('email', email)
+
+    try {
+      response = await this.$axios.get('v1/Authorize/RestorePassword', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      // this.$router.push('/auth/login')
+      dispatch('snackbar/openSuccess', 'Link was sent', {
+        root: true
+      })
+    }
   }
 }
