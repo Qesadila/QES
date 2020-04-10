@@ -22,7 +22,9 @@
         </template>
 
         <template v-slot:item.actions="{ item }">
-          <v-btn color="secondary" :to="`/voting-list-manager/form/${item.id}`"
+          <v-btn
+            color="secondary"
+            :to="`/voting-list-manager/form/${item.voterListId}`"
             >Show details</v-btn
           >
         </template>
