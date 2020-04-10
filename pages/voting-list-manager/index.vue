@@ -10,9 +10,9 @@
     <v-card-text>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="items"
         :items-per-page="-1"
-        :hide-default-footer="true"
+        :loading="isLoading"
         class="elevation-1"
       >
         <template v-slot:item.published="{ item }">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { formatDate } from '~/code/helpers/formatDate'
 
 export default {
@@ -42,7 +43,7 @@ export default {
         {
           text: 'Form List Name',
           sortable: false,
-          value: 'name'
+          value: 'voterListName'
         },
         {
           text: 'Registered Voters',
@@ -57,21 +58,24 @@ export default {
         {
           text: 'Action',
           sortable: false,
+          align: 'right',
           value: 'actions'
         }
       ],
-      desserts: [
-        {
-          name: 'Donation distribution for schools',
-          registered_voters: 25,
-          invitations_sent: 5
-        },
-        {
-          name: 'Public services',
-          registered_voters: 30,
-          invitations_sent: 12
-        }
-      ]
+      items: [],
+      isLoading: false
+    }
+  },
+  mounted() {
+    this.fetchList()
+  },
+  methods: {
+    ...mapActions('listManager', ['performFetchList']),
+    async fetchList() {
+      this.isLoading = true
+      const data = await this.performFetchList()
+      this.items = data
+      this.isLoading = false
     }
   }
 }

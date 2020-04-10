@@ -30,8 +30,8 @@
 
           <v-dialog v-model="dialog" width="500">
             <template v-slot:activator="{ on }">
-              <v-btn color="red lighten-2" dark v-on="on">
-                add user
+              <v-btn color="red lighten-2" dark v-on="on" class="mt-5">
+                Add user
               </v-btn>
             </template>
 
@@ -47,7 +47,7 @@
                   outlined
                 />
                 <v-file-input v-model="user.file" label="Sign file" outlined />
-                <v-switch label="Is QES" v-model="user.isQES" />
+                <v-switch v-model="user.isQES" label="Is QES" />
               </v-card-text>
 
               <v-divider></v-divider>
@@ -111,7 +111,7 @@ export default {
     },
     async addUsers() {
       const response = await this.performAddList({
-        name: this.name,
+        name: this.listName,
         isPublished: this.isPublished
       })
 

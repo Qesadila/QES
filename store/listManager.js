@@ -20,6 +20,32 @@ export const actions = {
     let response = null
 
     try {
+      response = await await this.$axios.get('v1/VoterList/GetPublicLists')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
+  },
+  async performFetchPrivateDataFromList({ dispatch }, { id }) {
+    let response = null
+
+    try {
+      response = await await this.$axios.put('v1/VoterList/GetPublicLists')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
+  },
+  async performAssignVoterToList({ dispatch }, { listId, userId }) {
+    let response = null
+
+    try {
       response = await await this.$axios.put('v1/VoterList/GetPublicLists')
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })

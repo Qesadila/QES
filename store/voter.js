@@ -14,10 +14,6 @@ export const actions = {
     fd.append('voterEmail', email)
     fd.append('isQes', isQES)
     fd.append(
-      'base64File',
-      encodedFile.replace('data:application/octet-stream;base64,', '')
-    )
-    fd.append(
       'fileContent',
       encodedFile.replace('data:application/octet-stream;base64,', '')
     )
