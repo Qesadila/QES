@@ -50,7 +50,9 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
-    'nuxt-i18n'
+    'nuxt-i18n',
+    // Doc: https://github.com/nuxt-community/sentry-module#readme
+    '@nuxtjs/sentry'
   ],
   /*
    ** Axios module configuration
@@ -101,5 +103,9 @@ module.exports = {
         }
       }
     }
+  },
+  sentry: {
+    dsn: '', // Enter your project's DSN here
+    config: {} // Additional config
   }
 }
