@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      List of the Votings
+      Voting Forms
     </v-card-title>
     <v-card-text>
       <v-data-table
@@ -11,17 +11,17 @@
         :hide-default-footer="true"
         class="elevation-1"
       >
-        <template v-slot:item.status="{ item }">
-          <v-chip :color="item.voted ? 'green' : 'red'" dark>{{
-            item.voted ? 'You voted already' : `You didn't voted yet!`
+        <template v-slot:item.published="{ item }">
+          <v-chip :color="item.isPublished ? 'green' : ''" dark>{{
+            item.isPublished ? 'published' : `unpublished`
           }}</v-chip>
         </template>
 
         <template v-slot:item.actions="{ item }">
-          <template v-if="item.voted">
+          <template v-if="item.isPublished">
             <v-btn color="secondary">Show results</v-btn>
           </template>
-          <template v-else> <v-btn color="primary">Vote</v-btn> </template>
+          <template v-else> <v-btn color="primary">Edit</v-btn> </template>
         </template>
       </v-data-table></v-card-text
     >
@@ -50,14 +50,14 @@ export default {
           value: 'open_until'
         },
         {
+          text: 'Published / Unpublished',
+          sortable: false,
+          value: 'published'
+        },
+        {
           text: 'Voter List',
           sortable: false,
           value: 'voter_list'
-        },
-        {
-          text: 'Status',
-          sortable: false,
-          value: 'status'
         },
         {
           text: 'Action',
@@ -71,14 +71,14 @@ export default {
           open_from: '2020-04-01 12:00',
           open_until: '2020-04-01 20:00',
           voter_list: 'City representatives',
-          voted: true
+          isPublished: true
         },
         {
           name: 'Public services',
           open_from: '2020-04-01 12:00',
           open_until: '2021-04-01 20:00',
           voter_list: 'Citizens',
-          voted: false
+          isPublished: false
         }
       ]
     }
