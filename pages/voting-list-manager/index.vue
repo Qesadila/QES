@@ -1,8 +1,12 @@
 <template>
   <v-card>
-    <v-card-title>
-      Voter Lists
-    </v-card-title>
+    <div class="d-flex flex-row justify-space-between pt-5 px-5">
+      <div class="display-1">Voter Lists</div>
+      <v-btn icon color="primary" x-large to="/voting-list-manager/form/create">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </div>
+
     <v-card-text>
       <v-data-table
         :headers="headers"
