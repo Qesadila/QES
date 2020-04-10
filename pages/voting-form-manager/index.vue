@@ -2,7 +2,7 @@
   <v-card>
     <div class="d-flex flex-row justify-space-between pt-5 px-5">
       <div class="display-1">Voter Lists</div>
-      <v-btn icon color="primary" x-large>
+      <v-btn icon color="primary" x-large to="/voting-form-manager/form/create">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </div>
