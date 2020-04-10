@@ -5,7 +5,10 @@
         <div class="d-flex flex-row justify-center py-5 display-1">
           {{ mockForm.title }}
         </div>
-
+        <div class="d-flex flex-row justify-center px-12 mb-6 body">
+          {{ mockForm.infoText }}
+        </div>
+        <v-divider class="mb-10"></v-divider>
         <div
           v-for="(question, index) in mockForm.questions"
           :key="question.id"
@@ -14,7 +17,9 @@
           <div class="body-2 mb-2">Question {{ index + 1 }}</div>
           <div class="title">{{ question.text }}</div>
           <div class="pl-5">
-            <v-radio-group>
+            <v-radio-group
+              @change="handleUserAnswerChange(question.id, $event)"
+            >
               <v-radio
                 v-for="option in question.options"
                 :key="option.id"
@@ -23,9 +28,21 @@
                 class="my-2"
               >
               </v-radio>
+              <!-- Last option is always with value null as user dont want to answer this question -->
+              <v-radio
+                class="my-2"
+                label="I do not want to answer"
+                value="N/A"
+              ></v-radio>
             </v-radio-group>
             <v-divider class="mb-10"></v-divider>
           </div>
+        </div>
+        <div class="d-flex flex-row justify-center px-12 mb-6 body">
+          {{ mockForm.endingText }}
+        </div>
+        <div class="d-flex flex-row justify-center px-12 mb-6 body">
+          <v-btn x-large color="primary" @click="submitForm">Send form</v-btn>
         </div>
       </form>
     </v-card>
@@ -35,6 +52,9 @@
 const mockForm = {
   id: 'ASkjahdf24',
   title: 'This is mock form',
+  infoText:
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Nulla est. Pellentesque sapien. Pellentesque ipsum. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Aenean placerat. Integer pellentesque quam vel velit. Pellentesque arcu.',
+  endingText: 'Thank you for participating. Your honesty, major',
   questions: [
     {
       id: 1,
@@ -109,7 +129,16 @@ export default {
   middleware: 'authenticated',
   data() {
     return {
-      mockForm
+      mockForm,
+      userAnwers: {}
+    }
+  },
+  methods: {
+    submitForm() {
+      console.log('Form submitted! ->', this.userAnwers)
+    },
+    handleUserAnswerChange(questionId, answerId) {
+      this.userAnwers[questionId] = answerId
     }
   }
 }
