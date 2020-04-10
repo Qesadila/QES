@@ -15,5 +15,18 @@ export const actions = {
     if (response) {
       return response.data
     }
+  },
+  async performFetchList({ dispatch }) {
+    let response = null
+
+    try {
+      response = await await this.$axios.put('v1/VoterList/GetPublicLists')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
   }
 }
