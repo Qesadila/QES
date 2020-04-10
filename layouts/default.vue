@@ -37,6 +37,7 @@
         hide-details
         :items="roles"
         label="Role"
+        @change="handleRoleChange"
       ></v-select>
 
       <v-spacer />
@@ -134,6 +135,9 @@ export default {
   methods: {
     handleChange(lang) {
       this.$router.push(this.switchLocalePath(lang))
+    },
+    handleRoleChange(role) {
+      this.$router.push(`/${role}`)
     }
   }
 }
