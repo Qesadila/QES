@@ -15,9 +15,12 @@
         class="elevation-1"
       >
         <template v-slot:item.published="{ item }">
-          <v-chip :color="item.isPublished ? 'green' : ''" dark>{{
-            item.isPublished ? 'published' : `unpublished`
-          }}</v-chip>
+          <v-chip
+            @click="handlePublish(item.id)"
+            :color="item.isPublished ? 'green' : ''"
+            dark
+            >{{ item.isPublished ? 'published' : `unpublished` }}</v-chip
+          >
         </template>
 
         <template v-slot:item.open_from="{ item }">
@@ -29,7 +32,7 @@
         </template>
 
         <template v-slot:item.actions="{ item }">
-          <template v-if="item.isPublished">
+          <template v-if="item.buttons">
             <v-btn color="secondary">Show results</v-btn>
           </template>
           <template v-else> <v-btn color="primary">Edit</v-btn> </template>
@@ -76,25 +79,41 @@ export default {
         {
           text: 'Action',
           sortable: false,
-          value: 'actions'
+          value: 'actions',
+          width: 300
         }
       ],
       desserts: [
         {
+          id: 1,
           name: 'Donation distribution for schools',
           open_from: '2020-04-01 12:00',
           open_until: '2020-04-01 20:00',
           voter_list: 'City representatives',
-          isPublished: true
+          isPublished: true,
+          buttons: true
         },
         {
+          id: 2,
           name: 'Public services',
           open_from: '2020-04-01 12:00',
           open_until: '2021-04-01 20:00',
           voter_list: 'Citizens',
-          isPublished: false
+          isPublished: false,
+          buttons: false
         }
       ]
+    }
+  },
+  methods: {
+    handlePublish(id) {
+      const fakeItTillYouMakeIt = this.desserts.findIndex(
+        (item) => item.id === id
+      )
+
+      this.desserts[fakeItTillYouMakeIt].isPublished = !this.desserts[
+        fakeItTillYouMakeIt
+      ].isPublished
     }
   }
 }
