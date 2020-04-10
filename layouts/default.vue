@@ -125,11 +125,6 @@ export default {
         },
         {
           icon: 'mdi-apps',
-          title: 'After login',
-          to: '/after-login'
-        },
-        {
-          icon: 'mdi-apps',
           title: 'Terms and conditions',
           to: '/terms-and-conditions'
         }
@@ -145,6 +140,15 @@ export default {
     handleRoleChange(role) {
       this.$router.push(`/${role}`)
       this.currentRole = role
+    }
+  },
+  mounted() {
+    if (!this.$store.state.auth.auth) {
+      this.items.push({
+        icon: 'mdi-apps',
+        title: 'Verify mail',
+        to: '/auth/verify-email'
+      })
     }
   }
 }
