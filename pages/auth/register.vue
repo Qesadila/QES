@@ -52,7 +52,11 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      user: '',
+      password: '',
+      passwordCheck: '',
+      acceptGDPR: false,
+      acceptCommercial: false
     }
   },
   methods: {
