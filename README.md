@@ -1,22 +1,22 @@
-# qes-nuxt
+Qesadila is open source voting system which is using Qualified Electronic Signature to verify the voting process.
 
-> QESADILA
+https://www.qesadila.com
 
-## Build Setup
+Licence: GNU GPLv2
 
-```bash
-# install dependencies
-$ npm install
+Presentation:
+- https://github.com/Qesadila/QES/raw/master/Qesadila14-00-v2.pdf
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionControl
+ - WPF Desktop application
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+QesadilaBackend: https://dev.azure.com/Qesadila/QesadilaBackend
+ - Swagger: https://qesadila.azurewebsites.net/swagger/index.html
+ - Docker container build using .net core, DB: RAM or CosmosDB
+ - Our solution is hosted in Azure
+ - Docker Hub image: https://hub.docker.com/r/qesadila/qesadila-backend
+ 
+QesadilaFrontend: https://github.com/Qesadila/QES/
+ - VUE web app
 
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Class diagram: https://app.quickdatabasediagrams.com/#/d/5Meb4N
