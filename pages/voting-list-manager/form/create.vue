@@ -10,10 +10,11 @@
 
         <div class="px-5">
           <v-text-field v-model="listName" label="List name" outlined="" />
+          <v-switch label="Is published" v-model="isPublished" />
         </div>
 
         <div class="d-flex flex-row justify-center px-12 mb-6 body">
-          <v-btn x-large color="primary" @click="addUsers">Manage users</v-btn>
+          <v-btn x-large color="primary" @click="addUsers">Continue</v-btn>
         </div>
 
         <div class="pa-5" v-if="listId !== null">
@@ -46,6 +47,7 @@
                   outlined
                 />
                 <v-file-input v-model="user.file" label="Sign file" outlined />
+                <v-switch label="Is QES" v-model="user.isQES" />
               </v-card-text>
 
               <v-divider></v-divider>
@@ -64,6 +66,8 @@
   </v-row>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   middleware: 'authenticated',
   data() {
@@ -77,7 +81,7 @@ export default {
         {
           text: 'Signed Document',
           sortable: false,
-          value: 'signed_document'
+          value: 'file'
         },
         {
           text: 'Action',
@@ -90,34 +94,50 @@ export default {
       listId: null,
       voters: [],
       dialog: false,
+      isPublished: false,
       user: {
         email: '',
-        file: null
+        file: null,
+        isQES: true
       }
     }
   },
   methods: {
-    submitForm() {
-      console.log('Form submitted! ->', this.userAnwers)
-    },
+    ...mapActions('listManager', ['performAddList']),
+    ...mapActions('voter', ['performAddVoter']),
+
     handleUserAnswerChange(questionId, answerId) {
       this.userAnwers[questionId] = answerId
     },
-    addUsers() {
-      console.log('add users')
-      this.listId = 20
-    },
-    createAndAttachUser() {
-      this.voters.push({
-        name: this.user.email,
-        file: this.user.file
+    async addUsers() {
+      const response = await this.performAddList({
+        name: this.name,
+        isPublished: this.isPublished
       })
+
+      console.log(response)
+
+      this.listId = 10
+    },
+    async createAndAttachUser() {
+      const response = await this.performAddVoter({
+        email: this.user.email,
+        file: this.user.file,
+        isQES: this.user.isQES
+      })
+
+      if (response) {
+        this.voters.push({
+          email: this.user.email,
+          file: this.user.file.name,
+          isQES: this.user.isQES
+        })
+      }
 
       this.user.email = ''
       this.user.file = null
       this.dialog = false
-
-      console.log(this.voters)
+      this.user.isQES = true
     }
   }
 }
