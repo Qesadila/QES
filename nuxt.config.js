@@ -48,7 +48,9 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // Doc: https://nuxt-community.github.io/nuxt-i18n/
+    'nuxt-i18n'
   ],
   /*
    ** Axios module configuration
@@ -84,5 +86,20 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  i18n: {
+    locales: ['en', 'cz'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          welcome: 'Welcome'
+        },
+        cz: {
+          welcome: 'Vitejte'
+        }
+      }
+    }
   }
 }
