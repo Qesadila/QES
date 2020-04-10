@@ -17,6 +17,14 @@
           }}</v-chip>
         </template>
 
+        <template v-slot:item.open_from="{ item }">
+          {{ formatDate(item.open_from) }}
+        </template>
+
+        <template v-slot:item.open_until="{ item }">
+          {{ formatDate(item.open_until) }}
+        </template>
+
         <template v-slot:item.actions="{ item }">
           <template v-if="item.isPublished">
             <v-btn color="secondary">Show results</v-btn>

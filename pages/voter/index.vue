@@ -17,6 +17,14 @@
           }}</v-chip>
         </template>
 
+        <template v-slot:item.open_from="{ item }">
+          {{ formatDate(item.open_from) }}
+        </template>
+
+        <template v-slot:item.open_until="{ item }">
+          {{ formatDate(item.open_until) }}
+        </template>
+
         <template v-slot:item.actions="{ item }">
           <template v-if="item.voted">
             <v-btn color="secondary" :to="`/voter/form/${item.id}`"
@@ -33,10 +41,13 @@
 </template>
 
 <script>
+import { formatDate } from '~/code/helpers/formatDate'
+
 export default {
   middleware: 'authenticated',
   data() {
     return {
+      formatDate,
       headers: [
         {
           text: 'Form List Name',
