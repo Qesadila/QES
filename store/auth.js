@@ -113,17 +113,5 @@ export const actions = {
         root: true
       })
     }
-  },
-  nuxtServerInit({ commit }) {
-    console.log('sdasdas')
-    const JWT = Cookie.get('JWT')
-    const JWTUser = Cookie.get('JWT_USER')
-
-    if (JWT && JWTUser) {
-      this.$axios
-        .setHeader('Authorization', 'Bearer ' + JWT)
-        .commit('auth/setAuth', true)
-        .commit('auth/setAuthUser', JSON.parse(JWTUser))
-    }
   }
 }

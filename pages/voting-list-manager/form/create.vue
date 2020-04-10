@@ -3,7 +3,7 @@
     <v-card width="100%">
       <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
-          {{ mockForm.title }}
+          Create New Voter List
         </div>
         <div class="d-flex flex-row justify-center px-12 mb-6 body">
           {{ mockForm.infoText }}
