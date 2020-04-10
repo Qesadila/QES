@@ -35,7 +35,11 @@
           prepend-icon="mdi-lock"
           type="password"
         />
-        <v-checkbox v-model="acceptGDPR" label="Accept GDPR"></v-checkbox>
+        <v-checkbox v-model="acceptGDPR">
+          <template v-slot:label>
+            Accept <nuxt-link to="/terms-and-conditions">GDPR</nuxt-link>
+          </template>
+        </v-checkbox>
         <v-checkbox
           v-model="acceptCommercial"
           label="Accept commercial messages"
