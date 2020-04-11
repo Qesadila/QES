@@ -28,8 +28,17 @@
       flat
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <div class="mx-2">
+        <v-img
+          :src="require('../static/favicon.png')"
+          height="48"
+          width="48"
+          contain
+        ></v-img>
+      </div>
 
       <v-toolbar-title v-text="title" />
+      <v-spacer />
       <v-select
         v-model="selectedRole"
         style="max-width: 300px; margin-left: 30px"
@@ -39,8 +48,6 @@
         label="Role"
         @change="handleRoleChange"
       ></v-select>
-
-      <v-spacer />
 
       <v-select
         class="mr-5"
