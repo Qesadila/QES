@@ -1,35 +1,56 @@
 <template>
   <v-card>
-    <v-card-title>
-      Voter Lists
-    </v-card-title>
+    <div class="d-flex flex-row justify-space-between pt-5 px-5">
+      <div class="display-1">List of Votings</div>
+      <v-btn icon color="primary" x-large to="/voting-form-manager/form/create">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </div>
     <v-card-text>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="items"
         :items-per-page="-1"
         :hide-default-footer="true"
         class="elevation-1"
+        :loading="isLoading"
       >
-        <template v-slot:item.published="{ item }">
-          <v-chip :color="item.isPublished ? 'green' : ''" dark>{{
-            item.isPublished ? 'published' : `unpublished`
-          }}</v-chip>
-        </template>
+        <template v-slot:item.open_from="{ item }">{{
+          formatDate(item.openFrom)
+        }}</template>
 
-        <template v-slot:item.actions>
-          <v-btn color="secondary">Show details</v-btn>
-          <v-btn color="error">Delete</v-btn>
+        <template v-slot:item.open_until="{ item }">{{
+          formatDate(item.openUntil)
+        }}</template>
+
+        <template v-slot:item.actions="{ item }">
+          <template>
+            <v-btn color="secondary" :to="`/voter/results/${item.votingFormId}`"
+              >Show results</v-btn
+            >
+          </template>
         </template>
-      </v-data-table></v-card-text
-    >
+      </v-data-table>
+    </v-card-text>
   </v-card>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { formatDate, isAfter } from '~/code/helpers/formatDate'
+
 export default {
+  middleware: 'authenticated',
+  computed: {
+    currentDate() {
+      const date = new Date()
+      return date.toISOString()
+    }
+  },
   data() {
     return {
+      formatDate,
+      isAfter,
       headers: [
         {
           text: 'Form List Name',
@@ -37,33 +58,53 @@ export default {
           value: 'name'
         },
         {
-          text: 'Registered Voters',
+          text: 'Open From',
           sortable: false,
-          value: 'registered_voters'
+          value: 'open_from'
         },
         {
-          text: 'Invitations sent',
+          text: 'Open Until',
           sortable: false,
-          value: 'invitations_sent'
+          value: 'open_until'
+        },
+
+        {
+          text: 'Voter List',
+          sortable: false,
+          value: 'voterListId'
         },
         {
           text: 'Action',
           sortable: false,
-          value: 'actions'
+          value: 'actions',
+          width: 300
         }
       ],
-      desserts: [
-        {
-          name: 'Donation distribution for schools',
-          registered_voters: 25,
-          invitations_sent: 5
-        },
-        {
-          name: 'Public services',
-          registered_voters: 30,
-          invitations_sent: 12
-        }
-      ]
+      items: [],
+      isLoading: false
+    }
+  },
+  mounted() {
+    this.fetchList()
+  },
+  methods: {
+    ...mapActions('formManager', ['performFetchALlForms']),
+    handlePublish(id) {
+      const fakeItTillYouMakeIt = this.desserts.findIndex(
+        (item) => item.id === id
+      )
+
+      this.desserts[fakeItTillYouMakeIt].isPublished = !this.desserts[
+        fakeItTillYouMakeIt
+      ].isPublished
+    },
+    async fetchList() {
+      this.isLoading = true
+      const data = await this.performFetchALlForms()
+      this.items = data.filter((item) =>
+        isAfter(item.openUntil, this.currentDate)
+      )
+      this.isLoading = false
     }
   }
 }
