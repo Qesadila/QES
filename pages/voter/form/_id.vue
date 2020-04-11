@@ -149,10 +149,12 @@ export default {
     ...mapActions('formManager', ['performFetchALlForms']),
     submitForm() {
       console.log('Form submitted! ->', this.userAnwers)
-      this.connection.invoke(
-        'SignMessage',
-        btoa(JSON.stringify(this.userAnwers))
-      )
+      const toSend = {
+        votingForm: this.selectedForm.title,
+        answers: this.userAnwers,
+        votingFormId: this.$route.params.id
+      }
+      this.connection.invoke('SignMessage', btoa(JSON.stringify(toSend)))
       this.waitingForSign = true
     },
     handleUserAnswerChange(questionId, answerId) {
