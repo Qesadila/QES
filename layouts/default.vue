@@ -3,7 +3,7 @@
     <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app>
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in menuItems"
           :key="i"
           :to="localePath(item.to)"
           router
@@ -86,7 +86,20 @@
 </template>
 
 <script>
+import {
+  anonymousRoutes,
+  voterRoutes,
+  votingListManagerRoutes,
+  votingFormManagerRoutes
+} from '../code/constants/sideMenuItems'
 import SnackbarComponent from '~/components/SnackbarComponent'
+
+const setSideMenuItems = (role) => {
+  if (role === 'anonym') return anonymousRoutes
+  if (role === 'voter') return voterRoutes
+  if (role === 'voting-form-manager') return votingFormManagerRoutes
+  if (role === 'voting-list-manager') return votingListManagerRoutes
+}
 
 export default {
   name: 'DefaultLayout',
@@ -117,20 +130,14 @@ export default {
         }
       ],
       currentRole: 'anonym',
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Home',
-          to: `/`
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Terms and conditions',
-          to: '/terms-and-conditions'
-        }
-      ],
+      items: anonymousRoutes,
       title: 'QUESADILA',
       selectedRole: 'anonym'
+    }
+  },
+  computed: {
+    menuItems() {
+      return setSideMenuItems(this.currentRole)
     }
   },
   methods: {
