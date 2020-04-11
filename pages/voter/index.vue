@@ -34,10 +34,14 @@
 
         <template v-slot:item.actions="{ item }">
           <template v-if="isAfter(item.openUntil, currentDate)">
-            <v-btn color="secondary">Show results</v-btn>
+            <v-btn color="secondary" :to="`/voter/results/${item.votingFormId}`"
+              >Show results</v-btn
+            >
           </template>
           <template v-else>
-            <v-btn color="primary">Vote</v-btn>
+            <v-btn color="primary" :to="`/voter/form/${item.votingFormId}`"
+              >Vote</v-btn
+            >
           </template>
         </template>
       </v-data-table>
