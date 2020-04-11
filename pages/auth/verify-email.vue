@@ -15,9 +15,9 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/login">Already verified?</v-btn>
-      <v-spacer />
+      <v-btn text to="/auth/login">Sign in</v-btn>
       <v-btn text to="/auth/verify-resend">Resend token</v-btn>
+      <v-spacer />
       <v-btn color="primary" @click="handleSubmit">Verify mail</v-btn>
     </v-card-actions>
   </v-card>

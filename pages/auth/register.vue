@@ -7,9 +7,9 @@
       <v-form>
         <v-text-field
           v-model="username"
-          label="Email"
+          label="E-mail"
           name="username"
-          prepend-icon="mdi-account"
+          prepend-icon="mdi-email"
           type="email"
         />
 
@@ -37,7 +37,8 @@
         />
         <v-checkbox v-model="acceptGDPR">
           <template v-slot:label>
-            Accept <nuxt-link to="/terms-and-conditions">GDPR</nuxt-link>
+            Accept
+            <nuxt-link to="/terms-and-conditions" class="ml-1">GDPR</nuxt-link>
           </template>
         </v-checkbox>
         <v-checkbox
@@ -47,7 +48,7 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/login">Already have account?</v-btn>
+      <v-btn text to="/auth/login">Sign in</v-btn>
       <v-spacer />
       <v-btn color="primary" @click="handleSubmit">Register</v-btn>
     </v-card-actions>

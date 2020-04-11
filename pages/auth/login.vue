@@ -7,9 +7,9 @@
       <v-form>
         <v-text-field
           v-model="username"
-          label="Login"
+          label="E-mail"
           name="username"
-          prepend-icon="mdi-account"
+          prepend-icon="mdi-email"
           type="email"
         />
 
@@ -23,11 +23,11 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/register">Don't have account?</v-btn>
-      <v-spacer />
+      <v-btn text to="/auth/register">Sign up</v-btn>
       <v-btn text to="/auth/forgot-password">Forgot password?</v-btn>
+      <v-spacer />
 
-      <v-btn color="primary" @click="handleSubmit">Login</v-btn>
+      <v-btn color="primary" @click="handleSubmit">Sign in</v-btn>
     </v-card-actions>
   </v-card>
 </template>
