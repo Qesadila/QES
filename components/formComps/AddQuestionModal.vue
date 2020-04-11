@@ -5,7 +5,7 @@
         {{ questionNumber + 1 }}. Question text
       </div>
       <v-text-field
-        v-model="questionData.text"
+        v-model="questionData.question"
         outlined
         hide-details
       ></v-text-field>

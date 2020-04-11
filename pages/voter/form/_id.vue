@@ -18,15 +18,13 @@
           <div class="title">{{ question.question }}</div>
           <div class="pl-5">
             <v-radio-group
-              @change="
-                handleUserAnswerChange(question.votingFormItemId, $event)
-              "
+              @change="handleUserAnswerChange(question.question, $event)"
             >
               <v-radio
                 v-for="option in question.votingFormItemOptions"
                 :key="option.votingFormItemOptionId"
                 :label="option.option"
-                :value="option.votingFormItemOptionId"
+                :value="option.option"
                 class="my-2"
               >
               </v-radio>
