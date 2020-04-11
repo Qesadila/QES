@@ -1,53 +1,66 @@
 <template>
   <v-card>
-    <v-card-title>
-      List of the Votings
-    </v-card-title>
+    <div class="d-flex flex-row justify-space-between pt-5 px-5">
+      <div class="display-1">List of Votings</div>
+      <v-btn icon color="primary" x-large to="/voting-form-manager/form/create">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </div>
     <v-card-text>
       <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="items"
         :items-per-page="-1"
         :hide-default-footer="true"
         class="elevation-1"
+        :loading="isLoading"
       >
-        <template v-slot:item.status="{ item }">
-          <v-chip :color="item.voted ? 'green' : 'red'" dark>{{
-            item.voted ? 'You voted already' : `You didn't voted yet!`
-          }}</v-chip>
+        <template v-slot:item.published="{ item }">
+          <v-chip
+            @click="handlePublish(item.id)"
+            :color="item.isPublished ? 'green' : ''"
+            dark
+            >{{ item.isPublished ? 'published' : `unpublished` }}</v-chip
+          >
         </template>
 
-        <template v-slot:item.open_from="{ item }">
-          {{ formatDate(item.open_from) }}
-        </template>
+        <template v-slot:item.open_from="{ item }">{{
+          formatDate(item.openFrom)
+        }}</template>
 
-        <template v-slot:item.open_until="{ item }">
-          {{ formatDate(item.open_until) }}
-        </template>
+        <template v-slot:item.open_until="{ item }">{{
+          formatDate(item.openUntil)
+        }}</template>
 
         <template v-slot:item.actions="{ item }">
-          <template v-if="item.voted">
-            <v-btn color="secondary" :to="`/voter/form/${item.id}`"
-              >Show results</v-btn
-            >
+          <template v-if="isAfter(item.openUntil, currentDate)">
+            <v-btn color="secondary">Show results</v-btn>
           </template>
           <template v-else>
-            <v-btn color="primary" :to="`/voter/form/${item.id}`">Vote</v-btn>
+            <v-btn color="primary">Vote</v-btn>
           </template>
         </template>
-      </v-data-table></v-card-text
-    >
+      </v-data-table>
+    </v-card-text>
   </v-card>
 </template>
 
 <script>
-import { formatDate } from '~/code/helpers/formatDate'
+import { mapActions } from 'vuex'
+import { formatDate, isAfter } from '~/code/helpers/formatDate'
 
 export default {
   middleware: 'authenticated',
+  computed: {
+    currentDate() {
+      const date = new Date()
+      return date.toISOString()
+    }
+  },
   data() {
     return {
       formatDate,
+      isAfter,
       headers: [
         {
           text: 'Form List Name',
@@ -64,40 +77,42 @@ export default {
           sortable: false,
           value: 'open_until'
         },
+
         {
           text: 'Voter List',
           sortable: false,
-          value: 'voter_list'
-        },
-        {
-          text: 'Status',
-          sortable: false,
-          value: 'status'
+          value: 'voterListId'
         },
         {
           text: 'Action',
           sortable: false,
-          value: 'actions'
+          value: 'actions',
+          width: 300
         }
       ],
-      desserts: [
-        {
-          id: 1,
-          name: 'Donation distribution for schools',
-          open_from: '2020-04-01 12:00',
-          open_until: '2020-04-01 20:00',
-          voter_list: 'City representatives',
-          voted: true
-        },
-        {
-          id: 2,
-          name: 'Public services',
-          open_from: '2020-04-01 12:00',
-          open_until: '2021-04-01 20:00',
-          voter_list: 'Citizens',
-          voted: false
-        }
-      ]
+      items: [],
+      isLoading: false
+    }
+  },
+  mounted() {
+    this.fetchList()
+  },
+  methods: {
+    ...mapActions('formManager', ['performFetchALlForms']),
+    handlePublish(id) {
+      const fakeItTillYouMakeIt = this.desserts.findIndex(
+        (item) => item.id === id
+      )
+
+      this.desserts[fakeItTillYouMakeIt].isPublished = !this.desserts[
+        fakeItTillYouMakeIt
+      ].isPublished
+    },
+    async fetchList() {
+      this.isLoading = true
+      const data = await this.performFetchALlForms()
+      this.items = data
+      this.isLoading = false
     }
   }
 }

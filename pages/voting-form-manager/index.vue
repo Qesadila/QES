@@ -73,12 +73,12 @@ export default {
         {
           text: 'Published / Unpublished',
           sortable: false,
-          value: 'published'
+          value: 'isPublic'
         },
         {
           text: 'Voter List',
           sortable: false,
-          value: 'voter_list'
+          value: 'voterListId'
         },
         {
           text: 'Action',
