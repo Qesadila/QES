@@ -2,12 +2,12 @@ Qesadila is open source voting system which is using Qualified Electronic Signat
 
 https://www.qesadila.com
 
-Licence: GNU GPLv2
+Licence: GNU GPLv3
 
 Presentation:
 - https://github.com/Qesadila/QES/raw/master/Qesadila14-00-v2.pdf
 
-QesadilaVotingApp: https://dev.azure.com/Qesadila/QesadilaVotingApp/_versionControl
+QesadilaVotingApp: https://dev.azure.com/Qesadila/_git/QesadilaAuth
  - WPF Desktop application
 
 QesadilaBackend: https://dev.azure.com/Qesadila/QesadilaBackend
