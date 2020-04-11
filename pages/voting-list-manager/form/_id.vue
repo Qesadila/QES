@@ -65,7 +65,7 @@ export default {
           value: 'name'
         },
         {
-          text: 'Signed Document',
+          text: 'Qualified electronic signature',
           sortable: false,
           value: 'gdprConsentFrom'
         }

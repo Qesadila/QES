@@ -79,7 +79,7 @@ export default {
           value: 'email'
         },
         {
-          text: 'Signed Document',
+          text: 'Qualified electronic signature',
           sortable: false,
           value: 'file'
         },
