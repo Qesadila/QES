@@ -113,5 +113,28 @@ export const actions = {
         root: true
       })
     }
+  },
+  async performResendToken({ dispatch }, { email }) {
+    let response = null
+
+    const fd = new URLSearchParams()
+
+    fd.append('email', email)
+
+    try {
+      response = await this.$axios.post(
+        `v1/Authorize/NewEmailConfirmationToken`,
+        fd
+      )
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      this.$router.push('/auth/verify-email')
+      dispatch('snackbar/openSuccess', 'Succesfully resend!', {
+        root: true
+      })
+    }
   }
 }

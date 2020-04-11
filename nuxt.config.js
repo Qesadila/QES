@@ -39,6 +39,7 @@ module.exports = {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify'
   ],
+  buildDir: 'docs',
   /*
    ** Nuxt.js modules
    */
@@ -91,9 +92,5 @@ module.exports = {
   sentry: {
     dsn: '', // Enter your project's DSN here
     config: {} // Additional config
-  },
-  server: {
-    port: 3000, // default: 3000
-    host: '0.0.0.0' // default: localhost
   }
 }

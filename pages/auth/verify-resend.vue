@@ -6,19 +6,18 @@
     <v-card-text>
       <v-form>
         <v-text-field
-          v-model="token"
-          label="Token"
-          name="token"
+          v-model="email"
+          label="Email"
+          name="email"
           prepend-icon="mdi-account"
           type="email"
         />
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/login">Already verified?</v-btn>
+      <v-btn text to="/auth/verify-email">Back to verification</v-btn>
       <v-spacer />
-      <v-btn text to="/auth/verify-resend">Resend token</v-btn>
-      <v-btn color="primary" @click="handleSubmit">Verify mail</v-btn>
+      <v-btn color="primary" @click="handleSubmit">Resend</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -31,23 +30,16 @@ export default {
   middleware: 'notAuthenticated',
   data() {
     return {
-      token: ''
+      email: ''
     }
   },
-  mounted() {
-    this.getToken()
-  },
+
   methods: {
-    ...mapActions('auth', ['performVerifyEmail']),
+    ...mapActions('auth', ['performResendToken']),
     async handleSubmit() {
-      await this.performVerifyEmail({
-        token: this.token
+      await this.performResendToken({
+        email: this.email
       })
-    },
-    getToken() {
-      if (this.$route.query.token) {
-        this.token = this.$route.query.token
-      }
     }
   }
 }

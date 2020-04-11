@@ -21,9 +21,12 @@
           }}</v-chip>
         </template>
 
-        <template v-slot:item.actions>
-          <v-btn color="secondary">Show details</v-btn>
-          <v-btn color="error">Delete</v-btn>
+        <template v-slot:item.actions="{ item }">
+          <v-btn
+            color="secondary"
+            :to="`/voting-list-manager/form/${item.voterListId}`"
+            >Show details</v-btn
+          >
         </template>
       </v-data-table></v-card-text
     >
