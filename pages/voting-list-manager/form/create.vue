@@ -10,7 +10,7 @@
 
         <div class="px-5">
           <v-text-field v-model="listName" label="List name" outlined="" />
-          <v-switch label="Is published" v-model="isPublished" />
+          <v-switch label="Is public" v-model="isPublic" />
         </div>
 
         <div class="d-flex flex-row justify-center px-12 mb-6 body">
@@ -94,7 +94,7 @@ export default {
       listId: null,
       voters: [],
       dialog: false,
-      isPublished: false,
+      isPublic: false,
       user: {
         email: '',
         file: null,
@@ -103,7 +103,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions('listManager', ['performAddList']),
+    ...mapActions('listManager', [
+      'performAddList',
+      'performAssignVoterToList'
+    ]),
     ...mapActions('voter', ['performAddVoter']),
 
     handleUserAnswerChange(questionId, answerId) {
@@ -112,12 +115,10 @@ export default {
     async addUsers() {
       const response = await this.performAddList({
         name: this.listName,
-        isPublished: this.isPublished
+        isPublic: this.isPublic
       })
 
-      console.log(response)
-
-      this.listId = 10
+      this.listId = response.voterListId
     },
     async createAndAttachUser() {
       const response = await this.performAddVoter({
@@ -126,11 +127,17 @@ export default {
         isQES: this.user.isQES
       })
 
-      if (response) {
+      const isAdded = await this.performAssignVoterToList({
+        userEmail: response.email,
+        voterListId: this.listId
+      })
+
+      if (isAdded) {
         this.voters.push({
           email: this.user.email,
           file: this.user.file.name,
-          isQES: this.user.isQES
+          isQES: this.user.isQES,
+          id: isAdded.voterId
         })
       }
 

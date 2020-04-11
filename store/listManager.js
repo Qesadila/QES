@@ -1,8 +1,8 @@
 export const actions = {
-  async performAddList({ commit, dispatch }, { name, isPublished }) {
+  async performAddList({ commit, dispatch }, { name, isPublic }) {
     const fd = new FormData()
     fd.append('voterListName', name)
-    fd.append('isPublic', isPublished)
+    fd.append('isPublic', isPublic)
 
     let response = null
 
@@ -20,7 +20,7 @@ export const actions = {
     let response = null
 
     try {
-      response = await await this.$axios.get('v1/VoterList/GetPublicLists')
+      response = await await this.$axios.get('v1/VoterList/GetPrivateInfo')
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }
@@ -33,7 +33,7 @@ export const actions = {
     let response = null
 
     try {
-      response = await await this.$axios.put('v1/VoterList/GetPublicLists')
+      response = await await this.$axios.put('v1/VoterList/GetPrivateInfo')
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }
@@ -42,11 +42,15 @@ export const actions = {
       return response.data
     }
   },
-  async performAssignVoterToList({ dispatch }, { listId, userId }) {
+  async performAssignVoterToList({ dispatch }, { voterListId, userEmail }) {
     let response = null
 
+    const fd = new FormData()
+    fd.append('voterListId', voterListId)
+    fd.append('voterEmail', userEmail)
+
     try {
-      response = await await this.$axios.put('v1/VoterList/GetPublicLists')
+      response = await await this.$axios.put('v1/VoterList/AssignVoter', fd)
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }

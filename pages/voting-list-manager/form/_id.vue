@@ -31,6 +31,11 @@
             :hide-default-footer="true"
             class="elevation-1"
           >
+            <template v-slot:item.gdprConsentFrom="{ item }">
+              <v-icon>{{
+                item.gdprConsentFrom ? 'mdi-check' : 'mdi-close'
+              }}</v-icon>
+            </template>
           </v-data-table>
         </div>
       </form>
@@ -50,20 +55,19 @@ export default {
     return {
       headers: [
         {
-          text: 'E-mail',
+          text: 'Email',
           sortable: false,
           value: 'email'
         },
         {
-          text: 'Signed Document',
+          text: 'Name',
           sortable: false,
-          value: 'file'
+          value: 'name'
         },
         {
-          text: 'Action',
+          text: 'Signed Document',
           sortable: false,
-          value: 'actions',
-          width: 300
+          value: 'gdprConsentFrom'
         }
       ],
       allLists: []
