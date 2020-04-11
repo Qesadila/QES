@@ -116,7 +116,6 @@ export default {
           value: 'voting-list-manager'
         }
       ],
-      currentRole: 'anonym',
       items: [
         {
           icon: 'mdi-apps',
@@ -139,7 +138,7 @@ export default {
     },
     handleRoleChange(role) {
       this.$router.push(`/${role}`)
-      this.currentRole = role
+      this.selectedRole = role
     }
   },
   mounted() {
@@ -150,6 +149,12 @@ export default {
         to: '/auth/verify-email'
       })
     }
+
+    this.roles.map((item) => {
+      if (this.$route.path.search(item.value) !== -1) {
+        this.selectedRole = item.value
+      }
+    })
   }
 }
 </script>

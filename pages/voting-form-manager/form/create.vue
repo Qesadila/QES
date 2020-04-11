@@ -72,7 +72,14 @@
         </v-dialog>
 
         <div>Voter list ID</div>
-        <v-select outlined placeholder="Select voter list"></v-select>
+        <v-select
+          outlined
+          :items="voterLists"
+          placeholder="Select voter list"
+          v-model="createdForm.voterListId"
+          item-value="voterListId"
+          item-text="voterListName"
+        ></v-select>
 
         <v-divider class="mb-5"></v-divider>
 
@@ -126,6 +133,7 @@
   </v-row>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import { MINIMUM_NUMBER_OF_QUESTIONS } from '../../../code/constants/createNewFormSettings'
 import AddQuestionModal from '../../../components/formComps/AddQuestionModal.vue'
 export default {
@@ -142,10 +150,15 @@ export default {
         openUntil: null,
         voterListId: '',
         votingFormItems: []
-      }
+      },
+      voterLists: []
     }
   },
+  mounted() {
+    this.fetchVoterLists()
+  },
   methods: {
+    ...mapActions('listManager', ['performFetchList']),
     setDateFrom(date) {
       this.createdForm.openFrom = date
     },
@@ -167,6 +180,11 @@ export default {
       fd.append('msg', stringified)
 
       await this.$axios.put('v1/Voting/Form', fd)
+    },
+    async fetchVoterLists() {
+      const resp = await this.performFetchList()
+
+      this.voterLists = resp
     }
   }
 }
