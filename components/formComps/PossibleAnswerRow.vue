@@ -2,13 +2,15 @@
   <div class="d-flex flex-row align-center pa-6">
     <div class="title mr-5">{{ answerNumber }}.</div>
     <v-text-field
+      v-model="textFieldValue"
       hide-details
       outlined
-      @change="$emit('answer-text-changed', value)"
+      @change="emitAnswer"
     ></v-text-field>
-    <v-btn icon large class="ml-5">
+    <!-- Will be implemented later -->
+    <!-- <v-btn icon large class="ml-5">
       <v-icon color="red">mdi-minus</v-icon>
-    </v-btn>
+    </v-btn> -->
   </div>
 </template>
 <script>
@@ -17,6 +19,16 @@ export default {
     answerNumber: {
       type: Number,
       required: true
+    }
+  },
+  data() {
+    return {
+      textFieldValue: ''
+    }
+  },
+  methods: {
+    emitAnswer() {
+      this.$emit('answer-text-changed', this.textFieldValue)
     }
   }
 }
