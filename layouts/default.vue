@@ -78,8 +78,8 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer :fixed="fixed" app class="d-flex flex-row justify-center">
+      <span>&copy; {{ new Date().getFullYear() }} Srdcom doma o.z.</span>
     </v-footer>
     <snackbar-component></snackbar-component>
   </v-app>
