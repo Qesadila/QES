@@ -1,10 +1,20 @@
 <template>
   <v-card width="100%" elevation="0">
+    <div class="pa-6">
+      <div class="mb-5 font-weight-bold">
+        {{ questionNumber + 1 }}. Question text
+      </div>
+      <v-text-field
+        v-model="questionData.text"
+        outlined
+        hide-details
+      ></v-text-field>
+    </div>
     <div class="px-6 pt-6">Possible answers</div>
-    <div v-for="answerNumber in numberOfanswers" :key="answerNumber">
+    <div v-for="optionNumber in numberOfOptions" :key="optionNumber">
       <possible-answer-row
-        :answer-number="answerNumber"
-        @answer-text-changed="saveAnswer($event, answerNumber)"
+        :answer-number="optionNumber"
+        @answer-text-changed="saveOption(optionNumber, $event)"
       />
     </div>
 
@@ -24,23 +34,51 @@
   </v-card>
 </template>
 <script>
+import { MINIMUM_NUMBER_OF_ANSWERS } from '../../code/constants/createNewFormSettings'
 import PossibleAnswerRow from './PossibleAnswerRow.vue'
+
 export default {
   components: {
     PossibleAnswerRow
   },
+  props: {
+    questionNumber: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
-      numberOfanswers: 2
+      numberOfOptions: MINIMUM_NUMBER_OF_ANSWERS, // 2
+      questionData: {
+        question: '',
+        order: this.questionNumber + 1,
+        votingFormItemOptions: [
+          {
+            option: '',
+            order: 1
+          },
+          {
+            option: '',
+            order: 2
+          }
+        ]
+      }
     }
   },
   methods: {
-    saveAnswer(value, number) {
-      console.log(value, number)
+    saveOption(optionIndex, optionText) {
+      if (optionIndex - 1 > this.questionData.votingFormItemOptions.length) {
+        this.questionData.votingFormItemOptions.push({})
+      }
+
+      this.questionData.votingFormItemOptions[optionIndex - 1] = {
+        option: optionText,
+        order: optionIndex
+      }
     },
     saveQuestion() {
-      const questionData = {}
-      this.$emit('save-question', questionData)
+      this.$emit('save-question', this.questionData)
     }
   }
 }

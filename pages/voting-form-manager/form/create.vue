@@ -12,6 +12,7 @@
 
         <div>Name of the voting form</div>
         <v-text-field
+          v-model="createdForm.name"
           outlined
           placeholder="Provide name of the voting form"
         ></v-text-field>
@@ -20,13 +21,13 @@
         <v-dialog
           ref="dialogFrom"
           v-model="modal"
-          :return-value.sync="date"
+          :return-value.sync="dateFrom"
           persistent
           width="290px"
         >
           <template v-slot:activator="{ on }">
             <v-text-field
-              v-model="date"
+              v-model="dateFrom"
               placeholder="Select date from"
               prepend-inner-icon="mdi-calendar-range"
               readonly
@@ -34,10 +35,10 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" scrollable>
+          <v-date-picker v-model="dateFrom" scrollable @change="setDateFrom">
             <v-spacer></v-spacer>
             <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
-            <v-btn text color="primary" @click="$refs.dialogFrom.save(date)"
+            <v-btn text color="primary" @click="$refs.dialogFrom.save(dateFrom)"
               >OK</v-btn
             >
           </v-date-picker>
@@ -47,13 +48,13 @@
         <v-dialog
           ref="dialogTo"
           v-model="modal"
-          :return-value.sync="date"
+          :return-value.sync="dateUntil"
           persistent
           width="290px"
         >
           <template v-slot:activator="{ on }">
             <v-text-field
-              v-model="date"
+              v-model="dateUntil"
               placeholder="Select date from"
               prepend-inner-icon="mdi-calendar-range"
               readonly
@@ -61,10 +62,10 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" scrollable>
+          <v-date-picker v-model="dateUntil" scrollable @change="setDateUntil">
             <v-spacer></v-spacer>
             <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
-            <v-btn text color="primary" @click="$refs.dialogTo.save(date)"
+            <v-btn text color="primary" @click="$refs.dialogTo.save(dateUntil)"
               >OK</v-btn
             >
           </v-date-picker>
@@ -77,26 +78,32 @@
 
         <div class="display-1 mb-10">Questions:</div>
         <div
-          v-for="(question, questionNumber) in numberOfQuestions"
-          class="mb-12"
+          v-for="questionNumber in numberOfQuestions"
           :key="questionNumber"
+          class="mb-12"
         >
-          <div class="d-flex flex-row align-center">
+          <div class="d-flex flex-row">
             <v-card width="100%" elevation="3">
-              <div class="pa-6">
-                <div class="mb-5 font-weight-bold">
-                  {{ questionNumber + 1 }}. Question text
-                </div>
-                <v-text-field outlined hide-details></v-text-field>
-              </div>
-
-              <add-question-modal @save-question="saveQuestion" />
+              <add-question-modal
+                :question-number="questionNumber - 1"
+                @save-question="saveQuestion"
+              />
             </v-card>
 
-            <v-divider class="mb-5"></v-divider>
-            <v-btn color="red" small class="ml-12" width="48" height="48">
-              <v-icon color="white">mdi-minus</v-icon>
-            </v-btn>
+            <!-- <v-divider class="mb-5"></v-divider>
+
+            Delete button for later use
+
+            <v-btn
+              color="red"
+              small
+              class="ml-12 mt-5"
+              width="48"
+              height="48"
+              @click="deleteQuestion(questionNumber)"
+            >
+              <v-icon color="white">mdi-close</v-icon>
+            </v-btn> -->
           </div>
         </div>
       </div>
@@ -109,7 +116,7 @@
           >Add new question</v-btn
         >
 
-        <v-btn color="green" x-large>
+        <v-btn color="green" x-large @click="saveForm">
           <span class="white--text d-flex align-center">
             <v-icon left>mdi-check</v-icon>Save form</span
           ></v-btn
@@ -119,7 +126,7 @@
   </v-row>
 </template>
 <script>
-import { v4 as uuidv4 } from 'uuid'
+import { MINIMUM_NUMBER_OF_QUESTIONS } from '../../../code/constants/createNewFormSettings'
 import AddQuestionModal from '../../../components/formComps/AddQuestionModal.vue'
 export default {
   middleware: 'authenticated',
@@ -128,11 +135,8 @@ export default {
   },
   data() {
     return {
-      numberOfQuestions: 1,
-      numberOfanswers: 2,
-
+      numberOfQuestions: MINIMUM_NUMBER_OF_QUESTIONS, // 1
       createdForm: {
-        votingFormId: '',
         name: '',
         openFrom: null,
         openUntil: null,
@@ -142,12 +146,23 @@ export default {
     }
   },
   methods: {
+    setDateFrom(date) {
+      this.createdForm.openFrom = date
+    },
+    setDateUntil(date) {
+      this.createdForm.openUntil = date
+    },
     saveQuestion(questionData) {
       console.log('Question ID saved ->', questionData)
+      this.createdForm.votingFormItems.push(questionData)
+    },
+    saveForm() {
+      console.log('Form saved ->', this.createdForm)
+      console.log('String ->', JSON.stringify(this.createdForm))
+
+      // const stringified = JSON.stringify(this.createdForm)
+      // await this.$axios.put('v1/Voting/Form', stringified)
     }
-  },
-  mounted() {
-    this.votingFormId = uuidv4()
   }
 }
 </script>
