@@ -129,7 +129,6 @@ export default {
           value: 'voting-list-manager'
         }
       ],
-      currentRole: 'anonym',
       items: anonymousRoutes,
       title: 'QUESADILA',
       selectedRole: 'anonym'
@@ -137,7 +136,7 @@ export default {
   },
   computed: {
     menuItems() {
-      return setSideMenuItems(this.currentRole)
+      return setSideMenuItems(this.selectedRole)
     }
   },
   methods: {
