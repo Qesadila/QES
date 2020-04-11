@@ -25,11 +25,11 @@
         </template>
 
         <template v-slot:item.open_from="{ item }">{{
-          formatDate(item.open_from)
+          formatDate(item.openFrom)
         }}</template>
 
         <template v-slot:item.open_until="{ item }">{{
-          formatDate(item.open_until)
+          formatDate(item.openUntil)
         }}</template>
 
         <template v-slot:item.actions="{ item }">

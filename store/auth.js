@@ -49,7 +49,7 @@ export const actions = {
     fd.append('email', username)
     fd.append('name', name)
     fd.append('language', language)
-    fd.append('passwordHash', password)
+    fd.append('passwordHash', hashPassword(password))
     fd.append('terms', acceptGDPR)
     fd.append('commercial', acceptCommercial)
 
