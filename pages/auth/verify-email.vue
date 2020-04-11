@@ -1,6 +1,14 @@
 <template>
   <v-card class="elevation-12">
     <v-toolbar color="primary" dark flat>
+      <div class="mr-2">
+        <v-img
+          :src="require('../../static/favicon.png')"
+          height="48"
+          width="48"
+          contain
+        ></v-img>
+      </div>
       <v-toolbar-title>Verify mail</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
