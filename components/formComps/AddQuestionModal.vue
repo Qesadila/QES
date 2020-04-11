@@ -22,10 +22,10 @@
     <div
       class="d-flex flex-row justify-space-between pa-5 form-generator-background"
     >
-      <v-btn text color="primary" @click="numberOfanswers++"
+      <v-btn text color="primary" @click="numberOfOptions++"
         ><v-icon>mdi-plus</v-icon>Add new possible answer</v-btn
       >
-      <v-btn color="green" @click="saveQuestion()"
+      <v-btn color="green" @click="saveQuestion"
         ><span class="white--text d-flex align-center">
           <v-icon left>mdi-check</v-icon>Save question</span
         ></v-btn
