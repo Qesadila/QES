@@ -160,8 +160,13 @@ export default {
       console.log('Form saved ->', this.createdForm)
       console.log('String ->', JSON.stringify(this.createdForm))
 
+      const fd = new FormData()
+
       const stringified = JSON.stringify(this.createdForm)
-      await this.$axios.put('v1/Voting/Form', stringified)
+
+      fd.append('msg', stringified)
+
+      await this.$axios.put('v1/Voting/Form', fd)
     }
   }
 }

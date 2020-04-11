@@ -102,7 +102,7 @@ export const actions = {
     fd.append('email', email)
 
     try {
-      response = await this.$axios.get('v1/Authorize/RestorePassword', fd)
+      response = await this.$axios.post('v1/Authorize/RestorePassword', fd)
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }

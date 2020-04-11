@@ -25,6 +25,8 @@
     <v-card-actions>
       <v-btn text to="/auth/register">Don't have account?</v-btn>
       <v-spacer />
+      <v-btn text to="/auth/forgot-password">Forgot password?</v-btn>
+
       <v-btn color="primary" @click="handleSubmit">Login</v-btn>
     </v-card-actions>
   </v-card>
