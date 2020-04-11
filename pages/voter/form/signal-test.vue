@@ -19,10 +19,10 @@ export default {
       .build()
 
     this.connection.start()
-    this.connection.on('Authenticate', (cert, name) => {
-      console.log("on('Authenticate)", cert, name)
-      this.authenticated = 'Authenticate ' + name
-      // questionHub.$emit('score-changed', { questionId, score })
+    this.connection.on('Authenticate', (cert) => {
+      const fd = new FormData()
+      fd.append('base64message', cert)
+      this.$axios.post('v1/Voter/SubmitVote', fd)
     })
     this.connection.on('Logout', (questionId, score) => {
       console.log("on('Logout)", questionId, score)
@@ -33,7 +33,7 @@ export default {
   methods: {
     onclick() {
       console.log('click')
-      return this.connection.invoke('SignMessage', btoa('click'))
+      return this.connection.invoke('SignMessage', btoa('{"value": "test"}'))
     }
   }
 }

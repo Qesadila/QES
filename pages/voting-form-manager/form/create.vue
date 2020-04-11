@@ -156,12 +156,12 @@ export default {
       console.log('Question ID saved ->', questionData)
       this.createdForm.votingFormItems.push(questionData)
     },
-    saveForm() {
+    async saveForm() {
       console.log('Form saved ->', this.createdForm)
       console.log('String ->', JSON.stringify(this.createdForm))
 
-      // const stringified = JSON.stringify(this.createdForm)
-      // await this.$axios.put('v1/Voting/Form', stringified)
+      const stringified = JSON.stringify(this.createdForm)
+      await this.$axios.put('v1/Voting/Form', stringified)
     }
   }
 }
