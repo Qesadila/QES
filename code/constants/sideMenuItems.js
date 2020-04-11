@@ -2,7 +2,7 @@ export const anonymousRoutes = [
   {
     icon: 'mdi-apps',
     title: 'Voting results',
-    to: `/`
+    to: `/anonym`
   },
   {
     icon: 'mdi-comment-text-outline',
