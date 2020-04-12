@@ -73,10 +73,10 @@
 
         <div>Voter list ID</div>
         <v-select
+          v-model="createdForm.voterListId"
           outlined
           :items="voterLists"
           placeholder="Select voter list"
-          v-model="createdForm.voterListId"
           item-value="voterListId"
           item-text="voterListName"
         ></v-select>

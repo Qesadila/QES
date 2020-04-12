@@ -146,15 +146,6 @@ export default {
       return setSideMenuItems(this.selectedRole)
     }
   },
-  methods: {
-    handleChange(lang) {
-      this.$router.push(this.switchLocalePath(lang))
-    },
-    handleRoleChange(role) {
-      this.$router.push(`/${role}`)
-      this.selectedRole = role
-    }
-  },
   mounted() {
     if (!this.$store.state.auth.auth) {
       this.items.push({
@@ -169,6 +160,15 @@ export default {
         this.selectedRole = item.value
       }
     })
+  },
+  methods: {
+    handleChange(lang) {
+      this.$router.push(this.switchLocalePath(lang))
+    },
+    handleRoleChange(role) {
+      this.$router.push(`/${role}`)
+      this.selectedRole = role
+    }
   }
 }
 </script>

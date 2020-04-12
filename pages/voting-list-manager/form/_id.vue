@@ -10,15 +10,15 @@
 
         <div class="px-5">
           <v-text-field
-            disabled
             v-model="selectedList.voterListName"
+            disabled
             label="List name"
             outlined=""
           />
           <v-switch
+            v-model="selectedList.isPublished"
             disabled
             label="Is published"
-            v-model="selectedList.isPublished"
           />
         </div>
 

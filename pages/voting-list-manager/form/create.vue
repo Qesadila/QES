@@ -10,14 +10,14 @@
 
         <div class="px-5">
           <v-text-field v-model="listName" label="List name" outlined="" />
-          <v-switch label="Is public" v-model="isPublic" />
+          <v-switch v-model="isPublic" label="Is public" />
         </div>
 
         <div class="d-flex flex-row justify-center px-12 mb-6 body">
           <v-btn x-large color="primary" @click="addUsers">Continue</v-btn>
         </div>
 
-        <div class="pa-5" v-if="listId !== null">
+        <div v-if="listId !== null" class="pa-5">
           <h2 class="mb-3 text-center">Voters</h2>
           <v-data-table
             :headers="headers"
@@ -30,7 +30,7 @@
 
           <v-dialog v-model="dialog" width="500">
             <template v-slot:activator="{ on }">
-              <v-btn color="red lighten-2" dark v-on="on" class="mt-5">
+              <v-btn color="red lighten-2" dark class="mt-5" v-on="on">
                 Add user
               </v-btn>
             </template>

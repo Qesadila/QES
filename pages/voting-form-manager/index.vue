@@ -17,9 +17,9 @@
       >
         <template v-slot:item.published="{ item }">
           <v-chip
-            @click="handlePublish(item.id)"
             :color="item.isPublished ? 'green' : ''"
             dark
+            @click="handlePublish(item.id)"
             >{{ item.isPublished ? 'published' : `unpublished` }}</v-chip
           >
         </template>

@@ -17,9 +17,9 @@
       >
         <template v-slot:item.published="{ item }">
           <v-chip
-            @click="handlePublish(item.id)"
             :color="item.isPublished ? 'green' : ''"
             dark
+            @click="handlePublish(item.id)"
             >{{ item.isPublished ? 'published' : `unpublished` }}</v-chip
           >
         </template>
@@ -55,12 +55,6 @@ import { formatDate, isAfter } from '~/code/helpers/formatDate'
 
 export default {
   middleware: 'authenticated',
-  computed: {
-    currentDate() {
-      const date = new Date()
-      return date.toISOString()
-    }
-  },
   data() {
     return {
       formatDate,
@@ -96,6 +90,12 @@ export default {
       ],
       items: [],
       isLoading: false
+    }
+  },
+  computed: {
+    currentDate() {
+      const date = new Date()
+      return date.toISOString()
     }
   },
   mounted() {

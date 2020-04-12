@@ -41,12 +41,6 @@ import { formatDate, isAfter } from '~/code/helpers/formatDate'
 
 export default {
   middleware: 'authenticated',
-  computed: {
-    currentDate() {
-      const date = new Date()
-      return date.toISOString()
-    }
-  },
   data() {
     return {
       formatDate,
@@ -82,6 +76,12 @@ export default {
       ],
       items: [],
       isLoading: false
+    }
+  },
+  computed: {
+    currentDate() {
+      const date = new Date()
+      return date.toISOString()
     }
   },
   mounted() {
