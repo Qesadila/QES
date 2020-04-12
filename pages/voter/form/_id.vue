@@ -3,7 +3,7 @@
     <v-card v-if="selectedForm && appRunning" width="100%">
       <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
-          {{ selectedForm.title }}
+          {{ selectedForm.name }}
         </div>
         <div class="d-flex flex-row justify-center px-12 mb-6 body">
           {{ selectedForm.infoText }}
@@ -150,8 +150,9 @@ export default {
     submitForm() {
       console.log('Form submitted! ->', this.userAnwers)
       const toSend = {
-        votingForm: this.selectedForm.title,
+        votingForm: this.selectedForm.name,
         answers: this.userAnwers,
+        time: new Date(),
         votingFormId: this.$route.params.id
       }
       this.connection.invoke('SignMessage', btoa(JSON.stringify(toSend)))
