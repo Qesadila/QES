@@ -5,6 +5,7 @@ https://www.qesadila.com
 Licence: GNU GPLv3
 
 Presentation:
+- Documentation: https://docs.google.com/document/d/1ky6eIoUcXFsSIdk8vII7tSrEaWyigRY2QMTv5OsOJFM/edit#
 - https://github.com/Qesadila/QES/raw/master/Qesadila14-00-v2.pdf
 
 QesadilaAuth: https://dev.azure.com/Qesadila/_git/QesadilaAuth
