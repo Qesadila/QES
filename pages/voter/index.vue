@@ -102,7 +102,7 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('voter', ['llVoterForms']),
+    ...mapActions('voter', ['performFetchAllVoterForms']),
     handlePublish(id) {
       const fakeItTillYouMakeIt = this.desserts.findIndex(
         (item) => item.id === id
