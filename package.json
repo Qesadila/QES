@@ -37,7 +37,10 @@
     "nuxt-i18n": "^6.8.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "vue-bootstrap-datetimepicker": "^5.0.1",
+    "vue-ctk-date-time-picker": "^2.4.0",
+    "vuetify-datetime-picker": "^2.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",

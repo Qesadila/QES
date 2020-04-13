@@ -17,60 +17,11 @@
           placeholder="Provide name of the voting form"
         ></v-text-field>
 
-        <div>Form open from</div>
-        <v-dialog
-          ref="dialogFrom"
-          v-model="modal"
-          :return-value.sync="dateFrom"
-          persistent
-          width="290px"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="dateFrom"
-              placeholder="Select date from"
-              prepend-inner-icon="mdi-calendar-range"
-              readonly
-              outlined
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="dateFrom" scrollable @change="setDateFrom">
-            <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
-            <v-btn text color="primary" @click="$refs.dialogFrom.save(dateFrom)"
-              >OK</v-btn
-            >
-          </v-date-picker>
-        </v-dialog>
-
         <div>Form open until</div>
-        <v-dialog
-          ref="dialogTo"
-          v-model="modal"
-          :return-value.sync="dateUntil"
-          persistent
-          width="290px"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="dateUntil"
-              placeholder="Select date from"
-              prepend-inner-icon="mdi-calendar-range"
-              readonly
-              outlined
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="dateUntil" scrollable @change="setDateUntil">
-            <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
-            <v-btn text color="primary" @click="$refs.dialogTo.save(dateUntil)"
-              >OK</v-btn
-            >
-          </v-date-picker>
-        </v-dialog>
+        <VueCtkDateTimePicker v-model="createdForm.dateUntil">
+        </VueCtkDateTimePicker>
 
+        <v-divider class="mb-5"></v-divider>
         <div>Voter list ID</div>
         <v-select
           v-model="createdForm.voterListId"
@@ -133,20 +84,23 @@
   </v-row>
 </template>
 <script>
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 import { mapActions } from 'vuex'
 import { MINIMUM_NUMBER_OF_QUESTIONS } from '../../../code/constants/createNewFormSettings'
 import AddQuestionModal from '../../../components/formComps/AddQuestionModal.vue'
+
 export default {
   middleware: 'authenticated',
   components: {
-    AddQuestionModal
+    AddQuestionModal,
+    VueCtkDateTimePicker
   },
   data() {
     return {
       numberOfQuestions: MINIMUM_NUMBER_OF_QUESTIONS, // 1
       createdForm: {
         name: '',
-        openFrom: null,
         openUntil: null,
         voterListId: '',
         votingFormItems: []
@@ -159,12 +113,6 @@ export default {
   },
   methods: {
     ...mapActions('listManager', ['performFetchList']),
-    setDateFrom(date) {
-      this.createdForm.openFrom = date
-    },
-    setDateUntil(date) {
-      this.createdForm.openUntil = date
-    },
     saveQuestion(questionData) {
       console.log('Question ID saved ->', questionData)
       this.createdForm.votingFormItems.push(questionData)
@@ -179,7 +127,7 @@ export default {
 
       fd.append('msg', stringified)
 
-      await this.$axios.put('v1/Voting/Form', fd).then((response) => {
+      await this.$axios.put('v1/Voting/CreateVotingForm', fd).then((response) => {
         this.$store.dispatch('snackbar/openSuccess', 'Successfuly created!')
         this.$router.push('/voting-form-manager')
       })
