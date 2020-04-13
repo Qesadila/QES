@@ -45,18 +45,8 @@ export default {
       headers: [
         {
           text: 'Form List Name',
-          sortable: false,
+          sortable: true,
           value: 'voterListName'
-        },
-        {
-          text: 'Registered Voters',
-          sortable: false,
-          value: 'registered_voters'
-        },
-        {
-          text: 'Invitations sent',
-          sortable: false,
-          value: 'invitations_sent'
         },
         {
           text: 'Action',
