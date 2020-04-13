@@ -34,7 +34,7 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('formManager', ['performFetchALlForms']),
+    ...mapActions('voter', ['performFetchAllVoterForms']),
     submitForm() {
       console.log('Form submitted! ->', this.userAnwers)
     },
@@ -42,7 +42,7 @@ export default {
       this.userAnwers[questionId] = answerId
     },
     async fetchList() {
-      const data = await this.performFetchALlForms()
+      const data = await this.performFetchAllVoterForms()
       this.allLists = data
     }
   }

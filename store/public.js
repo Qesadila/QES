@@ -1,9 +1,9 @@
 export const actions = {
-  async performFetchAllManagerForms({ dispatch }) {
+  async performFetchAllPublicForms({ dispatch }) {
     let response = null
 
     try {
-      response = await await this.$axios.get('v1/Voting/GetAllManagerVotings')
+      response = await await this.$axios.get('v1/Voting/GetAllPublicVotings')
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }

@@ -88,7 +88,7 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('formManager', ['performFetchALlForms']),
+    ...mapActions('public', ['performFetchAllPublicForms']),
     handlePublish(id) {
       const fakeItTillYouMakeIt = this.desserts.findIndex(
         (item) => item.id === id
@@ -100,7 +100,7 @@ export default {
     },
     async fetchList() {
       this.isLoading = true
-      const data = await this.performFetchALlForms()
+      const data = await this.performFetchAllPublicForms()
       this.items = data.filter((item) =>
         isAfter(item.openUntil, this.currentDate)
       )

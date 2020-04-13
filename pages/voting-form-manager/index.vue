@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <div class="d-flex flex-row justify-space-between pt-5 px-5">
-      <div class="display-1">Voter Lists</div>
+      <div class="display-1">Voter Forms Management</div>
       <v-btn icon color="primary" x-large to="/voting-form-manager/form/create">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
@@ -17,10 +17,10 @@
       >
         <template v-slot:item.published="{ item }">
           <v-chip
-            :color="item.isPublished ? 'green' : ''"
+            :color="item.Public ? 'green' : ''"
             dark
             @click="handlePublish(item.id)"
-            >{{ item.isPublished ? 'published' : `unpublished` }}</v-chip
+            >{{ item.Public ? 'public' : `private` }}</v-chip
           >
         </template>
 
@@ -71,7 +71,7 @@ export default {
           value: 'open_until'
         },
         {
-          text: 'Published / Unpublished',
+          text: 'IsPublic',
           sortable: false,
           value: 'isPublic'
         },
@@ -95,7 +95,7 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('formManager', ['performFetchALlForms']),
+    ...mapActions('formManager', ['performFetchAllManagerForms']),
     handlePublish(id) {
       const fakeItTillYouMakeIt = this.desserts.findIndex(
         (item) => item.id === id
@@ -107,7 +107,7 @@ export default {
     },
     async fetchList() {
       this.isLoading = true
-      const data = await this.performFetchALlForms()
+      const data = await this.performFetchAllManagerForms()
       this.items = data
       this.isLoading = false
     }

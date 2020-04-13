@@ -7,6 +7,19 @@ const toBase64 = (file) =>
   })
 
 export const actions = {
+  async performFetchAllVoterForms({ dispatch }) {
+    let response = null
+
+    try {
+      response = await await this.$axios.get('v1/Voting/GetAllVoterVotings')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
+  },
   async performAddVoter({ commit, dispatch }, { email, file, isQES }) {
     const encodedFile = await toBase64(file)
 

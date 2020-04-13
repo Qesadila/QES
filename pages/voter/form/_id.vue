@@ -193,7 +193,7 @@ export default {
       }
     },
 
-    ...mapActions('formManager', ['performFetchALlForms']),
+    ...mapActions('voter', ['performFetchAllVoterForms']),
     submitForm() {
       console.log('Form submitted! ->', this.userAnwers)
       const toSend = {
@@ -209,7 +209,7 @@ export default {
       this.userAnwers[questionId] = answerId
     },
     async fetchList() {
-      const data = await this.performFetchALlForms()
+      const data = await this.performFetchAllVoterForms()
       this.allLists = data
     },
     setSignalRStatus() {
