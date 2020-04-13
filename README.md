@@ -10,9 +10,9 @@ Presentation:
 
 QesadilaAuth: https://dev.azure.com/Qesadila/_git/QesadilaAuth
  - .net core 3 - Avalonia desktop application with SignalR implementation
- - Download: https://apps.scholtz.sk/qesadila-auth-win-x64.zip - Windows
- - Download: https://apps.scholtz.sk/qesadila-auth-osx-x64.zip - Mac
- - Download: https://apps.scholtz.sk/qesadila-auth-linux-x64.zip - Linux
+ - Download: https://apps.scholtz.sk/QesadilaAuth/win/publish.zip - Windows
+ - Download: https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip - Mac
+ - Download: https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip - Linux
 
 QesadilaBackend: https://dev.azure.com/Qesadila/QesadilaBackend
  - Swagger: https://qesadila.azurewebsites.net/swagger/index.html
