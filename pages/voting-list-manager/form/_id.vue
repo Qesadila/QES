@@ -55,11 +55,6 @@ export default {
     return {
       headers: [
         {
-          text: 'Email',
-          sortable: false,
-          value: 'email'
-        },
-        {
           text: 'Name',
           sortable: false,
           value: 'name'
