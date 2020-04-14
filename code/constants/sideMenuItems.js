@@ -19,13 +19,13 @@ export const voterRoutes = [
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of votings',
+    title: 'List of current votings',
     to: `/voter`
   },
   {
-    icon: 'mdi-comment-text-outline',
-    title: 'Terms and conditions',
-    to: '/terms-and-conditions'
+    icon: 'mdi-format-list-checks',
+    title: 'List of past votings',
+    to: `/voter`
   }
 ]
 
@@ -37,18 +37,13 @@ export const votingListManagerRoutes = [
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of voters',
+    title: 'List of voting forms',
     to: `/voting-list-manager`
   },
   {
     icon: 'mdi-account-multiple-plus-outline',
-    title: 'Create list of voters',
-    to: `/voting-list-manager/form/create`
-  },
-  {
-    icon: 'mdi-comment-text-outline',
-    title: 'Terms and conditions',
-    to: '/terms-and-conditions'
+    title: 'Create new voter form',
+    to: `/voting-form-manager/form/create`
   }
 ]
 
@@ -67,10 +62,5 @@ export const votingFormManagerRoutes = [
     icon: 'mdi-note-plus-outline',
     title: 'Create list of voters',
     to: `/voting-list-manager/form/create`
-  },
-  {
-    icon: 'mdi-comment-text-outline',
-    title: 'Terms and conditions',
-    to: '/terms-and-conditions'
   }
 ]
