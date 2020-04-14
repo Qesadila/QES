@@ -121,7 +121,7 @@ export default {
       this.listId = response.voterListId
     },
     async createAndAttachUser() {
-      const response = await this.performAddVoter({
+      await this.performAddVoter({
         email: this.user.email,
         file: this.user.file,
         isQES: this.user.isQES

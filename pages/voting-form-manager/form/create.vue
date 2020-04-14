@@ -127,10 +127,12 @@ export default {
 
       fd.append('msg', stringified)
 
-      await this.$axios.put('v1/Voting/CreateVotingForm', fd).then((response) => {
-        this.$store.dispatch('snackbar/openSuccess', 'Successfuly created!')
-        this.$router.push('/voting-form-manager')
-      })
+      await this.$axios
+        .put('v1/Voting/CreateVotingForm', fd)
+        .then((response) => {
+          this.$store.dispatch('snackbar/openSuccess', 'Successfuly created!')
+          this.$router.push('/voting-form-manager')
+        })
     },
     async fetchVoterLists() {
       const resp = await this.performFetchList()
