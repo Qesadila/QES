@@ -31,23 +31,36 @@
           <v-dialog v-model="dialog" width="500">
             <template v-slot:activator="{ on }">
               <v-btn color="red lighten-2" dark class="mt-5" v-on="on">
-                Add user
+                Add voter
               </v-btn>
             </template>
 
             <v-card>
               <v-card-title class="headline grey lighten-2" primary-title>
-                Add user
+                Add voter
               </v-card-title>
 
               <v-card-text class="pt-5">
                 <v-text-field
-                  v-model="user.email"
-                  label="User email"
+                  v-model="voter.email"
+                  label="Voter email"
                   outlined
                 />
-                <v-file-input v-model="user.file" label="Sign file" outlined />
-                <v-switch v-model="user.isQES" label="Is QES" />
+                <v-switch
+                  v-model="voter.isRegistered"
+                  label="Voter submitted GDPR consent"
+                />
+                <v-file-input
+                  v-if="!voter.isRegistered"
+                  v-model="voter.file"
+                  label="Sign file"
+                  outlined
+                />
+                <v-switch
+                  v-if="!voter.isRegistered"
+                  v-model="voter.isQes"
+                  label="Is QES"
+                />
               </v-card-text>
 
               <v-divider></v-divider>
@@ -55,7 +68,7 @@
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" text @click="createAndAttachUser">
-                  Add user
+                  Add Voter
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -74,13 +87,18 @@ export default {
     return {
       headers: [
         {
+          text: 'Voter name',
+          sortable: true,
+          value: 'name'
+        },
+        {
           text: 'E-mail',
-          sortable: false,
+          sortable: true,
           value: 'email'
         },
         {
           text: 'Qualified electronic signature',
-          sortable: false,
+          sortable: true,
           value: 'file'
         },
         {
@@ -95,10 +113,11 @@ export default {
       voters: [],
       dialog: false,
       isPublic: false,
-      user: {
+      voter: {
+        isRegistered: true,
         email: '',
         file: null,
-        isQES: true
+        isQes: true
       }
     }
   },
@@ -121,30 +140,38 @@ export default {
       this.listId = response.voterListId
     },
     async createAndAttachUser() {
-      await this.performAddVoter({
-        email: this.user.email,
-        file: this.user.file,
-        isQES: this.user.isQES
-      })
+      if (!this.voter.isRegistered) {
+        await this.performAddVoter({
+          email: this.voter.email,
+          file: this.voter.file,
+          isQes: this.voter.isQes
+        })
+      }
 
       const isAdded = await this.performAssignVoterToList({
-        userEmail: this.user.email,
+        userEmail: this.voter.email,
         voterListId: this.listId
       })
 
       if (isAdded) {
+        let nameValue = '?'
+        let qes = false
+        if (isAdded.voter) {
+          nameValue = isAdded.voter.name
+          qes = isAdded.voter.isQes
+        }
         this.voters.push({
-          email: this.user.email,
-          file: this.user.file.name,
-          isQES: this.user.isQES,
+          email: this.voter.email,
+          name: nameValue,
+          isQes: qes,
           id: isAdded.voterId
         })
       }
 
-      this.user.email = ''
-      this.user.file = null
+      this.voter.email = ''
+      this.voter.file = null
       this.dialog = false
-      this.user.isQES = true
+      this.voter.isQes = true
     }
   }
 }
