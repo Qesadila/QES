@@ -41,9 +41,9 @@ export const votingListManagerRoutes = [
     to: `/voting-list-manager`
   },
   {
-    icon: 'mdi-account-multiple-plus-outline',
-    title: 'Create new voter form',
-    to: `/voting-form-manager/form/create`
+    icon: 'mdi-note-plus-outline',
+    title: 'Create list of voters',
+    to: `/voting-list-manager/form/create`
   }
 ]
 
@@ -59,8 +59,8 @@ export const votingFormManagerRoutes = [
     to: `/voting-form-manager`
   },
   {
-    icon: 'mdi-note-plus-outline',
-    title: 'Create list of voters',
-    to: `/voting-list-manager/form/create`
+    icon: 'mdi-account-multiple-plus-outline',
+    title: 'Create new voter form',
+    to: `/voting-form-manager/form/create`
   }
 ]
