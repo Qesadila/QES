@@ -128,7 +128,7 @@ export default {
       })
 
       const isAdded = await this.performAssignVoterToList({
-        userEmail: response.email,
+        userEmail: this.user.email,
         voterListId: this.listId
       })
 
