@@ -72,8 +72,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-    }
+    extend(config, ctx) {}
   },
   i18n: {
     locales: ['cs', 'en', 'sk'],
@@ -82,10 +81,13 @@ module.exports = {
       fallbackLocale: 'en',
       messages: {
         en: {
-          welcome: 'Welcome'
+          welcome: 'Welcome ! !'
         },
         cs: {
-          welcome: 'Vitejte'
+          welcome: 'Vitejte ! !'
+        },
+        sk: {
+          welcome: 'Vitajte ! !'
         }
       }
     }
