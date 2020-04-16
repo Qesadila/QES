@@ -224,9 +224,20 @@ export default {
           this.signalStatusType = 'warning'
           break
         case 'identity-selected':
-          this.signalStatusText =
-            'Your current identity in QesadilaAuth: ' + this.qaIdentity
-          this.signalStatusType = 'info'
+          if (
+            this.selectedForm.listOfValidCertificatesForSignature.includes(
+              this.qaCertHash
+            )
+          ) {
+            this.signalStatusText =
+              'Your current identity in QesadilaAuth: ' + this.qaIdentity
+            this.signalStatusType = 'info'
+          } else {
+            this.signalStatusText =
+              'You are not signed in as valid voter in QesadilaAuth: ' +
+              this.qaIdentity
+            this.signalStatusType = 'warning'
+          }
           break
         case 'reconnecting':
           this.signalStatusText = 'reconnecting'
