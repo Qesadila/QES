@@ -18,7 +18,7 @@
         ></v-text-field>
 
         <div>Form open until</div>
-        <VueCtkDateTimePicker v-model="createdForm.dateUntil">
+        <VueCtkDateTimePicker v-model="createdForm.openUntil">
         </VueCtkDateTimePicker>
 
         <v-divider class="mb-5"></v-divider>
