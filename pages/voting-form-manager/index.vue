@@ -78,7 +78,7 @@ export default {
         {
           text: 'Voter List',
           sortable: false,
-          value: 'voterListId'
+          value: 'voterList.voterListName'
         },
         {
           text: 'Action',
