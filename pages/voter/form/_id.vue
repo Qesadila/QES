@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-alert :type="signalStatusType" v-if="signalStatusText">{{
-      signalStatusText
-    }}</v-alert>
+    <v-alert :type="signalStatusType">{{ signalStatusText }}</v-alert>
     <v-row no-gutters class="fill-height pa-12" justify="center" align="center">
       <v-card v-if="selectedForm && appRunning" width="100%">
         <form>
@@ -94,7 +92,7 @@ export default {
       qaIdentity: '',
       qaCertHash: '',
       signalStatusType: 'warning',
-      signalStatusText: '',
+      signalStatusText: 'Detecting..',
       userAnwers: {},
       allLists: [],
       appRunning: false,
@@ -140,7 +138,6 @@ export default {
       this.signalStatus = status
       this.qaIdentity = identity
       this.qaCertHash = certHash
-      console.log('new status: ' + status)
       this.setSignalRStatus()
     })
     this.connection.on('Authenticate', (cert) => {
@@ -165,7 +162,6 @@ export default {
       this.authenticated = 'Unauthenticated'
       // questionHub.$emit('score-changed', { questionId, score })
     })
-    this.setSignalRStatus()
   },
   methods: {
     async start() {
@@ -174,14 +170,12 @@ export default {
         console.assert(
           this.connection.state === signalR.HubConnectionState.Connected
         )
-        console.log('connected')
         this.appRunning = true
         this.getStatusFromServer()
       } catch (err) {
         console.assert(
           this.connection.state === signalR.HubConnectionState.Disconnected
         )
-        console.log(err)
         setTimeout(() => this.start(), 5000)
       }
     },
@@ -195,7 +189,6 @@ export default {
 
     ...mapActions('voter', ['performFetchAllVoterForms']),
     submitForm() {
-      console.log('Form submitted! ->', this.userAnwers)
       const toSend = {
         votingForm: this.selectedForm.name,
         answers: this.userAnwers,
@@ -213,6 +206,7 @@ export default {
       this.allLists = data
     },
     setSignalRStatus() {
+      let isOk = false
       switch (this.signalStatus) {
         case 'not-connected':
           this.signalStatusText = 'The website is not connected to the server'
@@ -224,15 +218,22 @@ export default {
           this.signalStatusType = 'warning'
           break
         case 'identity-selected':
-          if (
-            this.selectedForm.listOfValidCertificatesForSignature.includes(
-              this.qaCertHash
-            )
-          ) {
-            this.signalStatusText =
-              'Your current identity in QesadilaAuth: ' + this.qaIdentity
-            this.signalStatusType = 'info'
-          } else {
+          if (this.selectedForm) {
+            if (this.selectedForm.listOfValidCertificatesForSignature) {
+              if (
+                this.selectedForm.listOfValidCertificatesForSignature.includes(
+                  this.qaCertHash
+                )
+              ) {
+                this.signalStatusText =
+                  'You are signed in as valid voter in QesadilaAuth: ' +
+                  this.qaIdentity
+                this.signalStatusType = 'info'
+                isOk = true
+              }
+            }
+          }
+          if (!isOk) {
             this.signalStatusText =
               'You are not signed in as valid voter in QesadilaAuth: ' +
               this.qaIdentity
