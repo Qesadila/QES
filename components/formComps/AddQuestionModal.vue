@@ -1,13 +1,12 @@
 <template>
   <v-card width="100%" elevation="0">
     <div class="pa-6">
-      <div class="mb-5 font-weight-bold">
-        {{ questionNumber + 1 }}. Question text
-      </div>
+      <div class="mb-5 font-weight-bold">Question text</div>
       <v-text-field
         v-model="questionData.question"
         outlined
         hide-details
+        @change="updateQestionText"
       ></v-text-field>
     </div>
     <div class="px-6 pt-6">Possible answers</div>
@@ -25,11 +24,13 @@
       <v-btn text color="primary" @click="numberOfOptions++"
         ><v-icon>mdi-plus</v-icon>Add new possible answer</v-btn
       >
-      <v-btn color="green" @click="saveQuestion"
-        ><span class="white--text d-flex align-center">
-          <v-icon left>mdi-check</v-icon>Save question</span
-        ></v-btn
+      <v-btn text color="primary" @click="remvoeQuestion"
+        ><v-icon>mdi-minus</v-icon>Remove question</v-btn
       >
+      <!--
+      <v-btn text color="primary" @click="saveQuestion">
+        <v-icon left>mdi-check</v-icon>Save question</v-btn
+      >-->
     </div>
   </v-card>
 </template>
@@ -42,7 +43,11 @@ export default {
     PossibleAnswerRow
   },
   props: {
-    questionNumber: {
+    questionId: {
+      type: String,
+      required: true
+    },
+    questionOrder: {
       type: Number,
       required: true
     }
@@ -50,9 +55,10 @@ export default {
   data() {
     return {
       numberOfOptions: MINIMUM_NUMBER_OF_ANSWERS, // 2
+      order: this.questionOrder,
       questionData: {
         question: '',
-        order: this.questionNumber + 1,
+        order: this.questionOrder,
         votingFormItemOptions: [
           {
             option: '',
@@ -76,9 +82,16 @@ export default {
         option: optionText,
         order: optionIndex
       }
+      this.saveQuestion()
+    },
+    updateQestionText() {
+      this.saveQuestion()
     },
     saveQuestion() {
-      this.$emit('save-question', this.questionData)
+      this.$emit('save-question', this.questionId, this.questionData)
+    },
+    remvoeQuestion() {
+      this.$emit('remove-question', this.questionId)
     }
   }
 }
