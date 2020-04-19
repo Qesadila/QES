@@ -5,36 +5,38 @@
         <v-btn icon to="/voting-form-manager"><v-icon>mdi-close</v-icon></v-btn>
       </div>
       <div class="d-flex flex-row justify-center py-5 display-1">
-        Hello you can create your voting form here!
+        {{ $t('votingFormManager.createFormTitleText') }}
       </div>
       <div class="pa-12">
         <v-divider class="mb-5"></v-divider>
 
-        <div>Name of the voting form</div>
+        <div>{{ $t('votingFormManager.formName') }}</div>
         <v-text-field
           v-model="createdForm.name"
           outlined
-          placeholder="Provide name of the voting form"
+          :placeholder="$t('votingFormManager.placeholderFormName')"
         ></v-text-field>
 
-        <div>Form open until</div>
+        <div>{{ $t('votingFormManager.formOpenUntil') }}</div>
         <VueCtkDateTimePicker v-model="createdForm.openUntil">
         </VueCtkDateTimePicker>
 
         <v-divider class="mb-5"></v-divider>
-        <div>Voter list ID</div>
+        <div>{{ $t('votingFormManager.voterListId') }}</div>
         <v-select
           v-model="createdForm.voterListId"
           outlined
           :items="voterLists"
-          placeholder="Select voter list"
+          :placeholder="$t('votingFormManager.placeholderVoterListId')"
           item-value="voterListId"
           item-text="voterListName"
         ></v-select>
 
         <v-divider class="mb-5"></v-divider>
 
-        <div class="display-1 mb-10">Questions:</div>
+        <div class="display-1 mb-10">
+          {{ $t('votingFormManager.questions') }}
+        </div>
         <div
           v-for="questionId in questionIds"
           v-bind:key="questionId"
@@ -57,14 +59,15 @@
       <div
         class="d-flex flex-row justify-space-between pa-5 form-generator-background"
       >
-        <v-btn text color="primary" x-large @click="addQeuestion"
-          >Add new question</v-btn
+        <v-btn text color="primary" x-large @click="addQuestion">
+          {{ $t('votingFormManager.addNewQuestion') }}</v-btn
         >
 
         <v-btn color="primary" x-large @click="saveForm" v-if="formIsValid">
           <span class="white--text d-flex align-center">
-            <v-icon left>mdi-check</v-icon>Save form</span
-          ></v-btn
+            <v-icon left>mdi-check</v-icon>
+            {{ $t('votingFormManager.saveForm') }}
+          </span></v-btn
         >
         <div class="badge badge-error" v-if="formValidationError">
           {{ formValidationError }}
@@ -104,7 +107,7 @@ export default {
   },
   mounted() {
     this.fetchVoterLists()
-    this.addQeuestion()
+    this.addQuestion()
   },
   methods: {
     ...mapActions('listManager', ['performFetchList']),
@@ -119,7 +122,7 @@ export default {
       this.$delete(this.questionIds, id)
       this.$delete(this.createdForm.votingFormItems, id)
     },
-    addQeuestion() {
+    addQuestion() {
       this.questionIter++
       this.$set(
         this.questionIds,

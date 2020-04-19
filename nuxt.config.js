@@ -49,7 +49,27 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
-    'nuxt-i18n',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'en',
+            file: 'en.js'
+          },
+          {
+            code: 'cs',
+            file: 'cs.js'
+          },
+          {
+            code: 'sk',
+            file: 'sk.js'
+          }
+        ],
+        lazy: true,
+        langDir: 'lang/'
+      }
+    ],
     // Doc: https://github.com/nuxt-community/sentry-module#readme
     '@nuxtjs/sentry'
   ],
@@ -75,21 +95,24 @@ module.exports = {
     extend(config, ctx) {}
   },
   i18n: {
-    locales: ['cs', 'en', 'sk'],
+    locales: [
+      {
+        code: 'en',
+        file: 'en.js'
+      },
+      {
+        code: 'cs',
+        file: 'cs.js'
+      },
+      {
+        code: 'sk',
+        file: 'sk.js'
+      }
+    ],
+    lazy: true,
     defaultLocale: 'en',
     vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: {
-          welcome: 'Welcome ! !'
-        },
-        cs: {
-          welcome: 'Vitejte ! !'
-        },
-        sk: {
-          welcome: 'Vitajte ! !'
-        }
-      }
+      fallbackLocale: 'en'
     }
   },
   sentry: {

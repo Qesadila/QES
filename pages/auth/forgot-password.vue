@@ -1,13 +1,13 @@
 <template>
   <v-card class="elevation-12">
     <v-toolbar color="primary" dark flat>
-      <v-toolbar-title>Reset password</v-toolbar-title>
+      <v-toolbar-title>{{ $t('general.resetPassword') }}</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form>
         <v-text-field
           v-model="email"
-          label="Email"
+          label="E-mail"
           name="email"
           prepend-icon="mdi-account"
           type="text"
@@ -16,7 +16,9 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="handleSubmit">Send reset link</v-btn>
+      <v-btn color="primary" @click="handleSubmit">{{
+        $t('general.sendResetLink')
+      }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>

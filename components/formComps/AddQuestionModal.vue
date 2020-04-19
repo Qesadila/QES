@@ -1,7 +1,9 @@
 <template>
   <v-card width="100%" elevation="0">
     <div class="pa-6">
-      <div class="mb-5 font-weight-bold">Question text</div>
+      <div class="mb-5 font-weight-bold">
+        {{ $t('votingFormManager.questionText') }}
+      </div>
       <v-text-field
         v-model="questionData.question"
         outlined
@@ -9,7 +11,7 @@
         @change="updateQestionText"
       ></v-text-field>
     </div>
-    <div class="px-6 pt-6">Possible answers</div>
+    <div class="px-6 pt-6">{{ $t('votingFormManager.possibleAnswers') }}</div>
     <div v-for="optionNumber in numberOfOptions" :key="optionNumber">
       <possible-answer-row
         :answer-number="optionNumber"
@@ -22,10 +24,12 @@
       class="d-flex flex-row justify-space-between pa-5 form-generator-background"
     >
       <v-btn text color="primary" @click="numberOfOptions++"
-        ><v-icon>mdi-plus</v-icon>Add new possible answer</v-btn
+        ><v-icon>mdi-plus</v-icon
+        >{{ $t('votingFormManager.addNewPossibleAnswer') }}</v-btn
       >
       <v-btn text color="primary" @click="remvoeQuestion"
-        ><v-icon>mdi-minus</v-icon>Remove question</v-btn
+        ><v-icon>mdi-minus</v-icon
+        >{{ $t('votingFormManager.removeQuestion') }}</v-btn
       >
       <!--
       <v-btn text color="primary" @click="saveQuestion">
