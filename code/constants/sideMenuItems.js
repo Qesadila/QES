@@ -1,12 +1,12 @@
 export const anonymousRoutes = [
   {
     icon: 'mdi-apps',
-    title: 'Voting results',
+    title: 'navigation.votingResults',
     to: `/anonym`
   },
   {
     icon: 'mdi-comment-text-outline',
-    title: 'Terms and conditions',
+    title: 'navigation.termsAndConditions',
     to: '/terms-and-conditions'
   }
 ]
@@ -14,17 +14,17 @@ export const anonymousRoutes = [
 export const voterRoutes = [
   {
     icon: 'mdi-home',
-    title: 'Home',
+    title: 'navigation.home',
     to: `/`
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of current votings',
+    title: 'navigation.listOfCurrentVotings',
     to: `/voter`
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of past votings',
+    title: 'navigation.listOfPastVotings',
     to: `/voter`
   }
 ]
@@ -32,17 +32,17 @@ export const voterRoutes = [
 export const votingListManagerRoutes = [
   {
     icon: 'mdi-home',
-    title: 'Home',
+    title: 'navigation.home',
     to: `/`
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of voting forms',
+    title: 'navigation.votingLists',
     to: `/voting-list-manager`
   },
   {
     icon: 'mdi-note-plus-outline',
-    title: 'Create list of voters',
+    title: 'navigation.createNewVoterList',
     to: `/voting-list-manager/form/create`
   }
 ]
@@ -50,17 +50,17 @@ export const votingListManagerRoutes = [
 export const votingFormManagerRoutes = [
   {
     icon: 'mdi-home',
-    title: 'Home',
+    title: 'navigation.home',
     to: `/`
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'List of forms',
+    title: 'navigation.listOfForms',
     to: `/voting-form-manager`
   },
   {
     icon: 'mdi-account-multiple-plus-outline',
-    title: 'Create new voter form',
+    title: 'navigation.createNewVoterForm',
     to: `/voting-form-manager/form/create`
   }
 ]
