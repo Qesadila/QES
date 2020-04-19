@@ -64,6 +64,7 @@ export default {
     possibleAnswers: 'Possible answers:',
     addNewPossibleAnswer: 'Add option',
     saveQuestion: 'Save question',
+    removeQuestion: 'Remove question',
     createFormTitleText: 'Hello, you can compose your voting form from here.',
     formName: 'Form name',
     placeholderFormName: 'Enter form name here',

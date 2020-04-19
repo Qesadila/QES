@@ -65,6 +65,7 @@ export default {
     possibleAnswers: 'Možné odpovědi',
     addNewPossibleAnswer: 'Přidat další možnost',
     saveQuestion: 'Uložit otázku',
+    removeQuestion: 'Smazat otázku',
     createFormTitleText: 'Vítejte, zde si můžeme vytvořit vlastní hlasování.',
     formName: 'Název formuláře',
     placeholderFormName: 'Zde uveďte název formuláře',
