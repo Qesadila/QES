@@ -81,7 +81,7 @@ export default {
         {
           text: this.$t('voter.table.voterList'),
           sortable: false,
-          value: 'voterListId'
+          value: 'voterList.voterListName'
         },
         {
           text: this.$t('voter.table.actions'),

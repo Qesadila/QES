@@ -80,7 +80,7 @@ export default {
         {
           text: this.$t('votingFormManager.table.voterList'),
           sortable: false,
-          value: 'voterListId'
+          value: 'voterList.voterListName'
         },
         {
           text: this.$t('votingFormManager.table.actions'),
