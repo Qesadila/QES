@@ -195,7 +195,11 @@ export default {
         time: new Date(),
         votingFormId: this.$route.params.id
       }
-      this.connection.invoke('SignMessage', btoa(JSON.stringify(toSend)))
+      this.connection.invoke(
+        'SignMessage',
+        btoa(JSON.stringify(toSend)),
+        'EnVoterAnswer'
+      )
       this.waitingForSign = true
     },
     handleUserAnswerChange(questionId, answerId) {

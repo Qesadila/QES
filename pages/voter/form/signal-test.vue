@@ -33,7 +33,11 @@ export default {
   methods: {
     onclick() {
       console.log('click')
-      return this.connection.invoke('SignMessage', btoa('{"value": "test"}'))
+      return this.connection.invoke(
+        'SignMessage',
+        btoa('{"value": "test"}'),
+        'EnVoterAnswer'
+      )
     }
   }
 }
