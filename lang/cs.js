@@ -31,7 +31,9 @@ export default {
     listOfCurrentVotings: 'Seznam probíhajících hlasování',
     listOfPastVotings: 'Seznam proběhlých hlasování',
     listOfForms: 'Seznam formulářů',
-    createNewVoterForm: 'Vytvořit nový hlasovací formulář'
+    createNewVoterForm: 'Vytvořit nový hlasovací formulář',
+    createNewVoterList: 'Vytvořit nový seznam voličů',
+    votingLists: 'Seznam voličských skupin'
   },
   anonym: {
     title: 'Seznam veřejných hlasování',
