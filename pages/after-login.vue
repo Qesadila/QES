@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Can open only after login</h1>
+    <h1>{{ $t('general.contentNeedsLoginMessage') }}</h1>
   </div>
 </template>
 

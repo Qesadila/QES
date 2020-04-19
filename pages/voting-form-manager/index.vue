@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <div class="d-flex flex-row justify-space-between pt-5 px-5">
-      <div class="display-1">Voter Forms Management</div>
+      <div class="display-1">{{ $t('votingFormManager.title') }}</div>
       <v-btn icon color="primary" x-large to="/voting-form-manager/form/create">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
@@ -34,10 +34,12 @@
 
         <template v-slot:item.actions="{ item }">
           <template v-if="item.buttons">
-            <v-btn color="secondary">Show results</v-btn>
+            <v-btn color="secondary">{{
+              $t('votingFormManager.showResults')
+            }}</v-btn>
           </template>
           <template v-else>
-            <v-btn color="primary">Edit</v-btn>
+            <v-btn color="primary">{{ $t('votingFormManager.edit') }}</v-btn>
           </template>
         </template>
       </v-data-table>
@@ -56,32 +58,32 @@ export default {
       formatDate,
       headers: [
         {
-          text: 'Form List Name',
+          text: this.$t('votingFormManager.table.formListName'),
           sortable: false,
           value: 'name'
         },
         {
-          text: 'Open From',
+          text: this.$t('votingFormManager.table.openFrom'),
           sortable: false,
           value: 'open_from'
         },
         {
-          text: 'Open Until',
+          text: this.$t('votingFormManager.table.openUntil'),
           sortable: false,
           value: 'open_until'
         },
         {
-          text: 'IsPublic',
+          text: this.$t('votingFormManager.table.isPublic'),
           sortable: false,
           value: 'isPublic'
         },
         {
-          text: 'Voter List',
+          text: this.$t('votingFormManager.table.voterList'),
           sortable: false,
           value: 'voterListId'
         },
         {
-          text: 'Action',
+          text: this.$t('votingFormManager.table.actions'),
           sortable: false,
           value: 'actions',
           width: 300

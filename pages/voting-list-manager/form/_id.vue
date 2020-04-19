@@ -3,7 +3,7 @@
     <v-card v-if="selectedList" width="100%">
       <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
-          Voter List Detail
+          {{ $t('votingListManager.voters') }}
         </div>
 
         <v-divider class="mb-10"></v-divider>
@@ -12,18 +12,18 @@
           <v-text-field
             v-model="selectedList.voterListName"
             disabled
-            label="List name"
+            :label="$t('votingListManager.labelListName')"
             outlined=""
           />
           <v-switch
             v-model="selectedList.isPublished"
             disabled
-            label="Is published"
+            :label="$t('votingListManager.labelIsPublic')"
           />
         </div>
 
         <div class="pa-5">
-          <h2 class="mb-3 text-center">Voters</h2>
+          <h2 class="mb-3 text-center">{{ $t('votingListManager.voters') }}</h2>
           <v-data-table
             :headers="headers"
             :items="selectedList.voters"
@@ -55,17 +55,25 @@ export default {
     return {
       headers: [
         {
-          text: 'Name',
+          text: this.$t('votingListManager.votersTable.voterName'),
           sortable: false,
           value: 'name'
         },
         {
-          text: 'Qualified electronic signature',
+          text: this.$t('votingListManager.votersTable.voterQes'),
           sortable: false,
           value: 'gdprConsentFrom'
         }
       ],
       allLists: []
+    }
+  },
+  computed: {
+    selectedList() {
+      return (
+        this.allLists &&
+        this.allLists.find((item) => item.voterListId === this.$route.params.id)
+      )
     }
   },
   mounted() {
@@ -76,14 +84,6 @@ export default {
     async fetchList() {
       const data = await this.performFetchList()
       this.allLists = data
-    }
-  },
-  computed: {
-    selectedList() {
-      return (
-        this.allLists &&
-        this.allLists.find((item) => item.voterListId === this.$route.params.id)
-      )
     }
   }
 }
