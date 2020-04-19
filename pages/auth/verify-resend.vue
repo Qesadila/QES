@@ -9,7 +9,7 @@
           contain
         ></v-img>
       </div>
-      <v-toolbar-title>Verify mail</v-toolbar-title>
+      <v-toolbar-title>{{ $('general.verifyMail') }}</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form>
@@ -23,9 +23,13 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/verify-email">Back to the verification</v-btn>
+      <v-btn text to="/auth/verify-email">{{
+        $('general.backToVerification')
+      }}</v-btn>
       <v-spacer />
-      <v-btn color="primary" @click="handleSubmit">Resend</v-btn>
+      <v-btn color="primary" @click="handleSubmit">{{
+        $('general.resendToken')
+      }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>

@@ -16,7 +16,9 @@
             :key="question.votingFormItemId"
             class="px-12"
           >
-            <div class="body-2 mb-2">Question {{ index + 1 }}</div>
+            <div class="body-2 mb-2">
+              {{ `${$t('voter.question')} ${index + 1}` }}
+            </div>
             <div class="title">{{ question.question }}</div>
             <div class="pl-5">
               <v-radio-group
@@ -33,7 +35,7 @@
                 <!-- Last option is always with value null as user dont want to answer this question -->
                 <v-radio
                   class="my-2"
-                  label="I do not want to answer"
+                  :label="$t('voter.labelDoNotWantToAnswer')"
                   value="N/A"
                 ></v-radio>
               </v-radio-group>
@@ -42,7 +44,9 @@
           </div>
 
           <div class="d-flex flex-row justify-center px-12 mb-6 body">
-            <v-btn x-large color="primary" @click="submitForm">Send form</v-btn>
+            <v-btn x-large color="primary" @click="submitForm">{{
+              $t('voter.submitForm')
+            }}</v-btn>
           </div>
         </form>
       </v-card>
@@ -54,16 +58,18 @@
       <v-dialog persistent :value="!appRunning" width="500">
         <v-card>
           <v-card-title class="headline grey lighten-2" primary-title>
-            Sign app not detected
+            {{ $t('voter.signAppNotFound') }}
           </v-card-title>
 
           <v-card-text class="pa-5">
-            Please start our sign app to procced on voting
+            {{ $t('voter.startSignAppForProceed') }}
           </v-card-text>
 
           <v-card-actions>
             <v-spacer />
-            <v-btn color="warning" to="/voter">Go back</v-btn>
+            <v-btn color="warning" to="/voter">{{
+              $t('voter.backButton')
+            }}</v-btn>
           </v-card-actions>
 
           <v-divider></v-divider>
@@ -73,7 +79,7 @@
       <v-dialog persistent :value="waitingForSign" width="500">
         <v-card>
           <v-card-title class="headline grey lighten-2" primary-title>
-            Please sign your votes in app
+            {{ $t('voter.signVoteInApp') }}
           </v-card-title>
         </v-card>
       </v-dialog>

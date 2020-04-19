@@ -11,7 +11,7 @@
         <p>{{ error.message }}</p>
 
         <v-btn :to="`/`" color="primary" outlined>
-          Get me out of here!
+          {{ $t('errorPage.getMeOut') }}
         </v-btn>
       </v-col>
     </v-row>

@@ -45,7 +45,7 @@
         flat
         hide-details
         :items="roles"
-        label="Role"
+        :label="$t('general.role')"
         @change="handleRoleChange"
       ></v-select>
 
@@ -55,8 +55,8 @@
         style="max-width: 100px; margin-left: 30px"
         flat
         hide-details
-        :items="$i18n.locales"
-        label="Lang"
+        :items="locales"
+        :label="$t('general.language')"
         @change="handleChange"
       ></v-select>
 
@@ -69,14 +69,14 @@
           </template>
           <v-list>
             <v-list-item @click="$store.dispatch('auth/performLogout')">
-              <v-list-item-title>Logout</v-list-item-title>
+              <v-list-item-title>{{ $t('general.logout') }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </div>
       <div v-else>
         <v-btn text to="/auth/login">
-          Login
+          {{ $t('general.signIn') }}
         </v-btn>
       </div>
     </v-app-bar>
@@ -144,6 +144,9 @@ export default {
   computed: {
     menuItems() {
       return setSideMenuItems(this.selectedRole)
+    },
+    locales() {
+      return this.$i18n.locales.map((l) => l.code)
     }
   },
   mounted() {

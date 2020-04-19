@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <div class="d-flex flex-row justify-space-between pt-5 px-5">
-      <div class="display-1">List of Public Votings</div>
+      <div class="display-1">{{ $t('anonym.title') }}</div>
     </div>
     <v-card-text>
       <v-data-table
@@ -22,8 +22,10 @@
 
         <template v-slot:item.actions="{ item }">
           <template>
-            <v-btn color="secondary" :to="`/voter/results/${item.votingFormId}`"
-              >Show results</v-btn
+            <v-btn
+              color="secondary"
+              :to="`/voter/results/${item.votingFormId}`"
+              >{{ $t('anonym.showResults') }}</v-btn
             >
           </template>
         </template>

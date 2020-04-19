@@ -1,7 +1,9 @@
 <template>
   <v-card>
     <div class="d-flex flex-row justify-space-between pt-5 px-5">
-      <div class="display-1">Voter Lists</div>
+      <div class="display-1">
+        {{ $t('votingListManager.title') }}
+      </div>
       <v-btn icon color="primary" x-large to="/voting-list-manager/form/create">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
@@ -17,7 +19,9 @@
       >
         <template v-slot:item.published="{ item }">
           <v-chip :color="item.isPublished ? 'green' : ''" dark>{{
-            item.isPublished ? 'published' : `unpublished`
+            item.isPublished
+              ? $t('votingListManager.published')
+              : $t('votingListManager.unpublished')
           }}</v-chip>
         </template>
 
@@ -25,7 +29,7 @@
           <v-btn
             color="secondary"
             :to="`/voting-list-manager/form/${item.voterListId}`"
-            >Show details</v-btn
+            >{{ $t('votingListManager.showDetails') }}</v-btn
           >
         </template>
       </v-data-table></v-card-text
@@ -44,12 +48,12 @@ export default {
       formatDate,
       headers: [
         {
-          text: 'Form List Name',
+          text: this.$t('votingListManager.indexTable.voterListName'),
           sortable: true,
           value: 'voterListName'
         },
         {
-          text: 'Action',
+          text: this.$t('votingListManager.indexTable.actions'),
           sortable: false,
           align: 'right',
           value: 'actions'
