@@ -153,7 +153,7 @@ export default {
     if (!this.$store.state.auth.auth) {
       this.items.push({
         icon: 'mdi-apps',
-        title: this.$t('navigation.verifyMail'),
+        title: 'navigation.verifyMail',
         to: '/auth/verify-email'
       })
     }
