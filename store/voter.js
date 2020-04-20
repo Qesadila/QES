@@ -28,8 +28,11 @@ export const actions = {
     fd.append('isQes', isQes)
     fd.append(
       'fileContent',
-      encodedFile.replace('data:application/octet-stream;base64,', '')
+      encodedFile
+        .replace('data:application/octet-stream;base64,', '')
+        .replace('data:application/vnd.etsi.asic-e+zip;base64,', '')
     )
+    console.log('encoded file', encodedFile)
 
     let response = null
 
