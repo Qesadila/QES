@@ -150,11 +150,19 @@ export default {
     },
     async createAndAttachUser() {
       if (!this.voter.isRegistered) {
-        await this.performAddVoter({
-          email: this.voter.email,
-          file: this.voter.file,
-          isQes: this.voter.isQes
-        })
+        if (this.voter.isQes !== undefined) {
+          await this.performAddVoter({
+            email: this.voter.email,
+            file: this.voter.file,
+            isQes: this.voter.isQes
+          })
+        } else {
+          await this.performAddVoter({
+            email: this.voter.email,
+            file: this.voter.file,
+            isQes: false
+          })
+        }
       }
 
       const isAdded = await this.performAssignVoterToList({
@@ -167,6 +175,8 @@ export default {
         let qes = false
         if (isAdded.voter) {
           nameValue = isAdded.voter.name
+        }
+        if (isAdded.voter.isQes !== undefined) {
           qes = isAdded.voter.isQes
         }
         this.voters.push({
