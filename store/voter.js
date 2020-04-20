@@ -20,12 +20,12 @@ export const actions = {
       return response.data
     }
   },
-  async performAddVoter({ commit, dispatch }, { email, file, isQES }) {
+  async performAddVoter({ commit, dispatch }, { email, file, isQes }) {
     const encodedFile = await toBase64(file)
 
     const fd = new FormData()
     fd.append('voterEmail', email)
-    fd.append('isQes', isQES)
+    fd.append('isQes', isQes)
     fd.append(
       'fileContent',
       encodedFile.replace('data:application/octet-stream;base64,', '')
