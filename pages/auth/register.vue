@@ -9,7 +9,7 @@
           contain
         ></v-img>
       </div>
-      <v-toolbar-title>{{ $('general.signUpForm') }}</v-toolbar-title>
+      <v-toolbar-title>{{ $t('general.signUpForm') }}</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form>
@@ -23,7 +23,7 @@
 
         <v-text-field
           v-model="name"
-          :label="$('general.labelName')"
+          :label="$t('general.labelName')"
           name="name"
           prepend-icon="mdi-account"
           type="email"
@@ -31,35 +31,35 @@
 
         <v-text-field
           v-model="password"
-          :label="$('general.labelPassword')"
+          :label="$t('general.labelPassword')"
           name="password"
           prepend-icon="mdi-lock"
           type="password"
         />
         <v-text-field
           v-model="passwordCheck"
-          :label="$('general.labelPasswordAgain')"
+          :label="$t('general.labelPasswordAgain')"
           name="password_check"
           prepend-icon="mdi-lock"
           type="password"
         />
         <v-checkbox v-model="acceptGDPR">
           <template v-slot:label>
-            {{ $('general.acceptCheckbox') }}
+            {{ $t('general.acceptCheckbox') }}
             <nuxt-link to="/terms-and-conditions" class="ml-1">GDPR</nuxt-link>
           </template>
         </v-checkbox>
         <v-checkbox
           v-model="acceptCommercial"
-          :label="$('general.acceptComercialMessages')"
+          :label="$t('general.acceptComercialMessages')"
         ></v-checkbox>
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/login">{{ $('general.signIn') }}</v-btn>
+      <v-btn text to="/auth/login">{{ $t('general.signIn') }}</v-btn>
       <v-spacer />
       <v-btn color="primary" @click="handleSubmit">{{
-        $('general.signUp')
+        $t('general.signUp')
       }}</v-btn>
     </v-card-actions>
   </v-card>

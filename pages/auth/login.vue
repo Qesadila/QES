@@ -9,7 +9,7 @@
           contain
         ></v-img>
       </div>
-      <v-toolbar-title>{{ $('general.signInForm') }}</v-toolbar-title>
+      <v-toolbar-title>{{ $t('general.signInForm') }}</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
       <v-form>
@@ -31,14 +31,14 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text to="/auth/register">{{ $('general.signUp') }}</v-btn>
+      <v-btn text to="/auth/register">{{ $t('general.signUp') }}</v-btn>
       <v-btn text to="/auth/forgot-password">{{
-        $('general.forgotPassword')
+        $t('general.forgotPassword')
       }}</v-btn>
       <v-spacer />
 
       <v-btn color="primary" @click="handleSubmit">{{
-        $('general.signIn')
+        $t('general.signIn')
       }}</v-btn>
     </v-card-actions>
   </v-card>
