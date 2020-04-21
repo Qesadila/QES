@@ -13,1100 +13,596 @@
     </div>
     <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <h1 class="c24" id="h.vm2qww64y9qw">
-      <span class="c20">Qesadila e-voting system</span>
-    </h1>
-    <p class="c22 subtitle" id="h.ehqbvpd2iqto">
-      <span class="c19 c26">(proof of concept)</span>
+    <h1>Qesadila e-voting system</h1>
+    <p>(proof of concept)</p>
+    <p>Version of the document: 0.1 Draft</p>
+    <p>Date: 2020-04-21</p>
+    <h2>Scope</h2>
+
+    <p>
+      Qesadila is open source e-voting software system, providing offered under
+      licence: GNU GPLv3. By e-voting we mean the participation on making
+      decisions of any group of voters, where is necessery to autorize the
+      voters (using qualified electronic signature, or generated certificate)
+      and to check, if only autorized voters participated and how:
     </p>
-    <p class="c10">
-      <span class="c27 c19">Version of the document: 0.1 Draft</span>
-    </p>
-    <p class="c10"><span class="c19">Date: 2020-04-21</span></p>
-    <h2 class="c18" id="h.zddgsw9fsip"><span class="c8">Scope</span></h2>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c10">
-      <span class="c3"
-        >Qesadila is open source e-voting software system, providing offered
-        under licence: GNU GPLv3. By e-voting we mean the participation on
-        making decisions of any group of voters, where is necessery to autorize
-        the voters (using qualified electronic signature, or generated
-        certificate) and to check, if only autorized voters participated and
-        how:</span
-      >
-    </p>
-    <ul class="c2 lst-kix_al23kmdoz5f5-0 start">
-      <li class="c10 c13">
-        <span class="c3"
-          >city council meetings of elected representatives of the city,
-        </span>
-      </li>
-      <li class="c10 c13">
-        <span class="c3">citizens voting in participatory budget,</span>
-      </li>
-      <li class="c10 c13">
-        <span class="c3">members of the company executive boards</span>
-      </li>
-      <li class="c10 c13">
-        <span class="c3">members or volunters of th NGO</span>
-      </li>
+    <ul>
+      <li>city council meetings of elected representatives of the city,</li>
+      <li>citizens voting in participatory budget,</li>
+      <li>members of the company executive boards</li>
+      <li>members or volunters of th NGO</li>
     </ul>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c10">
-      <span class="c3"
-        >The system is developed by volunteers and formaly provided by NGO
-        Srdcom doma o.z. registered in Slovakia and engaged in election
-        legislative changes. We take seriously the possibility to participate on
-        democratic rights so as elections.</span
-      >
+
+    <p>
+      The system is developed by volunteers and formaly provided by NGO Srdcom
+      doma o.z. registered in Slovakia and engaged in election legislative
+      changes. We take seriously the possibility to participate on democratic
+      rights so as elections.
     </p>
-    <p class="c5"><span class="c3"></span></p>
-    <h2 class="c18" id="h.tcvd9hioz74p"><span class="c8">Disclaimer</span></h2>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c10">
-      <span class="c3"
-        >Please note, that this is not a final application and we are not
-        responsible for any incidencies. If you decide to test application, you
-        should be careful and you should know, what you are doing. To be
-        familiar with using desktop computer is just good supposition.</span
-      >
+
+    <h2>Disclaimer</h2>
+
+    <p>
+      Please note, that this is not a final application and we are not
+      responsible for any incidencies. If you decide to test application, you
+      should be careful and you should know, what you are doing. To be familiar
+      with using desktop computer is just good supposition.
     </p>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c10">
-      <span
-        >The simplest approach to test Qesadila is to sign-up on the site </span
-      ><span class="c16"
-        ><a
-          class="c7"
-          href="https://www.google.com/url?q=https://www.qesadila.com&amp;sa=D&amp;ust=1587468292180000"
-          >https://www.qesadila.com</a
-        ></span
-      ><span class="c3"
-        >. After e-mail confirmation you can sign-in and switch between roles:
-        Anonymous, Voting List Manager, Voting Form Manager and Voter. To
-        participate on Voting, You will need to to use our desktop application
-        (Windows, macOS, Linux currently supported - see below) and to confirm
-        our Terms and conditions.</span
-      >
+
+    <p>
+      The simplest approach to test Qesadila is to sign-up on the site
+      <a href="https://www.qesadila.com">https://www.qesadila.com</a>. After
+      e-mail confirmation you can sign-in and switch between roles: Anonymous,
+      Voting List Manager, Voting Form Manager and Voter. To participate on
+      Voting, You will need to to use our desktop application (Windows, macOS,
+      Linux currently supported - see below) and to confirm our Terms and
+      conditions.
     </p>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c5"><span class="c3"></span></p>
-    <h2 class="c18" id="h.b477xtc2yoe2">
-      <span>Qesadila e-voting system</span
-      ><span class="c8">&nbsp;consists of three parts:</span>
-    </h2>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-0 start" start="1">
-      <li class="c10 c13">
-        <span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/_git/QesadilaAuth&amp;sa=D&amp;ust=1587468292182000"
-            >Desktop signing application</a
-          ></span
-        >
+
+    <h2>Qesadila e-voting system&nbsp;consists of three parts:</h2>
+    <ol>
+      <li>
+        <a href="https://dev.azure.com/Qesadila/_git/QesadilaAuth"
+          >Desktop signing application
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-1 start" start="1">
-      <li class="c4"><span class="c3">Instalation on Windows</span></li>
+    <ol>
+      <li>Instalation on Windows</li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-2 start" start="1">
-      <li class="c0">
-        <span class="c3">without .net core 3.1 installed</span>
+    <ol>
+      <li>without .net core 3.1 installed</li>
+    </ol>
+    <ol>
+      <li>
+        Download:
+        <a href="hhttps://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip"
+          >https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip&nbsp;-
+          Windows
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-3 start" start="1">
-      <li class="c9">
-        <span>Download: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip&amp;sa=D&amp;ust=1587468292183000"
-            >https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip</a
-          ></span
-        ><span class="c3">&nbsp;- Windows</span>
+    <ol>
+      <li>Instalation with .net core 3.1 installed</li>
+    </ol>
+    <ol>
+      <li>
+        Download:
+        <a href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip"
+          >https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&nbsp;- Windows
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-2" start="2">
-      <li class="c0">
-        <span class="c3">Instalation with .net core 3.1 installed</span>
+    <ol>
+      <li>Instalation on MAC / macOS</li>
+    </ol>
+    <ol>
+      <li>
+        Download:
+        <a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"
+          >https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip</a
+        ><a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"
+          >&nbsp;- Mac
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-3 start" start="1">
-      <li class="c9">
-        <span>Download: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&amp;sa=D&amp;ust=1587468292184000"
-            >https://apps.scholtz.sk/QesadilaAuth/win/publish.zip</a
-          ></span
-        ><span class="c3">&nbsp;- Windows</span>
+    <ol>
+      <li>Instalation on Linux</li>
+    </ol>
+    <ol>
+      <li>
+        Download:
+        <a href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip"
+          >https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&nbsp;- Linux
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-1" start="2">
-      <li class="c4"><span class="c3">Instalation on MAC / macOS </span></li>
-    </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-2 start" start="1">
-      <li class="c0">
-        <span>Download: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip&amp;sa=D&amp;ust=1587468292184000"
-            >https://apps.scholtz.sk/QesadilaAuth/osx/publish.zi</a
-          ></span
-        ><span
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip&amp;sa=D&amp;ust=1587468292184000"
-            >p</a
-          ></span
-        ><span class="c3">&nbsp;- Mac</span>
+    <ol>
+      <li>
+        <a href="https://dev.azure.com/Qesadila/QesadilaBackend"
+          >Qesadila Backend: </a
+        ><a href="https://qesadila.azurewebsites.net/swagger/index.html"
+          >https://qesadila.azurewebsites.net/swagger/index.html
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Qesadila/QES/">Frontend web application: </a
+        ><a href="https://www.qesadila.com/">https://www.qesadila.com </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-1" start="3">
-      <li class="c4"><span class="c3">Instalation on Linux</span></li>
-    </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-2 start" start="1">
-      <li class="c0">
-        <span>Download: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&amp;sa=D&amp;ust=1587468292185000"
-            >https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip</a
-          ></span
-        ><span>&nbsp;- Linux</span>
+
+    <ol>
+      <li>
+        <h2>What it does and what it doesn&rsquo;t</h2>
       </li>
     </ol>
-    <ol class="c2 lst-kix_b8mdv27g2tmd-0" start="2">
-      <li class="c10 c13">
-        <span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/QesadilaBackend&amp;sa=D&amp;ust=1587468292185000"
-            >Qesadila Backend</a
-          ></span
-        ><span>: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://qesadila.azurewebsites.net/swagger/index.html&amp;sa=D&amp;ust=1587468292186000"
-            >https://qesadila.azurewebsites.net/swagger/index.html</a
-          ></span
-        ><span>&nbsp;</span>
+    <ol>
+      <li>
+        Qesadila is currently for testing purposes and is not dedicated for
+        using in production yet.
       </li>
-      <li class="c10 c13">
-        <span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://github.com/Qesadila/QES/&amp;sa=D&amp;ust=1587468292186000"
-            >Frontend web application</a
-          ></span
-        ><span>: </span
-        ><span class="c28"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://www.qesadila.com/&amp;sa=D&amp;ust=1587468292187000"
-            >https://www.qesadila.com</a
-          ></span
-        >
+      <li>
+        Please note, that to test voting using qualified electronic signature
+        you have to use
       </li>
     </ol>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0 start" start="1">
-      <li class="c18 c13">
-        <h2 id="h.t4j80es1rdsd" style="display:inline">
-          <span class="c8">What it does and what it doesn&rsquo;t</span>
-        </h2>
+    <ol>
+      <li>class 3 certificate at smart card using PKCS11 driver</li>
+    </ol>
+    <ol>
+      <li>Tested using slovak identity card</li>
+    </ol>
+    <ol>
+      <li>
+        or if user does not have eID he / she can use certificate from system
+        store or custom certificate
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1 start" start="1">
-      <li class="c4">
-        <span class="c3"
-          >Qesadila is currently for testing purposes and is not dedicated for
-          using in production yet.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Please note, that to test voting using qualified electronic signature
-          you have to use</span
-        >
+    <ol>
+      <li>
+        Custom certificate can be
+        <a href="https://github.com/Qesadila/QES/blob/master/cert/script"
+          >generated&nbsp;using openssl library
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span class="c3"
-          >class 3 certificate at smart card using PKCS11 driver</span
-        >
+    <ol>
+      <li>
+        In the Qesadila web app we distinguish four roles. To make proof of
+        concept easier to test, any registered User can switch between roles on
+        the website
+        <a href="https://www.qesadila.com">https://www.qesadila.com</a
+        >&nbsp;using select in the header. (In real life some person can be
+        authorized to manage voters, another to create a voting and another to
+        vote.)
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3">Tested using slovak identity card</span>
+    <ol>
+      <li>Anonymous</li>
+    </ol>
+    <ol>
+      <li>any visitor on the website without sign-in</li>
+      <li>can display voting results</li>
+    </ol>
+    <ol>
+      <li>Voter List Manager</li>
+    </ol>
+    <ol>
+      <li>user signed-up&nbsp;on the website registered</li>
+      <li>can create / edit / delete Lists of Voters created by him/her</li>
+    </ol>
+    <ol>
+      <li>Voting Form Manager</li>
+    </ol>
+    <ol>
+      <li>can create / edit / delete Voting Forms created by him/her</li>
+    </ol>
+    <ol>
+      <li>Voter</li>
+    </ol>
+    <ol>
+      <li>
+        can vote in all Voting Forms, connected with Voting List, which the
+        Voter is member.
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="2">
-      <li class="c0">
-        <span class="c3"
-          >or if user does not have eID he / she can use certificate from system
-          store or custom certificate</span
-        >
+
+    <ol>
+      <li>
+        <h3>Qesadila frontend</h3>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span>Custom certificate can be </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://github.com/Qesadila/QES/blob/master/cert/script&amp;sa=D&amp;ust=1587468292188000"
-            >generated</a
-          ></span
-        ><span class="c3">&nbsp;using openssl library</span>
+    <ol>
+      <li>Recommended / tested on:</li>
+    </ol>
+    <ol>
+      <li>Internet Browser Chrome 80.0.3987.163, and Safari 13.1</li>
+    </ol>
+    <ol>
+      <li>What id does</li>
+    </ol>
+    <ol>
+      <li>Web app allows</li>
+    </ol>
+    <ol>
+      <li>manage (create / edit / delete) Voting List,</li>
+      <li>
+        to create Voter&nbsp;by seting e-mail and uploading his / her
+        voter.xml.asice signed gdpr consent,
+      </li>
+      <li>to assign Voter&nbsp;to Voter List,</li>
+      <li>to create Voting Form,</li>
+      <li>
+        allows Voter&nbsp;to initiate vvoting process&nbsp;- sends request
+        through backend to desktop application to sign the ballot using eID, or
+        certificate in the desktop application,
+      </li>
+      <li>to display Voting results.</li>
+    </ol>
+    <ol>
+      <li>Technology used:</li>
+    </ol>
+    <ol>
+      <li>Vue.js, SignalR, Axios</li>
+    </ol>
+    <ol>
+      <li>Licence: GNU GPL v3</li>
+      <li>
+        Source code:
+        <a href="https://github.com/Qesadila/QES"
+          >https://github.com/Qesadila/QES
+        </a>
+      </li>
+      <li>CI/CD: Github Actions. Deploy time from commit to master: 3min</li>
+    </ol>
+
+    <ol>
+      <li>
+        <h3>QesadilaAuth - desktop application</h3>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="3">
-      <li class="c4">
-        <span
-          >In the Qesadila web app we distinguish four roles. To make proof of
-          concept easier to test, any registered User can switch between roles
-          on the website </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://www.qesadila.com&amp;sa=D&amp;ust=1587468292189000"
-            >https://www.qesadila.com</a
-          ></span
-        ><span class="c3"
-          >&nbsp;using select in the header. (In real life some person can be
-          authorized to manage voters, another to create a voting and another to
-          vote.)</span
-        >
+    <ol>
+      <li>Minimum requirements</li>
+    </ol>
+    <ol>
+      <li>Tested on Windows 10,</li>
+      <li>Tested on macOS Mojave 10.14.6</li>
+      <li>Linux (Desktop) - supported, not tested</li>
+    </ol>
+    <ol>
+      <li>Setup your environment</li>
+    </ol>
+    <ol>
+      <li>
+        Download the package from
+        <a href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip"
+          >/publish.zip&nbsp;(for Windows) or<br /></a
+        ><a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"
+          >/publish.zip&nbsp;(for macOS)&nbsp;or<br /></a
+        ><a href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip"
+          >/publish.zip&nbsp;(for Linux) &nbsp; <br />and unpack it. Application
+          launcher:
+        </a>
+      </li>
+      <li>Run the application</li>
+    </ol>
+    <ol>
+      <li>Windows: QesadilaAvaloniaSigner.exe</li>
+      <li>Linux, Mac: QesadilaAvaloniaSigner</li>
+    </ol>
+    <ol>
+      <li>Technology used:</li>
+    </ol>
+    <ol>
+      <li>written in .net core 3</li>
+      <li>Avalonia</li>
+      <li>SignalR host</li>
+    </ol>
+    <ol>
+      <li>Licence: GNU GPL v3</li>
+      <li>
+        Source code:
+        <a href="https://dev.azure.com/Qesadila/_git/QesadilaAuth"
+          >https://dev.azure.com/Qesadila/_git/QesadilaAuth
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c14 c11">Anonymous</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3">any visitor on the website without sign-in</span>
-      </li>
-      <li class="c9"><span class="c3">can display voting results </span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="2">
-      <li class="c0"><span class="c14 c11">Voter List Manager</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span>user signed-up</span
-        ><span class="c3">&nbsp;on the website registered</span>
-      </li>
-      <li class="c9">
-        <span class="c3"
-          >can create / edit / delete Lists of Voters created by him/her</span
-        >
+
+    <ol>
+      <li>
+        <h3>Qesadila Backend</h3>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="3">
-      <li class="c0"><span class="c11 c14">Voting Form Manager</span></li>
+    <ol>
+      <li>Minimum requirements</li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3"
-          >can create / edit / delete Voting Forms created by him/her</span
-        >
+    <ol>
+      <li>Running using docker container</li>
+      <li>
+        Can be run in kubernetes, as azure web app or self hosted docker
+        container
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="4">
-      <li class="c0"><span class="c14 c11">Voter</span></li>
+    <ol>
+      <li>Tested as azure web app</li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span
-          >can vote in all Voting Forms, connected with Voting List, which the
-          Voter is member.</span
-        >
+    <ol>
+      <li>
+        Database: Configuration option between MsSQL, CosmosDB, MariaDB, MySQL,
+        PostgreSQL, InMemory
       </li>
     </ol>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0" start="2">
-      <li class="c15 c13">
-        <h3 id="h.4tvvjivuw4xh" style="display:inline">
-          <span class="c23">Qesadila frontend </span>
-        </h3>
+    <ol>
+      <li>Tested with InMemory and CosmosDB</li>
+      <li>Default system file storage</li>
+      <li>
+        We had technical issues creating MsSQL server as azure new server
+        services were blocked at the time being.
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1 start" start="1">
-      <li class="c4"><span class="c14 c11">Recommended / tested on:</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span class="c3"
-          >Internet Browser Chrome 80.0.3987.163, and Safari 13.1</span
-        >
+    <ol>
+      <li>
+        Emailing with templating: Currently supports only Sendgrid dynamic
+        templates
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="2">
-      <li class="c4"><span class="c14 c11">What id does</span></li>
+    <ol>
+      <li>Default no emailing, with no email validation</li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">Web app allows </span></li>
+    <ol>
+      <li>Data storage: Azure blob storage or System file storage</li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span>manage (create / edit / delete) </span
-        ><span class="c11">Voting List</span><span class="c3">, </span>
+    <ol>
+      <li>Tested in azure blob storage, default is system file storage</li>
+    </ol>
+    <ol>
+      <li>
+        Class diagram:
+        <a href="https://app.quickdatabasediagrams.com/%23/d/5Meb4N"
+          >https://app.quickdatabasediagrams.com/#/d/5Meb4N&nbsp;
+        </a>
       </li>
-      <li class="c9">
-        <span>to create </span><span class="c11">Voter</span
-        ><span class="c3"
-          >&nbsp;by seting e-mail and uploading his / her voter.xml.asice signed
-          gdpr consent,
-        </span>
+      <li>Licence: GNU GPL v3</li>
+      <li>
+        Source code:
+        <a href="https://dev.azure.com/Qesadila/QesadilaBackend"
+          >https://dev.azure.com/Qesadila/QesadilaBackend&nbsp;
+        </a>
       </li>
-      <li class="c9">
-        <span>to assign </span><span class="c11">Voter</span
-        ><span>&nbsp;to </span><span class="c11">Voter List</span
-        ><span class="c3">, </span>
-      </li>
-      <li class="c9">
-        <span>to create </span><span class="c11">Voting Form</span
-        ><span class="c3">,</span>
-      </li>
-      <li class="c9">
-        <span>allows </span><span class="c11">Voter</span
-        ><span>&nbsp;to initiate vvoting process</span
-        ><span class="c11">&nbsp;</span
-        ><span class="c3"
-          >- sends request through backend to desktop application to sign the
-          ballot using eID, or certificate in the desktop application,</span
-        >
-      </li>
-      <li class="c9">
-        <span>to display </span><span class="c11">Voting results</span
-        ><span class="c3">.</span>
+      <li>
+        CI/CD: Devops Pipelines, Testing: Deploy time 3 mins, docker image is
+        pushed also to public
+        <a href="https://hub.docker.com/r/qesadila/qesadila-backend"
+          >docker hub
+        </a>
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="3">
-      <li class="c4"><span class="c3">Technology used: </span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">Vue.js, SignalR, Axios</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="4">
-      <li class="c4"><span class="c3">Licence: GNU GPL v3</span></li>
-      <li class="c4">
-        <span>Source code: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://github.com/Qesadila/QES&amp;sa=D&amp;ust=1587468292193000"
-            >https://github.com/Qesadila/QES</a
-          ></span
-        >
-      </li>
-      <li class="c4">
-        <span
-          >CI/CD: Github Actions. Deploy time from commit to master: 3min</span
-        >
+
+    <ol>
+      <li>
+        <h2>Main scenarios</h2>
       </li>
     </ol>
-    <p class="c5 c25"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0" start="3">
-      <li class="c13 c15">
-        <h3 id="h.4bobfgs5thvi" style="display:inline">
-          <span class="c23">QesadilaAuth - desktop application </span>
-        </h3>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1 start" start="1">
-      <li class="c4"><span class="c14 c11">Minimum requirements</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">Tested on Windows 10, </span></li>
-      <li class="c0"><span class="c3">Tested on macOS Mojave 10.14.6</span></li>
-      <li class="c0"><span>Linux (Desktop) - supported, not tested</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="2">
-      <li class="c4"><span class="c14 c11">Setup your environment</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span>Download the package from </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&amp;sa=D&amp;ust=1587468292195000"
-            >https://apps.scholtz.sk/QesadilaAuth/</a
-          ></span
-        ><span class="c1"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&amp;sa=D&amp;ust=1587468292195000"
-            >win</a
-          ></span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&amp;sa=D&amp;ust=1587468292195000"
-            >/publish.zip</a
-          ></span
-        ><span>&nbsp;(for Windows) or<br /></span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip&amp;sa=D&amp;ust=1587468292196000"
-            >https://apps.scholtz.sk/QesadilaAuth/</a
-          ></span
-        ><span class="c1"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip&amp;sa=D&amp;ust=1587468292196000"
-            >osx</a
-          ></span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip&amp;sa=D&amp;ust=1587468292196000"
-            >/publish.zip</a
-          ></span
-        ><span>&nbsp;(for macOS)</span><span>&nbsp;or<br /></span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&amp;sa=D&amp;ust=1587468292196000"
-            >https://apps.scholtz.sk/QesadilaAuth/</a
-          ></span
-        ><span class="c1"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&amp;sa=D&amp;ust=1587468292197000"
-            >linux</a
-          ></span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&amp;sa=D&amp;ust=1587468292197000"
-            >/publish.zip</a
-          ></span
-        ><span>&nbsp;(for Linux) </span
-        ><span class="c3"
-          >&nbsp;<br />and unpack it. Application launcher:</span
-        >
-      </li>
-      <li class="c0"><span class="c3">Run the application</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span>Windows: </span
-        ><span class="c14 c11">QesadilaAvaloniaSigner.exe</span>
-      </li>
-      <li class="c9">
-        <span>Linux, Mac: </span
-        ><span class="c11">QesadilaAvaloniaSigner </span>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="3">
-      <li class="c4"><span class="c3">Technology used:</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">written in .net core 3</span></li>
-      <li class="c0"><span class="c3">Avalonia</span></li>
-      <li class="c0"><span class="c3">SignalR host</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="4">
-      <li class="c4"><span class="c3">Licence: GNU GPL v3</span></li>
-      <li class="c4">
-        <span>Source code: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/_git/QesadilaAuth&amp;sa=D&amp;ust=1587468292198000"
-            >https://dev.azure.com/Qesadila/_git/QesadilaAuth</a
-          ></span
-        ><span>&nbsp;</span>
-      </li>
-    </ol>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0" start="4">
-      <li class="c15 c13">
-        <h3 id="h.7m3rezyn9ata" style="display:inline">
-          <span>Qesadila Backend</span>
-        </h3>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1 start" start="1">
-      <li class="c4"><span class="c14 c11">Minimum requirements</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">Running using docker container</span></li>
-      <li class="c0">
-        <span class="c3"
-          >Can be run in kubernetes, as azure web app or self hosted docker
-          container</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9"><span class="c3">Tested as azure web app</span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="3">
-      <li class="c0">
-        <span class="c3"
-          >Database: Configuration option between MsSQL, CosmosDB, MariaDB,
-          MySQL, PostgreSQL, InMemory</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3">Tested with InMemory and CosmosDB</span>
-      </li>
-      <li class="c9"><span class="c3">Default system file storage</span></li>
-      <li class="c9">
-        <span class="c3"
-          >We had technical issues creating MsSQL server as azure new server
-          services were blocked at the time being.</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="4">
-      <li class="c0">
-        <span class="c3"
-          >Emailing with templating: Currently supports only Sendgrid dynamic
-          templates</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3">Default no emailing, with no email validation</span>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="5">
-      <li class="c0">
-        <span class="c3"
-          >Data storage: Azure blob storage or System file storage</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3"
-          >Tested in azure blob storage, default is system file storage</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="2">
-      <li class="c4">
-        <span>Class diagram: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://app.quickdatabasediagrams.com/%23/d/5Meb4N&amp;sa=D&amp;ust=1587468292200000"
-            >https://app.quickdatabasediagrams.com/#/d/5Meb4N</a
-          ></span
-        ><span class="c3">&nbsp;</span>
-      </li>
-      <li class="c4"><span class="c3">Licence: GNU GPL v3</span></li>
-      <li class="c4">
-        <span>Source code: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/QesadilaBackend&amp;sa=D&amp;ust=1587468292201000"
-            >https://dev.azure.com/Qesadila/QesadilaBackend</a
-          ></span
-        ><span class="c3">&nbsp;</span>
-      </li>
-      <li class="c4">
-        <span
-          >CI/CD: Devops Pipelines, Testing: Deploy time 3 mins, docker image is
-          pushed also to public </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://hub.docker.com/r/qesadila/qesadila-backend&amp;sa=D&amp;ust=1587468292202000"
-            >docker hub</a
-          ></span
-        >
-      </li>
-    </ol>
-    <p class="c5 c12"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0" start="5">
-      <li class="c18 c13">
-        <h2 id="h.sv7u06nfkkwx" style="display:inline">
-          <span class="c8">Main scenarios</span>
-        </h2>
-      </li>
-    </ol>
-    <p class="c10">
-      <span>Presamption: You signed-up on the </span
-      ><span class="c16"
-        ><a
-          class="c7"
-          href="https://www.google.com/url?q=http://www.qesadila.com&amp;sa=D&amp;ust=1587468292203000"
-          >http://www.qesadila.com</a
-        ></span
-      ><span class="c3"
-        >, confirmed e-mail and you are signed-in on the website.
-      </span>
+    <p>
+      Presamption: You signed-up on the
+      <a href="http://www.qesadila.com"
+        >http://www.qesadila.com, confirmed e-mail and you are signed-in on the
+        website.
+      </a>
     </p>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="6">
-      <li class="c4">
-        <span class="c14 c11">Scenario &ldquo;Before voting&ldquo;</span>
+
+    <ol>
+      <li>Scenario &ldquo;Before voting&ldquo;</li>
+    </ol>
+    <ol>
+      <li>
+        Sign-in on the
+        <a href="http://www.qesadila.com">http://www.qesadila.com. </a>
+      </li>
+      <li>Change your rolle to Voting List Manager.</li>
+      <li>
+        Create Voting List and add a Voter (your e-mail and this document signed
+        for example on the
+        <a href="https://zep.disig.sk/Portal"
+          >https://zep.disig.sk/Portal&nbsp;website).
+        </a>
+      </li>
+      <li>Change your rolle to Voting List Manager.</li>
+      <li>
+        Create Voting Form and asociate the form with Voting List, you created
+        before.
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span>Sign-in on the </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=http://www.qesadila.com&amp;sa=D&amp;ust=1587468292204000"
-            >http://www.qesadila.com</a
-          ></span
-        ><span class="c3">. </span>
+
+    <ol>
+      <li>Scenario &ldquo;Vote&rdquo;</li>
+    </ol>
+    <ol>
+      <li>Presamtion:</li>
+    </ol>
+    <ol>
+      <li>
+        You already installed Qesadila desktop application on your desktop
+        computer and application is running.
       </li>
-      <li class="c0">
-        <span class="c3">Change your rolle to Voting List Manager.</span>
-      </li>
-      <li class="c0">
-        <span
-          >Create Voting List and add a Voter (your e-mail and this document
-          signed for example on the </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://zep.disig.sk/Portal&amp;sa=D&amp;ust=1587468292204000"
-            >https://zep.disig.sk/Portal</a
-          ></span
-        ><span class="c3">&nbsp;website).</span>
-      </li>
-      <li class="c0">
-        <span class="c3">Change your rolle to Voting List Manager.</span>
-      </li>
-      <li class="c0">
-        <span
-          >Create Voting Form and asociate the form with Voting List, you
-          created before.</span
-        >
+      <li>
+        On the
+        <a href="http://www.qesadila.com">http://www.qesadila.com&nbsp; </a>
       </li>
     </ol>
-    <p class="c5"><span class="c14 c11"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="7">
-      <li class="c4">
-        <span class="c14 c11">Scenario &ldquo;Vote&rdquo;</span>
+    <ol>
+      <li>
+        Sign-in on the
+        <a href="http://www.qesadila.com">http://www.qesadila.com. </a>
+      </li>
+      <li>Change your rolle to Voting List Manager.</li>
+      <li>Choose the voting, you&rsquo;d like to participate</li>
+      <li>Qesadila will ask you for authentication:</li>
+    </ol>
+    <p><img title="" src="images/image1.png" alt="" /></p>
+    <ol>
+      <li>Connect your reader with eID to your desktop computer.</li>
+      <li>Switch to desktop application</li>
+      <li>
+        In the desktop application authenticate your self to Qesadila system.
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0"><span class="c3">Presamtion: </span></li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-3 start" start="1">
-      <li class="c9">
-        <span class="c3"
-          >You already installed Qesadila desktop application on your desktop
-          computer and application is running.
-        </span>
+    <p><img title="" src="images/image3.png" alt="" /></p>
+    <ol>
+      <li>
+        In the desktop application click on Start PKCS11 Authentication to
+        desktop application and authorize, if you are asked.
       </li>
-      <li class="c9">
-        <span>On the </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=http://www.qesadila.com&amp;sa=D&amp;ust=1587468292205000"
-            >http://www.qesadila.com</a
-          ></span
-        ><span class="c3">&nbsp;</span>
+      <li>Enter your eID BOK code:</li>
+    </ol>
+    <p><img title="" src="images/image2.png" alt="" /></p>
+    <ol>
+      <li>
+        After few seconds you will see in the desktop application, you are
+        authenticated:
       </li>
     </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-4 start" start="1">
-      <li class="c6">
-        <span>Sign-in on the </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=http://www.qesadila.com&amp;sa=D&amp;ust=1587468292206000"
-            >http://www.qesadila.com</a
-          ></span
-        ><span class="c3">. </span>
-      </li>
-      <li class="c6">
-        <span class="c3">Change your rolle to Voting List Manager.</span>
-      </li>
-      <li class="c6">
-        <span class="c3"
-          >Choose the voting, you&rsquo;d like to participate</span
-        >
-      </li>
-      <li class="c6">
-        <span class="c3">Qesadila will ask you for authentication:</span>
+    <p><img title="" src="images/image4.png" alt="" /></p>
+    <ol>
+      <li>
+        On the website
+        <a href="http://www.qesadila.com">http://www.qesadila.com: </a>
       </li>
     </ol>
-    <p class="c10">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 458.67px;"
-        ><img
-          alt=""
-          src="images/image1.png"
-          style="width: 642.82px; height: 458.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
+    <ol>
+      <li>Check the web aplication to see, you are authorized to vote:</li>
+    </ol>
+    <p><img title="" src="images/image8.png" alt="" /></p>
+    <ol>
+      <li>Choose your answer and submit your voting ballot.</li>
+      <li>
+        In the desktop application you can see check your decision before
+        voting:
+      </li>
+    </ol>
+    <p><img title="" src="images/image6.png" alt="" /></p>
+    <ol>
+      <li>Click on the &ldquo;Sign document&rdquo; button.</li>
+      <li>Application will ask you to enter the eID PIN code</li>
+    </ol>
+    <p><img title="" src="images/image7.png" alt="" /></p>
+
+    <ol>
+      <li>Wait and click on &ldquo;Send&rdquo; button:</li>
+    </ol>
+
+    <p><img title="" src="images/image5.png" alt="" /></p>
+    <ol>
+      <li>Go back to Qesadila website and check, your ballot was accepted.</li>
+    </ol>
+
+    <ol>
+      <li>
+        <h2>Technical proof of concept</h2>
+      </li>
+    </ol>
+    <ol>
+      <li>
+        All voting is currently public, so we do not consider insecure network
+        traffic as an issue.
+      </li>
+      <li>
+        Voter fills in voting form in the web application. Json is created.
+      </li>
+      <li>
+        Considering voter has already chosen his identity by selecting
+        certificate he is going to sign documents, he receives the filled in
+        voting form from web app.
+      </li>
+      <li>
+        Communication between website and signal r server in desktop application
+        does not leave computer.
+      </li>
+      <li>
+        Voter reviews the json in desktop application.<br />Signing applications
+        shows him the raw data as well as json formatted data.<br />Signer sees
+        something like:
+      </li>
+    </ol>
+    <p>
+      {<br />
+      &ldquo;Voting&rdquo;: &ldquo;Voting in matter 12345&rdquo;,<br />
+      &ldquo;Answers&rdquo;: {
     </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="2">
-      <li class="c0">
-        <span class="c3"
-          >Connect your reader with eID to your desktop computer.
-        </span>
-      </li>
-      <li class="c0"><span class="c3">Switch to desktop application</span></li>
-      <li class="c0">
-        <span class="c3"
-          >In the desktop application authenticate your self to Qesadila
-          system.</span
-        >
-      </li>
-    </ol>
-    <p class="c17">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image3.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
+    <p>&ldquo;What do you want in this park?&rdquo;: &ldquo;Trees&rdquo;,</p>
+    <p>&ldquo;Do you want to fight corona?&rdquo;: &ldquo;Yes&rdquo;</p>
+    <p>
+      },<br />
+      &ldquo;VotinfFormId&rdquo;:&rdquo;GUID-OF-voting-form&rdquo;
     </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="5">
-      <li class="c0">
-        <span class="c3"
-          >In the desktop application click on Start PKCS11 Authentication to
-          desktop application and authorize, if you are asked.</span
-        >
+    <p>}</p>
+    <p>Voter can see what he signs for.</p>
+    <ol>
+      <li>
+        Voter clicks sign, if the smart card requires pin to sign messages the
+        pin is entered.
       </li>
-      <li class="c0"><span class="c3">Enter your eID BOK code:</span></li>
+      <li>
+        Voter can see now the original document, formatted original document,
+        signed document and hash code of signed document. Because of shortage of
+        time, we did not parse the original document from the signed document
+        back, but this is something that should be done before production.
+      </li>
+      <li>
+        He sends this information to the web app. Web app sends it to the
+        backend.
+      </li>
+      <li>
+        The connection between desktop app, web app and backend is considered
+        not trusted.
+      </li>
+      <li>Qesadila backend received the file.</li>
     </ol>
-    <p class="c17">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image2.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="8">
-      <li class="c4">
-        <span class="c3"
-          >After few seconds you will see in the desktop application, you are
-          authenticated:</span
-        >
+    <ol>
+      <li>
+        Source code: Method SubmitVote&nbsp;<a
+          href="https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVoterController.cs"
+          >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVoterController.cs
+        </a>
       </li>
-    </ol>
-    <p class="c10">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image4.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="9">
-      <li class="c4">
-        <span>On the website </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=http://www.qesadila.com&amp;sa=D&amp;ust=1587468292207000"
-            >http://www.qesadila.com</a
-          ></span
-        ><span class="c3">:</span>
+      <li>
+        First check if any message was received and it is possible to parse it.
       </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span class="c3"
-          >Check the web aplication to see, you are authorized to vote:</span
-        >
+      <li>Identifies the voting form from the identifier provided.</li>
+      <li>Look up the voter and gets his public key stored in the database</li>
+      <li>Checks if the voter can cast votes in this voting.</li>
+      <li>
+        Verify the signature in the document with the voter&rsquo;s public key
       </li>
-    </ol>
-    <p class="c10">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 458.67px;"
-        ><img
-          alt=""
-          src="images/image8.png"
-          style="width: 642.82px; height: 458.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="2">
-      <li class="c0">
-        <span>Choose your answer and submit your voting ballot.</span>
+      <li>Increase increment number in the VotingForm</li>
+      <li>Return to the web app the VoterBallot and show it to user</li>
+      <li>
+        User can check - hash of the file to be stored in the voting to be same
+        as he had in the desktop app (with the vote has not been manipulated).
+        He can check this also after voting with accounted votes.
       </li>
-      <li class="c0">
-        <span class="c3"
-          >In the desktop application you can see check your decision before
-          voting:</span
-        >
+      <li>
+        The increase of increment number in form voting as well global voting
+      </li>
+      <li>Time is decided by the server.</li>
+      <li>
+        Because of shortage of time, we were not able to implement storing hash
+        of the voter ballot to blockchain to verify that with the voterballot
+        stored in the system has not been manipulated.
       </li>
     </ol>
-    <p class="c17">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image6.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="4">
-      <li class="c0">
-        <span class="c3"
-          >Click on the &ldquo;Sign document&rdquo; button.
-        </span>
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Application will ask you to enter the eID PIN code</span
-        >
+    <ol start="11">
+      <li>After time comes up, the voting is finalized:</li>
+    </ol>
+    <ol>
+      <li>
+        Source code:
+        <a
+          href="https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVotingResultController.cs"
+          >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVotingResultController.cs
+        </a>
       </li>
     </ol>
-    <p class="c10">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image7.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="6">
-      <li class="c0">
-        <span class="c3">Wait and click on &ldquo;Send&rdquo; button:</span>
-      </li>
-    </ol>
-    <p class="c5"><span class="c3"></span></p>
-    <p class="c17">
-      <span
-        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 642.82px; height: 416.00px;"
-        ><img
-          alt=""
-          src="images/image5.png"
-          style="width: 642.82px; height: 416.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-          title=""
-      /></span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2" start="7">
-      <li class="c0">
-        <span class="c3"
-          >Go back to Qesadila website and check, your ballot was
-          accepted.</span
-        >
-      </li>
-    </ol>
-    <p class="c5"><span class="c3"></span></p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-0" start="6">
-      <li class="c18 c13">
-        <h2 id="h.rje0poa98xz" style="display:inline">
-          <span class="c8">Technical proof of concept</span>
-        </h2>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1 start" start="1">
-      <li class="c4">
-        <span class="c3"
-          >All voting is currently public, so we do not consider insecure
-          network traffic as an issue.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Voter fills in voting form in the web application. Json is
-          created.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Considering voter has already chosen his identity by selecting
-          certificate he is going to sign documents, he receives the filled in
-          voting form from web app.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Communication between website and signal r server in desktop
-          application does not leave computer.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Voter reviews the json in desktop application.<br />Signing
-          applications shows him the raw data as well as json formatted data.<br />Signer
-          sees something like:</span
-        >
-      </li>
-    </ol>
-    <p class="c10 c12">
-      <span class="c3"
-        >{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Voting&rdquo;:
-        &ldquo;Voting in matter 12345&rdquo;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Answers&rdquo;:
-        {</span
-      >
-    </p>
-    <p class="c10 c12">
-      <span class="c3"
-        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;What
-        do you want in this park?&rdquo;: &ldquo;Trees&rdquo;,</span
-      >
-    </p>
-    <p class="c10">
-      <span class="c3"
-        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Do
-        you want to fight corona?&rdquo;: &ldquo;Yes&rdquo;</span
-      >
-    </p>
-    <p class="c10 c12 c29">
-      <span class="c3"
-        >},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;VotinfFormId&rdquo;:&rdquo;GUID-OF-voting-form&rdquo;</span
-      >
-    </p>
-    <p class="c10 c12"><span class="c3">}</span></p>
-    <p class="c10 c12">
-      <span class="c3">Voter can see what he signs for.</span>
-    </p>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="6">
-      <li class="c4">
-        <span class="c3"
-          >Voter clicks sign, if the smart card requires pin to sign messages
-          the pin is entered.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >Voter can see now the original document, formatted original document,
-          signed document and hash code of signed document. Because of shortage
-          of time, we did not parse the original document from the signed
-          document back, but this is something that should be done before
-          production.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >He sends this information to the web app. Web app sends it to the
-          backend.</span
-        >
-      </li>
-      <li class="c4">
-        <span class="c3"
-          >The connection between desktop app, web app and backend is considered
-          not trusted.
-        </span>
-      </li>
-      <li class="c4">
-        <span class="c3">Qesadila backend received the file.</span>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span>Source code: Method </span><span class="c11">SubmitVote</span
-        ><span>&nbsp;</span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVoterController.cs&amp;sa=D&amp;ust=1587468292212000"
-            >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVoterController.cs</a
-          ></span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >First check if any message was received and it is possible to parse
-          it.</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Identifies the voting form from the identifier provided.</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Look up the voter and gets his public key stored in the
-          database</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Checks if the voter can cast votes in this voting.</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Verify the signature in the document with the voter&rsquo;s public
-          key</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3">Increase increment number in the VotingForm</span>
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Return to the web app the VoterBallot and show it to user</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >User can check - hash of the file to be stored in the voting to be
-          same as he had in the desktop app (with the vote has not been
-          manipulated). He can check this also after voting with accounted
-          votes.</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >The increase of increment number in form voting as well global
-          voting</span
-        >
-      </li>
-      <li class="c0">
-        <span class="c3">Time is decided by the server. </span>
-      </li>
-      <li class="c0">
-        <span class="c3"
-          >Because of shortage of time, we were not able to implement storing
-          hash of the voter ballot to blockchain to verify that with the
-          voterballot stored in the system has not been manipulated.</span
-        >
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-1" start="11">
-      <li class="c4">
-        <span class="c3">After time comes up, the voting is finalized:</span>
-      </li>
-    </ol>
-    <ol class="c2 lst-kix_467v1fe4e5b8-2 start" start="1">
-      <li class="c0">
-        <span>Source code: </span
-        ><span class="c16"
-          ><a
-            class="c7"
-            href="https://www.google.com/url?q=https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVotingResultController.cs&amp;sa=D&amp;ust=1587468292214000"
-            >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVotingResultController.cs</a
-          ></span
-        >
-      </li>
-    </ol>
-    <p class="c5"><span class="c3"></span></p>
   </div>
 </template>
 
