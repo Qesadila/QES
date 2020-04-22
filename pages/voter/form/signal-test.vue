@@ -25,14 +25,12 @@ export default {
       this.$axios.post('v1/Voter/SubmitVote', fd)
     })
     this.connection.on('Logout', (questionId, score) => {
-      console.log("on('Logout)", questionId, score)
       this.authenticated = 'Unauthenticated'
       // questionHub.$emit('score-changed', { questionId, score })
     })
   },
   methods: {
     onclick() {
-      console.log('click')
       return this.connection.invoke(
         'SignMessage',
         btoa('{"value": "test"}'),

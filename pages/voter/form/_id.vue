@@ -173,15 +173,9 @@ export default {
     async start() {
       try {
         await this.connection.start()
-        console.assert(
-          this.connection.state === signalR.HubConnectionState.Connected
-        )
         this.appRunning = true
         this.getStatusFromServer()
       } catch (err) {
-        console.assert(
-          this.connection.state === signalR.HubConnectionState.Disconnected
-        )
         setTimeout(() => this.start(), 5000)
       }
     },
@@ -189,7 +183,7 @@ export default {
       try {
         await this.connection.invoke('getStatus')
       } catch (err) {
-        console.log(err)
+        this.$store.dispatch('snackbar/openError', err)
       }
     },
 
