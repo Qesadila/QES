@@ -30,6 +30,7 @@
                 name="password"
                 prepend-icon="mdi-lock"
                 type="password"
+                autocomplete="on"
               />
             </v-form>
           </v-card-text>

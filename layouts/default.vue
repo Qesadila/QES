@@ -86,13 +86,20 @@
       </v-container>
     </v-content>
     <v-footer :fixed="fixed" app class="d-flex flex-row justify-center">
-      <span>&copy; {{ new Date().getFullYear() }} Srdcom doma o.z.</span>
+      <span
+        >&copy; {{ new Date().getFullYear() }} Srdcom doma o.z.
+        <span v-if="this.$store.state.signalR.signalRIdentity">
+          QesadilaAuth identity:
+          {{ this.$store.state.signalR.signalRIdentity }}
+        </span>
+      </span>
     </v-footer>
     <snackbar-component></snackbar-component>
   </v-app>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import {
   anonymousRoutes,
   voterRoutes,
@@ -101,6 +108,7 @@ import {
 } from '../code/constants/sideMenuItems'
 import SnackbarComponent from '~/components/SnackbarComponent'
 
+const signalR = require('@microsoft/signalr')
 const setSideMenuItems = (role) => {
   if (role === 'anonym') return anonymousRoutes
   if (role === 'voter') return voterRoutes
@@ -155,8 +163,69 @@ export default {
         this.selectedRole = item.value
       }
     })
+    this.connection = new signalR.HubConnectionBuilder()
+      .withUrl('http://localhost:58080/hubs/signin')
+      .withAutomaticReconnect()
+      .build()
+    this.startSignalR()
+
+    this.connection.onreconnecting((error) => {
+      const status = 'reconnecting'
+      const identity = ''
+      const certHash = ''
+      this.onStatusUpdate({ status, identity, certHash })
+      this.setSignalRStatus()
+      console.log(error)
+    })
+    this.connection.onreconnected((connectionId) => {
+      this.getStatusFromServer()
+      const status = 'reconnected'
+      const identity = ''
+      const certHash = ''
+      this.onStatusUpdate({ status, identity, certHash })
+      this.setSignalRStatus()
+      console.log(connectionId)
+    })
+    this.connection.onclose((error) => {
+      console.log(error)
+      const status = 'disconnected'
+      const identity = ''
+      const certHash = ''
+      this.onStatusUpdate({ status, identity, certHash })
+    })
+    this.connection.on('Connecting', () => {
+      const status = 'connecting'
+      const identity = ''
+      const certHash = ''
+      this.onStatusUpdate({ status, identity, certHash })
+    })
+
+    this.connection.on('Status', (status, identity, certHash) => {
+      this.onStatusUpdate({ status, identity, certHash })
+      this.setSignalRStatus()
+    })
+    this.connection.on('Authenticate', (data) => {
+      console.log('Todo authenticate')
+    })
   },
   methods: {
+    ...mapMutations('signalR', ['onStatusUpdate', 'setSignalRStatus']),
+    async startSignalR() {
+      try {
+        await this.connection.start()
+        this.appRunning = true
+        this.getStatusFromServer()
+      } catch (err) {
+        setTimeout(() => this.start(), 5000)
+      }
+    },
+    async getStatusFromServer() {
+      try {
+        await this.connection.invoke('getStatus')
+      } catch (err) {
+        this.$store.dispatch('snackbar/openError', err)
+      }
+    },
     handleChange(lang) {
       this.$router.push(this.switchLocalePath(lang))
     },

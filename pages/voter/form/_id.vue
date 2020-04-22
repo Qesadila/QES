@@ -198,7 +198,7 @@ export default {
       this.connection.invoke(
         'SignMessage',
         btoa(JSON.stringify(toSend)),
-        'EnVoterAnswer'
+        'VoterAnswerEn'
       )
       this.waitingForSign = true
     },

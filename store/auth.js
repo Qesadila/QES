@@ -1,12 +1,10 @@
 import Cookie from 'js-cookie'
 import { hashPassword } from '~/code/helpers/hashPassword'
+export const state = () => ({
+  auth: false,
+  user: {}
+})
 
-export const state = () => {
-  return {
-    auth: false,
-    user: {}
-  }
-}
 export const mutations = {
   setAuth(state, auth) {
     state.auth = auth
@@ -16,6 +14,29 @@ export const mutations = {
   }
 }
 export const actions = {
+  async performLoginWithCertificate({ commit, dispatch }, { data }) {
+    const fd = new FormData()
+    fd.append('base64AuthenticateMessage', data)
+
+    let response = null
+
+    try {
+      response = await await this.$axios.post(
+        'v1/Authorize/LoginWithCertificate',
+        fd
+      )
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      commit('setAuth', true)
+      commit('setAuthUser', response.data.user)
+      this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
+
+      this.$router.push('/')
+    }
+  },
   async performLogin({ commit, dispatch }, { username, password }) {
     const fd = new FormData()
     fd.append('email', username)
