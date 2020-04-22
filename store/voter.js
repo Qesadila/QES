@@ -20,6 +20,30 @@ export const actions = {
       return response.data
     }
   },
+  async performVerifyVoter({ dispatch }, { token }) {
+    let response = null
+
+    const fd = new FormData()
+
+    fd.append('token', token)
+
+    try {
+      response = await this.$axios.post('v1/Voter/ConfirmRegistration', fd)
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      this.$router.push('/')
+      dispatch(
+        'snackbar/openSuccess',
+        'Succesfully verified! Please authenticate using the QesadilaAuth deksktop app.',
+        {
+          root: true
+        }
+      )
+    }
+  },
   async performAddVoter({ commit, dispatch }, { email, file, isQes }) {
     const encodedFile = await toBase64(file)
 
