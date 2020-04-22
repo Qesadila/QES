@@ -1,50 +1,44 @@
 <template>
   <div>
-    <h1>{{ $t('general.welcome') }}</h1>
-    <v-row>
-      <v-col>
-        <h1>Qesadila e-voting system</h1>
-        <p>(proof of concept)</p>
-        <p>Version of the document: 0.1 Draft</p>
-        <p>Date: 2020-04-21</p>
-        <h2>Scope</h2>
+    <h1>{{ $t('welcome') }}</h1>
+    <div style="padding:62.5% 0 0 0;position:relative;">
+      <iframe
+        src="https://player.vimeo.com/video/406483646?byline=0&portrait=0"
+        style="position:absolute;top:0;left:0;width:640px;height:400px"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
-        <p>
-          Qesadila is open source e-voting software system, providing offered
-          under licence: GNU GPLv3. By e-voting we mean the participation on
-          making decisions of any group of voters, where is necessery to
-          autorize the voters (using qualified electronic signature, or
-          generated certificate) and to check, if only autorized voters
-          participated and how:
-        </p>
-        <ul>
-          <li>city council meetings of elected representatives of the city,</li>
-          <li>citizens voting in participatory budget,</li>
-          <li>members of the company executive boards</li>
-          <li>members or volunters of th NGO</li>
-        </ul>
+    <h1>Qesadila e-voting system</h1>
+    <p>(proof of concept)</p>
+    <p>Version of the document: 0.1 Draft</p>
+    <p>Date: 2020-04-21</p>
+    <h2>Scope</h2>
 
-        <p>
-          The system is developed by volunteers and formaly provided by NGO
-          Srdcom doma o.z. registered in Slovakia and engaged in election
-          legislative changes. We take seriously the possibility to participate
-          on democratic rights so as elections.
-        </p>
-      </v-col>
-      <v-col>
-        <div style="padding:62.5% 0 0 0;position:relative;">
-          <iframe
-            src="https://player.vimeo.com/video/406483646?byline=0&portrait=0"
-            style="position:absolute;top:0;left:0;width:640px;height:400px"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          >
-          </iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-      </v-col>
-    </v-row>
+    <p>
+      Qesadila is open source e-voting software system, providing offered under
+      licence: GNU GPLv3. By e-voting we mean the participation on making
+      decisions of any group of voters, where is necessery to autorize the
+      voters (using qualified electronic signature, or generated certificate)
+      and to check, if only autorized voters participated and how:
+    </p>
+    <ul>
+      <li>city council meetings of elected representatives of the city,</li>
+      <li>citizens voting in participatory budget,</li>
+      <li>members of the company executive boards</li>
+      <li>members or volunters of th NGO</li>
+    </ul>
+
+    <p>
+      The system is developed by volunteers and formaly provided by NGO Srdcom
+      doma o.z. registered in Slovakia and engaged in election legislative
+      changes. We take seriously the possibility to participate on democratic
+      rights so as elections.
+    </p>
 
     <h2>Disclaimer</h2>
 
