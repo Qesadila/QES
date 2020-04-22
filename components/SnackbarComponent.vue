@@ -1,7 +1,7 @@
 <template>
   <v-snackbar
     :value="$store.state.snackbar.isOpen"
-    :timeout="2000"
+    :timeout="15000"
     top
     right
     :color="$store.state.snackbar.color"

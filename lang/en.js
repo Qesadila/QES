@@ -20,6 +20,8 @@ export default {
     resendToken: 'Resend verify email',
     verifyEmailAction: 'Verify',
     backToVerification: 'Back to verification',
+    verifyMail: 'Verify email',
+    verifyVoterMail: "Verify voter's email",
     contentNeedsLoginMessage: 'You have to be logged in to see this content'
   },
   navigation: {

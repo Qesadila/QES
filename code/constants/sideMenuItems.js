@@ -1,5 +1,10 @@
 export const anonymousRoutes = [
   {
+    icon: 'mdi-home',
+    title: 'navigation.home',
+    to: `/`
+  },
+  {
     icon: 'mdi-apps',
     title: 'navigation.votingResults',
     to: `/anonym`
@@ -8,6 +13,11 @@ export const anonymousRoutes = [
     icon: 'mdi-comment-text-outline',
     title: 'navigation.termsAndConditions',
     to: '/terms-and-conditions'
+  },
+  {
+    icon: 'mdi-apps',
+    title: 'navigation.verifyMail',
+    to: '/auth/verify-email'
   }
 ]
 

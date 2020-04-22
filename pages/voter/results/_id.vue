@@ -35,9 +35,6 @@ export default {
   },
   methods: {
     ...mapActions('voter', ['performFetchAllVoterForms']),
-    submitForm() {
-      console.log('Form submitted! ->', this.userAnwers)
-    },
     handleUserAnswerChange(questionId, answerId) {
       this.userAnwers[questionId] = answerId
     },

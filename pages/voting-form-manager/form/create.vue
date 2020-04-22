@@ -37,11 +37,7 @@
         <div class="display-1 mb-10">
           {{ $t('votingFormManager.questions') }}
         </div>
-        <div
-          v-for="questionId in questionIds"
-          v-bind:key="questionId"
-          class="mb-12"
-        >
+        <div v-for="questionId in questionIds" :key="questionId" class="mb-12">
           <div class="d-flex flex-row">
             <v-card width="100%" elevation="3">
               <add-question-modal
@@ -63,13 +59,13 @@
           {{ $t('votingFormManager.addNewQuestion') }}</v-btn
         >
 
-        <v-btn color="primary" x-large @click="saveForm" v-if="formIsValid">
+        <v-btn v-if="formIsValid" color="primary" x-large @click="saveForm">
           <span class="white--text d-flex align-center">
             <v-icon left>mdi-check</v-icon>
             {{ $t('votingFormManager.saveForm') }}
           </span></v-btn
         >
-        <div class="badge badge-error" v-if="formValidationError">
+        <div v-if="formValidationError" class="badge badge-error">
           {{ formValidationError }}
         </div>
       </div>
@@ -112,13 +108,10 @@ export default {
   methods: {
     ...mapActions('listManager', ['performFetchList']),
     saveQuestion(id, questionData) {
-      console.log('Question ID saved ->', questionData)
       this.$set(this.createdForm.votingFormItems, id, questionData)
-      console.log('this.createdForm', this.createdForm)
       this.validateForm()
     },
     removeQuestion(id) {
-      console.log('Question ID removed ->', id)
       this.$delete(this.questionIds, id)
       this.$delete(this.createdForm.votingFormItems, id)
     },
@@ -132,7 +125,6 @@ export default {
     },
     questionIdToOrder(id) {
       let i = 0
-      console.log(id)
       for (const index in this.questionIds) {
         i++
         if (index.toString() === id.toString()) return i
@@ -140,15 +132,11 @@ export default {
       return -1
     },
     validateForm() {
-      console.log('Validating form')
       // check if form name was filled in
       if (this.createdForm.name === '') {
         this.formValidationError = 'Please fill in form name'
         this.formIsValid = false
         return
-      }
-      for (const index in this.createdForm.votingFormItems) {
-        console.log('this.createdForm.votingFormItems.index', index)
       }
       // check if all questions has the text filled in
       for (const index in this.createdForm.votingFormItems) {
@@ -215,8 +203,6 @@ export default {
       if (!this.formIsValid) {
         return
       }
-      console.log('Form saved ->', this.createdForm)
-      console.log('String ->', JSON.stringify(this.createdForm))
 
       const fd = new FormData()
 

@@ -150,14 +150,6 @@ export default {
     }
   },
   mounted() {
-    if (!this.$store.state.auth.auth) {
-      this.items.push({
-        icon: 'mdi-apps',
-        title: 'navigation.verifyMail',
-        to: '/auth/verify-email'
-      })
-    }
-
     this.roles.map((item) => {
       if (this.$route.path.search(item.value) !== -1) {
         this.selectedRole = item.value
