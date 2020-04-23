@@ -33,6 +33,11 @@ export const voterRoutes = [
     to: `/`
   },
   {
+    icon: 'mdi-lock-reset',
+    title: 'navigation.qesAuth',
+    to: '/qesadila-auth'
+  },
+  {
     icon: 'mdi-format-list-checks',
     title: 'navigation.listOfCurrentVotings',
     to: `/voter`
