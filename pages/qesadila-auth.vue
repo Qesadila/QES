@@ -2,6 +2,23 @@
   <div>
     <h1>Qesadila Auth</h1>
     <p>Qesadila auth is authentication and signature system.</p>
+    <div v-if="this.$store.state.signalR.signalRIdentity">
+      <h2>Current identity</h2>
+      <v-simple-table>
+        <tr>
+          <td>Identity:</td>
+          <td>{{ this.$store.state.signalR.signalRIdentity }}</td>
+        </tr>
+        <tr>
+          <td>Certificate:</td>
+          <td>{{ this.$store.state.signalR.signalRCertHash }}</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>{{ this.$store.state.signalR.signalRStatusText }}</td>
+        </tr>
+      </v-simple-table>
+    </div>
     <h2>Download</h2>
     <ul>
       <li>

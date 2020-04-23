@@ -7,16 +7,14 @@ export const state = () => ({
 
 export const mutations = {
   onStatusUpdate(state, { status, identity, certHash }) {
-    console.log('state.signalRStatus', status)
-    console.log('state.context', state)
     state.signalRStatus = status
     state.signalRIdentity = identity
     state.signalRCertHash = certHash
-    // state.signalRStatusText = this.getSignalRStatus(state, status)
-    console.log('state.signalRStatusText', state.signalRStatusText)
   },
   setSignalRStatus(state) {
-    switch (state.signalRStatus) {
+    const st = state.signalRStatus
+
+    switch (st) {
       case 'not-connected':
         state.signalRStatusText = 'The website is not connected to the server'
         break
@@ -26,7 +24,7 @@ export const mutations = {
         break
       case 'identity-selected':
         state.signalRStatusText =
-          'You are not signed in QesadilaAuth: ' + state.signalRIdentity
+          'Identity selected in QesadilaAuth: ' + state.signalRIdentity
         break
       case 'reconnecting':
         state.signalRStatusText = 'Reconnecting to QesadilaAuth'
@@ -38,7 +36,9 @@ export const mutations = {
       case 'disconnected':
         state.signalRStatusText = 'Disconnected from QesadilaAuth'
         break
+      default:
+        state.signalRStatusText = 'Unknown state: ' + st
+        break
     }
-    state.signalRStatusText = 'Unknown state: ' + state.signalRStatus
   }
 }
