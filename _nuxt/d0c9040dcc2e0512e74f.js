@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{496:function(e,t,n){"use strict";n.r(t);var l={middleware:"authenticated"},c=n(64),component=Object(c.a)(l,(function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("h1",[this._v(this._s(this.$t("general.contentNeedsLoginMessage")))])])}),[],!1,null,null,null);t.default=component.exports}}]);
