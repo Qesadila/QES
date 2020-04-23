@@ -207,6 +207,9 @@ export default {
     this.connection.on('Authenticate', (data) => {
       console.log('Todo authenticate')
     })
+    this.connection.on('VoterAnswer', (data) => {
+      console.log('Todo authenticate')
+    })
   },
   methods: {
     ...mapMutations('signalR', ['onStatusUpdate', 'setSignalRStatus']),
