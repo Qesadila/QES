@@ -28,7 +28,10 @@ export const actions = {
     fd.append('token', token)
 
     try {
-      response = await this.$axios.post('v1/Voter/ConfirmRegistration', fd)
+      response = await await this.$axios.post(
+        'v1/Voter/ConfirmRegistration',
+        fd
+      )
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }
@@ -69,16 +72,18 @@ export const actions = {
       return response.data
     }
   },
-  async performSubmitVote({ commit, dispatch, router }, { data }) {
+  async performSubmitVote({ dispatch, router }, { data }) {
     const fd = new FormData()
     fd.append('base64message', data)
     let response = null
     try {
       response = await await this.$axios.post('v1/Voter/SubmitVote', fd)
-      router.push('/voter')
-      dispatch('snackbar/openSuccess', 'Your votes was signed and counted!')
     } catch (e) {
-      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+      if (e.response.data && e.response.data.detail) {
+        dispatch('snackbar/openError', e.response.data.detail, { root: true })
+      } else {
+        dispatch('snackbar/openError', e.response, { root: true })
+      }
     }
 
     if (response) {

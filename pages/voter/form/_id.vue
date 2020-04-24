@@ -94,9 +94,6 @@ export default {
   middleware: 'authenticated',
   data() {
     return {
-      signalStatus: 'not-connected',
-      qaIdentity: '',
-      qaCertHash: '',
       signalStatusType: 'warning',
       signalStatusText: 'Detecting..',
       userAnwers: {},
@@ -115,6 +112,7 @@ export default {
       )
     }
   },
+
   mounted() {
     this.fetchList()
 
@@ -124,9 +122,9 @@ export default {
 
     this.start()
     this.connection.on('Status', (status, identity, certHash) => {
-      this.signalStatus = status
-      this.qaIdentity = identity
-      this.qaCertHash = certHash
+      // this.$store.state.signalR.signalRStatus = status
+      // this.$store.state.signalR.signalRCertHash = certHash
+      // this.$store.state.signalR.signalRIdentity = identity
       this.setSignalRStatus()
     })
   },
@@ -171,7 +169,7 @@ export default {
     },
     setSignalRStatus() {
       let isOk = false
-      switch (this.signalStatus) {
+      switch (this.$store.state.signalR.signalRStatus) {
         case 'not-connected':
           this.signalStatusText = 'The website is not connected to the server'
           this.signalStatusType = 'warning'
@@ -186,12 +184,12 @@ export default {
             if (this.selectedForm.listOfValidCertificatesForSignature) {
               if (
                 this.selectedForm.listOfValidCertificatesForSignature.includes(
-                  this.qaCertHash
+                  this.$store.state.signalR.signalRCertHash
                 )
               ) {
                 this.signalStatusText =
                   'You are signed in as valid voter in QesadilaAuth: ' +
-                  this.qaIdentity
+                  this.$store.state.signalR.signalRIdentity
                 this.signalStatusType = 'info'
                 isOk = true
               }
@@ -200,7 +198,7 @@ export default {
           if (!isOk) {
             this.signalStatusText =
               'You are not signed in as valid voter in QesadilaAuth: ' +
-              this.qaIdentity
+              this.$store.state.signalR.signalRIdentity
             this.signalStatusType = 'warning'
           }
           break

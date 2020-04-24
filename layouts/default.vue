@@ -209,8 +209,14 @@ export default {
       this.performLoginWithCertificate({ data })
     })
     this.connection.on('VoterAnswer', (data) => {
-      console.log('VoterAnswer', data)
-      this.performSubmitVote({ data })
+      const result = this.performSubmitVote({ data })
+      if (result) {
+        this.$store.dispatch(
+          'snackbar/openSuccess',
+          'Your votes was signed and counted!'
+        )
+        this.$router.push('/voter')
+      }
     })
   },
   methods: {
