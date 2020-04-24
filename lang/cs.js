@@ -35,6 +35,7 @@ export default {
     listOfForms: 'Seznam formulářů',
     createNewVoterForm: 'Vytvořit nový hlasovací formulář',
     createNewVoterList: 'Vytvořit nový seznam voličů',
+    lastSubmission: 'Last vote submission',
     votingLists: 'Seznam voličských skupin'
   },
   anonym: {

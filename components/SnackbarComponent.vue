@@ -1,9 +1,8 @@
 <template>
   <v-snackbar
     :value="$store.state.snackbar.isOpen"
-    :timeout="15000"
+    :timeout="10000"
     top
-    right
     :color="$store.state.snackbar.color"
     @input="$store.commit('snackbar/setClose')"
   >

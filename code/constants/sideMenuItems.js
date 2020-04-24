@@ -43,9 +43,9 @@ export const voterRoutes = [
     to: `/voter`
   },
   {
-    icon: 'mdi-format-list-checks',
-    title: 'navigation.listOfPastVotings',
-    to: `/voter`
+    icon: 'mdi-package-variant-closed',
+    title: 'navigation.lastSubmission',
+    to: `/voter/submission`
   }
 ]
 
