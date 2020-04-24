@@ -7,9 +7,36 @@
           <div class="d-flex flex-row justify-center py-5 display-1">
             {{ selectedForm.name }}
           </div>
-          <div class="d-flex flex-row justify-center px-12 mb-6 body">
-            {{ selectedForm.infoText }}
-          </div>
+          <v-simple-table>
+            <template v-slot:default>
+              <tbody>
+                <tr>
+                  <th>Is public</th>
+                  <td>
+                    {{ isPublic }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Voting started at</th>
+                  <td>
+                    {{ openFrom }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Voting open until</th>
+                  <td>
+                    {{ openUntil }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Ending type</th>
+                  <td>
+                    {{ endingType }}
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
           <v-divider class="mb-10"></v-divider>
           <div
             v-for="(question, index) in selectedForm.votingFormItems"
@@ -110,6 +137,24 @@ export default {
           (item) => item.votingFormId === this.$route.params.id
         )
       )
+    },
+    openFrom() {
+      const time = this.selectedForm.openFrom
+      const d = new Date(time)
+      return d.toLocaleString()
+    },
+    openUntil() {
+      const time = this.selectedForm.openUntil
+      const d = new Date(time)
+      return d.toLocaleString()
+    },
+    endingType() {
+      if (!this.selectedForm.endingType) return 'Type not defined'
+      return this.$t('votingFormManager.' + this.selectedForm.endingType)
+    },
+    isPublic() {
+      if (this.selectedForm.isPublic) return this.$t('general.yes')
+      return this.$t('general.no')
     }
   },
 

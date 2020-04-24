@@ -24,7 +24,9 @@ export default {
     verifyMail: 'Verify email',
     verifyVoterMail: "Verify voter's email",
     contentNeedsLoginMessage: 'You have to be logged in to see this content',
-    htmlPokus: '<h1 style="font-size:20px;">EN</h1> '
+    htmlPokus: '<h1 style="font-size:20px;">EN</h1> ',
+    yes: 'Yes',
+    no: 'No'
   },
   navigation: {
     home: 'Home',
