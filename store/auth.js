@@ -83,6 +83,8 @@ export const actions = {
     if (response) {
       commit('setAuth', true)
       commit('setAuthUser', response.data.user)
+      commit('setAuthJWT', '')
+      commit('setAuthData', '')
       this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
 
       Cookie.set('JWT', response.data.token)
@@ -119,6 +121,8 @@ export const actions = {
   performLogout({ commit }) {
     commit('setAuth', false)
     commit('setAuthUser', {})
+    commit('setAuthJWT', '')
+    commit('setAuthData', '')
     Cookie.remove('JWT')
     Cookie.remove('JWT_USER')
     delete this.$axios.defaults.headers.common.Authorization
