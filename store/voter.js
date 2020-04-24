@@ -1,3 +1,7 @@
+export const state = () => ({
+  lastSubmittedVoteResult: ''
+})
+
 const toBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader()
@@ -6,6 +10,11 @@ const toBase64 = (file) =>
     reader.onerror = (error) => reject(error)
   })
 
+export const mutations = {
+  setLastSubmittedVoteResult(state, lastSubmittedVoteResult) {
+    state.lastSubmittedVoteResult = lastSubmittedVoteResult
+  }
+}
 export const actions = {
   async performFetchAllVoterForms({ dispatch }) {
     let response = null
@@ -72,7 +81,7 @@ export const actions = {
       return response.data
     }
   },
-  async performSubmitVote({ dispatch, router }, { data }) {
+  async performSubmitVote({ commit, dispatch, router }, { data }) {
     const fd = new FormData()
     fd.append('base64message', data)
     let response = null
@@ -87,6 +96,7 @@ export const actions = {
     }
 
     if (response) {
+      commit('setLastSubmittedVoteResult', response.data)
       return response.data
     }
   }

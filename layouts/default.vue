@@ -215,7 +215,7 @@ export default {
           'snackbar/openSuccess',
           'Your votes was signed and counted!'
         )
-        this.$router.push('/voter')
+        this.$router.push('/voter/submission')
       }
     })
   },
