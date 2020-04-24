@@ -68,5 +68,21 @@ export const actions = {
     if (response) {
       return response.data
     }
+  },
+  async performSubmitVote({ commit, dispatch, router }, { data }) {
+    const fd = new FormData()
+    fd.append('base64message', data)
+    let response = null
+    try {
+      response = await await this.$axios.post('v1/Voter/SubmitVote', fd)
+      router.push('/voter')
+      dispatch('snackbar/openSuccess', 'Your votes was signed and counted!')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
   }
 }

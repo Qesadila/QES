@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 import {
   anonymousRoutes,
   voterRoutes,
@@ -205,14 +205,18 @@ export default {
       this.setSignalRStatus()
     })
     this.connection.on('Authenticate', (data) => {
-      console.log('Todo authenticate')
+      console.log('Authenticate', data)
+      this.performLoginWithCertificate({ data })
     })
     this.connection.on('VoterAnswer', (data) => {
-      console.log('Todo authenticate')
+      console.log('VoterAnswer', data)
+      this.performSubmitVote({ data })
     })
   },
   methods: {
     ...mapMutations('signalR', ['onStatusUpdate', 'setSignalRStatus']),
+    ...mapActions('voter', ['performSubmitVote']),
+    ...mapActions('auth', ['performLoginWithCertificate']),
     async startSignalR() {
       try {
         await this.connection.start()

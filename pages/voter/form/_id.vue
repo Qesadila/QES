@@ -123,50 +123,11 @@ export default {
       .build()
 
     this.start()
-    /*
-    this.connection.onreconnecting(function() {
-      this.signalStatus = 'reconnecting'
-    })
-    this.connection.onreconnected(function() {
-      this.signalStatus = 'reconnected'
-    })
-    this.connection.ondisconnected(function() {
-      this.signalStatus = 'disconnected'
-      setTimeout(function() {
-        this.connection.start()
-      }, 5000) // Restart connection after 5 seconds.
-    })
-    this.connection.on('Connecting', () => {
-      alert('connecting')
-    })
-    /**/
     this.connection.on('Status', (status, identity, certHash) => {
       this.signalStatus = status
       this.qaIdentity = identity
       this.qaCertHash = certHash
       this.setSignalRStatus()
-    })
-    this.connection.on('Authenticate', (cert) => {
-      const fd = new FormData()
-      fd.append('base64message', cert)
-      this.$axios
-        .post('v1/Voter/SubmitVote', fd)
-        .then(() => {
-          this.waitingForSign = false
-          this.$router.push('/voter')
-          this.$store.dispatch(
-            'snackbar/openSuccess',
-            'Your votes was signed and counted!'
-          )
-        })
-        .catch((e) => {
-          this.waitingForSign = false
-          this.$store.dispatch('snackbar/openError', e.response.data.detail)
-        })
-    })
-    this.connection.on('Logout', (questionId, score) => {
-      this.authenticated = 'Unauthenticated'
-      // questionHub.$emit('score-changed', { questionId, score })
     })
   },
   methods: {
@@ -187,7 +148,7 @@ export default {
       }
     },
 
-    ...mapActions('voter', ['performFetchAllVoterForms']),
+    ...mapActions('voter', ['performFetchAllVoterForms', 'performSubmitVote']),
     submitForm() {
       const toSend = {
         votingForm: this.selectedForm.name,
@@ -200,7 +161,6 @@ export default {
         btoa(JSON.stringify(toSend)),
         'VoterAnswerEn'
       )
-      this.waitingForSign = true
     },
     handleUserAnswerChange(questionId, answerId) {
       this.userAnwers[questionId] = answerId

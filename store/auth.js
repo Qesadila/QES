@@ -2,7 +2,9 @@ import Cookie from 'js-cookie'
 import { hashPassword } from '~/code/helpers/hashPassword'
 export const state = () => ({
   auth: false,
-  user: {}
+  user: {},
+  authJWT: '',
+  authData: ''
 })
 
 export const mutations = {
@@ -11,6 +13,12 @@ export const mutations = {
   },
   setAuthUser(state, user) {
     state.user = user
+  },
+  setAuthJWT(state, authJWT) {
+    state.user = authJWT
+  },
+  setAuthData(state, authData) {
+    state.authData = authData
   }
 }
 export const actions = {
@@ -31,7 +39,13 @@ export const actions = {
 
     if (response) {
       commit('setAuth', true)
-      commit('setAuthUser', response.data.user)
+      commit('setAuthJWT', response.data.token)
+      commit('setAuthData', response.data)
+      if (response.data.users.length > 0) {
+        commit('setAuthUser', response.data.users[0])
+      } else if (response.data.voters.length > 0) {
+        commit('setAuthUser', response.data.voters[0])
+      }
       this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
 
       this.$router.push('/')
