@@ -64,7 +64,17 @@
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
             <v-btn text v-on="on">
-              {{ $store.state.auth.user.name }}
+              <span v-if="$store.state.auth.authJWT">
+                <v-img
+                  :src="require('../static/qes.png')"
+                  height="30"
+                  width="30"
+                  contain
+                ></v-img>
+              </span>
+              <span v-else>
+                {{ $store.state.auth.user.name }}
+              </span>
             </v-btn>
           </template>
           <v-list>
