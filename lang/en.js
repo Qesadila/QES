@@ -36,7 +36,8 @@ export default {
     listOfForms: 'List of forms',
     createNewVoterForm: 'Create new voter form',
     createNewVoterList: 'Create new voter list',
-    votingLists: 'List of voting lists'
+    votingLists: 'List of voting lists',
+    qesAuth: 'Qesadila Auth'
   },
   anonym: {
     title: 'List of public votings',

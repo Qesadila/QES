@@ -15,6 +15,11 @@ export const anonymousRoutes = [
     to: '/terms-and-conditions'
   },
   {
+    icon: 'mdi-lock-reset',
+    title: 'navigation.qesAuth',
+    to: '/qesadila-auth'
+  },
+  {
     icon: 'mdi-apps',
     title: 'navigation.verifyMail',
     to: '/auth/verify-email'
@@ -26,6 +31,11 @@ export const voterRoutes = [
     icon: 'mdi-home',
     title: 'navigation.home',
     to: `/`
+  },
+  {
+    icon: 'mdi-lock-reset',
+    title: 'navigation.qesAuth',
+    to: '/qesadila-auth'
   },
   {
     icon: 'mdi-format-list-checks',
