@@ -89,7 +89,13 @@ export default {
       isPublic: 'Public',
       voterList: 'Voting list',
       actions: 'Actions'
-    }
+    },
+    AutoClosingWhenAllHasVoted: 'Auto Closing When All Voters Has Voted',
+    TimeoutOnly: 'Timeout Only',
+    VoterManagerCanCloseAnyTime: 'Voter Manager Can Close Any Time',
+    VoterManagerCanCloseIfAllHasVoted:
+      'Voter Manager Can Close If All Voters Has Voted',
+    endingType: 'Options for ending for this voting'
   },
   votingListManager: {
     title: 'Voting list manager',

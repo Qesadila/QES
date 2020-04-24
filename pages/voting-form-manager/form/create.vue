@@ -17,8 +17,20 @@
           :placeholder="$t('votingFormManager.placeholderFormName')"
         ></v-text-field>
 
+        <div>{{ $t('votingFormManager.endingType') }}</div>
+        <v-select
+          v-model="createdForm.endingType"
+          :items="endingTypes"
+          :item-text="selectText"
+          :item-value="selectValue"
+        >
+        </v-select>
+
         <div>{{ $t('votingFormManager.formOpenUntil') }}</div>
-        <VueCtkDateTimePicker v-model="createdForm.openUntil">
+        <VueCtkDateTimePicker
+          v-model="createdForm.openUntil"
+          format="YYYY-MM-DDTHH:mm:ssZ"
+        >
         </VueCtkDateTimePicker>
 
         <v-divider class="mb-5"></v-divider>
@@ -92,13 +104,32 @@ export default {
       questionIter: 0,
       createdForm: {
         name: '',
+        endingType: 'AutoClosingWhenAllHasVoted',
         openUntil: null,
         voterListId: '',
         votingFormItems: []
       },
       voterLists: [],
       formIsValid: false,
-      formValidationError: 'Please fill in the form'
+      formValidationError: 'Please fill in the form',
+      endingTypes: [
+        {
+          value: 'AutoClosingWhenAllHasVoted',
+          name: this.$t('votingFormManager.AutoClosingWhenAllHasVoted')
+        },
+        {
+          value: 'TimeoutOnly',
+          name: this.$t('votingFormManager.TimeoutOnly')
+        },
+        {
+          value: 'VoterManagerCanCloseAnyTime',
+          name: this.$t('votingFormManager.VoterManagerCanCloseAnyTime')
+        },
+        {
+          value: 'VoterManagerCanCloseIfAllHasVoted',
+          name: this.$t('votingFormManager.VoterManagerCanCloseIfAllHasVoted')
+        }
+      ]
     }
   },
   mounted() {
@@ -107,6 +138,8 @@ export default {
   },
   methods: {
     ...mapActions('listManager', ['performFetchList']),
+    selectText: (item) => item.name,
+    selectValue: (item) => item.value,
     saveQuestion(id, questionData) {
       this.$set(this.createdForm.votingFormItems, id, questionData)
       this.validateForm()
