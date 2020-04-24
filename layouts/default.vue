@@ -211,7 +211,13 @@ export default {
     })
 
     this.connection.on('Status', (status, identity, certHash) => {
+      if (this.$store.state.auth.authJWT) {
+        if (certHash !== this.$store.state.signalR.signalRCertHash) {
+          this.performLogoutFromCertificate()
+        }
+      }
       this.onStatusUpdate({ status, identity, certHash })
+
       this.setSignalRStatus()
     })
     this.connection.on('Authenticate', (data) => {
@@ -232,7 +238,10 @@ export default {
   methods: {
     ...mapMutations('signalR', ['onStatusUpdate', 'setSignalRStatus']),
     ...mapActions('voter', ['performSubmitVote']),
-    ...mapActions('auth', ['performLoginWithCertificate']),
+    ...mapActions('auth', [
+      'performLoginWithCertificate',
+      'performLogoutFromCertificate'
+    ]),
     async startSignalR() {
       try {
         await this.connection.start()

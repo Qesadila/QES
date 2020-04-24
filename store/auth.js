@@ -52,6 +52,21 @@ export const actions = {
       this.$router.push('/')
     }
   },
+  performLogoutFromCertificate({ commit, dispatch }) {
+    commit('setAuthJWT', '')
+    commit('setAuthData', '')
+
+    const JWT = Cookie.get('JWT')
+    const JWTUser = JSON.parse(Cookie.get('JWT_USER'))
+
+    if (JWT) {
+      commit('setAuth', true)
+      commit('setAuthUser', JWTUser)
+      this.$axios.setHeader('Authorization', 'Bearer ' + JWT)
+    } else {
+      commit('setAuth', false)
+    }
+  },
   async performLogin({ commit, dispatch }, { username, password }) {
     const fd = new FormData()
     fd.append('email', username)
