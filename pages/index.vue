@@ -2,7 +2,7 @@
   <div>
     <div
       v-html="$t('htmlCode.projectOverview')"
-      style="padding-left:30px;"
+      style="padding-left:20px;"
     ></div>
     <span></span>
     <div style="padding:62.5% 0 0 0;position:relative;">
