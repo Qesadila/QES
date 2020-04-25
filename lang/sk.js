@@ -1,6 +1,10 @@
 export default {
   general: {
-    langCode: 'en',
+    langCode: 'sk',
+    shortTitle: 'Qesadila',
+    longTitle: 'Qesadila elektronický hlasovací systém',
+    description:
+      'Qesadila je open source hlasovací systém, ponúkaný pod licenciou: GNU GPLv3. Hlasovaním sa myslí účasť na rozhodovaní akejkoľvek skupiny voličov, kde je požadované overenie / autorizácia voliča (s využitím eID, kvalifikovaného elektronického podpisu, alebo vygenerovaného certifikátu).',
     welcome: 'Vitajte',
     signIn: 'Prihlásiť sa',
     logout: 'Odhlásiť sa',
