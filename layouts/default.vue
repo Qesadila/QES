@@ -201,6 +201,10 @@ export default {
       const status = 'disconnected'
       const identity = ''
       const certHash = ''
+
+      if (this.$store.state.auth.authJWT) {
+        this.performLogoutFromCertificate()
+      }
       this.onStatusUpdate({ status, identity, certHash })
     })
     this.connection.on('Connecting', () => {
