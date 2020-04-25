@@ -99,7 +99,7 @@ export default {
     VoterManagerCanCloseIfAllHasVoted:
       'Voter Manager Can Close If All Voters Has Voted',
     stopVoting: 'End voting',
-    endingType: 'Options for ending for this voting'
+    endingType: 'Close voting:'
   },
   votingListManager: {
     title: 'Voting list manager',

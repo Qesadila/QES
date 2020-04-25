@@ -97,19 +97,19 @@ export default {
       actions: 'Akcia'
     },
     AutoClosingWhenAllHasVoted:
-      'Automatické ukončení hlasování po přijetí hlasu posledního oprávněného hlasujícího',
-    TimeoutOnly: 'Ukončiť hlasovanie v stanovenom čase',
+      'automaticky po prijatí hlasu posledného voliča',
+    TimeoutOnly: 'v presne stanovenom čase',
     VoterManagerCanCloseAnyTime:
       'Manažér Hlasovacieho Formulára môže kedykoľvek ukončiť hlasovanie.',
     VoterManagerCanCloseIfAllHasVoted:
       'Manažér Hlasovacieho Formulára môže ukončiť hlasovanie ak všetci oprávnení voliči hlasovali.',
 
     stopVoting: 'Koniec hlasovania',
-    endingType: 'Možnosti pre ukončenie tohto hlasovania'
+    endingType: 'Ukončenie hlasovania:'
   },
   votingListManager: {
     title: 'Manažer Voličských zoznamov',
-    showDetails: 'Zobraziř detail',
+    showDetails: 'Zobraziť detail',
     createNewVoterList: 'Vytvoriť nový Zoznam voličov',
     labelListName: 'Názov Zoznamu voličov',
     labelIsPubli: 'Zoznam hlasovanie je verejné',
