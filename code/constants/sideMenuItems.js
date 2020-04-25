@@ -25,7 +25,7 @@ export const anonymousRoutes = [
     to: '/auth/verify-email'
   },
   {
-    icon: 'mdi-apps',
+    icon: 'mdi-timeline-help-outline',
     title: 'navigation.FAQ',
     to: '/faq'
   }
