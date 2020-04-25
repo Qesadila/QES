@@ -1,42 +1,47 @@
 export default {
   general: {
-    langCode: 'cs',
+    langCode: 'en',
     welcome: 'Vítejte',
     signIn: 'Přihlásit se',
     logout: 'Odhlásit se',
-    signUp: 'Registrovat',
+    signUp: 'Vytvořit účet',
     forgotPassword: 'Zapomenuté heslo',
     language: 'Jazyk',
     role: 'Role',
-    resetPassword: 'Resetovat heslo',
-    sendResetLink: 'Poslat odkaz na resetováné hesla',
+    resetPassword: 'Obnovit heslo',
+    sendResetLink: 'Obnovení zapomenutého hesla',
     signInForm: 'Přihlašovací formulář',
     signUpForm: 'Registrační formulář',
     acceptCheckbox: 'Souhlasím s ',
     acceptComercialMessages: 'Souhlasím se zasíláním reklamních sdělení.',
-    labelName: 'jméno',
+    labelName: 'jméno a příjmení',
     labelPassword: 'heslo',
-    labelPasswordAgain: 'heslo znovu',
-    verifyEmail: 'Ověření e-mailové adresy',
-    resendToken: 'Znovu odeslat ověřovací e-mail',
-    verifyEmailAction: 'Ověřit',
-    backToVerification: 'Zpět na ověření',
+    labelPasswordAgain: 'zopakovat heslo',
+    verifyEmail: 'Ověřit e-mailovou adresu',
+    resendToken: 'Opětovné zaslání e-mailu pro ověření',
+    verifyEmailAction: 'ověřit',
+    backToVerification: 'Zpět k ověření',
+    verifyMail: 'Ověřovací email',
+    verifyVoterMail: "Verify voter's email",
     contentNeedsLoginMessage:
-      'Tato část webové aplikace je dostupná pouze pro přihlášené uživatele.',
-    htmlPokus: '<h1 style="font-size:20px;">CS</h1> '
+      'Musíte být přihlášeni pro zobrazení tohoto obsahu',
+    htmlPokus: '<H1 style = "font-size: 20px;">CS</ h1>',
+    yes: 'Ano',
+    no: 'Ne'
   },
   navigation: {
-    home: 'Domů',
+    home: 'Domov',
     votingResults: 'Výsledky hlasování',
-    termsAndConditions: 'Podmínky užití',
-    verifyMail: 'Ověřit e-mail',
-    listOfCurrentVotings: 'Seznam probíhajících hlasování',
-    listOfPastVotings: 'Seznam proběhlých hlasování',
+    termsAndConditions: 'Pravidla používání',
+    verifyMail: 'Ověřovací email',
+    listOfCurrentVotings: 'Seznam aktuálních hodnocení',
+    listOfPastVotings: 'Seznam minulých hodnocení',
     listOfForms: 'Seznam formulářů',
     createNewVoterForm: 'Vytvořit nový hlasovací formulář',
     createNewVoterList: 'Vytvořit nový seznam voličů',
-    lastSubmission: 'Last vote submission',
-    votingLists: 'Seznam voličských skupin'
+    votingLists: 'Seznam voličů',
+    lastSubmission: 'Poslední hlasování',
+    qesAuth: 'Qesadila Auth'
   },
   anonym: {
     title: 'Seznam veřejných hlasování',
@@ -46,78 +51,92 @@ export default {
     title: 'Seznam hlasování',
     showResults: 'Zobrazit výsledky',
     vote: 'Hlasovat',
-    question: 'Otázka ', // otázka 1 -> Question 1
-    labelDoNotWantToAnswer: 'Nechci odpovědět.',
+    question: 'Otázka', // otázka 1 -> Question 1
+    labelDoNotWantToAnswer: 'Nechci odpovědět',
     submitForm: 'Odeslat formulář',
-    signVoteInApp: 'Nyní podepiště Váš hlas v podpisové aplikaci',
-    signAppNotFound: 'Podpisová aplikace nebyla nalezena',
+    signVoteInApp:
+      'Nyní podepište svůj hlas v desktopové aplikace Qesadila Auth',
+    signAppNotFound:
+      'Desktopová aplikace Qesadila Auth nebyla detekována. Spusťte ji. ',
     startSignAppForProceed:
-      'Pro pokračování v hlasování si spusťně naši podpisovou aplikaci',
+      'Nyní podepište svůj hlas v desktopové aplikace Qesadila Auth.',
+
     backButton: 'Zpět',
     table: {
       formListName: 'Název formuláře',
-      openFrom: 'Otevřené od',
-      openUntil: 'Otevřené do',
+      openFrom: 'Hlasování umožněno od',
+      openUntil: 'Hlasování umožněno do',
       voterList: 'Seznam voličů',
       actions: 'Akce'
     }
   },
   votingFormManager: {
-    title: 'Správa hlasovacích formulářů',
+    title: 'Management Hlasovacích formulářů',
     showResults: 'Zobrazit výsledky',
-    edit: 'Editovat',
-    questionText: 'otázka', // 1. otázka -> 1. question
-    possibleAnswers: 'Možné odpovědi',
-    addNewPossibleAnswer: 'Přidat další možnost',
+    edit: 'Upravit',
+    show: 'Zobrazit',
+    questionText: 'Otázka', // 1. otázka -> 1. question
+    possibleAnswers: 'Možné odpovědi:',
+    addNewPossibleAnswer: 'Přidat možnost',
     saveQuestion: 'Uložit otázku',
-    removeQuestion: 'Smazat otázku',
-    createFormTitleText: 'Vítejte, zde si můžeme vytvořit vlastní hlasování.',
+    removeQuestion: 'Odstranit otázku',
+    createFormTitleText: 'Vytvořit nový Hlasovací Formulář',
     formName: 'Název formuláře',
-    placeholderFormName: 'Zde uveďte název formuláře',
-    formOpenUntil: 'Formulář bude dostupný do',
-    voterListId: 'ID skupiny hlasujících',
-    placeholderVoterListId: 'Zde uveďte ID seznamu hlasujících',
-    questions: 'Otázky:',
-    addNewQuestion: 'Přidat novou otázku',
+    placeholderFormName: 'Zde zadejte název formuláře',
+    formOpenUntil: 'Hlasování umožněno do',
+    voterListId: 'ID Seznamu Voličů',
+    placeholderVoterListId: 'Zadejte ID Seznamu Voličů',
+    questions: 'otázky:',
+    addNewQuestion: 'Přidat nový dotaz',
     saveForm: 'Uložit formulář',
     table: {
       formListName: 'Název formuláře',
-      openFrom: 'Otevřené od',
-      openUntil: 'Otevřené do',
-      isPublic: 'Veřejné',
+      openFrom: 'Hlasování umožněno od',
+      openUntil: 'Hlasování umožněno do',
+      isPublic: 'Veřejný',
       voterList: 'Seznam voličů',
       actions: 'Akce'
-    }
+    },
+    AutoClosingWhenAllHasVoted:
+      'Automatické ukončení hlasování po přijetí hlasu posledního oprávněného hlasujícího',
+    TimeoutOnly: 'Ukončit hlasování ve stanoveném času',
+    VoterManagerCanCloseAnyTime:
+      'Manažér Hlasovacího Formuláře může kdykoliv ukončit hlasování.',
+    VoterManagerCanCloseIfAllHasVoted:
+      'Manažér Hlasovacího Formuláře může ukončit hlasování pokud všichni oprávnění voliči hlasovali.',
+
+    stopVoting: 'Konec hlasování',
+    endingType: 'Možnosti pro ukončení tohoto hlasování'
   },
   votingListManager: {
-    title: 'Správa hlasovacích skupin',
-    showDetails: 'Zobrazit detaily',
-    createNewVoterList: 'Vytvořit novou skupinu voličů',
-    labelListName: 'Název voličské skupiny',
-    labelIsPubli: 'Skupina je veřejná',
+    title: 'Manažer Voličských seznamů',
+    showDetails: 'Zobrazit detail',
+    createNewVoterList: 'Vytvořit nový Seznam Voličů',
+    labelListName: 'Název Seznamu Voličů',
+    labelIsPubli: 'Seznam hlasování je veřejné',
     continue: 'Pokračovat',
     voters: 'Voliči',
-    voterListDetail: 'Detaily skupiny voličů',
+    voterListDetail: 'Detail Seznamu Voličů',
     addVoter: 'Přidat voliče',
-    labelVoterEmail: 'E-mail voliče',
-    labelVoterSubmittedGDPR: 'Volič poskytl souhlas s GDPR',
-    labelSingFile: 'Podpisový soubor',
-    labelIsQes: 'Jedná se o QES?',
-    published: 'Veřejný',
-    unpublished: 'Neveřejný',
+    labelVoterEmail: 'E-mailem',
+    labelVoterSubmittedGDPR: 'Volič přijal GDPR souhlas',
+    labelSingFile: 'Podepsat',
+    labelIsQes: 'Je QES?',
+    published: 'Veřejné',
+    unpublished: 'Neveřejné',
     indexTable: {
-      voterListName: 'Název skupiny voličů',
+      voterListName: 'Název Seznamu Voličů',
       actions: 'Akce'
     },
     votersTable: {
       voterName: 'Jméno voliče',
-      voterEmail: 'E-mail voliče',
+      voterEmail: 'E-mailem',
       voterQes: 'Kvalifikovaný elektronický podpis',
       actions: 'Akce'
     }
   },
   errorPage: {
-    getMeOut: 'Rychle odsud pryč!'
+    getMeOut: 'Odejít'
   },
   htmlCode: {
     projectOverview:

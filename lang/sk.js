@@ -1,122 +1,144 @@
 export default {
   general: {
-    langCode: 'sk',
-    welcome: 'Vítejte',
-    signIn: 'Přihlásit se',
-    logout: 'Odhlásit se',
-    signUp: 'Registrovat',
-    forgotPassword: 'Zapomenuté heslo',
+    langCode: 'en',
+    welcome: 'Vitajte',
+    signIn: 'Prihlásiť sa',
+    logout: 'Odhlásiť sa',
+    signUp: 'Vytvoriť účet',
+    forgotPassword: 'Zabudnuté heslo',
     language: 'Jazyk',
-    role: 'Role',
-    resetPassword: 'Resetovat heslo',
-    sendResetLink: 'Poslat odkaz na resetováné hesla',
-    signInForm: 'Přihlašovací formulář',
-    signUpForm: 'Registrační formulář',
-    acceptCheckbox: 'Souhlasím s ',
-    acceptComercialMessages: 'Souhlasím se zasíláním reklamních sdělení.',
-    labelName: 'jméno',
+    role: 'Rola',
+    resetPassword: 'Obnoviť heslo',
+    sendResetLink: 'Obnovenie zabudnutého hesla',
+    signInForm: 'Prihlasovací formulár',
+    signUpForm: 'Registračný formulár',
+    acceptCheckbox: 'Súhlasím s',
+    acceptComercialMessages: 'Súhlasím so zasielaním reklamných oznámení.',
+    labelName: 'meno a priezvisko',
     labelPassword: 'heslo',
-    labelPasswordAgain: 'heslo znovu',
-    verifyEmail: 'Ověření e-mailové adresy',
-    resendToken: 'Znovu odeslat ověřovací e-mail',
-    verifyEmailAction: 'Ověřit',
-    backToVerification: 'Zpět na ověření',
+    labelPasswordAgain: 'zopakovať heslo',
+    verifyEmail: 'Overiť e-mailovú adresu',
+    resendToken: 'Opätovné zaslanie e-mailu pre overenie',
+    verifyEmailAction: 'overiť',
+    backToVerification: 'Späť na overenie',
+    verifyMail: 'Overovací email',
+    verifyVoterMail: "Verify voter's email",
     contentNeedsLoginMessage:
-      'Tato část webové aplikace je dostupná pouze pro přihlášené uživatele.',
-    htmlPokus: '<h1 style="font-size:20px;">Sk</h1> '
+      'Musíte byť prihlásený pre zobrazenie tohto obsahu',
+    htmlPokus: '<H1 style = "font-size: 20px;">SK</ h1>',
+    yes: 'Áno',
+    no: 'Nie'
   },
   navigation: {
-    home: 'Domů',
-    votingResults: 'Výsledky hlasování',
-    termsAndConditions: 'Podmínky užití',
-    verifyMail: 'Ověřit e-mail',
-    listOfCurrentVotings: 'Seznam probíhajících hlasování',
-    listOfPastVotings: 'Seznam proběhlých hlasování',
-    listOfForms: 'Seznam formulářů',
-    createNewVoterForm: 'Vytvořit nový hlasovací formulář'
+    home: 'Domov',
+    votingResults: 'Výsledky hlasovania',
+    termsAndConditions: 'Pravidlá používania',
+    verifyMail: 'Overovací email',
+    listOfCurrentVotings: 'Zoznam aktuálnych hodnotenie',
+    listOfPastVotings: 'Zoznam minulých hodnotenie',
+    listOfForms: 'Zoznam formulárov',
+    createNewVoterForm: 'Vytvoriť nový hlasovací formulár',
+    createNewVoterList: 'Vytvoriť nový zoznam voličov',
+    votingLists: 'Zoznam voličov',
+    lastSubmission: 'Posledné hlasovanie',
+    qesAuth: 'Qesadila Auth'
   },
   anonym: {
-    title: 'Seznam veřejných hlasování',
-    showResults: 'Zobrazit výsledky'
+    title: 'Zoznam verejných hlasovaní',
+    showResults: 'Zobraziť výsledky'
   },
   voter: {
-    title: 'Seznam hlasování',
-    showResults: 'Zobrazit výsledky',
-    vote: 'Hlasovat',
-    question: 'Otázka ', // otázka 1 -> Question 1
-    labelDoNotWantToAnswer: 'Nechci odpovědět.',
-    submitForm: 'Odeslat formulář',
-    signVoteInApp: 'Nyní podepiště Váš hlas v podpisové aplikaci',
-    signAppNotFound: 'Podpisová aplikace nebyla nalezena',
+    title: 'Zoznam hlasovaní',
+    showResults: 'Zobraziř výsledky',
+    vote: 'Hlasovať',
+    question: 'Otázka', // otázka 1 -> Question 1
+    labelDoNotWantToAnswer: 'Nechcem odpovedať',
+    submitForm: 'Odoslať formulár',
+    signVoteInApp: 'Podpíšte svoj hlas v desktopovej aplikácii Qesadila Auth',
+    signAppNotFound:
+      'Desktopová aplikácia Qesadila Auth nebola detekovaná. Spustite ju.',
     startSignAppForProceed:
-      'Pro pokračování v hlasování si spusťně naši podpisovou aplikaci',
-    backButton: 'Zpět',
+      'Teraz podpíšte svoj hlas v desktopovej aplikácii Qesadila Auth.',
+
+    backButton: 'Späť',
     table: {
-      formListName: 'Název formuláře',
-      openFrom: 'Otevřené od',
-      openUntil: 'Otevřené do',
-      voterList: 'Seznam voličů',
-      actions: 'Akce'
+      formListName: 'Názov formulára',
+      openFrom: 'Hlasovanie umožené od',
+      openUntil: 'Hlasovanie umožené do',
+      voterList: 'Zoznam voličov',
+      actions: 'Akcia'
     }
   },
   votingFormManager: {
-    title: 'Správa hlasovacích formulářů',
-    showResults: 'Zobrazit výsledky',
-    edit: 'Editovat',
-    questionText: 'otázka', // 1. otázka -> 1. question
-    possibleAnswers: 'Možné odpovědi',
-    addNewPossibleAnswer: 'Přidat další možnost',
-    saveQuestion: 'Uložit otázku',
-    createFormTitleText: 'Vítejte, zde si můžeme vytvořit vlastní hlasování.',
-    formName: 'Název formuláře',
-    placeholderFormName: 'Zde uveďte název formuláře',
-    formOpenUntil: 'Formulář bude dostupný do',
-    voterListId: 'ID skupiny hlasujících',
-    placeholderVoterListId: 'Zde uveďte ID seznamu hlasujících',
-    questions: 'Otázky:',
-    addNewQuestion: 'Přidat novou otázku',
-    saveForm: 'Uložit formulář',
+    title: 'Management Hlasovacích formulárov',
+    showResults: 'Zobraziť výsledky',
+    edit: 'Upraviť',
+    show: 'Zobraziť',
+    questionText: 'Otázka', // 1. otázka -> 1. question
+    possibleAnswers: 'Možné odpovede:',
+    addNewPossibleAnswer: 'Pridať možnosť',
+    saveQuestion: 'Uložiť otázku',
+    removeQuestion: 'Odstrániť otázku',
+    createFormTitleText: 'Vytvoriť nový Hlasovací formulár',
+    formName: 'Názov formulára',
+    placeholderFormName: 'Tu zadajte názov formulára',
+    formOpenUntil: 'Hlasovanie umožené do',
+    voterListId: 'ID Zoznamu Voličov',
+    placeholderVoterListId: 'Zadajte ID Zoznamu Voličov',
+    questions: 'otázky:',
+    addNewQuestion: 'Pridať nový dotaz',
+    saveForm: 'Uložiť formulár',
     table: {
-      formListName: 'Název formuláře',
-      openFrom: 'Otevřené od',
-      openUntil: 'Otevřené do',
-      isPublic: 'Veřejné',
-      voterList: 'Seznam voličů',
-      actions: 'Akce'
-    }
+      formListName: 'Názov formulára',
+      openFrom: 'Hlasovanie umožené od',
+      openUntil: 'Hlasovanie umožené do',
+      isPublic: 'Verejný',
+      voterList: 'Zoznam voličov',
+      actions: 'Akcia'
+    },
+    AutoClosingWhenAllHasVoted:
+      'Automatické ukončení hlasování po přijetí hlasu posledního oprávněného hlasujícího',
+    TimeoutOnly: 'Ukončiť hlasovanie v stanovenom čase',
+    VoterManagerCanCloseAnyTime:
+      'Manažér Hlasovacieho Formulára môže kedykoľvek ukončiť hlasovanie.',
+    VoterManagerCanCloseIfAllHasVoted:
+      'Manažér Hlasovacieho Formulára môže ukončiť hlasovanie ak všetci oprávnení voliči hlasovali.',
+
+    stopVoting: 'Koniec hlasovania',
+    endingType: 'Možnosti pre ukončenie tohto hlasovania'
   },
   votingListManager: {
-    title: 'Správa hlasovacích skupin',
-    showDetails: 'Zobrazit detaily',
-    createNewVoterList: 'Vytvořit novou skupinu voličů',
-    labelListName: 'Název voličské skupiny',
-    labelIsPubli: 'Skupina je veřejná',
-    continue: 'Pokračovat',
+    title: 'Manažer Voličských zoznamov',
+    showDetails: 'Zobraziř detail',
+    createNewVoterList: 'Vytvoriť nový Zoznam voličov',
+    labelListName: 'Názov Zoznamu voličov',
+    labelIsPubli: 'Zoznam hlasovanie je verejné',
+    continue: 'Pokračovať',
     voters: 'Voliči',
-    voterListDetail: 'Detaily skupiny voličů',
-    addVoter: 'Přidat voliče',
-    labelVoterEmail: 'E-mail voliče',
-    labelVoterSubmittedGDPR: 'Volič poskytl souhlas s GDPR',
-    labelSingFile: 'Podpisový soubor',
-    labelIsQes: 'Jedná se o QES?',
-    published: 'Veřejný',
-    unpublished: 'Neveřejný',
+    voterListDetail: 'Detail Zoznamu Voličov',
+    addVoter: 'Pridať voliča',
+    labelVoterEmail: 'E-mailom',
+    labelVoterSubmittedGDPR: 'Volič prijal GDPR súhlas',
+    labelSingFile: 'Podpísať',
+    labelIsQes: 'Je QES?',
+    published: 'Verejné',
+    unpublished: 'Neverejné',
     indexTable: {
-      voterListName: 'Název skupiny voličů',
-      actions: 'Akce'
+      voterListName: 'Názov Zoznamu Voličov',
+      actions: 'Akcia'
     },
     votersTable: {
-      voterName: 'Jméno voliče',
-      voterEmail: 'E-mail voliče',
+      voterName: 'Meno voliča',
+      voterEmail: 'E-mailom',
       voterQes: 'Kvalifikovaný elektronický podpis',
-      actions: 'Akce'
+      actions: 'Akcia'
     }
   },
   errorPage: {
-    getMeOut: 'Rychle odsud pryč!'
+    getMeOut: 'Odísť'
   },
   htmlCode: {
     projectOverview:
-      '<h1>Qesadila e-voting system</h1>    <p>(proof of concept)</p>    <p>Version of the document: 0.1 Draft</p>    <p>Date: 2020-04-21</p>    <h2>Scope</h2>    <p>      Qesadila is open source e-voting software system, providing offered under      licence: GNU GPLv3. By e-voting we mean the participation on making      decisions of any group of voters, where is necessery to autorize the      voters (using qualified electronic signature, or generated certificate)      and to check, if only autorized voters participated and how:    </p>    <ul>      <li>city council meetings of elected representatives of the city,</li>      <li>citizens voting in participatory budget,</li>      <li>members of the company executive boards</li>      <li>members or volunters of th NGO</li>    </ul>    <p>      The system is developed by volunteers and formaly provided by NGO Srdcom      doma o.z. registered in Slovakia and engaged in election legislative      changes. We take seriously the possibility to participate on democratic      rights so as elections.    </p>    <h2>Disclaimer</h2>    <p>      Please note, that this is not a final application and we are not      responsible for any incidencies. If you decide to test application, you      should be careful and you should know, what you are doing. To be familiar      with using desktop computer is just good supposition.    </p>    <p>      The simplest approach to test Qesadila is to sign-up on the site      <a href="https://www.qesadila.com">https://www.qesadila.com</a>. After      e-mail confirmation you can sign-in and switch between roles: Anonymous,      Voting List Manager, Voting Form Manager and Voter. To participate on      Voting, You will need to to use our desktop application (Windows, macOS,      Linux currently supported - see below) and to confirm our Terms and      conditions.    </p>    <h2>Qesadila e-voting system&nbsp;consists of three parts:</h2>    <ol type="A">      <li>        <a href="https://dev.azure.com/Qesadila/_git/QesadilaAuth"          >Desktop signing application        </a>      </li>      <ol type="a">        <li>Instalation on Windows</li>        <ol type="i">          <li>without .net core 3.1 installed</li>          <ol type="1">            <li>              Download:              <a href="https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip"                >https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip&nbsp;-                Windows              </a>            </li>          </ol>          <li>Instalation with .net core 3.1 installed</li>          <ol type="1">            <li>              Download:              <a href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip"                >https://apps.scholtz.sk/QesadilaAuth/win/publish.zip&nbsp;-                Windows              </a>            </li>          </ol>        </ol>        <li>Instalation on MAC / macOS</li>        <ol type="i">          <li>            Download:            <a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"              >https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip</a            ><a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"              >&nbsp;- Mac            </a>          </li>        </ol>        <li>Instalation on Linux</li>        <ol type="i">          <li>            Download:            <a href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip"              >https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip&nbsp;-              Linux            </a>          </li>        </ol>      </ol>      <li>        <a href="https://dev.azure.com/Qesadila/QesadilaBackend"          >Qesadila Backend: </a        ><a href="https://qesadila.azurewebsites.net/swagger/index.html"          >https://qesadila.azurewebsites.net/swagger/index.html        </a>      </li>      <li>        <a href="https://github.com/Qesadila/QES/">Frontend web application: </a        ><a href="https://www.qesadila.com/">https://www.qesadila.com </a>      </li>    </ol>    <br />    <h2>1. What it does and what it doesn&rsquo;t</h2>    <ol type="1">      <li>        Qesadila is currently for testing purposes and is not dedicated for        using in production yet.      </li>      <li>        Please note, that to test voting using qualified electronic signature        you have to use      </li>      <ol>        <li>class 3 certificate at smart card using PKCS11 driver</li>        <ol>          <li>Tested using slovak identity card</li>        </ol>        <li>          or if user does not have eID he / she can use certificate from system          store or custom certificate        </li>        <ol>          <li>            Custom certificate can be            <a href="https://github.com/Qesadila/QES/blob/master/cert/script"              >generated&nbsp;using openssl library            </a>          </li>        </ol>      </ol>      <li>        In the Qesadila web app we distinguish four roles. To make proof of        concept easier to test, any registered User can switch between roles on        the website        <a href="https://www.qesadila.com">https://www.qesadila.com</a        >&nbsp;using select in the header. (In real life some person can be        authorized to manage voters, another to create a voting and another to        vote.)      </li>      <ol>        <li>Anonymous</li>        <ol>          <li>any visitor on the website without sign-in</li>          <li>can display voting results</li>        </ol>        <li>Voter List Manager</li>        <ol>          <li>user signed-up&nbsp;on the website registered</li>          <li>can create / edit / delete Lists of Voters created by him/her</li>        </ol>        <li>Voting Form Manager</li>        <ol>          <li>can create / edit / delete Voting Forms created by him/her</li>        </ol>        <li>Voter</li>        <ol>          <li>            can vote in all Voting Forms, connected with Voting List, which the            Voter is member.          </li>        </ol>      </ol>    </ol>    <br />    <h2>2. Qesadila frontend</h2>    <ol type="A">      <li>Recommended / tested on:</li>      <ol>        <li>Internet Browser Chrome 80.0.3987.163, and Safari 13.1</li>      </ol>      <li>What id does</li>      <ol>        <li>Web app allows</li>        <ol>          <li>manage (create / edit / delete) Voting List,</li>          <li>            to create Voter&nbsp;by seting e-mail and uploading his / her            voter.xml.asice signed gdpr consent,          </li>          <li>to assign Voter&nbsp;to Voter List,</li>          <li>to create Voting Form,</li>          <li>            allows Voter&nbsp;to initiate vvoting process&nbsp;- sends request            through backend to desktop application to sign the ballot using eID,            or certificate in the desktop application,          </li>          <li>to display Voting results.</li>        </ol>      </ol>      <li>Technology used:</li>      <ol>        <li>Vue.js, SignalR, Axios</li>      </ol>      <li>Licence: GNU GPL v3</li>      <li>        Source code:        <a href="https://github.com/Qesadila/QES"          >https://github.com/Qesadila/QES        </a>      </li>      <li>CI/CD: Github Actions. Deploy time from commit to master: 3min</li>    </ol>    <br />    <h2>3. QesadilaAuth - desktop application</h2>    <ol type="A">      <li>Minimum requirements</li>      <ol>        <li>Tested on Windows 10,</li>        <li>Tested on macOS Mojave 10.14.6</li>        <li>Linux (Desktop) - supported, not tested</li>      </ol>      <li>Setup your environment</li>      <ol>        <li>          Download the package from          <a href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip"            >/publish.zip&nbsp;(for Windows) or<br /></a          ><a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"            >/publish.zip&nbsp;(for macOS)&nbsp;or<br /></a          ><a href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip"            >/publish.zip&nbsp;(for Linux) &nbsp; <br />and unpack it.            Application launcher:          </a>        </li>        <li>Run the application</li>        <ol>          <li>Windows: QesadilaAvaloniaSigner.exe</li>          <li>Linux, Mac: QesadilaAvaloniaSigner</li>        </ol>        <li>Technology used:</li>        <ol>          <li>written in .net core 3</li>          <li>Avalonia</li>          <li>SignalR host</li>        </ol>        <li>Licence: GNU GPL v3</li>        <li>          Source code:          <a href="https://dev.azure.com/Qesadila/_git/QesadilaAuth"            >https://dev.azure.com/Qesadila/_git/QesadilaAuth          </a>        </li>      </ol>    </ol>    <br />    <h2>4. Qesadila Backend</h2>    <ol type="A">      <li>Minimum requirements</li>      <ol>        <li>Running using docker container</li>        <li>          Can be run in kubernetes, as azure web app or self hosted docker          container        </li>        <ol>          <li>Tested as azure web app</li>        </ol>        <li>          Database: Configuration option between MsSQL, CosmosDB, MariaDB,          MySQL, PostgreSQL, InMemory        </li>        <ol>          <li>Tested with InMemory and CosmosDB</li>          <li>Default system file storage</li>          <li>            We had technical issues creating MsSQL server as azure new server            services were blocked at the time being.          </li>        </ol>        <li>          Emailing with templating: Currently supports only Sendgrid dynamic          templates        </li>        <ol>          <li>Default no emailing, with no email validation</li>        </ol>        <li>Data storage: Azure blob storage or System file storage</li>        <ol>          <li>Tested in azure blob storage, default is system file storage</li>        </ol>      </ol>      <li>        Class diagram:        <a href="https://app.quickdatabasediagrams.com/%23/d/5Meb4N"          >https://app.quickdatabasediagrams.com/#/d/5Meb4N&nbsp;        </a>      </li>      <li>Licence: GNU GPL v3</li>      <li>        Source code:        <a href="https://dev.azure.com/Qesadila/QesadilaBackend"          >https://dev.azure.com/Qesadila/QesadilaBackend&nbsp;        </a>      </li>      <li>        CI/CD: Devops Pipelines, Testing: Deploy time 3 mins, docker image is        pushed also to public        <a href="https://hub.docker.com/r/qesadila/qesadila-backend"          >docker hub        </a>      </li>    </ol>    <br />    <h2>5. Main scenarios</h2>    <p>      Presamption: You signed-up on the      <a href="http://www.qesadila.com"        >http://www.qesadila.com, confirmed e-mail and you are signed-in on the        website.      </a>    </p>    <ol type="A">      <li>Scenario &ldquo;Before voting&ldquo;</li>      <ol>        <li>          Sign-in on the          <a href="http://www.qesadila.com">http://www.qesadila.com. </a>        </li>        <li>Change your rolle to Voting List Manager.</li>        <li>          Create Voting List and add a Voter (your e-mail and this document          signed for example on the          <a href="https://zep.disig.sk/Portal"            >https://zep.disig.sk/Portal&nbsp;website).          </a>        </li>        <li>Change your rolle to Voting List Manager.</li>        <li>          Create Voting Form and asociate the form with Voting List, you created          before.        </li>      </ol>      <li>Scenario &ldquo;Vote&rdquo;</li>      <ol>        <li>Presamtion:</li>        <ol>          <li>            You already installed Qesadila desktop application on your desktop            computer and application is running.          </li>          <li>            On the            <a href="http://www.qesadila.com">http://www.qesadila.com&nbsp; </a>          </li>          <ol>            <li>              Sign-in on the              <a href="http://www.qesadila.com">http://www.qesadila.com. </a>            </li>            <li>Change your rolle to Voting List Manager.</li>            <li>Choose the voting, you&rsquo;d like to participate</li>            <li>Qesadila will ask you for authentication:</li>            <p><img width="100%" title="" src="images/image1.png" alt="" /></p>          </ol>          <li>Connect your reader with eID to your desktop computer.</li>          <li>Switch to desktop application</li>          <li>            In the desktop application authenticate your self to Qesadila            system.          </li>          <li>            In the desktop application click on type PKCS11 Authentication to            desktop application and authorize, if you are asked.          </li>          <p><img width="100%" title="" src="images/image3.png" alt="" /></p>          <li>Enter your eID BOK code:</li>          <p><img width="100%" title="" src="images/image2.png" alt="" /></p>          <li>            After few seconds you will see in the desktop application, you are            authenticated:          </li>          <p><img width="100%" title="" src="images/image4.png" alt="" /></p>          <li>            On the website            <a href="http://www.qesadila.com">http://www.qesadila.com: </a>          </li>          <li>            Check the web aplication to see, you are authorized to vote:          </li>          <p><img width="100%" title="" src="images/image8.png" alt="" /></p>          <li>Choose your answer and submit your voting ballot.</li>          <li>            In the desktop application you can check your decision before            signing and sending the ballot:          </li>          <p><img width="100%" title="" src="images/image6.png" alt="" /></p>          <li>Click on the &ldquo;Sign document&rdquo; button.</li>          <li>Application will ask you to enter the eID PIN code</li>          <p><img width="100%" title="" src="images/image7.png" alt="" /></p>          <li>Wait few seconds and click on &ldquo;Send&rdquo; button:</li>          <p><img width="100%" title="" src="images/image5.png" alt="" /></p>          <li>            Go back to Qesadila website and check, your ballot was accepted.          </li>        </ol>      </ol>    </ol>    <br />    <h2>6. Technical proof of concept</h2>    <ol type="A">      <li>        All voting is currently public, so we do not consider insecure network        traffic as an issue.      </li>      <li>        Voter fills in voting form in the web application. Json is created.      </li>      <li>        Considering voter has already chosen his identity by selecting        certificate he is going to sign documents, he receives the filled in        voting form from web app.      </li>      <li>        Communication between website and signal r server in desktop application        does not leave computer.      </li>      <li>        Voter reviews the json in desktop application.<br />Signing applications        shows him the raw data as well as json formatted data.<br />Signer sees        something like:      </li>      <br />      <p style="font-family:Courier;">        {<br />        &ldquo;VotingForm&rdquo;: &ldquo;Donation for citizens initiatives -        participative budget&rdquo;,<br />        &ldquo;Answers&rdquo;: {<br />        &ldquo;Choose the donation fot the Central park reconstruction?&rdquo;:        &ldquo;20 000 CZK&rdquo;,<br />        },<br />        &ldquo;Time&rdquo;:&rdquo;date and time&rdquo;<br />        &ldquo;VotinfFormId&rdquo;:&rdquo;GUID-OF-voting-form&rdquo;<br />        }      </p>      <br />      <p>Voter can see what he signs for.</p>      <li>        Voter clicks sign, if the smart card requires pin to sign messages the        pin is entered.      </li>      <li>        Voter can see now the original document, formatted original document,        signed document and hash code of signed document. Because of shortage of        time, we did not parse the original document from the signed document        back, but this is something that should be done before production.      </li>      <li>        He sends this information to the web app. Web app sends it to the        backend.      </li>      <li>        The connection between desktop app, web app and backend is considered        not trusted.      </li>      <li>Qesadila backend received the file.</li>      <ol>        <li>          Source code: Method SubmitVote&nbsp;<a            href="https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVoterController.cs"            >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVoterController.cs          </a>        </li>        <li>          First check if any message was received and it is possible to parse          it.        </li>        <li>Identifies the voting form from the identifier provided.</li>        <li>          Look up the voter and gets his public key stored in the database        </li>        <li>Checks if the voter can cast votes in this voting.</li>        <li>          Verify the signature in the document with the voter&rsquo;s public key        </li>        <li>Increase increment number in the VotingForm</li>        <li>Return to the web app the VoterBallot and show it to user</li>        <li>          User can check - hash of the file to be stored in the voting to be          same as he had in the desktop app (with the vote has not been          manipulated). He can check this also after voting with accounted          votes.        </li>        <li>          The increase of increment number in form voting as well global voting        </li>        <li>Time is decided by the server.</li>        <li>          Because of shortage of time, we were not able to implement storing          hash of the voter ballot to blockchain to verify that with the          voterballot stored in the system has not been manipulated.        </li>      </ol>      <li>After time comes up, the voting is finalized:</li>      <ol>        <li>          Source code:          <a            href="https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVotingResultController.cs"            >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVotingResultController.cs          </a>        </li>      </ol>    </ol>'
+      '<h1>Qesadila e-hlasovací systém</h1> <p>(proof of concept)</p> <p>Verze dokumentu: 0.1 Návrh</p> <p>Dne: 21.4.2020</p> <h2>1. Rozsah</h2> <p>Qesadila je open source e-hlasovací systém - software, nabízen pod licencí: GNU GPLv3. Pod e-hlasováním máme na mysli účast na rozhodování pro jakoukoliv skupinu hlasujících, kde je nezbytná autorizace hlasujícího (s využitím kvalifikovaného elektronického podpisu, nebo vygenerovaného certifikátu) a kde se vyžaduje možnost kontroly, jestli hlasovali pouze autorizovaní voliči a také jak hlasovali. Tedy zejména hlasování: </p> <ul> <li>městské / obecní rady volených zástupců,</li> <li>občanů v participativních rozpočtech,</li> <li>členů výkoných orgánů společností</li> <li>členů a dobrovolníků v iniciativách a neziskových organizacích</li> </ul> <p>Tento systém vyvinuli dobrovolnící a formálně jej poskytuje sdružení Srdcom doma o.z. registrovaná na Slovensku, které se angažuje ve změnách volební legislativy tak aby účast na volbách byla přístupna všem voličům bez rozdílu a také ze zahraničí. Bereme vážně možnost účastnit se demokratických procesů a voleb. </p> <br/> <h2>2. Omezení odpovědnosti</h2> <p>Vezměte prosím na vědomí, že se nejedná o finální aplikaci a nejsme zodpovědní za jakékoli škody. Pokud se rozhodnete pro testovací aplikace, měli byste být opatrní a měli byste vědět, co děláte. Minimální předpoklad je znalost práce s počítačem a eID. </p> <p>Nejjednodušší cestou jak začít s testováním systému Qesadila je zaregistrovat se na <a href="https://www.qesadila.com">https://www.qesadila.com</a>. Po potvrzení e-mailu se můžete přihlásit na stránce a přepínat mezi rolemi: anonymní uživatel, Volič, Manager voličských seznamů, Manažer hlasovacích formulářů. Pro možnost hlasování budete muset použít naší desktopovou aplikaci (Windows, MacOS, Linux - viz níže) a potvrdit naše smluvní podmínky. </p> <br/> <h2>3. Řešení</h2> <h3>Qesadila e-hlasovací systém  se skládá ze tří částí:</h3> <ol type = "A"> <li><a href="https://dev.azure.com/Qesadila/_git/QesadilaAuth">Desktopová aplikace </a> </li> <ol type = "a"> <li>Instalace na Windows</li> <ol type = "i"> <li>bez .net jádro 3.1 nainstalován</li> <ol type = "1"> <li>Ke stažení: <a href="https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip">https://apps.scholtz.sk/QesadilaAuth/win-sa/publish.zip - Windows </a> </li> </ol> <li>Instalace s .net jádro 3.1 nainstalován</li> <ol type = "1"> <li>Ke stažení: <a href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip">https://apps.scholtz.sk/QesadilaAuth/win/publish.zip - Windows </a> </li> </ol> </ol> <li>Instalace na MAC / MacOS</li> <ol type = "i"> <li>Ke stažení: <a href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip">https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip</a><a href =“ https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip">- Mac </a> </li> </ol> <li>Instalace na Linuxu</li> <ol type = "i"> <li>Ke stažení: <a href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip">https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip - Linux </a> </li> </ol> </ol> <li><a href="https://dev.azure.com/Qesadila/QesadilaBackend">Qesadila backend:</a ><a href="https://qesadila.azurewebsites.net/swagger/index.html">https://qesadila.azurewebsites.net/swagger/index.html </a> </li> <li><a webové aplikace href="https://github.com/Qesadila/QES/">frontend:</a ><a href="https://www.qesadila.com/">https://www.qesadila.com</a> </li> </ol> <br /> <h2>4. Co Qesadila umožňujea co ne & rsquo; t</h2> <ol type = "1"> <li>Qesadila je prozatím určena na testovací účely a není určena pro použití v praxi. </li> <li>Vezměte prosím na vědomí, že do testovacího hlasování pomocí kvalifikovaného elektronického podpisu budete muset použít </li> <ol> <li>class 3 certifikát na čipové kartě za použití ovladače PKCS11</li> <ol> <li>Testováno pomocí slovenský občanský průkaz</li> </ol> <li>nebo pokud uživatel nemá eID může použít certifikát z úložiště v počítači nebo vlastní certifikát </li> <ol> <li>Vlastní certifikát může být <a href = "https://github.com/Qesadila/QES/blob/master/cert/script" >Generovaný  pomocí openssl knihovny </a> </li> </ol> </ol> <li>U webové aplikace Qesadila rozeznáváme čtyři role. Abychom umožnili ověření konceptu řešení jednodušší, kterýkoli registrovaný uživatel může přepínat mezi rolemi na webových stránkách <a href="https://www.qesadila.com">https://www.qesadila.com</a >pomocí výběru z roletky v záhlaví. (V reálném životě spíše jedna osoba bude mít povoleno manažovat voliče, jiná vytváˇřet hlasovací formuláře a jiné osoby budou hlasovat.) </li> <ol> <li>Anonymní uživatel</li> <ol> <li>jakýkoli návštěvník na internetových stránkách bez registrace na stránkách a bez přihlášení</li> <li>může zobrazit výsledky hlasování</li> </ol> <li>Manažer seznamů voličů</li> <ol> <li>uživatel registrovaný a přihlášený na stránkách</li> <li>může vytvářet / editovat / mazat své seznamy voličů</li> </ol> <li>Manažer volebních formulářů</li> <ol> <li>může vytvářet / editovat / mazat hlasovací formuláře jím vytvořené</li> </ol> <li>Volič (hlasující)</li> <ol> <li>může volit v každém hlasovacím formuláři, propojeném s voličským seznamem, ve kterém je volič uveden. </li> </ol> </ol> </ol> <br /> <h2>5. Qesadila webové uživatelské rozhraní</h2> <ol type = "A"> <li>Doporučená / testován na:</li> <ol> <li>internetový prohlížeč Chrome 80.0.3987.163 a Safari 13,1</li> </ol> <li>Co umí</li> <ol> <li>Web aplikace umožňuje</li> <ol> <li>řídit (vytvářet / editovat / mazat) Voličský seznam,</li> <li>přidat voliče zadáním e-mailu a nahráním elektronicky podpesaného souhlasu s pravidly používání: voter.xml.asice, </li> <li>přiřadit voliče do voličského seznamu,</li> <li>vytvořit Hlasovací formulář,</li> <li>umožňuje voliči zahájit proces hlasování - odesláním požadavku přes backend pro desktopové aplikace a podepsat hlasování pomocí eID, nebo certifikátem v desktopové aplikace, </li> <li>zobrazit výsledky hlasování.</li> </ol> </ol> <li>Použitá technologie:</li> <ol> <li>Vue.js, SignalR, Axios</li> </ol> <li>Licence: GNU GPL v3</li> <li>Zdrojový kód: <a href="https://github.com/Qesadila/QES">https://github.com/Qesadila/QES </a> </li> <li>CI / CD: GitHub Actions. Interval pro nasazení změn do master-u: 3min</li> </ol> <br /> <h2>6. QesadilaAuth - desktopová aplikace</h2> <ol type = "A"> <li>Minimální požadavky</li> <ol> <li>Testováno na Windows 10,</li> <li>Testováno na macOS Mojave 10.14.6</li> <li>Linux (Desktop) - podporováno, netestováno</li> </ol> <li>Příprava vašeho prostředí</li> <ol> <li>Stáhněte balíček z <a href = "https://apps.scholtz.sk/QesadilaAuth/win/publish.zip" >/publish.zip (pro Windows) nebo<br /></a><a href = "https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip" >/publish.zip (pro macOS) nebo<br /></a><a href = "https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip" >/publish.zip&nbsp (pro Linux) <br />a rozbalíme ji. Spouštěč aplikací: </a> </li> <li>Spustit aplikaci</li> <ol> <li>Windows: QesadilaAvaloniaSigner.exe</li> <li>Linux, Mac: QesadilaAvaloniaSigner</li> </ol> <li>Použité technologie:</li> <ol> <li>napsáno v NET core 3</li> <li>Avalonia</li> <li>SignalR hostitel</li> </ol> <li>Licence: GNU GPL v3</li> <li>Zdrojový kód: <a href = "https://dev.azure.com/Qesadila/_git/QesadilaAuth" >https://dev.azure.com/Qesadila/_git/QesadilaAuth </a> </li> </ol> </ol> <br /> <h2>7. Qesadila Backend</h2> <ol type = "A"> <li>Minimální požadavky</li> <ol> <li>Běh pomocí Docker kontejneru</li> <li>Může být spuštěn v kubernetes, jako AZURE - webová aplikace nebo vlastní hostované v Docker kontejneru </li> <ol> <li>Testováno jako Azure web aplikace</li> </ol> <li>Database: možnost konfigurace mezi MsSQL, CosmosDB, MariaDB, MySQL, PostgreSQL, InMemory </li> <ol> <li>Testováno s InMemory a CosmosDB</li> <li>Výchozí úložiště souborového systému</li> <li>Zaznamenali jsme technické potíže při vytváření MsSQL serveru jako azure novou serverovou službu. </li> </ol> <li>Emaily s templating: V současné době podporuje pouze Sendgrid dynamické šablony </li> <ol> <li>Výchozí žádný e-mail, bez potvrzení e-mailu</li> </ol> <li>Ukládání dat: Azure storage blob nebo ukládání souborů systému</li> <ol> <li>Testováno na Azure blob storage, defaultní je system file storage</li> </ol> </ol> <li>Objektový model <a href="https://app.quickdatabasediagrams.com/%23/d/5Meb4N">https://app.quickdatabasediagrams.com/#/d/5Meb4N  </a> </li> <li>Licence: GNU GPL v3</li> <li>Zdrojový kód: <a href="https://dev.azure.com/Qesadila/QesadilaBackend">https://dev.azure.com/Qesadila/QesadilaBackend  </a> </li> <li>CI / CD: Devops Pipelines, Testing: Deploy interval 3 minuty <a href="https://hub.docker.com/r/qesadila/qesadila-backend">docker hub </a> </li> </ol> <br /> <h2>8. Hlavní scénáře</h2> <p>Presamption: Zaregistrovali jste se na <a href = "http://www.qesadila.com" >http://www.qesadila.com potvrdili jste e-mail a přihlásili jste se na https://www.qesadila.com </a> </p> <ol type = "A"> <li>scénář &ldquo;Před hlasování &ldquo;</li> <ol> <li>Přihlaste se na <a href="http://www.qesadila.com">http://www.qesadila.com.</a> </li> <li>Přepněte se do role Manažer voličských seznamů.</li> <li>Vytvořte Seznam voilčů a přidejte voliče (Váš e-mail a tento dokument podepsán například na <a href = "https://zep.disig.sk/Portal" >https://zep.disig.sk/Portal website). </a> </li> <li>Přepněte se do role Manažera volebních (hlasovacích) formulářů.</li> <li>Vytvořte Hlasovací formulář a přiřaďte voličský seznam tomuto formuláři </li> </ol> <li>scénář &ldquo;Vote&rdquo;</li> <ol> <li>Presamtion:</li> <ol> <li>Již jste nainstalovali aplikaci Qesadila do svého počítače počítač a aplikace jsou spuštěné. </li> <li>Na <a href="http://www.qesadila.com">http: //www.qesadila.com </a> </li> <ol> <li>Přihlaste se na <a href="http://www.qesadila.com">http://www.qesadila.com.</a> </li> <li>Přepněte se do role Volič (hlasující).</li> <li>Zvolte hlasování, kterého se chcete zúčastnit</li> <li>Qesadila vás požádá o ověření:</li> <p><img width = "100%" src = "images/image1.png"/></p> </ol> <li>Připojte vaši čtečku s eID k vašemu stolnímu počítači / notebooku.</li> <li>Přejděte do desktopové aplikace</li> <li>V desktopové aplikaci se autentifikujte k použití aplikace Qesadila. </li> <li>V desktopové aplikaci klikněte na PKCS11 pro ověření vaší identity. </li> <p><img width = "100%" src = "images/image3.png"/></p> <li>Zadejte eID BOK kód:</li> <p><img width = "100%" src = "images/image2.png"/></p> <li>Po několika sekundách uvidíte v desktopové aplikace, že vaše identita byla ověřena: </li> <p><img width = "100%" src = "images/image4.png"/></p> <li>Na stránkách <a href="http://www.qesadila.com">http://www.qesadila.com:</a> </li> <li>Ve webovém rozhraní aplikaci si můžete ověřit, že jste oprávněni k hlasování: </li> <p><img width = "100%" src = "images/image8.png"/></p> <li>Vyberte odpověď a odešlete hlasovací lístek.</li> <li>V desktopové aplikace, můžete zkontrolovat své rozhodnutí před podepsáním a odesláním hlasu: <p><img width = "100%" src = "images/image6.png"/></p> <li>Klikněte na tlačítko &ldquo;Podepsat dokument&rdquo;.</li> <li>Aplikace vás vyzve k zadání PIN kódu eID</li> <p><img width = "100%" src = "images/image7.png"/></p> <li>Po zadání PIN kódu a kliknutí na "Podpesat" počkejte několik sekund a klikněte na tlačítko &ldquo;Odeslat&rdquo;:</li> <p><img width = "100%" src = "images/image5.png"/></p> <li>Přejděte zpět na stránky Qesadila a ověřte, že Váš hlas byl přijat. </li> </ol> </ol> </ol> <br /> <h2>9. Technický pohled na proof of concept</h2> <ol type = "A"> <li>Všechna hlasování jsou v současné době veřejné. Nepublikujte žádné neveřejné data. </li> <li>Volič vyplní hlasovací formulář na webové aplikace. JSON je vytvořen. </li> <li>Vzhledem k tomu, že Volič již zvolil svou totožnost certifikátem, od desktopová aplikace přijímá od webové aplikace vyplněný hlasovací formulář. </li> <li>Komunikace mezi webovou stránkou a signal r serverem v desktopové aplikaci neopouští počítač. To znamená, že webová stránka Qesadila komunikuje s desktopovou aplikací vrámci počítače a tato komunikace nepřechází přes internet. </li> <li>Volič skontroluje v desktopové aplikaci hlasovací lístek zobrazený ve formátu JSON<br /><br />Volič vidí něco podobného: </li> <br /> <P style = "font-family: Courier;"> {<br /> &ldquo;VotingForm&rdquo;: &ldquo;Donation for citizens initiatives - participative budget&rdquo;,<br />&ldquo;Answers&rdquo;: {<br />&ldquo;Choose the donation fot the Central park reconstruction?&rdquo;: &ldquo;20 000 CZK&rdquo;,<br /> },<br />&ldquo;Time&rdquo;:&rdquo;date and time&rdquo;<br />&ldquo;VotinfFormId&rdquo;:&rdquo;GUID-OF-voting-form&rdquo;<br /> } </p> <br /> <p>Volič uvidí, za jaké rozhodnutí hlasoval (elektronicky podepsal).</p> <li>Volič klikne na tlačítko Sign a zadá eID PIN v případě, že bude vyzván. </li> <li>Volič vidí originální dokument, formátovaný původní dokument, podepsaný dokument a hash kód podepsaného dokumentu. Vzhledem k nedostatku času, jsme neměli analyzovat původní dokument z podepsaného dokumentu, ale to je něco, co by mělo být implementováno před přechodem do produkčního módu. </li> <li>Volič odesílá informaci do webové aplikace. Webová aplikace odešle zprávu na backend. </li> <li>Spojení mezi desktopovou aplikací, webovou aplikací a backend-em není považováno za důvěryhodné. </li> <li>Qesadila backend přijala soubor s hlasem Voliče.</li> <ol> <li>Zdrojový kód: Metoda SubmitVote  <a href = "https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVoterController.cs" >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVoterController.cs </a> </li> <li>První zkontrolujte, zda byla přijata jakákoliv zpráva a je-li možné ji přečíst. </li> <li>Identifikuje hlasovací formulář z poskytnutého identifikátoru.</li> <li>Nalezne voliče (hlasujícího) a získá jeho veřejný klíč uložený v databázi </li> <li>Zjistí, zda-li je volič oprávněný hlasovat v tomto hlasování (v hlasovacím formuláři).</li> <li>Ověření podpisu v dokumentu s veřejným klíčem Voliče </li> <li>Zvýšení počtu hlasujících u Hlasovacího formuláře (Voting Form)</li> <li>Návrat do webové aplikace a zobrazení hlasu voliči</li> <li>Uživatelé mohou kontrolovat - hash souboru, který má být uložen v hlasování, že je stejný jako ten v desktopové aplikaci (a že s hlasem nebylo manipulováno). Hlas i počet hlasujících je možné ověřit i později. </li> <li>Zvýšení počtu přírůstku v podobě hlasování stejně celosvětové hlasování </li> <li>Za rozhodující se bere čas na straně serveru.</li> <Li>V budoucnu mohou být ukládány hash-e hlasů do blockchain-u pro ověření, že s hlasem v systému nebylo manipulováno. </li> </ol> <li>Hlasování je dokončeno:</li> <ol> <li>Zdrojový kód: <a section „https://dev.azure.com/Qesadila/_git/QesadilaBackend?path%3D%252FQesadilaBackend%252FControllers%252FAPI%252FVotingResultController.cs“ >https://dev.azure.com/Qesadila/_git/QesadilaBackend?path=%2FQesadilaBackend%2FControllers%2FAPI%2FVotingResultController.cs </a> </li> </ol> </ol> '
   }
 }
