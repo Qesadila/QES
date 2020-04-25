@@ -39,7 +39,11 @@
             }}</v-btn>
           </template>
           <template v-else>
-            <v-btn color="primary">{{ $t('votingFormManager.edit') }}</v-btn>
+            <v-btn
+              color="primary"
+              :to="`/voting-form-manager/form/${item.votingFormId}`"
+              >{{ $t('votingFormManager.show') }}</v-btn
+            >
           </template>
         </template>
       </v-data-table>

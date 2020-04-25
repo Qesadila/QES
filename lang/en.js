@@ -70,6 +70,7 @@ export default {
     title: 'Voting form managment',
     showResults: 'Show results',
     edit: 'Edit',
+    show: 'Show',
     questionText: 'question', // 1. otázka -> 1. question
     possibleAnswers: 'Possible answers:',
     addNewPossibleAnswer: 'Add option',
@@ -97,6 +98,7 @@ export default {
     VoterManagerCanCloseAnyTime: 'Voter Manager Can Close Any Time',
     VoterManagerCanCloseIfAllHasVoted:
       'Voter Manager Can Close If All Voters Has Voted',
+    stopVoting: 'End voting',
     endingType: 'Options for ending for this voting'
   },
   votingListManager: {

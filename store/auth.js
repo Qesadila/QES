@@ -49,7 +49,7 @@ export const actions = {
       }
       this.$axios.setHeader('Authorization', 'Bearer ' + response.data.token)
 
-      this.$router.push('/')
+      this.$router.push('/voter')
     }
   },
   performLogoutFromCertificate({ commit, dispatch }) {
