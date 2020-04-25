@@ -4,8 +4,8 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: 'Qesadila, the e-voting system',
-    title: process.env.npm_package_name || '',
+    titleTemplate: 'titleTemplate_',
+    title: 'title_',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
