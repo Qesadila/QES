@@ -46,21 +46,21 @@
       <li>
         <a
           target="_blank"
-          href="https://apps.scholtz.sk/QesadilaAuth/win/publish.zip"
-          >Windows</a
+          href="https://apps.scholtz.sk/QesadilaAuth/win/QesadilaAuth-WinX64.zip"
+          >Windows x64, requires .net core 3.1</a
         >
       </li>
       <li>
         <a
           target="_blank"
-          href="https://apps.scholtz.sk/QesadilaAuth/linux/publish.zip"
+          href="https://apps.scholtz.sk/QesadilaAuth/linux/QesadilaAuth-LinuxX64.zip"
           >Linux</a
         >
       </li>
       <li>
         <a
           target="_blank"
-          href="https://apps.scholtz.sk/QesadilaAuth/osx/publish.zip"
+          href="https://apps.scholtz.sk/QesadilaAuth/osx/QesadilaAuth-MacOS.zip"
           >OSX</a
         >
       </li>
