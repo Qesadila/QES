@@ -2,7 +2,7 @@ export const state = () => ({
   signalRStatus: '',
   signalRIdentity: '',
   signalRCertHash: '',
-  signalRStatusText: ''
+  signalRStatusText: 'Not connected'
 })
 
 export const mutations = {

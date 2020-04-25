@@ -19,6 +19,28 @@
         </tr>
       </v-simple-table>
     </div>
+    <div v-else>
+      <h2>Download and connect QesadilaAuth</h2>
+      <p>
+        You are currently not connected to the Qesadila Auth, or you have not
+        yet selected your identiy. Please download signing and authentication
+        application and start it.
+      </p>
+      <v-simple-table>
+        <tr>
+          <td>Status:</td>
+          <td>{{ this.$store.state.signalR.signalRStatusText }}</td>
+        </tr>
+      </v-simple-table>
+
+      <v-col>
+        After you start Qesadila Auth desktop application click here:
+        <v-btn color="primary" onclick="location.reload(true)">
+          Connect to Qesadila Auth
+        </v-btn>
+      </v-col>
+    </div>
+
     <h2>Download</h2>
     <ul>
       <li>
