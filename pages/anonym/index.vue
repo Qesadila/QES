@@ -24,7 +24,7 @@
           <template>
             <v-btn
               color="secondary"
-              :to="`/voter/results/${item.votingFormId}`"
+              :to="`/anonym/results/${item.votingFormId}`"
               >{{ $t('anonym.showResults') }}</v-btn
             >
           </template>
@@ -64,7 +64,7 @@ export default {
         {
           text: 'Voter List',
           sortable: false,
-          value: 'voterListId'
+          value: 'voterList.voterListName'
         },
         {
           text: 'Action',
