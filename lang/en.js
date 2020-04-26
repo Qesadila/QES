@@ -16,6 +16,7 @@ export default {
     sendResetLink: 'Resend password reset',
     signInForm: 'Sign in form',
     signUpForm: 'Sign up form',
+    enterNewPasswordTitle: 'Enter new password',
     acceptCheckbox: 'Souhlasím s ',
     acceptComercialMessages: 'Souhlasím se zasíláním reklamních sdělení.',
     labelName: 'full name',

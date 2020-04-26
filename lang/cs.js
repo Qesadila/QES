@@ -16,6 +16,7 @@ export default {
     sendResetLink: 'Obnovení zapomenutého hesla',
     signInForm: 'Přihlašovací formulář',
     signUpForm: 'Registrační formulář',
+    enterNewPasswordTitle: 'Zadejte nové heslo',
     acceptCheckbox: 'Souhlasím s ',
     acceptComercialMessages: 'Souhlasím se zasíláním reklamních sdělení.',
     labelName: 'jméno a příjmení',
