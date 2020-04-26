@@ -26,9 +26,6 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-btn text to="/auth/login">{{
-              $t('general.acceptCheckbox')
-            }}</v-btn>
             <v-btn text to="/auth/verify-resend">{{
               $t('general.resendToken')
             }}</v-btn>
