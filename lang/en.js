@@ -111,7 +111,7 @@ export default {
     showDetails: 'Show details',
     createNewVoterList: 'Create new Voting List',
     labelListName: 'Name of Voting List',
-    labelIsPubli: 'Voting List is public',
+    labelIsPublic: 'Voting List is public',
     continue: 'Continue',
     voters: 'Voters',
     voterListDetail: 'Voting List details',

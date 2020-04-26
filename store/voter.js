@@ -78,6 +78,7 @@ export const actions = {
     }
 
     if (response) {
+      dispatch('snackbar/openSuccess', 'Voter has been added to the voter list')
       return response.data
     }
   },
