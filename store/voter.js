@@ -16,7 +16,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  async performFetchVoterForm({ dispatch }) {
+  async performFetchAllVoterForms({ dispatch }) {
     let response = null
 
     try {
