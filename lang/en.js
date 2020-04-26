@@ -57,7 +57,7 @@ export default {
     vote: 'Vote',
     question: 'Question ', // otázka 1 -> Question 1
     labelDoNotWantToAnswer: 'I do not want to answer',
-    submitForm: 'Submit form',
+    submitForm: 'Sign form in QesadilaAuth',
     signVoteInApp: 'Sign your vote in desktop application',
     signAppNotFound: 'Sign application was not found',
     startSignAppForProceed:
@@ -76,7 +76,7 @@ export default {
     showResults: 'Show results',
     edit: 'Edit',
     show: 'Show',
-    questionText: 'question', // 1. otázka -> 1. question
+    questionText: 'Question', // 1. otázka -> 1. question
     possibleAnswers: 'Possible answers:',
     addNewPossibleAnswer: 'Add option',
     saveQuestion: 'Save question',

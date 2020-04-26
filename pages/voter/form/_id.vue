@@ -204,6 +204,10 @@ export default {
         btoa(JSON.stringify(toSend)),
         'VoterAnswerEn'
       )
+      this.$store.dispatch(
+        'snackbar/openSuccess',
+        'Please open QesadilaAuth desktop application, and sign the form'
+      )
     },
     handleUserAnswerChange(questionId, answerId) {
       this.userAnwers[questionId] = answerId
@@ -211,6 +215,7 @@ export default {
     async fetchList() {
       const data = await this.performFetchAllVoterForms()
       this.allLists = data
+      this.setSignalRStatus()
     },
     setSignalRStatus() {
       let isOk = false
@@ -237,8 +242,16 @@ export default {
                   this.$store.state.signalR.signalRIdentity
                 this.signalStatusType = 'info'
                 isOk = true
+              } else {
+                console.log(
+                  'this.selectedForm.listOfValidCertificatesForSignature, hash',
+                  this.selectedForm.listOfValidCertificatesForSignature,
+                  this.$store.state.signalR.signalRCertHash
+                )
               }
             }
+          } else {
+            console.log('this.selectedForm', this.selectedForm)
           }
           if (!isOk) {
             this.signalStatusText =
