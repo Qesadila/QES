@@ -39,7 +39,7 @@ import { mapActions } from 'vuex'
 import { formatDate, isAfter } from '~/code/helpers/formatDate'
 
 export default {
-  middleware: 'authenticated',
+  middleware: 'notAuthenticated',
   data() {
     return {
       formatDate,
