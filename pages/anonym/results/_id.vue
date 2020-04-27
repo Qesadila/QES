@@ -65,6 +65,7 @@
           <h3>{{ answerItem.question }}</h3>
         </div>
         <v-data-table
+          v-if="questionItem.votingFormItemResult"
           :headers="answersTableHeaders"
           :items="questionItem.votingFormItemResult.votingFormItemOptionResults"
           :items-per-page="-1"
