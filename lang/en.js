@@ -45,6 +45,7 @@ export default {
     createNewVoterList: 'Create new voter list',
     votingLists: 'List of voting lists',
     lastSubmission: 'Last vote submission',
+    FAQ: 'FAQ',
     qesAuth: 'Qesadila Auth'
   },
   anonym: {
