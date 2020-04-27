@@ -10,7 +10,7 @@
       <v-col>
         <div style="padding:20px;position:relative;">
           <iframe
-            width="640"
+            width="100%"
             height="400"
             src="https://www.youtube.com/embed/e1LkfhTwZpI"
           >
@@ -30,8 +30,9 @@
             bounty system
           </p>
           <iframe
+            width="100%"
+            height="400"
             src="https://player.vimeo.com/video/406483646?byline=0&amp;portrait=0"
-            style="width:640px;height:400px"
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen
