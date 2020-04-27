@@ -15,20 +15,11 @@
             src="https://www.youtube.com/embed/e1LkfhTwZpI"
           >
           </iframe>
-          <h2>Fund raising</h2>
-          <p>
-            Please <b>donate money</b> to support this project to transparent
-            account
-            <a
-              href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH"
-              >SK3783300000002901594765/FIOBCZPPXXX</a
-            >
-            owned by Srdcom Doma NGO.
-          </p>
-          <p>
-            We will use this money for further development and penetration
-            bounty system
-          </p>
+          <h2>{{ $t('anonym.fundRaising') }}</h2>
+          <div
+            v-html="$t('htmlCode.fundRaising')"
+            style="padding:20px 0;"
+          ></div>
           <iframe
             width="100%"
             height="400"
