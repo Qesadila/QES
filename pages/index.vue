@@ -10,11 +10,13 @@
       <v-col>
         <div style="padding:20px;position:relative;">
           <iframe
+            src="https://player.vimeo.com/video/411919240?byline=0&portrait=0"
             width="100%"
             height="400"
-            src="https://www.youtube.com/embed/e1LkfhTwZpI"
-          >
-          </iframe>
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
           <h2>{{ $t('anonym.fundRaising') }}</h2>
           <div
             v-html="$t('htmlCode.fundRaising')"
