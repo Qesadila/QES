@@ -94,18 +94,10 @@ export default {
   middleware: 'authenticated',
   data() {
     return {
-      allLists: []
+      selectedForm: {}
     }
   },
   computed: {
-    selectedForm() {
-      return (
-        this.allLists &&
-        this.allLists.find(
-          (item) => item.votingFormId === this.$route.params.id
-        )
-      )
-    },
     openFrom() {
       const time = this.selectedForm.openFrom
       const d = new Date(time)
@@ -131,18 +123,19 @@ export default {
   },
 
   mounted() {
-    this.fetchList()
+    this.fetchVotingForm()
   },
   methods: {
     ...mapActions('formManager', ['stopVoting']),
-    ...mapActions('voter', ['performFetchAllVoterForms']),
+    ...mapActions('voterForm', ['getSingleManagerVoting']),
     endVoting() {
       const votingFormId = this.$route.params.id
       this.stopVoting({ votingFormId })
     },
-    async fetchList() {
-      const data = await this.performFetchAllVoterForms()
-      this.allLists = data
+    async fetchVotingForm() {
+      const votingFormId = this.$route.params.id
+      const data = await this.getSingleManagerVoting({ votingFormId })
+      this.selectedForm = data
     }
   }
 }

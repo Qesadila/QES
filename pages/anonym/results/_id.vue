@@ -65,6 +65,7 @@
           <h3>{{ answerItem.question }}</h3>
         </div>
         <v-data-table
+          v-if="questionItem.votingFormItemResult"
           :headers="answersTableHeaders"
           :items="questionItem.votingFormItemResult.votingFormItemOptionResults"
           :items-per-page="-1"
@@ -141,10 +142,10 @@ export default {
     this.fetchVotingForm()
   },
   methods: {
-    ...mapActions('voterForm', ['getSingleVoterVoting']),
+    ...mapActions('voterForm', ['getSinglePublicVoting']),
     async fetchVotingForm() {
       const votingFormId = this.$route.params.id
-      const data = await this.getSingleVoterVoting({ votingFormId })
+      const data = await this.getSinglePublicVoting({ votingFormId })
       this.selectedForm = data
     }
   }

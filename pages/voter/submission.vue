@@ -9,11 +9,11 @@
             <th class="text-left">Value</th>
           </tr>
         </thead>
-        <tbody v-if="$store.state.voter.lastSubmittedVoteResult.voterVallotId">
+        <tbody v-if="$store.state.voter.lastSubmittedVoteResult.voterBallotId">
           <tr>
             <th>voterVallotId</th>
             <td>
-              {{ $store.state.voter.lastSubmittedVoteResult.voterVallotId }}
+              {{ $store.state.voter.lastSubmittedVoteResult.voterBallotId }}
             </td>
           </tr>
           <tr>

@@ -47,7 +47,7 @@
         <a
           target="_blank"
           href="https://apps.scholtz.sk/QesadilaAuth/win/QesadilaAuth-WinX64.zip"
-          >Windows x64, requires .net core 3.1</a
+          >Windows</a
         >
       </li>
       <li>

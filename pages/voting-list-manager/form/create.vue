@@ -20,7 +20,10 @@
           />
         </div>
 
-        <div class="d-flex flex-row justify-center px-12 mb-6 body">
+        <div
+          v-if="listId === null"
+          class="d-flex flex-row justify-center px-12 mb-6 body"
+        >
           <v-btn x-large color="primary" @click="addUsers">{{
             $t('votingListManager.continue')
           }}</v-btn>
@@ -147,6 +150,12 @@ export default {
       })
 
       this.listId = response.voterListId
+      if (this.listId) {
+        this.$store.dispatch(
+          'snackbar/openSuccess',
+          'Voter list has been created, please follow up by adding voters to the list'
+        )
+      }
     },
     async createAndAttachUser() {
       if (!this.voter.isRegistered) {
@@ -185,6 +194,10 @@ export default {
           isQes: qes,
           id: isAdded.voterId
         })
+        this.$store.dispatch(
+          'snackbar/openSuccess',
+          'Voter has been added to the voter list'
+        )
       }
 
       this.voter.email = ''
