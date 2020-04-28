@@ -13,7 +13,7 @@ export default {
     language: 'Language',
     role: 'Role',
     resetPassword: 'Reset password',
-    sendResetLink: 'Resend password reset',
+    sendResetLink: 'Send password reset',
     signInForm: 'Sign in form',
     signUpForm: 'Sign up form',
     enterNewPasswordTitle: 'Enter new password',
