@@ -23,7 +23,7 @@ export default {
     labelPassword: 'password',
     labelPasswordAgain: 'repeat your password',
     verifyEmail: 'Verify e-mail address',
-    resendToken: 'Resend verify email',
+    resendToken: 'Resend verification email',
     verifyEmailAction: 'Verify',
     backToVerification: 'Back to verification',
     verifyMail: 'Verify email',
