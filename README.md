@@ -27,7 +27,8 @@ Presentation:
 - Swagger: https://qesadila.azurewebsites.net/swagger/index.html
 - Docker container build using .net core, DB configuration choice: RAM, CosmosDB, MsSQL MySQL, PostgreSQL
 - Our solution is hosted in Azure
-- Docker Hub image: https://hub.docker.com/r/qesadila/qesadila-backend
+- Docker Hub image Debian: https://hub.docker.com/r/qesadila/qesadila-backend/tags
+- Docker Hub Image Windows: https://hub.docker.com/r/qesadila/qesadila-backend-win/tags
 
 **QesadilaFrontend**
 
