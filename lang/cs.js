@@ -13,7 +13,7 @@ export default {
     language: 'Jazyk',
     role: 'Role',
     resetPassword: 'Obnovit heslo',
-    sendResetLink: 'Obnovení zapomenutého hesla',
+    sendResetLink: 'Požádat o obnovení hesla',
     signInForm: 'Přihlašovací formulář',
     signUpForm: 'Registrační formulář',
     enterNewPasswordTitle: 'Zadejte nové heslo',
