@@ -14,7 +14,7 @@ module.exports = {
         name: 'description',
         content:
           process.env.npm_package_description ||
-          'Qesadila is open source e-voting software system, offered under licence: GNU GPLv3. By e-voting we mean the participation on making decisions of any group of voters, where is necessery to autorize the voters (using qualified electronic signature, or generated certificate).'
+          'Qesadila is open source e-voting system, offered under licence: GNU GPLv3. By e-voting we mean the participation on making decisions of any group of voters, where is necessery to autorize the voters (using qualified electronic signature, or generated certificate).'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]

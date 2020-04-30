@@ -1,8 +1,8 @@
 {
   "name": "qes-nuxt",
   "version": "1.0.0",
-  "description": "QESADILA",
-  "author": "QESADILA",
+  "description": "Qesadila is open source e-voting system, with autenthication using eID (PKSC#11, or PGP cesrtificate, which can be generated in Quesadila. Participate online secure way and support democratic processees.",
+  "author": "Srdcom doma o.z.",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",

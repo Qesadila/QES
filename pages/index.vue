@@ -3,6 +3,10 @@
     <v-row>
       <v-col>
         <div
+          v-html="$t('htmlCode.f6sComFollowWidget')"
+          style="padding-left:20px;"
+        ></div>
+        <div
           v-html="$t('htmlCode.projectOverview')"
           style="padding-left:20px;"
         ></div>
