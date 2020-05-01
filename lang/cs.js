@@ -146,7 +146,7 @@ export default {
   },
   htmlCode: {
     fundRaising:
-      '<p>Podpořte tento projekt vaším darem na transparentní účet <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOBCZPPXXX</a> Srdcom Doma o.z.</p>' +
+      '<p>Podpořte tento projekt vaším darem na transparentní účet <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOZSKBAXXX</a> Srdcom Doma o.z.</p>' +
       '<ul>' +
       '<li>Dar ve výši 1 EUR nám pomůže financovat naše denní výdaje za cloudové služby v azure</li>' +
       '<li>S darem 1 000 - 5 000 EUR si můžeme objednat penetrační testy</li>' +

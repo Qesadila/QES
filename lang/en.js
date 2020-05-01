@@ -140,7 +140,7 @@ export default {
   },
   htmlCode: {
     fundRaising:
-      '<p>Please <b>donate money</b> to support this project to transparent account <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOBCZPPXXX</a> owned by Srdcom Doma NGO.</p>' +
+      '<p>Please <b>donate money</b> to support this project to transparent account <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOZSKBAXXX</a> owned by Srdcom Doma NGO.</p>' +
       '<ul>' +
       '<li>With 1 EUR donation we cover our daily expanses for azure cloud services</li>' +
       '<li>With 1.000 - 5.000 EUR donation we can order penetration tests</li>' +
