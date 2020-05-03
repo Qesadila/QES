@@ -12,15 +12,10 @@
         ></div>
       </v-col>
       <v-col>
-        <div style="padding:20px;position:relative;">
-          <iframe
-            src="https://player.vimeo.com/video/411919240?byline=0&portrait=0"
-            width="100%"
-            height="400"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
+        <div
+          style="padding:20px;position:relative;"
+          v-html="$t('htmlCode.vimeoExplanationVideo')"
+        >
           <h2>{{ $t('anonym.fundRaising') }}</h2>
           <div
             v-html="$t('htmlCode.fundRaising')"

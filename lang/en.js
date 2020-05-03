@@ -139,6 +139,8 @@ export default {
     getMeOut: 'Get me out of here!'
   },
   htmlCode: {
+    vimeoExplanationVideo:
+      '<iframe src="https://player.vimeo.com/video/411919240?byline=0&portrait=0" width="100%" height="400" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>',
     fundRaising:
       '<p>Please <b>donate money</b> to support this project to transparent account <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOZSKBAXXX</a> owned by Srdcom Doma NGO.</p>' +
       '<ul>' +

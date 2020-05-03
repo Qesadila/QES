@@ -145,6 +145,8 @@ export default {
     getMeOut: 'Odejít'
   },
   htmlCode: {
+    vimeoExplanationVideo:
+      '<iframe src="https://player.vimeo.com/video/414439497?byline=0&portrait=0" width="100%" height="400" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>',
     fundRaising:
       '<p>Podpořte tento projekt vaším darem na transparentní účet <a href="https://ib.fio.sk/ib/transparent?a=2901594765&amp;l=ENGLISH" >SK3783300000002901594765/FIOZSKBAXXX</a> Srdcom Doma o.z.</p>' +
       '<ul>' +
