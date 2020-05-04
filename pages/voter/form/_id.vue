@@ -208,7 +208,7 @@ export default {
       }
       this.connection.invoke(
         'SignMessage',
-        utf8_to_b64(JSON.stringify(toSend)),
+        this.utf8_to_b64(JSON.stringify(toSend)),
         'VoterAnswerEn'
       )
       this.$store.dispatch(
