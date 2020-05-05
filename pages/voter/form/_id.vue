@@ -192,6 +192,13 @@ export default {
     },
 
     ...mapActions('voter', ['performFetchAllVoterForms', 'performSubmitVote']),
+    utf8_to_b64(str) {
+      return window.btoa(unescape(encodeURIComponent(str)))
+    },
+
+    b64_to_utf8(str) {
+      return decodeURIComponent(escape(window.atob(str)))
+    },
     submitForm() {
       const toSend = {
         votingForm: this.selectedForm.name,
@@ -201,7 +208,7 @@ export default {
       }
       this.connection.invoke(
         'SignMessage',
-        btoa(JSON.stringify(toSend)),
+        this.utf8_to_b64(JSON.stringify(toSend)),
         'VoterAnswerEn'
       )
       this.$store.dispatch(
