@@ -44,7 +44,7 @@ export default {
     listOfForms: 'Seznam formulářů',
     createNewVoterForm: 'Vytvořit nový hlasovací formulář',
     createNewVoterList: 'Vytvořit nový seznam voličů',
-    votingLists: 'Seznam voličů',
+    voterLists: 'Seznam voličů',
     lastSubmission: 'Poslední hlasování',
     qesAuth: 'Qesadila Auth'
   },
@@ -114,7 +114,7 @@ export default {
     stopVoting: 'Konec hlasování',
     endingType: 'Ukončení hlasování:'
   },
-  votingListManager: {
+  voterListManager: {
     title: 'Manažer Voličských seznamů',
     showDetails: 'Zobrazit detail',
     createNewVoterList: 'Vytvořit nový Seznam Voličů',

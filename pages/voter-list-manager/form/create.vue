@@ -3,7 +3,7 @@
     <v-card width="100%">
       <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
-          {{ $t('votingListManager.createNewVoterList') }}
+          {{ $t('voterListManager.createNewVoterList') }}
         </div>
 
         <v-divider class="mb-10"></v-divider>
@@ -11,12 +11,12 @@
         <div class="px-5">
           <v-text-field
             v-model="listName"
-            :label="$t('votingListManager.labelListName')"
+            :label="$t('voterListManager.labelListName')"
             outlined=""
           />
           <v-switch
             v-model="isPublic"
-            :label="$t('votingListManager.labelIsPublic')"
+            :label="$t('voterListManager.labelIsPublic')"
           />
         </div>
 
@@ -25,12 +25,12 @@
           class="d-flex flex-row justify-center px-12 mb-6 body"
         >
           <v-btn x-large color="primary" @click="addUsers">{{
-            $t('votingListManager.continue')
+            $t('voterListManager.continue')
           }}</v-btn>
         </div>
 
         <div v-if="listId !== null" class="pa-5">
-          <h2 class="mb-3 text-center">{{ $t('votingListManager.voters') }}</h2>
+          <h2 class="mb-3 text-center">{{ $t('voterListManager.voters') }}</h2>
           <v-data-table
             :headers="headers"
             :items="voters"
@@ -43,35 +43,35 @@
           <v-dialog v-model="dialog" width="500">
             <template v-slot:activator="{ on }">
               <v-btn color="red lighten-2" dark class="mt-5" v-on="on">
-                {{ $t('votingListManager.addVoter') }}
+                {{ $t('voterListManager.addVoter') }}
               </v-btn>
             </template>
 
             <v-card>
               <v-card-title class="headline grey lighten-2" primary-title>
-                {{ $t('votingListManager.addVoter') }}
+                {{ $t('voterListManager.addVoter') }}
               </v-card-title>
 
               <v-card-text class="pt-5">
                 <v-text-field
                   v-model="voter.email"
-                  :label="$t('votingListManager.labelVoterEmail')"
+                  :label="$t('voterListManager.labelVoterEmail')"
                   outlined
                 />
                 <v-switch
                   v-model="voter.isRegistered"
-                  :label="$t('votingListManager.labelVoterSubmittedGDPR')"
+                  :label="$t('voterListManager.labelVoterSubmittedGDPR')"
                 />
                 <v-file-input
                   v-if="!voter.isRegistered"
                   v-model="voter.file"
-                  :label="$t('votingListManager.labelSignFile')"
+                  :label="$t('voterListManager.labelSignFile')"
                   outlined
                 />
                 <v-switch
                   v-if="!voter.isRegistered"
                   v-model="voter.isQes"
-                  :label="$t('votingListManager.labelIsQes')"
+                  :label="$t('voterListManager.labelIsQes')"
                 />
               </v-card-text>
 
@@ -80,7 +80,7 @@
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" text @click="createAndAttachUser">
-                  {{ $t('votingListManager.addVoter') }}
+                  {{ $t('voterListManager.addVoter') }}
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -99,22 +99,22 @@ export default {
     return {
       headers: [
         {
-          text: this.$t('votingListManager.votersTable.voterName'),
+          text: this.$t('voterListManager.votersTable.voterName'),
           sortable: true,
           value: 'name'
         },
         {
-          text: this.$t('votingListManager.votersTable.voterEmail'),
+          text: this.$t('voterListManager.votersTable.voterEmail'),
           sortable: true,
           value: 'email'
         },
         {
-          text: this.$t('votingListManager.votersTable.voterQes'),
+          text: this.$t('voterListManager.votersTable.voterQes'),
           sortable: true,
           value: 'file'
         },
         {
-          text: this.$t('votingListManager.votersTable.actions'),
+          text: this.$t('voterListManager.votersTable.actions'),
           sortable: false,
           value: 'actions',
           width: 300

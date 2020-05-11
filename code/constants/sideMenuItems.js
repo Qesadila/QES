@@ -54,7 +54,7 @@ export const voterRoutes = [
   }
 ]
 
-export const votingListManagerRoutes = [
+export const voterListManagerRoutes = [
   {
     icon: 'mdi-home',
     title: 'navigation.home',
@@ -62,13 +62,13 @@ export const votingListManagerRoutes = [
   },
   {
     icon: 'mdi-format-list-checks',
-    title: 'navigation.votingLists',
-    to: `/voting-list-manager`
+    title: 'navigation.voterLists',
+    to: `/voter-list-manager`
   },
   {
     icon: 'mdi-note-plus-outline',
     title: 'navigation.createNewVoterList',
-    to: `/voting-list-manager/form/create`
+    to: `/voter-list-manager/form/create`
   }
 ]
 

@@ -3,7 +3,7 @@
     <v-card v-if="selectedList" width="100%">
       <form>
         <div class="d-flex flex-row justify-center py-5 display-1">
-          {{ $t('votingListManager.voters') }}
+          {{ $t('voterListManager.voters') }}
         </div>
 
         <v-divider class="mb-10"></v-divider>
@@ -12,18 +12,18 @@
           <v-text-field
             v-model="selectedList.voterListName"
             disabled
-            :label="$t('votingListManager.labelListName')"
+            :label="$t('voterListManager.labelListName')"
             outlined=""
           />
           <v-switch
             v-model="selectedList.isPublished"
             disabled
-            :label="$t('votingListManager.labelIsPublic')"
+            :label="$t('voterListManager.labelIsPublic')"
           />
         </div>
 
         <div class="pa-5">
-          <h2 class="mb-3 text-center">{{ $t('votingListManager.voters') }}</h2>
+          <h2 class="mb-3 text-center">{{ $t('voterListManager.voters') }}</h2>
           <v-data-table
             :headers="headers"
             :items="selectedList.voters"
@@ -55,12 +55,12 @@ export default {
     return {
       headers: [
         {
-          text: this.$t('votingListManager.votersTable.voterName'),
+          text: this.$t('voterListManager.votersTable.voterName'),
           sortable: false,
           value: 'name'
         },
         {
-          text: this.$t('votingListManager.votersTable.voterQes'),
+          text: this.$t('voterListManager.votersTable.voterQes'),
           sortable: false,
           value: 'gdprConsentFrom'
         }

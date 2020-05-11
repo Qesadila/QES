@@ -113,7 +113,7 @@ import { mapMutations, mapActions } from 'vuex'
 import {
   anonymousRoutes,
   voterRoutes,
-  votingListManagerRoutes,
+  voterListManagerRoutes,
   votingFormManagerRoutes
 } from '../code/constants/sideMenuItems'
 import SnackbarComponent from '~/components/SnackbarComponent'
@@ -123,7 +123,7 @@ const setSideMenuItems = (role) => {
   if (role === 'anonym') return anonymousRoutes
   if (role === 'voter') return voterRoutes
   if (role === 'voting-form-manager') return votingFormManagerRoutes
-  if (role === 'voting-list-manager') return votingListManagerRoutes
+  if (role === 'voter-list-manager') return voterListManagerRoutes
 }
 
 export default {
@@ -150,8 +150,8 @@ export default {
           value: 'voting-form-manager'
         },
         {
-          text: 'Voting List Manager',
-          value: 'voting-list-manager'
+          text: 'Voter List Manager',
+          value: 'voter-list-manager'
         }
       ],
       items: anonymousRoutes,
