@@ -109,7 +109,7 @@ export default {
     endingType: 'Close voting:'
   },
   voterListManager: {
-    title: 'Voter List Manager',
+    title: 'Voter Lists',
     showDetails: 'Show details',
     createNewVoterList: 'Create new Voter List',
     labelListName: 'Name of Voter List',
