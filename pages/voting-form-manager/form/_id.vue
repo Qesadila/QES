@@ -6,7 +6,7 @@
           <div class="d-flex flex-row justify-center py-5 display-1">
             {{ selectedForm.name }}
           </div>
-          <v-simple-table>
+          <v-simple-table v-if="this.selectedForm">
             <template v-slot:default>
               <tbody>
                 <tr>
@@ -53,22 +53,15 @@
             </div>
             <div class="title">{{ question.question }}</div>
             <div class="pl-5">
-              <v-radio-group>
-                <v-radio
-                  v-for="option in question.votingFormItemOptions"
-                  :key="option.votingFormItemOptionId"
-                  :label="option.option"
-                  :value="option.option"
-                  class="my-2"
-                >
-                </v-radio>
-                <!-- Last option is always with value null as user dont want to answer this question -->
-                <v-radio
-                  class="my-2"
-                  :label="$t('voter.labelDoNotWantToAnswer')"
-                  value="N/A"
-                ></v-radio>
-              </v-radio-group>
+              <div
+                v-for="option in question.votingFormItemOptions"
+                :key="option.votingFormItemOptionId"
+                :label="option.option"
+                :value="option.option"
+                class="my-2"
+              >
+                {{ option.option }}
+              </div>
               <v-divider class="mb-10"></v-divider>
             </div>
           </div>
