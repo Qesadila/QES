@@ -67,10 +67,10 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('listManager', ['performFetchList']),
+    ...mapActions('listManager', ['performFetchPrivateInfo']),
     async fetchList() {
       this.isLoading = true
-      const data = await this.performFetchList()
+      const data = await this.performFetchPrivateInfo()
       this.items = data
       this.isLoading = false
     }

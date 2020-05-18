@@ -12,6 +12,21 @@ export const actions = {
       return response.data
     }
   },
+  async performFetchList({ dispatch }) {
+    let response = null
+
+    try {
+      response = await await this.$axios.get(
+        'v1/VoterList/GetVotingFormManagerVoterLists'
+      )
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      return response.data
+    }
+  },
   async stopVoting({ dispatch }, { votingFormId }) {
     console.log('id', votingFormId)
     let response = null

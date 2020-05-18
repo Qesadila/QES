@@ -125,14 +125,16 @@ export default {
     published: 'Public',
     unpublished: 'Private',
     indexTable: {
-      voterListName: 'Voer list name',
+      voterListName: 'Voter list name',
       actions: 'Actions'
     },
     votersTable: {
       voterName: 'Voters name',
       voterEmail: 'E-mail',
       voterQes: 'Qualified electronic signature',
-      actions: 'Actions'
+      actions: 'Actions',
+      time: 'Time added',
+      identities: 'List of crypto identities'
     }
   },
   errorPage: {

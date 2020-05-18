@@ -16,7 +16,7 @@ export const actions = {
       return response.data
     }
   },
-  async performFetchList({ dispatch }) {
+  async performFetchPrivateInfo({ dispatch }) {
     let response = null
 
     try {

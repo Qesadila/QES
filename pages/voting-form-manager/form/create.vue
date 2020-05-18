@@ -137,7 +137,7 @@ export default {
     this.addQuestion()
   },
   methods: {
-    ...mapActions('listManager', ['performFetchList']),
+    ...mapActions('formManager', ['performFetchList']),
     selectText: (item) => item.name,
     selectValue: (item) => item.value,
     saveQuestion(id, questionData) {
@@ -252,7 +252,6 @@ export default {
     },
     async fetchVoterLists() {
       const resp = await this.performFetchList()
-
       this.voterLists = resp
     }
   }

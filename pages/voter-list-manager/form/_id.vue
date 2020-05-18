@@ -16,13 +16,13 @@
             outlined=""
           />
           <v-switch
-            v-model="selectedList.isPublished"
+            v-model="selectedList.isPublic"
             disabled
             :label="$t('voterListManager.labelIsPublic')"
           />
         </div>
 
-        <div class="pa-5">
+        <div v-if="selectedList !== null" class="pa-5">
           <h2 class="mb-3 text-center">{{ $t('voterListManager.voters') }}</h2>
           <v-data-table
             :headers="headers"
@@ -31,12 +31,53 @@
             :hide-default-footer="true"
             class="elevation-1"
           >
-            <template v-slot:item.gdprConsentFrom="{ item }">
-              <v-icon>{{
-                item.gdprConsentFrom ? 'mdi-check' : 'mdi-close'
-              }}</v-icon>
-            </template>
           </v-data-table>
+
+          <v-dialog v-model="dialog" width="500">
+            <template v-slot:activator="{ on }">
+              <v-btn color="red lighten-2" dark class="mt-5" v-on="on">
+                {{ $t('voterListManager.addVoter') }}
+              </v-btn>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2" primary-title>
+                {{ $t('voterListManager.addVoter') }}
+              </v-card-title>
+
+              <v-card-text class="pt-5">
+                <v-text-field
+                  v-model="voter.email"
+                  :label="$t('voterListManager.labelVoterEmail')"
+                  outlined
+                />
+                <v-switch
+                  v-model="voter.isRegistered"
+                  :label="$t('voterListManager.labelVoterSubmittedGDPR')"
+                />
+                <v-file-input
+                  v-if="!voter.isRegistered"
+                  v-model="voter.file"
+                  :label="$t('voterListManager.labelSignFile')"
+                  outlined
+                />
+                <v-switch
+                  v-if="!voter.isRegistered"
+                  v-model="voter.isQes"
+                  :label="$t('voterListManager.labelIsQes')"
+                />
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" text @click="createAndAttachUser">
+                  {{ $t('voterListManager.addVoter') }}
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </div>
       </form>
     </v-card>
@@ -56,16 +97,24 @@ export default {
       headers: [
         {
           text: this.$t('voterListManager.votersTable.voterName'),
-          sortable: false,
+          sortable: true,
           value: 'name'
         },
         {
-          text: this.$t('voterListManager.votersTable.voterQes'),
-          sortable: false,
-          value: 'gdprConsentFrom'
+          text: this.$t('voterListManager.votersTable.identities'),
+          sortable: true,
+          value: 'cryptoIdentities'
         }
       ],
-      allLists: []
+      allLists: [],
+
+      dialog: false,
+      voter: {
+        isRegistered: true,
+        email: '',
+        file: null,
+        isQes: true
+      }
     }
   },
   computed: {
@@ -80,10 +129,59 @@ export default {
     this.fetchList()
   },
   methods: {
-    ...mapActions('listManager', ['performFetchList']),
+    ...mapActions('listManager', ['performFetchPrivateInfo']),
+    ...mapActions('listManager', ['performAssignVoterToList']),
     async fetchList() {
-      const data = await this.performFetchList()
+      const data = await this.performFetchPrivateInfo()
       this.allLists = data
+    },
+    async createAndAttachUser() {
+      if (!this.voter.isRegistered) {
+        if (this.voter.isQes !== undefined) {
+          await this.performAddVoter({
+            email: this.voter.email,
+            file: this.voter.file,
+            isQes: this.voter.isQes
+          })
+        } else {
+          await this.performAddVoter({
+            email: this.voter.email,
+            file: this.voter.file,
+            isQes: false
+          })
+        }
+      }
+
+      const isAdded = await this.performAssignVoterToList({
+        userEmail: this.voter.email,
+        voterListId: this.$route.params.id
+      })
+
+      if (isAdded) {
+        let nameValue = '?'
+        let qes = false
+        if (isAdded.voter) {
+          nameValue = isAdded.voter.name
+        }
+        if (isAdded.voter.isQes !== undefined) {
+          qes = isAdded.voter.isQes
+        }
+        this.selectedList.voters.push({
+          email: this.voter.email,
+          name: nameValue,
+          isQes: qes,
+          id: isAdded.voterId
+        })
+        this.$store.dispatch(
+          'snackbar/openSuccess',
+          'Voter has been added to the voter list'
+        )
+      }
+
+      this.voter.email = ''
+      this.voter.file = null
+      this.dialog = false
+      this.voter.isQes = true
     }
   }
 }
