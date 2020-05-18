@@ -40,6 +40,11 @@ export const actions = {
     }
 
     if (response) {
+      dispatch(
+        'snackbar/openSuccess',
+        'Succesfully closed. Please wait a bit for counting results.',
+        { root: true }
+      )
       return response.data
     }
   }
