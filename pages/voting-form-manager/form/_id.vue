@@ -66,7 +66,10 @@
             </div>
           </div>
 
-          <div class="d-flex flex-row justify-center px-12 mb-6 body">
+          <div
+            class="d-flex flex-row justify-center px-12 mb-6 body"
+            v-if="votingIsStillGoing"
+          >
             <v-btn x-large color="primary" @click="endVoting">{{
               $t('votingFormManager.stopVoting')
             }}</v-btn>
@@ -100,6 +103,12 @@ export default {
       const time = this.selectedForm.openUntil
       const d = new Date(time)
       return d.toLocaleString()
+    },
+    votingIsStillGoing() {
+      const time = this.selectedForm.openUntil
+      const d = new Date(time)
+      const now = new Date()
+      return d > now
     },
     endingType() {
       if (!this.selectedForm.endingType) return 'Type not defined'
