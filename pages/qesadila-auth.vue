@@ -61,7 +61,7 @@
         <a
           target="_blank"
           href="https://apps.scholtz.sk/QesadilaAuth/osx/QesadilaAuth-MacOS.zip"
-          >OSX</a
+          >macOS</a
         >
       </li>
     </ul>
