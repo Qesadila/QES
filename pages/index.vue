@@ -7,6 +7,10 @@
           style="padding-left:20px;"
         ></div>
         <div
+          v-html="$t('htmlCode.acknowledgment')"
+          style="padding-left:20px;"
+        ></div>
+        <div
           v-html="$t('htmlCode.projectOverview')"
           style="padding-left:20px;"
         ></div>
