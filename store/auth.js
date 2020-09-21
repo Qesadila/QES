@@ -4,7 +4,8 @@ export const state = () => ({
   auth: false,
   user: {},
   authJWT: '',
-  authData: ''
+  authData: '',
+  tokenData: {}
 })
 
 export const mutations = {
@@ -16,13 +17,42 @@ export const mutations = {
   },
   setAuthJWT(state, authJWT) {
     state.authJWT = authJWT
-    console.log('setting jwt')
+    state.tokenData = parseJwt(authJWT)
+    console.log('state.tokenData', state.tokenData)
   },
   setAuthData(state, authData) {
     state.authData = authData
   }
 }
+
+function parseJwt(token) {
+  if (!token) return {}
+  const base64Url = token.split('.')[1]
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  const jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      })
+      .join('')
+  )
+
+  return JSON.parse(jsonPayload)
+}
 export const actions = {
+  processToken({ commit }, { token }) {
+    commit('setAuth', true)
+    commit('setAuthJWT', token)
+    const data = parseJwt(token)
+    const user = {
+      name:
+        data['https://minv.sk/eDocAttr/GivenNames'] +
+        ' ' +
+        data['https://minv.sk/eDocAttr/FamilyNames']
+    }
+    commit('setAuthUser', user)
+  },
   async performLoginWithCertificate({ commit, dispatch }, { data }) {
     const fd = new FormData()
     fd.append('base64AuthenticateMessage', data)

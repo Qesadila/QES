@@ -62,8 +62,14 @@ export default {
       password: ''
     }
   },
+  mounted() {
+    if (this.$route && this.$route.query && this.$route.query.token) {
+      this.processToken({ token: this.$route.query.token })
+      this.$router.push('/dashboard')
+    }
+  },
   methods: {
-    ...mapActions('auth', ['performLogin']),
+    ...mapActions('auth', ['performLogin', 'processToken']),
     async handleSubmit() {
       await this.performLogin({
         username: this.username,

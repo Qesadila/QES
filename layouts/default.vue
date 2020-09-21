@@ -70,6 +70,7 @@
                   height="30"
                   width="30"
                   contain
+                  :title="$store.state.auth.user.name"
                 ></v-img>
               </span>
               <span v-else>
@@ -155,7 +156,7 @@ export default {
         }
       ],
       items: anonymousRoutes,
-      title: 'QUESADILA',
+      title: 'QESADILA',
       selectedRole: 'anonym'
     }
   },
