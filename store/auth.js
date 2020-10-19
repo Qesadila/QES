@@ -5,6 +5,7 @@ export const state = () => ({
   user: {},
   authJWT: '',
   authData: '',
+  userInfo: {},
   tokenData: {}
 })
 
@@ -14,6 +15,9 @@ export const mutations = {
   },
   setAuthUser(state, user) {
     state.user = user
+  },
+  setUserInfo(state, userInfo) {
+    state.userInfo = userInfo
   },
   setAuthJWT(state, authJWT) {
     state.authJWT = authJWT
@@ -41,7 +45,7 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload)
 }
 export const actions = {
-  processToken({ commit }, { token }) {
+  processToken({ commit, dispatch }, { token }) {
     commit('setAuth', true)
     commit('setAuthJWT', token)
     const data = parseJwt(token)
@@ -52,6 +56,20 @@ export const actions = {
         data['https://minv.sk/eDocAttr/FamilyNames']
     }
     commit('setAuthUser', user)
+    dispatch('performGetUserInfo')
+  },
+  async performGetUserInfo({ commit, dispatch }) {
+    let response = null
+
+    try {
+      response = await this.$axios.get('v1/Authorize/GetUserInfo')
+    } catch (e) {
+      dispatch('snackbar/openError', e.response.data.detail, { root: true })
+    }
+
+    if (response) {
+      commit('setUserInfo', response.data)
+    }
   },
   async performLoginWithCertificate({ commit, dispatch }, { data }) {
     const fd = new FormData()
@@ -60,10 +78,7 @@ export const actions = {
     let response = null
 
     try {
-      response = await await this.$axios.post(
-        'v1/Authorize/LoginWithCertificate',
-        fd
-      )
+      response = await this.$axios.post('v1/Authorize/LoginWithCertificate', fd)
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }
@@ -105,7 +120,7 @@ export const actions = {
     let response = null
 
     try {
-      response = await await this.$axios.post('v1/Authorize/Login', fd)
+      response = await this.$axios.post('v1/Authorize/Login', fd)
     } catch (e) {
       dispatch('snackbar/openError', e.response.data.detail, { root: true })
     }
