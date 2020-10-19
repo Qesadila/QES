@@ -15,35 +15,60 @@
             <v-toolbar-title>{{ $t('general.signInForm') }}</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
-            <v-form>
-              <v-text-field
-                v-model="username"
-                label="E-mail"
-                name="username"
-                prepend-icon="mdi-email"
-                type="email"
-              />
-
-              <v-text-field
-                v-model="password"
-                label="Password"
-                name="password"
-                prepend-icon="mdi-lock"
-                type="password"
-                autocomplete="on"
-              />
-            </v-form>
+            <v-row>
+              <v-col cols="6">
+                <h1>
+                  Prihláste sa so slovenským občianskym preukazom
+                </h1>
+              </v-col>
+              <v-col cols="6">
+                <h1>Prihláste sa s QesadilaAuth</h1>
+              </v-col>
+            </v-row>
+          </v-card-text>
+          <v-card-text>
+            <v-row>
+              <v-col cols="6">
+                <p>
+                  <img
+                    alt="Slovak identity"
+                    src="/images/sk-flag.svg"
+                    class="float-left rounded"
+                    style="height:100px; border: 1px solid #333; margin-right:1em"
+                  />
+                  Použite občiansky preukaz, doklad o pobyte alebo alternatívny
+                  autentifikátor.
+                </p>
+              </v-col>
+              <v-col cols="6">
+                <p>
+                  <img
+                    alt="Slovak identity"
+                    src="/favicon.png"
+                    class="float-left rounded"
+                    style="height:100px; border: 1px solid #333;
+                  margin-right:1em"
+                  />
+                  Qesadila Auth umožňuje prihlásenie ľubovoľnou crypto
+                  identitou. PGP, alebo X509 RSA, X509 EC certifikátom alebo
+                  certifikátom uloženým v PKCS11 zariadení.
+                </p>
+              </v-col>
+            </v-row>
           </v-card-text>
           <v-card-actions>
-            <v-btn text to="/auth/register">{{ $t('general.signUp') }}</v-btn>
-            <v-btn text to="/auth/forgot-password">{{
-              $t('general.forgotPassword')
-            }}</v-btn>
-            <v-spacer />
-
-            <v-btn color="primary" @click="handleSubmit">{{
-              $t('general.signIn')
-            }}</v-btn>
+            <v-row>
+              <v-col cols="6">
+                <v-btn color="primary" @click="slovakIdentityClick">{{
+                  $t('Pokračovať s občianskym preukazom')
+                }}</v-btn>
+              </v-col>
+              <v-col cols="6">
+                <v-btn color="primary" @click="handleSubmit">{{
+                  $t('Pokračovať s QesadilaAuth')
+                }}</v-btn>
+              </v-col>
+            </v-row>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -70,11 +95,11 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['performLogin', 'processToken']),
-    async handleSubmit() {
-      await this.performLogin({
-        username: this.username,
-        password: this.password
-      })
+    handleSubmit() {
+      window.location = 'qesadilaauth://login'
+    },
+    slovakIdentityClick() {
+      window.location = 'https://asc-prod.qesadila.com:9443/init'
     }
   }
 }

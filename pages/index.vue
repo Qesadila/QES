@@ -3,26 +3,26 @@
     <v-row>
       <v-col>
         <div
+          style="padding-left:20px;"
           v-html="$t('htmlCode.f6sComFollowWidget')"
-          style="padding-left:20px;"
         ></div>
         <div
+          style="padding-left:20px;"
           v-html="$t('htmlCode.acknowledgment')"
-          style="padding-left:20px;"
         ></div>
         <div
-          v-html="$t('htmlCode.projectOverview')"
           style="padding-left:20px;"
+          v-html="$t('htmlCode.projectOverview')"
         ></div>
       </v-col>
       <v-col>
         <div
-          v-html="$t('htmlCode.vimeoExplanationVideo')"
           style="padding-left:20px;"
+          v-html="$t('htmlCode.vimeoExplanationVideo')"
         ></div>
         <div
-          v-html="$t('htmlCode.fundRaising')"
           style="padding-left:20px;"
+          v-html="$t('htmlCode.fundRaising')"
         ></div>
       </v-col>
     </v-row>

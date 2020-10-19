@@ -12,15 +12,15 @@
         class="elevation-1"
         :loading="isLoading"
       >
-        <template v-slot:item.open_from="{ item }">{{
+        <template v-slot:[`item.open_from`]="{ item }">{{
           formatDate(item.openFrom)
         }}</template>
 
-        <template v-slot:item.open_until="{ item }">{{
+        <template v-slot:[`item.open_until`]="{ item }">{{
           formatDate(item.openUntil)
         }}</template>
 
-        <template v-slot:item.actions="{ item }">
+        <template v-slot:[`item.actions`]="{ item }">
           <template>
             <v-btn
               color="secondary"

@@ -11,15 +11,15 @@
         class="elevation-1"
         :loading="isLoading"
       >
-        <template v-slot:item.open_from="{ item }">{{
+        <template v-slot:[`item.open_from`]="{ item }">{{
           formatDate(item.openFrom)
         }}</template>
 
-        <template v-slot:item.open_until="{ item }">{{
+        <template v-slot:[`item.open_until`]="{ item }">{{
           formatDate(item.openUntil)
         }}</template>
 
-        <template v-slot:item.actions="{ item }">
+        <template v-slot:[`item.actions`]="{ item }">
           <template>
             <v-btn
               color="secondary"
@@ -32,7 +32,7 @@
       <h2>Votes by question</h2>
       <div
         v-for="questionItem in selectedForm.votingFormItems"
-        v-bind:key="questionItem"
+        :key="questionItem"
       >
         <v-simple-table
           ><template v-slot:default>
@@ -60,7 +60,7 @@
         </v-simple-table>
         <div
           v-for="answerItem in questionItem.votingFormItemResults"
-          v-bind:key="answerItem"
+          :key="answerItem"
         >
           <h3>{{ answerItem.question }}</h3>
         </div>
@@ -72,15 +72,15 @@
           class="elevation-1"
           :loading="isLoading"
         >
-          <template v-slot:item.open_from="{ item }">{{
+          <template v-slot:[`item.open_from`]="{ item }">{{
             formatDate(item.openFrom)
           }}</template>
 
-          <template v-slot:item.open_until="{ item }">{{
+          <template v-slot:[`item.open_until`]="{ item }">{{
             formatDate(item.openUntil)
           }}</template>
 
-          <template v-slot:item.actions="{ item }">
+          <template v-slot:[`item.actions`]="{ item }">
             <template>
               <v-btn
                 color="secondary"

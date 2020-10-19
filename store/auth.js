@@ -18,7 +18,7 @@ export const mutations = {
   setAuthJWT(state, authJWT) {
     state.authJWT = authJWT
     state.tokenData = parseJwt(authJWT)
-    console.log('state.tokenData', state.tokenData)
+    // console.log('state.tokenData', state.tokenData)
   },
   setAuthData(state, authData) {
     state.authData = authData

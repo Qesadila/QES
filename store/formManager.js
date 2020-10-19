@@ -28,7 +28,6 @@ export const actions = {
     }
   },
   async stopVoting({ dispatch }, { votingFormId }) {
-    console.log('id', votingFormId)
     let response = null
     const fd = new FormData()
     fd.append('votingFormId', votingFormId)

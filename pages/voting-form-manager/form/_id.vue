@@ -6,7 +6,7 @@
           <div class="d-flex flex-row justify-center py-5 display-1">
             {{ selectedForm.name }}
           </div>
-          <v-simple-table v-if="this.selectedForm">
+          <v-simple-table v-if="selectedForm">
             <template v-slot:default>
               <tbody>
                 <tr>
@@ -67,8 +67,8 @@
           </div>
 
           <div
-            class="d-flex flex-row justify-center px-12 mb-6 body"
             v-if="votingIsStillGoing"
+            class="d-flex flex-row justify-center px-12 mb-6 body"
           >
             <v-btn x-large color="primary" @click="endVoting">{{
               $t('votingFormManager.stopVoting')

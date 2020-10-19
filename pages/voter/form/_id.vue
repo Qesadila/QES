@@ -249,16 +249,8 @@ export default {
                   this.$store.state.signalR.signalRIdentity
                 this.signalStatusType = 'info'
                 isOk = true
-              } else {
-                console.log(
-                  'this.selectedForm.listOfValidCertificatesForSignature, hash',
-                  this.selectedForm.listOfValidCertificatesForSignature,
-                  this.$store.state.signalR.signalRCertHash
-                )
               }
             }
-          } else {
-            console.log('this.selectedForm', this.selectedForm)
           }
           if (!isOk) {
             this.signalStatusText =
