@@ -48,6 +48,8 @@ export const actions = {
   processToken({ commit, dispatch }, { token }) {
     commit('setAuth', true)
     commit('setAuthJWT', token)
+
+    this.$axios.setHeader('Authorization', 'Bearer ' + token)
     const data = parseJwt(token)
     const user = {
       name:
