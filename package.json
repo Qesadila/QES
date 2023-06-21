@@ -33,7 +33,7 @@
     "express": "^4.16.4",
     "fibers": "^4.0.2",
     "js-cookie": "^2.2.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "nuxt-i18n": "^6.8.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
